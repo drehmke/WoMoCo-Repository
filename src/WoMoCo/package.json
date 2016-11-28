@@ -1,0 +1,12 @@
+{
+ "version": "1.0.0",
+ "name": "asp.net",
+ "private": true,
+ "devDependencies": {},
+ "dependencies": {
+   "@types/angular": "^1.5.16",
+   "@types/angular-resource": "^1.5.6",
+   "@types/angular-ui-bootstrap": "^0.13.35",
+   "@types/angular-ui-router": "^1.1.34"
+ }
+}
