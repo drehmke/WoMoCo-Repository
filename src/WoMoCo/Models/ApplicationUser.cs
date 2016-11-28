@@ -9,5 +9,13 @@ namespace WoMoCo.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Location { get; set; }
+        public string UserImage { get; set; }
+        public string About { get; set; }
+        public string CurrentJobTitle { get; set; }
+        public string Employer { get; set; }
+
     }
 }

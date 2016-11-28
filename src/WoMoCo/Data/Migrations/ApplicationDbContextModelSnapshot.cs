@@ -1,8 +1,9 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using WoMoCo.Data;
 
 namespace WoMoCo.Data.Migrations
 {
@@ -126,15 +127,27 @@ namespace WoMoCo.Data.Migrations
                 {
                     b.Property<string>("Id");
 
+                    b.Property<string>("About");
+
                     b.Property<int>("AccessFailedCount");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<string>("CurrentJobTitle");
+
                     b.Property<string>("Email")
                         .HasAnnotation("MaxLength", 256);
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("Employer");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Location");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -155,6 +168,8 @@ namespace WoMoCo.Data.Migrations
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserImage");
 
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);

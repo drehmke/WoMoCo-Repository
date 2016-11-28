@@ -245,3 +245,4 @@ paket-files/
 *.sln.iml
 
 *.orig
+src/WoMoCo/Data/Migrations/*
