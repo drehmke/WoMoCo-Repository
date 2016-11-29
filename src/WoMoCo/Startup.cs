@@ -14,7 +14,8 @@ using System.IO;
 using WoMoCo.Data;
 using WoMoCo.Models;
 using WoMoCo.Services;
-
+using WoMoCo.Interfaces;
+using WoMoCo.Repositories;
 
 namespace WoMoCo
 {
@@ -55,6 +56,7 @@ namespace WoMoCo
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddScoped<IGenericRepository, GenericRepository>();
             
 
             
