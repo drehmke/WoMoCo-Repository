@@ -37,6 +37,34 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
             }) 
+           // ================ Interest======>
+            .state(`addInterest`, {
+
+                url: `/addInterest`,
+                templateUrl: `/ngApp/views/interest/addInterest.html`,
+                controller: WoMoCo.Controllers.AddInterestController,
+                controllerAs: `controller`
+            })
+            .state(`editInterest`, {
+                url: `/editInterest/:id`,
+                templateUrl: `/ngApp/views/interest/editInterest.html`,
+                controller: WoMoCo.Controllers.EditInterestController,
+                controllerAs: `controller`
+            })
+
+            .state(`deleteInterest`, {
+                url: `/deleteInterest/:id`,
+                templateUrl: `/ngApp/views/interest/deleteInterest.html`,
+                controller: WoMoCo.Controllers.DeleteInterestController,
+                controllerAs: `controller`
+            })
+            .state(`interest`, {
+                url: `/interest`,
+                templateUrl: `/ngApp/views/interest/interest.html`,
+                controller: WoMoCo.Controllers.InterestController,
+                controllerAs: `controller`
+            })
+        //====================================>
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
