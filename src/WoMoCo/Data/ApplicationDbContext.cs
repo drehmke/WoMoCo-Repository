@@ -14,7 +14,7 @@ namespace WoMoCo.Data
             : base(options)
         {
         }
-
+        public DbSet<Interest> Interests { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

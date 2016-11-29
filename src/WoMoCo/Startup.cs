@@ -57,11 +57,12 @@ namespace WoMoCo
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.AddScoped<IGenericRepository, GenericRepository>();
-            
+            services.AddScoped<IInterestService, InterestService>();
+        
 
-            
-                        // add security policies
-                        services.AddAuthorization(options =>
+
+            // add security policies
+            services.AddAuthorization(options =>
                         {
                             options.AddPolicy("AdminOnly", policy => policy.RequireClaim("IsAdmin"));
                         });
