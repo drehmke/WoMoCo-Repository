@@ -42,7 +42,9 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "Microsoft.AspNet.SignalR.SystemWeb": "2.2.1",
+    "Microsoft.AspNet.SignalR": "2.2.1"
   },
 
   "tools": {
