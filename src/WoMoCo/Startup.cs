@@ -58,7 +58,9 @@ namespace WoMoCo
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IInterestService, InterestService>();
-        
+            services.AddScoped<ILinkService, LinkService>();
+
+
 
 
             // add security policies
