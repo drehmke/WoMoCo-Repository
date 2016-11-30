@@ -190,6 +190,34 @@ namespace WoMoCo.Data.Migrations
                     b.ToTable("Interests");
                 });
 
+            modelBuilder.Entity("WoMoCo.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ApplicationUsersId");
+
+                    b.Property<string>("CreateDate");
+
+                    b.Property<string>("ResponseDate");
+
+                    b.Property<string>("SendDate");
+
+                    b.Property<string>("Status");
+
+                    b.Property<string>("UserComment");
+
+                    b.Property<string>("UserEmail");
+
+                    b.Property<string>("UserResponse");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUsersId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
@@ -232,6 +260,13 @@ namespace WoMoCo.Data.Migrations
                     b.HasOne("WoMoCo.Models.Interest")
                         .WithMany("Users")
                         .HasForeignKey("InterestId");
+                });
+
+            modelBuilder.Entity("WoMoCo.Models.Message", b =>
+                {
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "ApplicationUsers")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUsersId");
                 });
         }
     }
