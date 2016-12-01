@@ -36,7 +36,7 @@ namespace WoMoCo {
                 templateUrl: '/ngApp/views/externalRegister.html',
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
-            }) 
+            })
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
@@ -46,6 +46,18 @@ namespace WoMoCo {
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
+            })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: 'ngApp/views/profile.html',
+                controller: WoMoCo.Controllers.UserController,
+                controllerAs: 'controller'
+            })
+            .state('editProfile', {
+                url: '/editProfile',
+                templateUrl: 'ngApp/views/editProfile.html',
+                controller: WoMoCo.Controllers.EditUserController,
+                controllerAs: 'controller'
             });
 
         // Handle request for non-existent route

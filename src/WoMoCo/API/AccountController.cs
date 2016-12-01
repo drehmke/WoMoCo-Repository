@@ -38,8 +38,8 @@ namespace WoMoCo.Controllers
             _logger = loggerFactory.CreateLogger<AccountController>();
         }
 
-
-        private async Task<UserViewModel> GetUser(string userName)
+        
+        private async Task<ApplicationUser> GetUser(string userName)
         {
             var user = await _userManager.FindByNameAsync(userName);
             var claims = await _userManager.GetClaimsAsync(user);
@@ -48,7 +48,16 @@ namespace WoMoCo.Controllers
                 UserName = user.UserName,
                 Claims = claims.ToDictionary(c => c.Type, c => c.Value)
             };
-            return vm;
+            return user;
+            
+        }
+        
+        [HttpGet("user/")]
+        public async Task<Object> GetUserByUsername()
+        {
+            var userName = this.User.Identity.Name;
+            var user = await this.GetUser(userName);
+            return user;
         }
 
         //

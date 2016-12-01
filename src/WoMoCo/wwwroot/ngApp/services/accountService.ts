@@ -12,7 +12,7 @@ namespace WoMoCo.Services {
         }
 
         public getUserName() {
-            return this.$window.sessionStorage.getItem('userName');
+            return this.$window.sessionStorage.getItem('userName'); 
         }
 
 
