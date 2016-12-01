@@ -17,24 +17,28 @@ namespace WoMoCo.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Message> Get()
+        public IActionResult MsgsByUser(string id)
         {
-            return _service.GetAllMessages();
+
+            return Ok(_service.MsgsByUser(id));
+           
+           
+            
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetMessageInfo(int id)
         {
-            return Ok(_service.GetMessageById(id));
+            return Ok(_service.getMessageInfo(id));
         }
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]Message message)
+        public IActionResult Post([FromBody]Message msg)
         {
-            _service.SaveMessage(message);
-            return Ok(message);
+            _service.sendMessage(msg);
+            return Ok(msg);
         }
 
         //// PUT api/values/5
@@ -49,7 +53,7 @@ namespace WoMoCo.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _service.DeleteMessage(id);
+            
             return Ok();
         }
         public MessagesController(IMessageService service)

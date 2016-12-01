@@ -217,6 +217,8 @@ namespace WoMoCo.Data.Migrations
 
                     b.Property<int?>("InboxId");
 
+                    b.Property<string>("Msg");
+
                     b.Property<string>("RecId");
 
                     b.Property<string>("SendingUser");
@@ -290,7 +292,7 @@ namespace WoMoCo.Data.Migrations
             modelBuilder.Entity("WoMoCo.Models.Message", b =>
                 {
                     b.HasOne("WoMoCo.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("Messages")
                         .HasForeignKey("ApplicationUserId");
 
                     b.HasOne("WoMoCo.Models.Inbox")

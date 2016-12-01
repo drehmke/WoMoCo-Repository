@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;   
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,12 +14,13 @@ namespace WoMoCo.Models
         public string Subject { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
         public bool HasBeenViewed { get; set; }
-        public DateTime DateSent { get; set; }     
-      
+        public DateTime DateSent { get; set; }
+        public string Msg { get; set; }
+
         public string Status { get; set; }
         public Message()
         {
-            HasBeenViewed = false;
+           HasBeenViewed = false;
         }
 
 

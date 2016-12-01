@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using WoMoCo.Models;
+﻿using WoMoCo.Models;
 
 namespace WoMoCo.Services
 {
     public interface IMessageService
     {
         void DeleteMessage(int id);
-        IList<Message> GetAllMessages();
-        Message GetMessageById(int id);
-        void SaveMessage(Message message);
-        List<Message> SearchByUserEmail(string searchTerm);
+        object getMessageInfo(int id);
+        object MsgsByUser(string id);
+        void sendMessage(Message msg);
     }
 }
