@@ -1,0 +1,52 @@
+﻿<h2>Add Calender Event</h2>
+<form class="form-horizontal" ng-submit="controller.saveEvent()">
+    <fieldset>
+        <legend>Set Up Your Event</legend>
+
+        <div class="form-group">
+            <label for="eventName" class="col-sm-2">Event Name</label>
+            <div class="col-sm-10 input-group">
+                <input type="text" class="form-control" id="eventName" name="eventName" placeholder="Event Name" ng-model="controller.calenderEvent.name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventDate" class="col-sm-2">Event Date</label>
+            <div class="input-group date col-sm-10" id="datetimepicker2">
+                <div class="dropdown">
+                    <a class="dropdown-toggle" id="dropdown" role="button" data-toggle="dropdown" data-target="#" href="#">
+                        <div class="input-group">
+                            <input type="text" id="date" name="date" class="form-control" data-ng-model="data.date">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker data-ng-model="data.date"
+                                        data-datetimepicker-config="{ dropdownSelector: '#dropdown' }"></datetimepicker>
+                    </ul>
+                </div>            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventLocation" class="col-sm-2">Location</label>
+            <div class="col-sm-10 input-group">
+                <input type="text" class="form-control" id="eventLocation" name="eventLocation" placeholder="Location for the event" ng-model="controller.calenderEvent.location" />
+            </div>
+        </div>
+
+        <fieldset>
+            <legend>Event Reminders</legend>
+            Add alarms here
+        </fieldset>
+        <div>
+            <input type="submit" value="Add Event" class="btn btn-success" />
+        </div>
+    </fieldset>
+</form>
+
+<!--
+<div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>    
+-->

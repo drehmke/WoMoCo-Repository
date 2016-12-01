@@ -65,6 +65,20 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
         //====================================>
+            // ---- Calender Events -------------------------------------------
+            .state('calenderEvents', {
+                url: `/admin/calender/allEvents`,
+                templateUrl: `/ngApp/views/calender/eventsList.html`,
+                controller: WoMoCo.Controllers.CalenderEventsController,
+                controllerAs: `controller`
+            })
+            .state(`calenderAddEvent`, {
+                url: `/admin/calender/addEvent`,
+                templateUrl: `/ngApp/views/calender/addEvent.html`,
+                controller: WoMoCo.Controllers.CalenderAddEventController,
+                controllerAs: `controller`
+            })
+            // ---- end Calender Events ---------------------------------------
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
