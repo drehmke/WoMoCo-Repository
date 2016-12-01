@@ -19,7 +19,8 @@ namespace WoMoCo.Services
         {
             return _repo.Query<Interest>().Where(i => i.Id == id).FirstOrDefault();
         }
-        public void SaveInterest(Interest interest)
+        public void SaveInterest(Interest interest, string uid)
+        
         {
             if (interest.Id == 0)
             {
@@ -29,6 +30,9 @@ namespace WoMoCo.Services
             {
                 _repo.Update(interest);
             }
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
+            interest.User = user;
+            _repo.SaveChanges();
         }
         
         public List<Interest> SearchById(string searchTerm)
@@ -39,7 +43,7 @@ namespace WoMoCo.Services
                     select new Interest
                     {
                         Name = i.Name,
-                        Users = i.Users,
+                        User = i.User,
                     }).ToList();
         }
         public void DeleteInterest(int id)

@@ -8,7 +8,7 @@ namespace WoMoCo.Services
         void DeleteList(int id);
         IList<Link> GetAllLinks();
         Link GetLinkById(int id);
-        void SaveLink(Link link);
+        void SaveLink(Link link, string uid);
         List<Link> SearchByID(string searchTerm);
     }
 }

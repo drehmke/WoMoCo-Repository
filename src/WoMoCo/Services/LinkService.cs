@@ -21,7 +21,7 @@ namespace WoMoCo.Services
         {
           return _repo.Query<Link>().Where(l => l.Id == id).FirstOrDefault();
         }
-        public void SaveLink(Link link)
+        public void SaveLink(Link link, string uid)
         {
             if (link.Id==0)
             {
@@ -31,9 +31,12 @@ namespace WoMoCo.Services
             {
                 _repo.Update(link);
             }
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
+            link.User = user;
+            _repo.SaveChanges();
         }
 
-            public List<Link>  SearchByID(string searchTerm)
+        public List<Link>  SearchByID(string searchTerm)
         {
             var Links = _repo.Query<Link>();
                 return (from l in Links
@@ -41,7 +44,7 @@ namespace WoMoCo.Services
                     select new Link
                     {
                         Name = l.Name,
-                        Users = l.Users,
+                        User = l.User,
                     }).ToList();
         }
         public void DeleteList(int id)

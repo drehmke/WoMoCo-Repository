@@ -9,7 +9,7 @@ namespace WoMoCo.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<ApplicationUser> Users { get; set; }
+        public ApplicationUser User { get; set; }
         public string BadgeImage { get; set; }
     }
 }

@@ -11,6 +11,6 @@ namespace WoMoCo.Models
         public string Name { get; set; }
         public string Url { get; set; }  
         public string LinkType { get; set; }
-        public ICollection<ApplicationUser> Users { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }
