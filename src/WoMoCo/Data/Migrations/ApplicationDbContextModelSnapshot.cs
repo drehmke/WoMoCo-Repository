@@ -176,6 +176,20 @@ namespace WoMoCo.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("WoMoCo.Models.Inbox", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Indoxes");
+                });
+
             modelBuilder.Entity("WoMoCo.Models.Interest", b =>
                 {
                     b.Property<int>("Id")
@@ -195,25 +209,29 @@ namespace WoMoCo.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUsersId");
+                    b.Property<string>("ApplicationUserId");
 
-                    b.Property<string>("CreateDate");
+                    b.Property<DateTime>("DateSent");
 
-                    b.Property<string>("ResponseDate");
+                    b.Property<bool>("HasBeenViewed");
 
-                    b.Property<string>("SendDate");
+                    b.Property<int?>("InboxId");
+
+                    b.Property<string>("RecId");
+
+                    b.Property<string>("SendingUser");
 
                     b.Property<string>("Status");
 
-                    b.Property<string>("UserComment");
+                    b.Property<string>("Subject");
 
-                    b.Property<string>("UserEmail");
-
-                    b.Property<string>("UserResponse");
+                    b.Property<string>("UserName");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUsersId");
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("InboxId");
 
                     b.ToTable("Messages");
                 });
@@ -262,11 +280,22 @@ namespace WoMoCo.Data.Migrations
                         .HasForeignKey("InterestId");
                 });
 
+            modelBuilder.Entity("WoMoCo.Models.Inbox", b =>
+                {
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("WoMoCo.Models.Message", b =>
                 {
-                    b.HasOne("WoMoCo.Models.ApplicationUser", "ApplicationUsers")
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
-                        .HasForeignKey("ApplicationUsersId");
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("WoMoCo.Models.Inbox")
+                        .WithMany("Messages")
+                        .HasForeignKey("InboxId");
                 });
         }
     }

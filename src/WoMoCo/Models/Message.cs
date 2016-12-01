@@ -8,14 +8,21 @@ namespace WoMoCo.Models
     public class Message
     {
         public int Id { get; set; }
-        public string UserEmail { get; set; }
-        public string UserComment { get; set; }
-        public string UserResponse { get; set; }
-        public ApplicationUser ApplicationUsers { get; set; }
-        public string CreateDate { get; set; }
-        public string SendDate { get; set; }
-        public string ResponseDate { get; set; }
+        public string UserName { get; set; }
+        public string RecId { get; set; }
+        public string SendingUser { get; set; }
+        public string Subject { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+        public bool HasBeenViewed { get; set; }
+        public DateTime DateSent { get; set; }     
+      
         public string Status { get; set; }
+        public Message()
+        {
+            HasBeenViewed = false;
+        }
+
+
 
     }
 }

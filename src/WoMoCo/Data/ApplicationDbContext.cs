@@ -16,6 +16,8 @@ namespace WoMoCo.Data
         }
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Inbox> Indoxes { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

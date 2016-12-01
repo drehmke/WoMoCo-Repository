@@ -18,6 +18,7 @@
             this.messages = this.MessageResource.get({ id: id });
         }
 
+
         constructor(private $resource: angular.resource.IResourceService,
             public $stateParams: ng.ui.IStateParamsService,
             public $state: ng.ui.IStateService) {
