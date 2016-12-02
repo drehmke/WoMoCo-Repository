@@ -64,24 +64,19 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.InterestController,
                 controllerAs: `controller`
             })
-            .state(`messageHome`, {
-                url: `/messageHome`,
-                templateUrl: `/ngApp/views/message/messageHome.html`,
+            .state(`inbox`, {
+                url: `/message/inbox`,
+                templateUrl: `/ngApp/views/message/inbox.html`,
                 controller: WoMoCo.Controllers.MessageController,
                 controllerAs: `controller`
             })
-            .state(`createMessage`, {
-                url: `/createMessage`,
-                templateUrl: `/ngApp/views/message/createMessage.html`,
-                controller: WoMoCo.Controllers.CreateMessageController,
+            .state(`message`, {
+                url: `/message/message`,
+                templateUrl: `/ngApp/views/message/message.html`,
+                controller: WoMoCo.Controllers.InfoMessageController,
                 controllerAs: `controller`
             })
-            .state(`messageDetail`, {
-                url: `/messageDetail`,
-                templateUrl: `/ngApp/views/message/messageDetail.html`,
-                controller: WoMoCo.Controllers.MessageDetailController,
-                controllerAs: `controller`
-            })
+            
             
         //====================================>
             .state('about', {

@@ -1,0 +1,38 @@
+﻿<br />
+<br />
+<div class="container">
+    <div id="inboxContainer" class="col-lg-8 col-lg-offset-2 img-rounded">
+        <div class="row">
+            <div id="messagesContainer" class="img-rounded shadowDark">
+                <h2 id="inboxHeader"> Messages</h2>
+                <img class="pull-right" id="mailImg" width="60" height="60" src="../../images/mail-inbox.png" />
+                <br />
+                <table class="table table-hover table-striped img-rounded">
+                    <tr ng-repeat="msg in controller.messages">
+                        <td>From: <strong>{{msg.sendingUser}}</strong>&nbsp;&nbsp;&nbsp;Subject:<strong>{{msg.subject}}</strong></td>
+                        <td><a class="glyphicon glyphicon-envelope" ng-href="/inbox/{{msg.id}}"></a>
+                        <td><a id="glyphButton" class="glyphicon glyphicon-remove" ng-click="controller.deleteMessage(msg.id)"></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div id="messagesContainer" class="img-rounded shadowDark">
+                <h2 id="inboxHeader">Friend Requests</h2>
+                <img class="pull-right" id="mailImg" width="60" height="60" src="../../images/add_friend-512.png" />
+                <br />
+                <table class="table table-hover table-striped img-rounded">
+                    <tr ng-repeat="request in controller.friendRequests">
+                        <td style="margin-right:30px;">{{request.sendingUserName}}</td>
+                        <td>
+                            <a id="glyphicon1" class="glyphicon glyphicon-remove pull-right" ng-click="controller.removeFriendRequest(request.sendingUserId)"></a>
+                            <a id="glyphicon1" class="glyphicon glyphicon-check pull-right" ng-click="controller.addFriendToUser(request.sendingUserId)"></a>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
