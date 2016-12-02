@@ -18,8 +18,7 @@ namespace WoMoCo.Models
         // eventType - can be set in the client controller so that we can either hardcode or not
         public bool isActive { get; set; }
         // isActive set in the service - this will allow us to soft-delete the event
-        public ICollection<ApplicationUser> EventOwner { get; set; }
-        // eventUser will be set in the service or the controller
-        public ICollection<ApplicationUser> EventAlarms { get; set; }
+        public ApplicationUser EventOwner { get; set; }
+        public ICollection<EventAlarm> EventAlarms { get; set; }
     }
 }

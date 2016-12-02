@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
 using Microsoft.AspNetCore.Identity;
+using WoMoCo.ViewModels.CalenderEvents;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,7 +20,7 @@ namespace WoMoCo.Controllers
         private UserManager<ApplicationUser> _manager;
 
         [HttpGet]
-        public IEnumerable<CalenderEvent> Get()
+        public IEnumerable<FullListCalenderEvents> Get()
         {
             return _service.GetAllEvents();
         }

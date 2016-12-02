@@ -18,7 +18,7 @@
         <tr ng-repeat="event in controller.calenderEvents">
             <td></td>
             <td><a ng-href="/calender/viewEvent/{{event.id}}">{{event.name}}</a></td>
-            <td>{{event.owner}}</td>
+            <td>{{event.ownerName}}</td>
             <td>{{event.eventDateTime|date:'medium'}}</td>
             <td>{{event.createdDate|date:'medium'}}</td>
             <td>{{event.location}}</td>

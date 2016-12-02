@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
+using WoMoCo.ViewModels.CalenderEvents;
 
 namespace WoMoCo.Services
 {
@@ -13,10 +15,29 @@ namespace WoMoCo.Services
         private IGenericRepository _repo;
         private UserManager<ApplicationUser> _manager;
         // ---- Basic CRUD ----------------------------------------------------
-        public IList<CalenderEvent> GetAllEvents()
+        public IList<FullListCalenderEvents> GetAllEvents()
         {
-            IList<CalenderEvent> calenderEvents = _repo.Query<CalenderEvent>().ToList();
-            return calenderEvents;
+            //IList<CalenderEvent> calenderEvents = _repo.Query<CalenderEvent>().ToList();
+            IList<CalenderEvent> calenderEvents = _repo.Query<CalenderEvent>().Include(c => c.EventOwner).ToList();
+            IList<FullListCalenderEvents> calenderEventsWithOwnersName = new List<FullListCalenderEvents>();
+            foreach (CalenderEvent calEvent in calenderEvents)
+            {
+                FullListCalenderEvents listableCalenderEvent = new FullListCalenderEvents
+                {
+                    Id = calEvent.Id,
+                    Name = calEvent.Name,
+                    EventDateTime = calEvent.EventDateTime,
+                    CreatedDate = calEvent.CreatedDate,
+                    Location = calEvent.Location,
+                    EventType = calEvent.Location,
+                    isActive = calEvent.isActive,
+                    OwnerName = calEvent.EventOwner.UserName,
+                    EventAlarms = calEvent.EventAlarms
+                };
+                calenderEventsWithOwnersName.Add(listableCalenderEvent);
+            }
+            
+            return calenderEventsWithOwnersName;
         }
         public IList<CalenderEvent> GetCalenderEventsByUser(string userId)
         { // TODO: Fill out this method
@@ -35,13 +56,25 @@ namespace WoMoCo.Services
             calenderEventToSave.isActive = true;
             if( calenderEventToSave.Id == 0)
             {
-                // TODO - set hardcoded variables: eventUser
-                // get user by uid
+                // get currently logged in user by uid to assign as eventOwner
                 ApplicationUser currUser = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
                 calenderEventToSave.EventOwner = currUser;
                 calenderEventToSave.CreatedDate = DateTime.Now;
                 calenderEventToSave.EventType = "playdate";
-                _repo.Add(calenderEventToSave);
+                _repo.Add(calenderEventToSave); // saves the new entry to the database
+
+                /* Use this when sharing
+                // add the user and the event to the join table
+                var newUserCalenderEvent = new SharedCalenderEvent
+                {
+                    User = currUser,
+                    UserId = currUser.Id,
+                    CalenderEvent = calenderEventToSave,
+                    CalenderEventId = calenderEventToSave.Id
+                };
+                _repo.Add(newUserCalenderEvent);
+                _repo.SaveChanges();
+                */
             } else
             {
                 _repo.Update(calenderEventToSave);

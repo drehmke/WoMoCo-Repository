@@ -12,7 +12,7 @@
           <a href="/">Home</a> /
            <a href="/about">About</a>
             <a href="/interest">Interest</a> /
-            <a href="/admin/calender/allEvents">Event Admin</a>
+            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin</a>
 
            / <a href="/secret">Secret</a> /
            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
