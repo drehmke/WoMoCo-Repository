@@ -13,16 +13,10 @@
         }
 
         public combineEventDateTime(dateToUse, timeToUse) {
-            let newDateTime = new Date();
-            if (dateToUse != null) {
-                newDateTime.setMonth(dateToUse.getMonth());
-                newDateTime.setDate(dateToUse.getDate());
-                newDateTime.setFullYear(dateToUse.getFullYear());
-                newDateTime.setHours(timeToUse.getHours());
-                newDateTime.setMinutes(timeToUse.getMinutes());
-            }
 
-            return newDateTime;
+            let test = dateToUse.getFullYear() + "-" + dateToUse.getMonth() + "-" + dateToUse.getDate() + "T";
+            test += timeToUse.getHours() + ":" + timeToUse.getMinutes();
+            return test;
         }
 
         public getCalenderEventById(id: number) {
@@ -53,7 +47,7 @@
                     id = null;
                 });
         }
-
+        
         constructor(
             private $resource: angular.resource.IResourceService
         ) {
