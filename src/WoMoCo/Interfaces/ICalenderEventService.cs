@@ -11,7 +11,7 @@ namespace WoMoCo.Interfaces
         CalenderEvent GetCalendarEventById(int id);
         IList<CalenderEvent> GetCalenderEventsByUser(string userId);
         IList<CalenderEvent> GetCalenederEventsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd);
-        void SaveCalenderEvent(CalenderEvent calenderEventToSave);
+        void SaveCalenderEvent(CalenderEvent calenderEventToSave, string uid);
         void SoftDeleteCalenderEvent(int id);
     }
 }

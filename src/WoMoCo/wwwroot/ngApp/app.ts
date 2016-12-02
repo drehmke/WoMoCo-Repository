@@ -78,6 +78,26 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.CalenderAddEventController,
                 controllerAs: `controller`
             })
+            .state(`calenderViewEvent`, {
+                url: `/calender/viewEvent/:id`,
+                templateUrl: `/ngApp/views/calender/viewEvent.html`,
+                controller: WoMoCo.Controllers.CalenderViewEventController,
+                controllerAs: `controller`
+            })
+            // TODO: can I have a similar state for non-admin edit
+            .state(`calenderEditEvent`, {
+                url: `/admin/calender/editEvent/:id`,
+                templateUrl: `/ngApp/views/calender/editEvent.html`,
+                controller: WoMoCo.Controllers.CalenderEditEventController,
+                controllerAs: `controller`
+            })
+            //TODO: can I have a similar state for non-admin delete
+            .state(`calenderDeleteEvent`, {
+                url: `/admin/calender/deleteEvent/:id`,
+                templateUrl: `/ngApp/views/calender/deleteEvent.html`,
+                controller: WoMoCo.Controllers.CalenderDeleteEventController,
+                controllerAs: `controller`
+            })
             // ---- end Calender Events ---------------------------------------
             .state('about', {
                 url: '/about',

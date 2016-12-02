@@ -1,8 +1,5 @@
 ﻿namespace WoMoCo.Services {
     export class CalenderEventService {
-        //private CalenderEventResource;
-        //public calenderEvents;
-        //public calenderEvent;
 
         public getAllCalenderEvents() {
             return this.$resource('/api/calenderEvents').query();
@@ -15,6 +12,47 @@
                 });
         }
 
+        public combineEventDateTime(dateToUse, timeToUse) {
+            let newDateTime = new Date();
+            if (dateToUse != null) {
+                newDateTime.setMonth(dateToUse.getMonth());
+                newDateTime.setDate(dateToUse.getDate());
+                newDateTime.setFullYear(dateToUse.getFullYear());
+                newDateTime.setHours(timeToUse.getHours());
+                newDateTime.setMinutes(timeToUse.getMinutes());
+            }
+
+            return newDateTime;
+        }
+
+        public getCalenderEventById(id: number) {
+            // return this.$resource(`/api/calenderEvents/:id`).get({id: id});
+            let tempResource = this.$resource(`/api/calenderEvents/:id`);
+            let tempResult = tempResource.get({ id: id });
+            return tempResult;
+        }
+
+        public isolateDate(eventDateTime) {
+            console.log(eventDateTime);
+            let justDate = new Date();
+            justDate.setMonth(eventDateTime.getMonth());
+            justDate.setDate(eventDateTime.getDate());
+            justDate.setFullYear(eventDateTime.getFullYear());
+            return justDate;
+        }
+        public isolateTime(eventDateTime) {
+            let justTime = new Date();
+            justTime.setHours(eventDateTime.getHours());
+            justTime.setMinutes(eventDateTime.getMinutes());
+            return justTime;
+        }
+        
+        public deleteCalenderEvent(id: number) {
+            return this.$resource(`/api/calenderEvents/:id`).delete({ id: id }).$promise
+                .then(() => {
+                    id = null;
+                });
+        }
 
         constructor(
             private $resource: angular.resource.IResourceService

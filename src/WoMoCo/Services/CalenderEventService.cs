@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace WoMoCo.Services
     public class CalenderEventService : ICalenderEventService
     {
         private IGenericRepository _repo;
+        private UserManager<ApplicationUser> _manager;
         // ---- Basic CRUD ----------------------------------------------------
         public IList<CalenderEvent> GetAllEvents()
         {
@@ -28,11 +30,17 @@ namespace WoMoCo.Services
         {
             return _repo.Query<CalenderEvent>().Where(c => c.Id == id).FirstOrDefault();
         }
-        public void SaveCalenderEvent(CalenderEvent calenderEventToSave)
+        public void SaveCalenderEvent(CalenderEvent calenderEventToSave, string uid)
         {
             calenderEventToSave.isActive = true;
             if( calenderEventToSave.Id == 0)
             {
+                // TODO - set hardcoded variables: eventUser
+                // get user by uid
+                ApplicationUser currUser = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
+                calenderEventToSave.EventOwner = currUser;
+                calenderEventToSave.CreatedDate = DateTime.Now;
+                calenderEventToSave.EventType = "playdate";
                 _repo.Add(calenderEventToSave);
             } else
             {
@@ -52,9 +60,10 @@ namespace WoMoCo.Services
         }
         // ---- end Basic CRUD ------------------------------------------------
 
-        public CalenderEventService(IGenericRepository repo)
+        public CalenderEventService(IGenericRepository repo, UserManager<ApplicationUser> manager)
         {
             this._repo = repo;
+            this._manager = manager;
         }
     }
 }
