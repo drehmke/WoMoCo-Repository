@@ -64,7 +64,6 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.InterestController,
                 controllerAs: `controller`
             })
-        //====================================>
             // ---- Calender Events -------------------------------------------
             .state('calenderEvents', {
                 url: `/admin/calender/allEvents`,
@@ -99,6 +98,18 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             // ---- end Calender Events ---------------------------------------
+            .state(`chat`, {
+                url: `/chat`,
+                templateUrl: `/ngApp/views/interest/interst.html`,
+                controller: WoMoCo.Controllers.ChatController,
+                controllerAs: `controller`
+            })
+            .state(`addChat`, {
+                url: `/addChat`,
+                templateUrl: `/ngApp/views/addChat.html`,
+                controller: WoMoCo.Controllers.AddChatController,
+                controllerAs: `controller`
+            })
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',

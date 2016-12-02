@@ -12,6 +12,7 @@
 /// <reference path="ngapp/app.js" />
 /// <reference path="ngapp/controllers/accountcontroller.js" />
 /// <reference path="ngapp/controllers/calendereventscontroller.js" />
+/// <reference path="ngapp/controllers/chatcontroller.js" />
 /// <reference path="ngapp/controllers/controllers.js" />
 /// <reference path="ngapp/controllers/interestcontroller.js" />
 /// <reference path="ngapp/services/accountservice.js" />
