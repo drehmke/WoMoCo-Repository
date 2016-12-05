@@ -141,6 +141,8 @@ namespace WoMoCo.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<int?>("InterestId");
+
                     b.Property<string>("Employer");
 
                     b.Property<string>("FirstName");
@@ -176,6 +178,8 @@ namespace WoMoCo.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("InterestId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
@@ -184,6 +188,20 @@ namespace WoMoCo.Data.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("WoMoCo.Models.Interest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BadgeImage");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Interests");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
@@ -221,6 +239,13 @@ namespace WoMoCo.Data.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("WoMoCo.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("WoMoCo.Models.Interest")
+                        .WithMany("Users")
+                        .HasForeignKey("InterestId");
                 });
         }
     }

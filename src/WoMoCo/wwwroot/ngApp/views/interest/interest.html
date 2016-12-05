@@ -1,0 +1,18 @@
+﻿<h2>Interest</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>   
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="interest in controller.interest">
+            <td>{{interest.name}}</td>
+            <td><a ng-href="/editInterest/{{interest.id}}" class="btn btn-primary"> Edit</a></td>
+            <td><a ng-href="/deleteInterest/{{interest.id}}" class="btn btn-danger">Delete</a></td>
+        </tr>
+    </tbody>
+
+</table>
+<a href="/addInterest" class="btn btn-success"> Add Inerest </a>
