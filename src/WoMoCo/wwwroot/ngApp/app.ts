@@ -1,5 +1,6 @@
 namespace WoMoCo {
 
+
     angular.module('WoMoCo', ['ui.router', 'ngResource', 'ui.bootstrap']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
@@ -119,6 +120,18 @@ namespace WoMoCo {
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
+            })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: 'ngApp/views/profile.html',
+                controller: WoMoCo.Controllers.UserController,
+                controllerAs: 'controller'
+            })
+            .state('editProfile', {
+                url: '/editProfile',
+                templateUrl: 'ngApp/views/editProfile.html',
+                controller: WoMoCo.Controllers.EditUserController,
+                controllerAs: 'controller'
             });
 
         // Handle request for non-existent route

@@ -60,6 +60,9 @@ namespace WoMoCo
             services.AddScoped<IInterestService, InterestService>();
             services.AddScoped<ICalenderEventService, CalenderEventService>();
         
+            services.AddScoped<IProfileService, ProfileService>();
+            services.AddScoped<IUserService, UserService>();
+            
 
 
             // add security policies

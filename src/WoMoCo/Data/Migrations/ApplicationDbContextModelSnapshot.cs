@@ -127,10 +127,14 @@ namespace WoMoCo.Data.Migrations
                 {
                     b.Property<string>("Id");
 
+                    b.Property<string>("About");
+
                     b.Property<int>("AccessFailedCount");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<string>("CurrentJobTitle");
 
                     b.Property<string>("Email")
                         .HasAnnotation("MaxLength", 256);
@@ -138,6 +142,14 @@ namespace WoMoCo.Data.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<int?>("InterestId");
+
+                    b.Property<string>("Employer");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Location");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -158,6 +170,8 @@ namespace WoMoCo.Data.Migrations
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserImage");
 
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
