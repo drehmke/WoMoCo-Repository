@@ -1,7 +1,7 @@
 namespace WoMoCo {
 
 
-    angular.module('WoMoCo', ['ui.router', 'ngResource', 'ui.bootstrap']).config((
+    angular.module('WoMoCo', ['ui.router', 'ngResource', 'ui.bootstrap','utils']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider

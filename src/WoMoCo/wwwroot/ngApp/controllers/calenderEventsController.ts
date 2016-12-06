@@ -20,6 +20,7 @@
         public saveEvent() {
             // becuase the form fields didn't let me do a datetime picker in one field, I broke them out
             this.calenderEvent.eventDateTime = this.calenderEventService.combineEventDateTime(this.eventDate, this.eventTime);
+            //this.calenderEvent.eventDateTime = utils.combineEventDateTime(this.eventDate, this.eventTime);
 
             this.calenderEventService.saveCalenderEvent(this.calenderEvent)
                 .then(() => {

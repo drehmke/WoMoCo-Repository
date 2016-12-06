@@ -11,21 +11,21 @@
                     calenderEvent = null;
                 });
         }
-
+        
         public combineEventDateTime(dateToUse, timeToUse) {
 
             let test = dateToUse.getFullYear() + "-" + dateToUse.getMonth() + "-" + dateToUse.getDate() + "T";
             test += timeToUse.getHours() + ":" + timeToUse.getMinutes();
             return test;
         }
-
+        
         public getCalenderEventById(id: number) {
             // return this.$resource(`/api/calenderEvents/:id`).get({id: id});
             let tempResource = this.$resource(`/api/calenderEvents/:id`);
             let tempResult = tempResource.get({ id: id });
             return tempResult;
         }
-
+        
         public isolateDate(eventDateTime) {
             console.log(eventDateTime);
             let justDate = new Date();
