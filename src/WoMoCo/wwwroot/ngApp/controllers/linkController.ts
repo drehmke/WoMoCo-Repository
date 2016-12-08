@@ -5,6 +5,7 @@
 
         public getLinks() {
             this.links = this.LinkResource.query();
+            console.log(this.links);
         }
         constructor(private $resource:
             angular.resource.IResourceService) {

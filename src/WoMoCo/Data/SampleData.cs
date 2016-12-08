@@ -47,7 +47,34 @@ namespace WoMoCo.Data
                 await userManager.CreateAsync(mike, "Secret123!");
             }
 
+            //var babySitterLink1 = new BabySitterLink
+            //{
+            //    Name = "SitterCity",
+            //    LinkBase = "https://www.sittercity.com/babysitters/"
+            //};
 
+            //var babySitterLink2 = new BabySitterLink
+            //{
+            //    Name = "Urbansitter",
+            //    LinkBase = "https://www.urbansitter.com/find-babysitters/"
+            //};
+            //var babySitterLink3 = new BabySitterLink
+            //{
+            //    Name = "Care",
+            //    LinkBase = "https://www.care.com/babysitters/"
+            //};
+            //var babySitterLink4 = new BabySitterLink
+            //{
+            //    Name = "Collegenanniesandtutors",
+            //    LinkBase = "https://www.collegenanniesandtutors.com/offices/zip/"
+            //};
+            
+            //if(!context.BabySitterLinks.GetBabySitterLinkByName())
+            //{
+            //    context.BabySitterLinks.Add(babySitterLink1);
+            //    context.SaveChanges();
+            //}
+            
         }
 
     }

@@ -59,6 +59,7 @@ namespace WoMoCo
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IInterestService, InterestService>();
             services.AddScoped<ILinkService, LinkService>();
+            services.AddScoped<IBabySitterService, BabySitterService>();
 
 
 

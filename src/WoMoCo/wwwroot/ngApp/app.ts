@@ -93,8 +93,15 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             
-            //====================================>
-
+            //===================== Baby Sitter Links ===============>
+            .state(`babySitterlink`, {
+                url: `/babySitterlink`,
+                templateUrl: `/ngApp/views/babySitterLinks/babySitterlink.html`,
+                controller: WoMoCo.Controllers.BabySitterController,
+                controllerAs: `controller`
+                
+            })
+            //========================================================>
 
             .state('about', {
                 url: '/about',
