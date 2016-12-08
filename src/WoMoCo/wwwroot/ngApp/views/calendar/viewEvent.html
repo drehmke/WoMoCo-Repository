@@ -1,7 +1,7 @@
 ﻿<div class="event">
-    <h2>{{controller.singlecalendarEvent.name}}<small> on {{controller.singleCalendarEvent.eventDate}}</small></h2>
-    <div><strong>Location:</strong> {{controller.singleCalendarEvent.location}}</div>
+    <h2>{{controller.calendarEvent.name}}<small> on {{controller.calendarEvent.eventDate}}</small></h2>
+    <div><strong>Location:</strong> {{controller.calendarEvent.location}}</div>
     <div class="actions">
-        <a ng-href="/admin/calendar/editEvent/{{controller.singleCalendarEvent.id}}" class="btn btn-info">Edit Event</a>
+        <a ng-href="/admin/calendar/editEvent/{{controller.calendarEvent.id}}" class="btn btn-info">Edit Event</a>
     </div>
 </div>

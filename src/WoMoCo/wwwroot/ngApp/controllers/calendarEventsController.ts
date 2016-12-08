@@ -27,8 +27,10 @@
             this.isActive = eventObject.isActive;
             this.ownerName = eventObject.ownerName;
             this.eventDateObject = new Date(this.eventDate);
-            let timeBits = this.splitTime(this.eventTime);
-            this.eventTimeObject = new Date(null, null, null, parseInt(timeBits[0]), parseInt(timeBits[1]), parseInt(timeBits[2]));
+            if (this.eventTime != null) {
+                let timeBits = this.splitTime(this.eventTime);
+                this.eventTimeObject = new Date(null, null, null, parseInt(timeBits[0]), parseInt(timeBits[1]), parseInt(timeBits[2]));
+            }
         }
     }
 
@@ -95,18 +97,13 @@
     angular.module(`WoMoCo`).controller(`calendarAddEventController`, CalendarAddEventController);
 
     export class CalendarViewEventController {
-        public singlecalendarEvent;
-
-        public getcalendarEvent(id: number) {
-            this.singlecalendarEvent = this.calendarEventService.GetCalendarEventById(id);
-            console.log(this.singlecalendarEvent);
-        }
+        public calendarEvent;
 
         constructor(
             private calendarEventService: WoMoCo.Services.CalendarEventService,
-            private $stateParams: ng.ui.IStateParamsService
+            private $stateParams: ng.ui.IStateParamsService,
         ) {
-            this.getcalendarEvent($stateParams[`id`]);
+            this.calendarEvent = this.calendarEventService.GetCalendarEventById($stateParams[`id`]);
         }
     }
     angular.module(`WoMoCo`).controller(`calendarViewEventController`, CalendarViewEventController);
@@ -119,8 +116,8 @@
 
         public GetCalendarEvent(id: number) {
             this.GetResource.get({ id: id }).$promise
-                .then((tmpEvent) => {
-                    this.calendarEvent = new CalendarEvent(tmpEvent);
+                .then((tmpResult) => {
+                    this.calendarEvent = new CalendarEvent(tmpResult);
                 });
         }
 
