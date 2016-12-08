@@ -20,10 +20,10 @@ namespace WoMoCo.Services
         {
             return _repo.Query<BabySitterLink>().Where(s => s.Id == id).FirstOrDefault();
         }
-        //public BabySitterLink GetBabySitterBLinkByName(string name)
-        //{
-        //     return _repo.Query<BabySitterLink>().Where(s => s.Name == name).FirstOrDefault();
-        //}
+        public BabySitterLink GetBabySitterLinkByName(string name)
+        {
+            return _repo.Query<BabySitterLink>().Where(s => s.Name == name).FirstOrDefault();
+        }
         public List<BabySitterLocation> GetBabySitterByLinkId(int linkId)
         {
             var data = _repo.Query<BabySitterLocation>().Where(s => s.BabySitterLink.Id == linkId).ToList();

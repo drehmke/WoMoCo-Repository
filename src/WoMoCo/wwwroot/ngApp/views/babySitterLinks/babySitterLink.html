@@ -6,15 +6,17 @@
         </div>
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>Id</th>
+                <tr>  
                     <th>Names</th>
+                    <th>Logo</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="link in controller.babySitters">
-                    <td>{{link.id}}</td>
-                    <td><a href="{{link.linkBase}}">{{link.name}}</a></td>
+                    
+                    <td><a target="_blank" href="{{link.linkBase}}">{{link.name}}</a></td>
+                    <td><a target="_blank" href="{{link.linkBase}}"><img ng-src="{{link.image}}" width="50" hight="50"/></a></td>
+                    
                 </tr>  
             </tbody>
         </table>
