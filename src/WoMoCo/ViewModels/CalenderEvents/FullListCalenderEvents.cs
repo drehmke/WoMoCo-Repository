@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Models;
 
-namespace WoMoCo.ViewModels.CalenderEvents
+namespace WoMoCo.ViewModels.calendarEvents
 {
-    public class FullListCalenderEvents
+    public class FullListCalendarEvents
     {
         public int Id { get; set; }
         public string Name { get; set; }

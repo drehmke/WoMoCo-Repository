@@ -12,11 +12,11 @@
                 });
         }
 
-        public setEventAlarm(eventAlarm, calenderEvent) {
+        public setEventAlarm(eventAlarm, calendarEvent) {
             //console.log(eventAlarm);
-            //console.log(calenderEvent);
-            // get the date and time from the calender Event
-            let eventDateTime = calenderEvent.eventDate;
+            //console.log(calendarEvent);
+            // get the date and time from the calendar Event
+            let eventDateTime = calendarEvent.eventDate;
             console.log(eventDateTime);
         }
 

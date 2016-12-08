@@ -11,21 +11,21 @@
             <th>Event Location</th>
             <th>Active Status</th>
             <th>Actions</th>
-            <th><a href="/admin/calender/addEvent" class="btn btn-success">Add</a></th>
+            <th><a href="/admin/calendar/addEvent" class="btn btn-success">Add</a></th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="event in controller.calenderEvents">
+        <tr ng-repeat="event in controller.calendarEvents">
             <td></td>
-            <td><a ng-href="/calender/viewEvent/{{event.id}}">{{event.name}}</a></td>
+            <td><a ng-href="/calendar/viewEvent/{{event.id}}">{{event.name}}</a></td>
             <td>{{event.ownerName}}</td>
             <td>{{event.eventDateTime|date:'medium'}}</td>
             <td>{{event.createdDate|date:'medium'}}</td>
             <td>{{event.location}}</td>
             <td>{{event.isActive}}</td>
             <td colspan="2">
-                <a ng-href="/admin/calender/editEvent/{{event.id}}" class="btn btn-info">edit</a> 
-                <a ng-href="/admin/calender/deleteEvent/{{event.id}}" class="btn btn-danger">delete</a>
+                <a ng-href="/admin/calendar/editEvent/{{event.id}}" class="btn btn-info">edit</a> 
+                <a ng-href="/admin/calendar/deleteEvent/{{event.id}}" class="btn btn-danger">delete</a>
             </td>
         </tr>
     </tbody>

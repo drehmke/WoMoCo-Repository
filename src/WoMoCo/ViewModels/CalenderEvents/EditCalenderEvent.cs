@@ -4,16 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Models;
 
-namespace WoMoCo.ViewModels.CalenderEvents
+namespace WoMoCo.ViewModels.calendarEvents
 {
-    public class EditCalenderEvent
+    public class EditCalendarEvent
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string EventDate { get; set; }
         public string EventTime { get; set; }
-        //public DateTime EventDate { get; set; }
-        //public DateTime EventTime { get; set; }
         public DateTime CreatedDate { get; set; }
         public string Location { get; set; }
         public string EventType { get; set; }

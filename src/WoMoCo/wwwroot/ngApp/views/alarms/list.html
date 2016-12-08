@@ -10,20 +10,20 @@
             <th>Alarm Method</th>
             <th>Active Status</th>
             <th>Actions</th>
-            <th><a href="/admin/calender/addEvent" class="btn btn-success">Add</a></th>
+            <th><a href="/admin/calendar/addEvent" class="btn btn-success">Add</a></th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="alarm in controller.alarmsList">
             <td></td>
-            <td><a ng-href="/calender/viewAlarm/{{alarm.id}}">{{alarm.name}}</a></td>
+            <td><a ng-href="/calendar/viewAlarm/{{alarm.id}}">{{alarm.name}}</a></td>
             <td>{{alarm.ownerName}}</td>
             <td>{{alarm.eventDateTime|date:'medium'}}</td>
             <td>{{alarm.method}}</td>
             <td>{{alarm.isActive}}</td>
             <td colspan="2">
-                <a ng-href="/admin/calender/editAlarm/{{alarm.id}}" class="btn btn-info">edit</a>
-                <a ng-href="/admin/calender/deleteAlarm/{{alarm.id}}" class="btn btn-danger">delete</a>
+                <a ng-href="/admin/calendar/editAlarm/{{alarm.id}}" class="btn btn-info">edit</a>
+                <a ng-href="/admin/calendar/deleteAlarm/{{alarm.id}}" class="btn btn-danger">delete</a>
             </td>
         </tr>
     </tbody>

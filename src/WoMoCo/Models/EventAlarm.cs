@@ -11,7 +11,7 @@ namespace WoMoCo.Models
         public DateTime AlarmTime { get; set; }
         public string AlarmMethod { get; set; }
         public bool isActive { get; set; }
-        public CalenderEvent Event { get; set; }
+        public CalendarEvent Event { get; set; }
         public ApplicationUser Owner { get; set; }
     }
 }

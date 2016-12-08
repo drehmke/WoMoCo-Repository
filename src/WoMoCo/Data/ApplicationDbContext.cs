@@ -15,7 +15,7 @@ namespace WoMoCo.Data
         {
         }
         public DbSet<Interest> Interests { get; set; }
-        public DbSet<CalenderEvent> CalenderEvents { get; set; }
+        public DbSet<CalendarEvent> CalendarEvents { get; set; }
         public DbSet<EventAlarm> EventAlarms { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {

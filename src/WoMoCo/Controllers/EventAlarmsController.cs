@@ -52,7 +52,7 @@ namespace WoMoCo.Controllers
             return Ok();
         }
 
-        // TODO: Get by CalenderEvent
+        // TODO: Get by calendarEvent
         // TODO: Get By Date Range
         // TODO: SoftDelete
 

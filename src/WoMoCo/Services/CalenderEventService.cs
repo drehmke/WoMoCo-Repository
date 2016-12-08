@@ -6,23 +6,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
-using WoMoCo.ViewModels.CalenderEvents;
+using WoMoCo.ViewModels.calendarEvents;
 
 namespace WoMoCo.Services
 {
-    public class CalenderEventService : ICalenderEventService
+    public class CalendarEventService : ICalendarEventService
     {
         private IGenericRepository _repo;
         private UserManager<ApplicationUser> _manager;
         // ---- Basic CRUD ----------------------------------------------------
-        public IList<FullListCalenderEvents> GetAllEvents()
+        public IList<FullListCalendarEvents> GetAllEvents()
         {
-            //IList<CalenderEvent> calenderEvents = _repo.Query<CalenderEvent>().ToList();
-            IList<CalenderEvent> calenderEvents = _repo.Query<CalenderEvent>().Include(c => c.EventOwner).ToList();
-            IList<FullListCalenderEvents> calenderEventsWithOwnersName = new List<FullListCalenderEvents>();
-            foreach (CalenderEvent calEvent in calenderEvents)
+            //IList<calendarEvent> calendarEvents = _repo.Query<calendarEvent>().ToList();
+            IList<CalendarEvent> calendarEvents = _repo.Query<CalendarEvent>().Include(c => c.EventOwner).ToList();
+            IList<FullListCalendarEvents> calendarEventsWithOwnersName = new List<FullListCalendarEvents>();
+            foreach (CalendarEvent calEvent in calendarEvents)
             {
-                FullListCalenderEvents listableCalenderEvent = new FullListCalenderEvents
+                FullListCalendarEvents listableCalendarEvent = new FullListCalendarEvents
                 {
                     Id = calEvent.Id,
                     Name = calEvent.Name,
@@ -34,20 +34,21 @@ namespace WoMoCo.Services
                     OwnerName = calEvent.EventOwner.UserName,
                     EventAlarms = calEvent.EventAlarms
                 };
-                calenderEventsWithOwnersName.Add(listableCalenderEvent);
+                calendarEventsWithOwnersName.Add(listableCalendarEvent);
             }
             
-            return calenderEventsWithOwnersName;
+            return calendarEventsWithOwnersName;
         }
-        public IList<FullListCalenderEvents> GetCalenderEventsByUser(string userId)
+
+        public IList<FullListCalendarEvents> GetCalendarEventsByUser(string userId)
         {
-            IList<CalenderEvent> allEvents = _repo.Query<CalenderEvent>().Include(c => c.EventOwner).ToList();
-            IList<FullListCalenderEvents> calenderEventsList = new List<FullListCalenderEvents>();
-            foreach( CalenderEvent calEvent in allEvents)
+            IList<CalendarEvent> allEvents = _repo.Query<CalendarEvent>().Include(c => c.EventOwner).ToList();
+            IList<FullListCalendarEvents> calendarEventsList = new List<FullListCalendarEvents>();
+            foreach( CalendarEvent calEvent in allEvents)
             {
                 if( calEvent.EventOwner.Id == userId)
                 {
-                    FullListCalenderEvents listCalenderEvent = new FullListCalenderEvents
+                    FullListCalendarEvents listcalendarEvent = new FullListCalendarEvents
                     {
                         Id = calEvent.Id,
                         Name = calEvent.Name,
@@ -59,81 +60,79 @@ namespace WoMoCo.Services
                         OwnerName = calEvent.EventOwner.UserName,
                         EventAlarms = calEvent.EventAlarms
                     };
-                    calenderEventsList.Add(listCalenderEvent);
+                    calendarEventsList.Add(listcalendarEvent);
                 }
             }
-            return calenderEventsList;
+            return calendarEventsList;
         }
 
-        public IList<CalenderEvent> GetCalenderEventsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd)
+        public IList<CalendarEvent> GetCalendarEventsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd)
         { // TODO: Fill out this method
-            return _repo.Query<CalenderEvent>().ToList();
+            return _repo.Query<CalendarEvent>().ToList();
         }
         
-        public EditCalenderEvent GetCalendarEventById(int id)
+        public EditCalendarEvent GetCalendarEventById(int id)
         {
-            CalenderEvent originalCalenderEvent = _repo.Query<CalenderEvent>().Where(c => c.Id == id).Include( c => c.EventOwner).FirstOrDefault();
+            CalendarEvent originalCalendarEvent = _repo.Query<CalendarEvent>().Where(c => c.Id == id).Include( c => c.EventOwner).FirstOrDefault();
 
-            EditCalenderEvent editableCalenderEvent = new EditCalenderEvent();
-            editableCalenderEvent.Id = originalCalenderEvent.Id;
-            editableCalenderEvent.Name = originalCalenderEvent.Name;
-            editableCalenderEvent.CreatedDate = originalCalenderEvent.CreatedDate;
-            editableCalenderEvent.Location = originalCalenderEvent.Location;
-            editableCalenderEvent.EventType = originalCalenderEvent.EventType;
-            editableCalenderEvent.isActive = originalCalenderEvent.isActive;
-            editableCalenderEvent.OwnerName = originalCalenderEvent.EventOwner.UserName;
-            editableCalenderEvent.EventDate = originalCalenderEvent.EventDateTime.Date.ToString("MM/dd/yyyy");
-            editableCalenderEvent.EventTime = originalCalenderEvent.EventDateTime.TimeOfDay.ToString();
-            //editableCalenderEvent.EventDate = originalCalenderEvent.EventDateTime;
-            //editableCalenderEvent.EventTime = originalCalenderEvent.EventDateTime;
-            editableCalenderEvent.EventAlarms = originalCalenderEvent.EventAlarms;
+            EditCalendarEvent editablecalendarEvent = new EditCalendarEvent();
+            editablecalendarEvent.Id = originalCalendarEvent.Id;
+            editablecalendarEvent.Name = originalCalendarEvent.Name;
+            editablecalendarEvent.CreatedDate = originalCalendarEvent.CreatedDate;
+            editablecalendarEvent.Location = originalCalendarEvent.Location;
+            editablecalendarEvent.EventType = originalCalendarEvent.EventType;
+            editablecalendarEvent.isActive = originalCalendarEvent.isActive;
+            editablecalendarEvent.OwnerName = originalCalendarEvent.EventOwner.UserName;
+            editablecalendarEvent.EventDate = originalCalendarEvent.EventDateTime.Date.ToString("yyyy-MM-dd");
+            editablecalendarEvent.EventTime = originalCalendarEvent.EventDateTime.TimeOfDay.ToString();
+            editablecalendarEvent.EventAlarms = originalCalendarEvent.EventAlarms;
 
-            return editableCalenderEvent;
+            return editablecalendarEvent;
         }
         
-        public void SaveCalenderEvent(CalenderEvent calenderEventToSave, string uid)
+        public void SaveCalendarEvent(CalendarEvent calendarEventToSave, string uid)
         {
-            calenderEventToSave.isActive = true;
-            if( calenderEventToSave.Id == 0)
+            calendarEventToSave.isActive = true;
+            if( calendarEventToSave.Id == 0)
             {
                 // get currently logged in user by uid to assign as eventOwner
                 ApplicationUser currUser = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
-                calenderEventToSave.EventOwner = currUser;
-                calenderEventToSave.CreatedDate = DateTime.Now;
-                calenderEventToSave.EventType = "playdate";
-                _repo.Add(calenderEventToSave); // saves the new entry to the database
+                calendarEventToSave.EventOwner = currUser;
+                calendarEventToSave.CreatedDate = DateTime.Now;
+                calendarEventToSave.EventType = "playdate";
+                _repo.Add(calendarEventToSave); // saves the new entry to the database
 
                 /* Use this when sharing
                 // add the user and the event to the join table
-                var newUserCalenderEvent = new SharedCalenderEvent
+                var newUsercalendarEvent = new SharedcalendarEvent
                 {
                     User = currUser,
                     UserId = currUser.Id,
-                    CalenderEvent = calenderEventToSave,
-                    CalenderEventId = calenderEventToSave.Id
+                    calendarEvent = calendarEventToSave,
+                    calendarEventId = calendarEventToSave.Id
                 };
-                _repo.Add(newUserCalenderEvent);
+                _repo.Add(newUsercalendarEvent);
                 _repo.SaveChanges();
                 */
             } else
             {
-                _repo.Update(calenderEventToSave);
+                _repo.Update(calendarEventToSave);
             }
         }
-        public void SoftDeleteCalenderEvent(int id)
+        public void SoftDeleteCalendarEvent(int id)
         {
-            CalenderEvent calenderEventToDelete = _repo.Query<CalenderEvent>().Where(c => c.Id == id).FirstOrDefault();
-            calenderEventToDelete.isActive = false;
-            _repo.Update(calenderEventToDelete);
+            CalendarEvent calendarEventToDelete = _repo.Query<CalendarEvent>().Where(c => c.Id == id).FirstOrDefault();
+            calendarEventToDelete.isActive = false;
+            _repo.Update(calendarEventToDelete);
         }
-        public void DeleteCalenderEvent(int id)
+        public void DeleteCalendarEvent(int id)
         {
-            CalenderEvent calenderEventToDelete = _repo.Query<CalenderEvent>().Where(c => c.Id == id).FirstOrDefault();
-            _repo.Delete(calenderEventToDelete);
+            CalendarEvent calendarEventToDelete = _repo.Query<CalendarEvent>().Where(c => c.Id == id).FirstOrDefault();
+            _repo.Delete(calendarEventToDelete);
         }
         // ---- end Basic CRUD ------------------------------------------------
 
-        public CalenderEventService(IGenericRepository repo, UserManager<ApplicationUser> manager)
+        public CalendarEventService(IGenericRepository repo, UserManager<ApplicationUser> manager)
         {
             this._repo = repo;
             this._manager = manager;

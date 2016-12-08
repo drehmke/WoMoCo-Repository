@@ -63,46 +63,46 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.InterestController,
                 controllerAs: `controller`
             })
-            // ---- Calender Events -------------------------------------------
-            .state(`calender`, {
-                url: `/calender`,
-                templateUrl: `/ngApp/views/calender/userEventsList.html`,
-                controller: WoMoCo.Controllers.CalenderUserEventsController,
+            // ---- calendar Events -------------------------------------------
+            .state(`calendar`, {
+                url: `/calendar`,
+                templateUrl: `/ngApp/views/calendar/userEventsList.html`,
+                controller: WoMoCo.Controllers.CalendarUserEventsController,
                 controllerAs: `controller`
             })
-            .state('calenderEvents', {
-                url: `/admin/calender/allEvents`,
-                templateUrl: `/ngApp/views/calender/eventsList.html`,
-                controller: WoMoCo.Controllers.CalenderEventsController,
+            .state('calendarEvents', {
+                url: `/admin/calendar/allEvents`,
+                templateUrl: `/ngApp/views/calendar/eventsList.html`,
+                controller: WoMoCo.Controllers.CalendarEventsController,
                 controllerAs: `controller`
             })
-            .state(`calenderAddEvent`, {
-                url: `/admin/calender/addEvent`,
-                templateUrl: `/ngApp/views/calender/addEvent.html`,
-                controller: WoMoCo.Controllers.CalenderAddEventController,
+            .state(`calendarAddEvent`, {
+                url: `/admin/calendar/addEvent`,
+                templateUrl: `/ngApp/views/calendar/addEvent.html`,
+                controller: WoMoCo.Controllers.CalendarAddEventController,
                 controllerAs: `controller`
             })
-            .state(`calenderViewEvent`, {
-                url: `/calender/viewEvent/:id`,
-                templateUrl: `/ngApp/views/calender/viewEvent.html`,
-                controller: WoMoCo.Controllers.CalenderViewEventController,
+            .state(`calendarViewEvent`, {
+                url: `/calendar/viewEvent/:id`,
+                templateUrl: `/ngApp/views/calendar/viewEvent.html`,
+                controller: WoMoCo.Controllers.CalendarViewEventController,
                 controllerAs: `controller`
             })
             // TODO: can I have a similar state for non-admin edit
-            .state(`calenderEditEvent`, {
-                url: `/admin/calender/editEvent/:id`,
-                templateUrl: `/ngApp/views/calender/editEvent.html`,
-                controller: WoMoCo.Controllers.CalenderEditEventController,
+            .state(`calendarEditEvent`, {
+                url: `/admin/calendar/editEvent/:id`,
+                templateUrl: `/ngApp/views/calendar/editEvent.html`,
+                controller: WoMoCo.Controllers.CalendarEditEventController,
                 controllerAs: `controller`,
             })
             //TODO: can I have a similar state for non-admin delete
-            .state(`calenderDeleteEvent`, {
-                url: `/admin/calender/deleteEvent/:id`,
-                templateUrl: `/ngApp/views/calender/deleteEvent.html`,
-                controller: WoMoCo.Controllers.CalenderDeleteEventController,
+            .state(`calendarDeleteEvent`, {
+                url: `/admin/calendar/deleteEvent/:id`,
+                templateUrl: `/ngApp/views/calendar/deleteEvent.html`,
+                controller: WoMoCo.Controllers.CalendarDeleteEventController,
                 controllerAs: `controller`
             })
-            // ---- end Calender Events ---------------------------------------
+            // ---- end calendar Events ---------------------------------------
             // ---- Events Alarms ---------------------------------------------
             .state(`eventAlarms`, {
                 url: `/admin/alerts/allAlerts`,
