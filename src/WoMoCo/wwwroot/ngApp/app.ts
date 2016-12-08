@@ -1,5 +1,6 @@
 namespace WoMoCo {
 
+
     angular.module('WoMoCo', ['ui.router', 'ngResource', 'ui.bootstrap']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
@@ -103,6 +104,52 @@ namespace WoMoCo {
             })
             //========================================================>
 
+            // ---- Calender Events -------------------------------------------
+            .state('calenderEvents', {
+                url: `/admin/calender/allEvents`,
+                templateUrl: `/ngApp/views/calender/eventsList.html`,
+                controller: WoMoCo.Controllers.CalenderEventsController,
+                controllerAs: `controller`
+            })
+            .state(`calenderAddEvent`, {
+                url: `/admin/calender/addEvent`,
+                templateUrl: `/ngApp/views/calender/addEvent.html`,
+                controller: WoMoCo.Controllers.CalenderAddEventController,
+                controllerAs: `controller`
+            })
+            .state(`calenderViewEvent`, {
+                url: `/calender/viewEvent/:id`,
+                templateUrl: `/ngApp/views/calender/viewEvent.html`,
+                controller: WoMoCo.Controllers.CalenderViewEventController,
+                controllerAs: `controller`
+            })
+            // TODO: can I have a similar state for non-admin edit
+            .state(`calenderEditEvent`, {
+                url: `/admin/calender/editEvent/:id`,
+                templateUrl: `/ngApp/views/calender/editEvent.html`,
+                controller: WoMoCo.Controllers.CalenderEditEventController,
+                controllerAs: `controller`
+            })
+            //TODO: can I have a similar state for non-admin delete
+            .state(`calenderDeleteEvent`, {
+                url: `/admin/calender/deleteEvent/:id`,
+                templateUrl: `/ngApp/views/calender/deleteEvent.html`,
+                controller: WoMoCo.Controllers.CalenderDeleteEventController,
+                controllerAs: `controller`
+            })
+            // ---- end Calender Events ---------------------------------------
+            .state(`chat`, {
+                url: `/chat`,
+                templateUrl: `/ngApp/views/interest/interst.html`,
+                controller: WoMoCo.Controllers.ChatController,
+                controllerAs: `controller`
+            })
+            .state(`addChat`, {
+                url: `/addChat`,
+                templateUrl: `/ngApp/views/addChat.html`,
+                controller: WoMoCo.Controllers.AddChatController,
+                controllerAs: `controller`
+            })
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
@@ -112,6 +159,18 @@ namespace WoMoCo {
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
+            })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: 'ngApp/views/profile.html',
+                controller: WoMoCo.Controllers.UserController,
+                controllerAs: 'controller'
+            })
+            .state('editProfile', {
+                url: '/editProfile',
+                templateUrl: 'ngApp/views/editProfile.html',
+                controller: WoMoCo.Controllers.EditUserController,
+                controllerAs: 'controller'
             });
 
         // Handle request for non-existent route
