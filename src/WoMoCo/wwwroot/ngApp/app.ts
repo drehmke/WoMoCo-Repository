@@ -1,7 +1,5 @@
 namespace WoMoCo {
-
-
-    angular.module('WoMoCo', ['ui.router', 'ngResource', 'ui.bootstrap','utils']).config((
+    angular.module('WoMoCo', ['ui.router', 'ngResource', 'ui.bootstrap']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider
@@ -66,6 +64,12 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             // ---- Calender Events -------------------------------------------
+            .state(`calender`, {
+                url: `/calender`,
+                templateUrl: `/ngApp/views/calender/userEventsList.html`,
+                controller: WoMoCo.Controllers.CalenderUserEventsController,
+                controllerAs: `controller`
+            })
             .state('calenderEvents', {
                 url: `/admin/calender/allEvents`,
                 templateUrl: `/ngApp/views/calender/eventsList.html`,
@@ -89,7 +93,7 @@ namespace WoMoCo {
                 url: `/admin/calender/editEvent/:id`,
                 templateUrl: `/ngApp/views/calender/editEvent.html`,
                 controller: WoMoCo.Controllers.CalenderEditEventController,
-                controllerAs: `controller`
+                controllerAs: `controller`,
             })
             //TODO: can I have a similar state for non-admin delete
             .state(`calenderDeleteEvent`, {
@@ -99,6 +103,14 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             // ---- end Calender Events ---------------------------------------
+            // ---- Events Alarms ---------------------------------------------
+            .state(`eventAlarms`, {
+                url: `/admin/alerts/allAlerts`,
+                templateUrl: `/ngApp/views/alarms/list.html`,
+                controller: WoMoCo.Services.EventAlarmService,
+                controllerAs: `controller`
+            })
+            // ---- end Event Alarms ------------------------------------------
             .state(`chat`, {
                 url: `/chat`,
                 templateUrl: `/ngApp/views/interest/interst.html`,

@@ -1,0 +1,30 @@
+﻿<h2>Events Alarms Admin List</h2>
+<p>This page has a list of all the event alarms in the database. Filtering will be needed and added in a bit.</p>
+<table class="table table-bordered table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>Alarm Name</th>
+            <th>Alarm Owner</th>
+            <th>Alarm Time</th>
+            <th>Alarm Method</th>
+            <th>Active Status</th>
+            <th>Actions</th>
+            <th><a href="/admin/calender/addEvent" class="btn btn-success">Add</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="alarm in controller.alarmsList">
+            <td></td>
+            <td><a ng-href="/calender/viewAlarm/{{alarm.id}}">{{alarm.name}}</a></td>
+            <td>{{alarm.ownerName}}</td>
+            <td>{{alarm.eventDateTime|date:'medium'}}</td>
+            <td>{{alarm.method}}</td>
+            <td>{{alarm.isActive}}</td>
+            <td colspan="2">
+                <a ng-href="/admin/calender/editAlarm/{{alarm.id}}" class="btn btn-info">edit</a>
+                <a ng-href="/admin/calender/deleteAlarm/{{alarm.id}}" class="btn btn-danger">delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

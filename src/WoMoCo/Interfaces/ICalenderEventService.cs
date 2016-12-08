@@ -10,9 +10,9 @@ namespace WoMoCo.Interfaces
         void DeleteCalenderEvent(int id);
         //IList<CalenderEvent> GetAllEvents();
         IList<FullListCalenderEvents> GetAllEvents();
-        CalenderEvent GetCalendarEventById(int id);
-        IList<CalenderEvent> GetCalenderEventsByUser(string userId);
-        IList<CalenderEvent> GetCalenederEventsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd);
+        EditCalenderEvent GetCalendarEventById(int id);
+        IList<FullListCalenderEvents> GetCalenderEventsByUser(string userId);
+        IList<CalenderEvent> GetCalenderEventsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd);
         void SaveCalenderEvent(CalenderEvent calenderEventToSave, string uid);
         void SoftDeleteCalenderEvent(int id);
     }

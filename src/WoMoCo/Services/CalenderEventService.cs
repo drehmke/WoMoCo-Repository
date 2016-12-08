@@ -39,18 +39,58 @@ namespace WoMoCo.Services
             
             return calenderEventsWithOwnersName;
         }
-        public IList<CalenderEvent> GetCalenderEventsByUser(string userId)
-        { // TODO: Fill out this method
-            return _repo.Query<CalenderEvent>().ToList();
-        }
-        public IList<CalenderEvent> GetCalenederEventsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd)
-        { // TODO: Fill out this method
-            return _repo.Query<CalenderEvent>().ToList();
-        }
-        public CalenderEvent GetCalendarEventById(int id)
+        public IList<FullListCalenderEvents> GetCalenderEventsByUser(string userId)
         {
-            return _repo.Query<CalenderEvent>().Where(c => c.Id == id).FirstOrDefault();
+            IList<CalenderEvent> allEvents = _repo.Query<CalenderEvent>().Include(c => c.EventOwner).ToList();
+            IList<FullListCalenderEvents> calenderEventsList = new List<FullListCalenderEvents>();
+            foreach( CalenderEvent calEvent in allEvents)
+            {
+                if( calEvent.EventOwner.Id == userId)
+                {
+                    FullListCalenderEvents listCalenderEvent = new FullListCalenderEvents
+                    {
+                        Id = calEvent.Id,
+                        Name = calEvent.Name,
+                        EventDateTime = calEvent.EventDateTime,
+                        CreatedDate = calEvent.CreatedDate,
+                        Location = calEvent.Location,
+                        EventType = calEvent.EventType,
+                        isActive = calEvent.isActive,
+                        OwnerName = calEvent.EventOwner.UserName,
+                        EventAlarms = calEvent.EventAlarms
+                    };
+                    calenderEventsList.Add(listCalenderEvent);
+                }
+            }
+            return calenderEventsList;
         }
+
+        public IList<CalenderEvent> GetCalenderEventsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd)
+        { // TODO: Fill out this method
+            return _repo.Query<CalenderEvent>().ToList();
+        }
+        
+        public EditCalenderEvent GetCalendarEventById(int id)
+        {
+            CalenderEvent originalCalenderEvent = _repo.Query<CalenderEvent>().Where(c => c.Id == id).Include( c => c.EventOwner).FirstOrDefault();
+
+            EditCalenderEvent editableCalenderEvent = new EditCalenderEvent();
+            editableCalenderEvent.Id = originalCalenderEvent.Id;
+            editableCalenderEvent.Name = originalCalenderEvent.Name;
+            editableCalenderEvent.CreatedDate = originalCalenderEvent.CreatedDate;
+            editableCalenderEvent.Location = originalCalenderEvent.Location;
+            editableCalenderEvent.EventType = originalCalenderEvent.EventType;
+            editableCalenderEvent.isActive = originalCalenderEvent.isActive;
+            editableCalenderEvent.OwnerName = originalCalenderEvent.EventOwner.UserName;
+            editableCalenderEvent.EventDate = originalCalenderEvent.EventDateTime.Date.ToString("MM/dd/yyyy");
+            editableCalenderEvent.EventTime = originalCalenderEvent.EventDateTime.TimeOfDay.ToString();
+            //editableCalenderEvent.EventDate = originalCalenderEvent.EventDateTime;
+            //editableCalenderEvent.EventTime = originalCalenderEvent.EventDateTime;
+            editableCalenderEvent.EventAlarms = originalCalenderEvent.EventAlarms;
+
+            return editableCalenderEvent;
+        }
+        
         public void SaveCalenderEvent(CalenderEvent calenderEventToSave, string uid)
         {
             calenderEventToSave.isActive = true;

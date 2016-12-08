@@ -1,28 +1,22 @@
 ﻿namespace WoMoCo.Services {
     export class UtilitiesService {
-        static combineEventDateTime(dateToUse, timeToUse) {
-
+        public combineEventDateTime(dateToUse, timeToUse) {
             let test = dateToUse.getFullYear() + "-" + dateToUse.getMonth() + "-" + dateToUse.getDate() + "T";
-            test += timeToUse.getHours() + ":" + timeToUse.getMinutes();
+            test += timeToUse.getHours() + ":";
+            if (timeToUse.getMinutes() == "0" || timeToUse.getMinutes() == "00") {
+                test += "00"
+            } else {
+                test += timeToUse.getMinutes();
+            }
+            test += ":";
+            if (timeToUse.getSeconds() == "0" || timeToUse.getSeconds() == "00") {
+                test += "00";
+            } else {
+                test += timeToUse.getSeconds();
+            }
             return test;
-        }
-
-        static isolateDate(eventDateTime) {
-            console.log(eventDateTime);
-            let justDate = new Date();
-            justDate.setMonth(eventDateTime.getMonth());
-            justDate.setDate(eventDateTime.getDate());
-            justDate.setFullYear(eventDateTime.getFullYear());
-            return justDate;
-        }
-
-        static isolateTime(eventDateTime) {
-            let justTime = new Date();
-            justTime.setHours(eventDateTime.getHours());
-            justTime.setMinutes(eventDateTime.getMinutes());
-            return justTime;
         }
     }
 
-    angular.module(`WoMoCo`).service(`utils`, UtilitiesService);
+    angular.module(`WoMoCo`).service(`utilitiesService`, UtilitiesService);
 }

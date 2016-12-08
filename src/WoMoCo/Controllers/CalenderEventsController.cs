@@ -27,10 +27,11 @@ namespace WoMoCo.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(_service.GetCalendarEventById(id));
+            EditCalenderEvent calenderEvent = _service.GetCalendarEventById(id);
+            return Ok(calenderEvent);
         }
         [HttpGet("getMy/")]
-        public IEnumerable<CalenderEvent> GetMy()
+        public IEnumerable<FullListCalenderEvents> GetMy()
         {
             string uid = _manager.GetUserId(User);
             return _service.GetCalenderEventsByUser(uid);

@@ -1,5 +1,7 @@
 ﻿namespace WoMoCo.Services {
+
     export class CalenderEventService {
+        private getEventsByUserResource;
 
         public getAllCalenderEvents() {
             return this.$resource('/api/calenderEvents').query();
@@ -11,36 +13,21 @@
                     calenderEvent = null;
                 });
         }
-        
-        public combineEventDateTime(dateToUse, timeToUse) {
 
-            let test = dateToUse.getFullYear() + "-" + dateToUse.getMonth() + "-" + dateToUse.getDate() + "T";
-            test += timeToUse.getHours() + ":" + timeToUse.getMinutes();
-            return test;
-        }
-        
         public getCalenderEventById(id: number) {
             // return this.$resource(`/api/calenderEvents/:id`).get({id: id});
             let tempResource = this.$resource(`/api/calenderEvents/:id`);
             let tempResult = tempResource.get({ id: id });
+            console.log(tempResult);
             return tempResult;
         }
-        
-        public isolateDate(eventDateTime) {
-            console.log(eventDateTime);
-            let justDate = new Date();
-            justDate.setMonth(eventDateTime.getMonth());
-            justDate.setDate(eventDateTime.getDate());
-            justDate.setFullYear(eventDateTime.getFullYear());
-            return justDate;
+
+        public getCalenderEventsByUser() {
+            let tempList = this.getEventsByUserResource.getMyEvents();
+            console.log(tempList);
+            return tempList;
         }
-        public isolateTime(eventDateTime) {
-            let justTime = new Date();
-            justTime.setHours(eventDateTime.getHours());
-            justTime.setMinutes(eventDateTime.getMinutes());
-            return justTime;
-        }
-        
+
         public deleteCalenderEvent(id: number) {
             return this.$resource(`/api/calenderEvents/:id`).delete({ id: id }).$promise
                 .then(() => {
@@ -51,7 +38,13 @@
         constructor(
             private $resource: angular.resource.IResourceService
         ) {
-           
+            this.getEventsByUserResource = $resource(`/api/calenderEvents`, null, {
+                getMyEvents: {
+                    method: `GET`,
+                    url: `/api/calenderEvents/getMy`,
+                    isArray: true
+                }
+            });
         }
     }
 

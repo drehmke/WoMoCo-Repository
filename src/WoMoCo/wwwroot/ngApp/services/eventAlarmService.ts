@@ -12,6 +12,14 @@
                 });
         }
 
+        public setEventAlarm(eventAlarm, calenderEvent) {
+            //console.log(eventAlarm);
+            //console.log(calenderEvent);
+            // get the date and time from the calender Event
+            let eventDateTime = calenderEvent.eventDate;
+            console.log(eventDateTime);
+        }
+
         constructor(
             private $resource: angular.resource.IResourceService
         ) {
