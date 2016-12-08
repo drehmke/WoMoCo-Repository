@@ -22,6 +22,10 @@
         <h1>WoMoCo</h1>
         <div>
           <a href="/">Home</a> /
+           <a href="/about">About</a>
+            <a href="/interest">Interest</a> /
+            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin</a>
+            <a href="/profile">Profile</a>
            <a href="/about">About</a>|
             <a href="/interest">Interest</a>|
             <a href="/message/inbox"> Inbox</a>|
@@ -51,15 +55,14 @@
     <script src="~/lib/angular-filepicker/dist/angular_filepicker.js"></script>
 
 
-    @*Messaging Scripts*@
-    <script type="text/javascript" src="Scripts/jquery-1.6.4.min.js"></script>
-    <script type="text/javascript" src="Scripts/json2.min.js"></script>
-    <script type="text/javascript" src="Scripts/jquery.signalR-1.0.0-rc2.min.js"></script>
-    <script type="text/javascript" src="/signalr/hubs"></script>
     <!-- App Files-->
     <script src="/ngapp/app.js"></script>
     <script src="/ngapp/controllers/controllers.js"></script>
     <script src="/ngapp/services/services.js"></script>
+    <script src="~/ngApp/controllers/calenderEventsController.js"></script>
+    <script src="~/ngApp/services/calenderEventsService.js"></script>
+    <script src="~/ngApp/controllers/userController.js"></script>
+    
 
 
     <!-- Security -->

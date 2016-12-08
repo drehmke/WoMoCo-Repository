@@ -1,4 +1,16 @@
 <h2>Home</h2>
-<p>
-    {{controller.message}}
-</p>
+<ul ng-repeat="user in controller.users">
+    <li>
+        {{user.firstName}}
+    </li>
+    <li>
+        {{user.lastName}}
+    </li>
+    <li>
+        {{user.userName}}
+    </li>
+    <li>
+        {{user.location}}
+    </li>
+    <li><a ng-href="/editUser/{{user.id}}" class="btn">Edit Account</a></li>
+</ul>
