@@ -14,7 +14,7 @@ namespace WoMoCo.Controllers
 {
     
     [Route("api/[controller]")]
-    public class calendarEventsController : Controller
+    public class CalendarEventsController : Controller
     {
         private ICalendarEventService _service;
         private UserManager<ApplicationUser> _manager;
@@ -53,7 +53,7 @@ namespace WoMoCo.Controllers
         // TODO: Get by User
         // TODO: Get By Date Range
         // TODO: SoftDelete
-        public calendarEventsController(ICalendarEventService service, UserManager<ApplicationUser> manager)
+        public CalendarEventsController(ICalendarEventService service, UserManager<ApplicationUser> manager)
         {
             this._service = service;
             this._manager = manager;

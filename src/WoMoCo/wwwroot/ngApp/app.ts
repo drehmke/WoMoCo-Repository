@@ -107,7 +107,13 @@ namespace WoMoCo {
             .state(`eventAlarms`, {
                 url: `/admin/alerts/allAlerts`,
                 templateUrl: `/ngApp/views/alarms/list.html`,
-                controller: WoMoCo.Services.EventAlarmService,
+                controller: WoMoCo.Controllers.EventAlarmController,
+                controllerAs: `controller`
+            })
+            .state(`eventAlarmAdd`, {
+                url: `/admin/alerts/addAlert`,
+                templateUrl: `/ngApp/views/alarms/add.html`,
+                controller: WoMoCo.Controllers.EventAddAlarmController,
                 controllerAs: `controller`
             })
             // ---- end Event Alarms ------------------------------------------

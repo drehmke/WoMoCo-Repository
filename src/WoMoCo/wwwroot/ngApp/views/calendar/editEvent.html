@@ -1,5 +1,5 @@
 ﻿<h2>Update calendar Event</h2>
-<form class="form-horizontal" ng-submit="controller.saveCalendarEvent()">
+<form class="form-horizontal">
     <fieldset>
         <legend>Update Your Event</legend>
 
@@ -27,7 +27,7 @@
         </div>
 
         <div>
-            <input type="submit" value="Update Event" class="btn btn-success" />
+            <input type="button" value="Update Event" class="btn btn-success" ng-click="controller.SaveCalendarEvent()" />
         </div>
     </fieldset>
 </form>

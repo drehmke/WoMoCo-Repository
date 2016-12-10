@@ -12,31 +12,28 @@ using WoMoCo.Models;
 namespace WoMoCo.Controllers
 {
     [Route("api/[controller]")]
-    public class EventAlarmsController : Controller
+    public class EventAlarmController : Controller
     {
-        private IEventAlarmService _service;
-        private UserManager<ApplicationUser> _manager;
+        IEventAlarmService _service;
+        UserManager<ApplicationUser> _manager;
 
         // GET: api/values
         [HttpGet]
         public IEnumerable<EventAlarm> Get()
         {
-            return _service.GetAllAlarms();
+            return _service.GetAllAlarms() ;
         }
 
+        // GET api/values/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             return Ok(_service.GetEventAlarmById(id));
         }
+        // TODO: Get Alarm by User
+        // TODO: Get Alarm by Date Range
 
-        [HttpGet("getMy/")]
-        public IEnumerable<EventAlarm> GetMy()
-        {
-            string uid = _manager.GetUserId(User);
-            return _service.GetAllAlarmsByUser(uid);
-        }
-
+        // POST api/values
         [HttpPost]
         public IActionResult Post([FromBody]EventAlarm eventAlarm)
         {
@@ -45,6 +42,13 @@ namespace WoMoCo.Controllers
             return Ok(eventAlarm);
         }
 
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+        }
+
+        // DELETE api/values/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -52,12 +56,10 @@ namespace WoMoCo.Controllers
             return Ok();
         }
 
-        // TODO: Get by calendarEvent
-        // TODO: Get By Date Range
-        // TODO: SoftDelete
-
-        public EventAlarmsController(IEventAlarmService service, UserManager<ApplicationUser> manager)
-        {
+        public EventAlarmController(
+            IEventAlarmService service,
+            UserManager<ApplicationUser> manager
+            ) {
             this._service = service;
             this._manager = manager;
         }

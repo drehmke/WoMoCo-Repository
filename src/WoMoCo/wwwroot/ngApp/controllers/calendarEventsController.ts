@@ -1,5 +1,5 @@
 ﻿namespace WoMoCo.Controllers {
-
+    // NOTES: Edit event date is showing one day off on the edit form.
     class CalendarEvent {
         public id: number;
         public name: string;
@@ -7,10 +7,37 @@
         public eventDateObject: Date;
         public eventTime: string;
         public eventTimeObject: Date;
+        public eventDateTime: string;
+        //public createdDate: Date;
         public location: string;
         public eventType: string;
         public isActive: boolean;
         public ownerName: string;
+
+        public setEventDateTime() {
+            //2016-12-08T11:05:20.0926197
+            this.eventDateTime = this.eventDateObject.getFullYear() + "-" + (this.eventDateObject.getMonth()+1) + "-" + this.eventDateObject.getDate();
+            this.eventDateTime += "T";
+            if (this.eventTimeObject.getHours() < 10) {
+                this.eventDateTime += "0" + this.eventTimeObject.getHours(); // padding zero or it won't recognize AM
+            } else {
+                this.eventDateTime += this.eventTimeObject.getHours();
+            }
+            this.eventDateTime += ":";
+            //this.eventDateTime += this.eventTimeObject.getHours() + ":";
+            if (this.eventTimeObject.getMinutes() == 0) {
+                this.eventDateTime += "00"; // padding zero or it will break
+            } else {
+                this.eventDateTime += this.eventTimeObject.getMinutes();
+            }
+            this.eventDateTime += ":";
+            if (this.eventTimeObject.getSeconds() == 0) {
+                this.eventDateTime += "00"; // padding zerio or it will break
+            } else {
+                this.eventDateTime += this.eventTimeObject.getSeconds();
+            }
+            
+        }
 
         public splitTime(timeString: string) {
             let stringBits = timeString.split(':');
@@ -22,11 +49,14 @@
             this.name = eventObject.name;
             this.eventDate = eventObject.eventDate;
             this.eventTime = eventObject.eventTime;
+            this.eventDateTime = eventObject.DateTime;
             this.location = eventObject.location;
             this.eventType = eventObject.eventType;
             this.isActive = eventObject.isActive;
             this.ownerName = eventObject.ownerName;
+            //this.createdDate = new Date(eventObject.createDate);
             this.eventDateObject = new Date(this.eventDate);
+            console.log(this.eventDateObject);
             if (this.eventTime != null) {
                 let timeBits = this.splitTime(this.eventTime);
                 this.eventTimeObject = new Date(null, null, null, parseInt(timeBits[0]), parseInt(timeBits[1]), parseInt(timeBits[2]));
@@ -35,13 +65,24 @@
     }
 
     class EventAlarm {
+        public id: number;
+        public alarmMethod: string;
+        public alarmTime: Date;
+        public isActive: boolean;
+        public offsetTime: number;
+        public offsetPeriod: string;
+        public calenderEventId: number;
+        public ownerName: string;
 
-        constructor(
-            public id: number,
-            public method: string,
-            public offsetTime: number,
-            public offsetPeriod: string) {
-
+        constructor( eventAlarm ) {
+            this.id = eventAlarm.id;
+            this.alarmMethod = eventAlarm.alarmMethod;
+            this.alarmTime = eventAlarm.alarmTime;
+            this.isActive = eventAlarm.isActive;
+            this.offsetTime = eventAlarm.offsetTime;
+            this.offsetPeriod = eventAlarm.offsetPeriod;
+            this.calenderEventId = eventAlarm.calenderEventId;
+            this.ownerName = eventAlarm.ownerName;
         }
     }
 
@@ -71,15 +112,11 @@
     }
 
     export class CalendarAddEventController {
-        public calendarEvent;
-        public eventDate;
-        public eventTime;
+        public calendarEvent: CalendarEvent;
 
         public saveEvent() {
             // becuase the form fields didn't let me do a datetime picker in one field, I broke them out
-            // this.calendarEvent.eventDateTime = this.calendarEventService.combineEventDateTime(this.eventDate, this.eventTime);
-            this.calendarEvent.eventDateTime = this.utilitiesService.combineEventDateTime(this.eventDate, this.eventTime);
-
+            this.calendarEvent.setEventDateTime();
             this.calendarEventService.SaveCalendarEvent(this.calendarEvent)
                 .then(() => {
                     this.calendarEvent = null;
@@ -90,7 +127,6 @@
         constructor(
             private calendarEventService: WoMoCo.Services.CalendarEventService,
             private $state: ng.ui.IStateService,
-            private utilitiesService: WoMoCo.Services.UtilitiesService
         ) {
         }
     }
@@ -109,50 +145,50 @@
     angular.module(`WoMoCo`).controller(`calendarViewEventController`, CalendarViewEventController);
 
     export class CalendarEditEventController {
-        public calendarEvent: CalendarEvent;
         public GetResource;
-        // alarm properties
+        public AlarmResource;
+        public calendarEvent: CalendarEvent;
         public eventAlarm: EventAlarm;
 
         public GetCalendarEvent(id: number) {
             this.GetResource.get({ id: id }).$promise
                 .then((tmpResult) => {
                     this.calendarEvent = new CalendarEvent(tmpResult);
+                    console.log(this.calendarEvent);
                 });
         }
-
-
+        
         public SaveCalendarEvent() {
-            // don't forget to update the date - FIX ME BEFORE YOU SAVE
-            //this.calendarEvent.eventDateTime = this.utilitiesService.combineEventDateTime(this.eventDate, this.eventTime);
+            this.calendarEvent.setEventDateTime();
             this.calendarEventService.SaveCalendarEvent(this.calendarEvent).then(() => {
                     this.calendarEvent = null;
                     this.$state.go(`calendarEvents`);
                 });
+            
         }
 
         public SaveNewAlarm() {
-            //let newAlarm = new EventAlarm(0, this.alarmMethod, this.alarmOffSetTime, this.alarmOffSetPeriod);
-            //this.eventAlarmService.setEventAlarm(newAlarm, this.calendarEvent);
-            /*
-            console.log(this.alarmMethod);
-            console.log(this.alarmOffSetTime);
-            console.log(this.alarmOffSetPeriod);
-            console.log(this.calendarEvent.eventDate);
-            console.log(this.calendarEvent.eventTime);
-            */
+            let alarmToSave = new EventAlarm(this.eventAlarm);
+            alarmToSave.calenderEventId = this.calendarEvent.id;
+            console.log(alarmToSave);
+            this.eventAlarmService.saveEventAlarm(alarmToSave)
+                .then(() => {
+                    alarmToSave = null;
+                    this.eventAlarm = null;
+                });
+            
         }
 
         constructor(
             private $state: ng.ui.IStateService,
             private $stateParams: ng.ui.IStateParamsService,
+            private $resource: angular.resource.IResourceService,
             private calendarEventService: WoMoCo.Services.CalendarEventService,
-            private eventAlarmService: WoMoCo.Services.EventAlarmService,
-            private utilitiesService: WoMoCo.Services.UtilitiesService,
-            private $resource: angular.resource.IResourceService
+            private eventAlarmService: WoMoCo.Services.EventAlarmService
         ) {
             this.GetResource = $resource(`/api/calendarEvents/:id`);
             this.GetCalendarEvent($stateParams[`id`]);
+            
         }
     }
     angular.module(`WoMoCo`).controller(`calendarEditEventController`, CalendarEditEventController);

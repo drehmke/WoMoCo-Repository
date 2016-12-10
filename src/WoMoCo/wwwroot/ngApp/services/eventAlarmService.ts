@@ -2,11 +2,12 @@
     export class EventAlarmService {
 
         public getAllEventAlarms() {
-            return this.$resource(`/api/eventAlarms`).query();
+            return this.$resource(`/api/eventAlarm`).query();
+            //return this.$resource('/api/calendarEvents').query();
         }
 
         public saveEventAlarm(eventAlarm) {
-            return this.$resource(`/api/eventAlarms`).save(eventAlarm).$promise
+            return this.$resource(`/api/eventAlarm`).save(eventAlarm).$promise
                 .then(() => {
                     eventAlarm = null;
                 });

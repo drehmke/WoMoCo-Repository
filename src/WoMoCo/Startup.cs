@@ -59,7 +59,7 @@ namespace WoMoCo
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IInterestService, InterestService>();
             services.AddScoped<ICalendarEventService, CalendarEventService>();
-        
+            services.AddScoped<IEventAlarmService, EventAlarmService>();
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IUserService, UserService>();
             
