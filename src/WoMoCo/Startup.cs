@@ -58,11 +58,10 @@ namespace WoMoCo
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IInterestService, InterestService>();
+            services.AddScoped<ILinkService, LinkService>();
             services.AddScoped<ICalenderEventService, CalenderEventService>();
-        
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IUserService, UserService>();
-            
 
 
             // add security policies
@@ -70,7 +69,7 @@ namespace WoMoCo
                         {
                             options.AddPolicy("AdminOnly", policy => policy.RequireClaim("IsAdmin"));
                         });
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
