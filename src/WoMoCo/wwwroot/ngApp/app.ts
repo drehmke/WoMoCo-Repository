@@ -1,5 +1,6 @@
 namespace WoMoCo {
 
+
     angular.module('WoMoCo', ['ui.router', 'ngResource', 'ui.bootstrap']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
@@ -36,7 +37,7 @@ namespace WoMoCo {
                 templateUrl: '/ngApp/views/externalRegister.html',
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
-            }) 
+            })
            // ================  Interest ======>
             .state(`addInterest`, {
 
@@ -92,7 +93,7 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.LinkController,
                 controllerAs: `controller`
             })
-            
+
             //====================================>
             // ---- Calender Events -------------------------------------------
             .state('calenderEvents', {
@@ -140,7 +141,6 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.AddChatController,
                 controllerAs: `controller`
             })
-
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
@@ -150,6 +150,18 @@ namespace WoMoCo {
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
+            })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: 'ngApp/views/profile.html',
+                controller: WoMoCo.Controllers.UserController,
+                controllerAs: 'controller'
+            })
+            .state('editProfile', {
+                url: '/editProfile',
+                templateUrl: 'ngApp/views/editProfile.html',
+                controller: WoMoCo.Controllers.EditUserController,
+                controllerAs: 'controller'
             });
 
         // Handle request for non-existent route
@@ -159,7 +171,7 @@ namespace WoMoCo {
         $locationProvider.html5Mode(true);
     });
 
-    
+
     angular.module('WoMoCo').factory('authInterceptor', (
         $q: ng.IQService,
         $window: ng.IWindowService,

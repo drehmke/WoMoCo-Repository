@@ -1,0 +1,36 @@
+﻿<h2>Add Calender Event</h2>
+<form class="form-horizontal" ng-submit="controller.saveEvent()">
+    <fieldset>
+        <legend>Set Up Your Event</legend>
+
+        <div class="form-group">
+            <label for="eventName" class="col-sm-2">Event Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="eventName" name="eventName" placeholder="Event Name" ng-model="controller.calenderEvent.name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventLocation" class="col-sm-2">Location</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="eventLocation" name="eventLocation" placeholder="Location for the event" ng-model="controller.calenderEvent.location" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventDate" class="col-sm-2">Event Date</label>
+            <div class="col-md-2">
+                <input type="date" class="form-control" id="eventDate" name="eventDate" placeholder="mm/dd/YYYY" ng-model="controller.eventDate" />
+            </div>
+            <div class="col-md-2">
+                <input type="time" class="form-control" id="eventTime" name="eventTime" ng-model="controller.eventTime" />
+            </div>
+        </div>
+
+        <fieldset>
+            <legend>Event Reminders</legend>
+            Add alarms here
+        </fieldset>
+        <div>
+            <input type="submit" value="Add Event" class="btn btn-success" />
+        </div>
+    </fieldset>
+</form>
