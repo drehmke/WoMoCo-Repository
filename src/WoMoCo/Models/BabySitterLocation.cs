@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace WoMoCo.Models
 {
-    public class Interest
+    public class BabySitterLocation
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public ApplicationUser User { get; set; }
-        public string BadgeImage { get; set; }
+        public string LinkLocation { get; set; }
+        public BabySitterLink BabySitterLink { get; set; }
     }
 }

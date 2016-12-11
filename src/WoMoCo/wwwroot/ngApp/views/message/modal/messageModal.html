@@ -1,0 +1,23 @@
+﻿<form ng-submit="controller.sendMessage()">
+    <div class="modal-header">
+        <h3 class="modal-title"><strong>Send Message</strong></h3>
+    </div>
+    <div id="modalForm" class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" class="form-control" ng-model="controller.messageToSend.subject" placeholder="Name" />
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea cols="12" rows="6" class="form-control" ng-model="controller.messageToSend.message" placeholder="Enter Message..."></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" ng-click="controller.sendMessage()">Send</button>
+                <button type="button" class="btn btn-default" ng-click="controller.exit()">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+    </form>

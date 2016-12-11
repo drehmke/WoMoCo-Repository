@@ -1,0 +1,22 @@
+﻿
+
+<h2>Link</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>URL</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="link in controller.links">
+            <td>{{link.name}}</td>
+            <td>{{link.url}}</td>
+            <td><a ng-href="/editLink/{{link.id}}" class="btn btn-primary"> Edit</a></td>
+            <td><a ng-href="/deleteLink/{{link.id}}" class="btn btn-danger">Delete</a></td>
+        </tr>
+    </tbody>
+
+</table>
+<a href="/addLink" class="btn btn-success"> Add Link </a>

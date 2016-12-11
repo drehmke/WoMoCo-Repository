@@ -14,7 +14,7 @@ using System.IO;
 using WoMoCo.Data;
 using WoMoCo.Models;
 using WoMoCo.Services;
-using WoMoCo.Interfaces;
+
 using WoMoCo.Repositories;
 
 namespace WoMoCo
@@ -60,17 +60,17 @@ namespace WoMoCo
             services.AddScoped<IInterestService, InterestService>();
             services.AddScoped<ICalendarEventService, CalendarEventService>();
             services.AddScoped<IEventAlarmService, EventAlarmService>();
+            services.AddScoped<ILinkService, LinkService>();
+            services.AddScoped<IBabySitterService, BabySitterService>();
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IUserService, UserService>();
-            
-
 
             // add security policies
             services.AddAuthorization(options =>
                         {
                             options.AddPolicy("AdminOnly", policy => policy.RequireClaim("IsAdmin"));
                         });
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
