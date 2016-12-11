@@ -24,7 +24,7 @@
           <a href="/">Home</a> /
            <a href="/about">About</a> /
             <a href="/interest">Interest</a> /
-            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin</a>
+            <a href="/admin/calendar/allEvents"  ng-show="account.isLoggedIn()">Event Admin</a>
             <a href="/profile">Profile</a>
            <a href="/about">About</a>|
             <a href="/interest">Interest</a>|
@@ -61,11 +61,12 @@
     <script src="/ngapp/app.js"></script>
     <script src="/ngapp/controllers/controllers.js"></script>
     <script src="/ngapp/services/services.js"></script>
-    <script src="~/ngApp/controllers/calenderEventsController.js"></script>
-    <script src="~/ngApp/services/calenderEventsService.js"></script>
+    <script src="~/ngApp/services/utilities.js"></script>
+    <script src="~/ngApp/controllers/calendarEventsController.js"></script>
+    <script src="~/ngApp/services/calendarEventsService.js"></script>
     <script src="~/ngApp/controllers/userController.js"></script>
-
-
+    <script src="~/ngApp/services/eventAlarmService.js"></script>
+    <script src="~/ngApp/controllers/eventAlarmController.js"></script>
 
     <!-- Security -->
     <script src="/ngapp/controllers/accountcontroller.js"></script>
