@@ -1,7 +1,7 @@
 ﻿namespace WoMoCo.Services {
     export class UtilitiesService {
         public combineEventDateTime(dateToUse, timeToUse) {
-            let test = dateToUse.getFullYear() + "-" + dateToUse.getMonth() + "-" + dateToUse.getDate() + "T";
+            let test = dateToUse.getFullYear() + "-" + (dateToUse.getMonth()+1) + "-" + dateToUse.getDate() + "T";
             test += timeToUse.getHours() + ":";
             if (timeToUse.getMinutes() == "0" || timeToUse.getMinutes() == "00") {
                 test += "00"

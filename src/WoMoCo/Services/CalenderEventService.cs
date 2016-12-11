@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
 using WoMoCo.ViewModels.calendarEvents;
+using WoMoCo.ViewModels.EventAlarms;
 
 namespace WoMoCo.Services
 {
@@ -18,7 +19,7 @@ namespace WoMoCo.Services
         public IList<FullListCalendarEvents> GetAllEvents()
         {
             //IList<calendarEvent> calendarEvents = _repo.Query<calendarEvent>().ToList();
-            IList<CalendarEvent> calendarEvents = _repo.Query<CalendarEvent>().Include(c => c.EventOwner).ToList();
+            IList<CalendarEvent> calendarEvents = _repo.Query<CalendarEvent>().Include(c => c.EventOwner).Include(a => a.EventAlarms).ToList();
             IList<FullListCalendarEvents> calendarEventsWithOwnersName = new List<FullListCalendarEvents>();
             foreach (CalendarEvent calEvent in calendarEvents)
             {
@@ -73,7 +74,7 @@ namespace WoMoCo.Services
         
         public EditCalendarEvent GetCalendarEventById(int id)
         {
-            CalendarEvent originalCalendarEvent = _repo.Query<CalendarEvent>().Where(c => c.Id == id).Include( c => c.EventOwner).FirstOrDefault();
+            CalendarEvent originalCalendarEvent = _repo.Query<CalendarEvent>().Where(c => c.Id == id).Include( c => c.EventOwner).Include(a => a.EventAlarms).FirstOrDefault();
 
             EditCalendarEvent editablecalendarEvent = new EditCalendarEvent();
             editablecalendarEvent.Id = originalCalendarEvent.Id;
@@ -85,7 +86,22 @@ namespace WoMoCo.Services
             editablecalendarEvent.OwnerName = originalCalendarEvent.EventOwner.UserName;
             editablecalendarEvent.EventDate = originalCalendarEvent.EventDateTime.Date.ToString("yyyy-MM-dd");
             editablecalendarEvent.EventTime = originalCalendarEvent.EventDateTime.TimeOfDay.ToString();
-            editablecalendarEvent.EventAlarms = originalCalendarEvent.EventAlarms;
+            IList<EventAlarmForList> listableAlarms = new List<EventAlarmForList>();
+            foreach( EventAlarm alarm in originalCalendarEvent.EventAlarms )
+            {
+                EventAlarmForList listable = new EventAlarmForList
+                {
+                    Id = alarm.Id,
+                    AlarmTime = alarm.AlarmTime,
+                    AlarmMethod = alarm.AlarmMethod,
+                    isActive = alarm.isActive,
+                    CalendarEventId = originalCalendarEvent.Id,
+                    CalenderEventName = originalCalendarEvent.Name,
+                    OwnerUserName = alarm.Owner.UserName
+                };
+                listableAlarms.Add(listable);
+            }
+            editablecalendarEvent.EventAlarms = listableAlarms;
 
             return editablecalendarEvent;
         }

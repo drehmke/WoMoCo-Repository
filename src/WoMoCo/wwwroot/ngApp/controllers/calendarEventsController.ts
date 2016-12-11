@@ -13,6 +13,7 @@
         public eventType: string;
         public isActive: boolean;
         public ownerName: string;
+        public eventAlarms;
 
         public setEventDateTime() {
             //2016-12-08T11:05:20.0926197
@@ -24,7 +25,6 @@
                 this.eventDateTime += this.eventTimeObject.getHours();
             }
             this.eventDateTime += ":";
-            //this.eventDateTime += this.eventTimeObject.getHours() + ":";
             if (this.eventTimeObject.getMinutes() == 0) {
                 this.eventDateTime += "00"; // padding zero or it will break
             } else {
@@ -32,7 +32,7 @@
             }
             this.eventDateTime += ":";
             if (this.eventTimeObject.getSeconds() == 0) {
-                this.eventDateTime += "00"; // padding zerio or it will break
+                this.eventDateTime += "00"; // padding zero or it will break
             } else {
                 this.eventDateTime += this.eventTimeObject.getSeconds();
             }
@@ -54,6 +54,7 @@
             this.eventType = eventObject.eventType;
             this.isActive = eventObject.isActive;
             this.ownerName = eventObject.ownerName;
+            this.eventAlarms = eventObject.eventAlarms;
             //this.createdDate = new Date(eventObject.createDate);
             this.eventDateObject = new Date(this.eventDate);
             console.log(this.eventDateObject);
@@ -112,11 +113,15 @@
     }
 
     export class CalendarAddEventController {
-        public calendarEvent: CalendarEvent;
+        public calendarEvent;
+        public eventDate;
+        public eventTime;
+
 
         public saveEvent() {
             // becuase the form fields didn't let me do a datetime picker in one field, I broke them out
-            this.calendarEvent.setEventDateTime();
+            //this.calendarEvent.setEventDateTime();
+            this.calendarEvent.eventDateTime = this.utilitiesService.combineEventDateTime(this.eventDate, this.eventTime);
             this.calendarEventService.SaveCalendarEvent(this.calendarEvent)
                 .then(() => {
                     this.calendarEvent = null;
@@ -126,8 +131,10 @@
 
         constructor(
             private calendarEventService: WoMoCo.Services.CalendarEventService,
+            private utilitiesService: WoMoCo.Services.UtilitiesService,
             private $state: ng.ui.IStateService,
         ) {
+            
         }
     }
     angular.module(`WoMoCo`).controller(`calendarAddEventController`, CalendarAddEventController);
@@ -156,13 +163,6 @@
                 .then((tmpResult) => {
                     this.calendarEvent = new CalendarEvent(tmpResult);
                     //console.log(this.calendarEvent);
-                });
-        }
-        public GetCalenderEventAlarms(id: number) {
-            this.eventAlarmService.getAlarmsByEvent(id).$promise
-                .then((tmpResult) => {
-                    this.eventAlarms = tmpResult;
-                    console.log(tmpResult);
                 });
         }
 

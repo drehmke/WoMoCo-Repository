@@ -1,4 +1,5 @@
 ﻿namespace WoMoCo.Controllers {
+    
     class EventAlarm {
         public id: number;
         public alarmMethod: string;
@@ -20,7 +21,7 @@
             this.ownerName = eventAlarm.ownerName;
         }
     }
-
+    
     export class EventAlarmController {
         public alarmsList;
 
@@ -32,10 +33,29 @@
             private eventAlarmService: WoMoCo.Services.EventAlarmService
         ) {
             this.alarmsList = this.getAllAlarms();
+            //console.log(this.alarmsList);
         }
     }
     angular.module(`WoMoCo`).controller(`eventAlarmController`, EventAlarmController);
 
+    export class EventDeleteAlarmController {
+        //public eventAlarm;
+
+        public DeleteAlarm(id: number, eventid: number) {
+            this.eventAlarmService.deleteAlarm(id).$promise
+                .then(() => {
+                    this.$state.go(`calendar`, eventid);
+                });
+        }
+
+        constructor(
+            private eventAlarmService: WoMoCo.Services.EventAlarmService,
+            private $state: angular.ui.IStateService,
+            private $stateParams: angular.ui.IStateParamsService
+        ) {
+            this.DeleteAlarm($stateParams[`id`], $stateParams[`eventId`]);
+        }
+    }
 
     // Shouldn't need this ... this is just to test basic editablility
     export class EventAddAlarmController {

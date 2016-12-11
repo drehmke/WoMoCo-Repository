@@ -32,10 +32,22 @@
     </fieldset>
 </form>
 <div>
-    <ul>
-        <li ng-repeat="alarm in controller.eventAlarms">
-            {{alarm.alarmMethod}} | {{alarm.alarmTime}}
-        </li>
-    </ul>
+    <h3>Existing Alarms</h3>
+    <table class="table table-bordered table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Alarm Method</th>
+                <th>Alarm Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="alarm in controller.calendarEvent.eventAlarms">
+                <td>{{alarm.alarmMethod}}</td>
+                <td>{{alarm.alarmTime | date:"medium"}}</td>
+                <td><a class="btn btn-danger btn-sm" ng-href="/alarm/delete/{{alarm.id}}/{{controller.calendarEvent.id}}" >Delete Alarm</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <div ng-include="'/ngApp/views/alarms/add.html'"></div>

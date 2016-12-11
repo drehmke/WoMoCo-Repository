@@ -6,10 +6,6 @@
             //return this.$resource('/api/calendarEvents').query();
         }
 
-        public getAlarmsByEvent(eventId: number) {
-            return this.$resource(`/api/eventAlarm/GetByEvent/:eventId`).query({eventId: eventId});
-        }
-
         public saveEventAlarm(eventAlarm) {
             return this.$resource(`/api/eventAlarm`).save(eventAlarm).$promise
                 .then(() => {
@@ -18,17 +14,22 @@
         }
 
         public setEventAlarm(eventAlarm, calendarEvent) {
-            //console.log(eventAlarm);
-            //console.log(calendarEvent);
             // get the date and time from the calendar Event
             let eventDateTime = calendarEvent.eventDate;
             console.log(eventDateTime);
         }
 
+        public getEventAlarm(id: number) {
+            return this.$resource(`/api/eventAlarm/:id`).get({ id: id });
+        }
+
+        public deleteAlarm(id: number) {
+            return this.$resource(`/api/eventAlarm/:id`).delete({ id: id });
+        }
+
         constructor(
             private $resource: angular.resource.IResourceService
         ) {
-
         }
     }
     angular.module(`WoMoCo`).service(`eventAlarmService`, EventAlarmService);

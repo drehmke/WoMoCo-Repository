@@ -8,8 +8,7 @@ namespace WoMoCo.Interfaces
     public interface IEventAlarmService
     {
         void DeleteEventAlarm(int id);
-        IList<EventAlarm> GetAllAlarms();
-        IList<EventAlarm> GetAllAlarmsByEvent(int id);
+        IList<EventAlarmForList> GetAllAlarms();
         IList<EventAlarm> GetAllAlarmsByUser(string uid);
         IList<EventAlarm> GetAllAlarmsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd);
         EventAlarm GetEventAlarmById(int id);

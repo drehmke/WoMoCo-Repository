@@ -4,7 +4,7 @@
     <thead>
         <tr>
             <th>&nbsp;</th>
-            <th>Alarm Name</th>
+            <th>Calender Event</th>
             <th>Alarm Owner</th>
             <th>Alarm Time</th>
             <th>Alarm Method</th>
@@ -16,8 +16,8 @@
     <tbody>
         <tr ng-repeat="alarm in controller.alarmsList">
             <td></td>
-            <td><a ng-href="/calendar/viewAlarm/{{alarm.id}}">{{alarm.name}}</a></td>
-            <td>{{alarm.ownerName}}</td>
+            <td><a ng-href="/calendar/viewEvent/{{alarm.calendarEventId}}">{{alarm.calenderEventName}}</a></td>
+            <td>{{alarm.ownerUserName}}</td>
             <td>{{alarm.alarmTime|date:"medium"}}</td>
             <td>{{alarm.alarmMethod}}</td>
             <td>{{alarm.isActive}}</td>

@@ -10,16 +10,31 @@ using WoMoCo.ViewModels.EventAlarms;
 
 namespace WoMoCo.Services
 {
-    public class EventAlarmService : IEventAlarmService
+    public class EventAlarmService: IEventAlarmService
     {
         private IGenericRepository _repo;
         private UserManager<ApplicationUser> _manager;
 
         // ---- Basic CRUD ----------------------------------------------------
-        public IList<EventAlarm> GetAllAlarms()
+        public IList<EventAlarmForList> GetAllAlarms()
         {
             IList<EventAlarm> allAlarms = _repo.Query<EventAlarm>().Include(o => o.Owner).Include(e => e.Event).ToList();
-            return allAlarms;
+            IList<EventAlarmForList> listableAlarms = new List<EventAlarmForList>();
+            foreach( EventAlarm alarm in allAlarms )
+            {
+                EventAlarmForList newAlarm = new EventAlarmForList
+                {
+                    Id = alarm.Id,
+                    AlarmTime = alarm.AlarmTime,
+                    AlarmMethod = alarm.AlarmMethod,
+                    isActive = alarm.isActive,
+                    CalendarEventId = alarm.Event.Id,
+                    CalenderEventName = alarm.Event.Name,
+                    OwnerUserName = alarm.Owner.UserName
+                };
+                listableAlarms.Add(newAlarm);
+            }
+            return listableAlarms;
         }
 
         public IList<EventAlarm> GetAllAlarmsByUser(string uid)
@@ -28,11 +43,6 @@ namespace WoMoCo.Services
             return allAlarms;
         }
 
-        public IList<EventAlarm> GetAllAlarmsByEvent(int id)
-        { // TODO: Fill out this method
-            IList<EventAlarm> allAlarms = _repo.Query<EventAlarm>().Where(a => a.Event.Id == id).ToList();
-            return allAlarms;
-        }
 
         public IList<EventAlarm> GetAllAlarmsForDateRange( DateTime dateRangeStart, DateTime dateRangeEnd)
         {

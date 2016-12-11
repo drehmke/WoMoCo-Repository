@@ -105,15 +105,20 @@ namespace WoMoCo {
             // ---- end calendar Events ---------------------------------------
             // ---- Events Alarms ---------------------------------------------
             .state(`eventAlarms`, {
-                url: `/admin/alerts/allAlerts`,
+                url: `/admin/alarms/allAlarms`,
                 templateUrl: `/ngApp/views/alarms/list.html`,
                 controller: WoMoCo.Controllers.EventAlarmController,
                 controllerAs: `controller`
             })
             .state(`eventAlarmAdd`, {
-                url: `/admin/alerts/addAlert`,
+                url: `/admin/alarms/addAlarm`,
                 templateUrl: `/ngApp/views/alarms/add.html`,
                 controller: WoMoCo.Controllers.EventAddAlarmController,
+                controllerAs: `controller`
+            })
+            .state(`eventAlarmDelete`, {
+                url: `/alarm/delete/:id/:eventId`,
+                controller: WoMoCo.Controllers.EventDeleteAlarmController,
                 controllerAs: `controller`
             })
             // ---- end Event Alarms ------------------------------------------

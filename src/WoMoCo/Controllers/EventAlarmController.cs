@@ -20,7 +20,7 @@ namespace WoMoCo.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IEnumerable<EventAlarm> Get()
+        public IEnumerable<EventAlarmForList> Get()
         {
             return _service.GetAllAlarms() ;
         }
@@ -31,13 +31,9 @@ namespace WoMoCo.Controllers
         {
             return Ok(_service.GetEventAlarmById(id));
         }
-        [HttpGet("/GetByEvent/{eventId}")]
-        public IActionResult GetByEvent(int id)
-        {
-            return Ok(_service.GetAllAlarmsByEvent(id));
-        }
+
         // TODO: Get Alarm by User
-        // TODO: Get Alarm by Event
+        
         // TODO: Get Alarm by Date Range
 
         // POST api/values
