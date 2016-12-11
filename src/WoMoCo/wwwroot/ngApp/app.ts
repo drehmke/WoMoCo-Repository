@@ -93,8 +93,22 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.LinkController,
                 controllerAs: `controller`
             })
+<<<<<<< HEAD
+            
+            //===================== Baby Sitter Links ===============>
+            .state(`babySitterlink`, {
+                url: `/babySitterlink`,
+                templateUrl: `/ngApp/views/babySitterLinks/babySitterlink.html`,
+                controller: WoMoCo.Controllers.BabySitterController,
+                controllerAs: `controller`
+                
+            })
+            //========================================================>
+
+=======
 
             //====================================>
+>>>>>>> master
             // ---- Calender Events -------------------------------------------
             .state('calenderEvents', {
                 url: `/admin/calender/allEvents`,
@@ -141,6 +155,8 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.AddChatController,
                 controllerAs: `controller`
             })
+<<<<<<< HEAD
+=======
             .state(`inbox`, {
                 url: `/message/inbox`,
                 templateUrl: `/ngApp/views/message/inbox.html`,
@@ -162,6 +178,7 @@ namespace WoMoCo {
             
             
         //====================================>
+>>>>>>> master
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
