@@ -1,0 +1,15 @@
+﻿<h2>Edit a Link</h2>
+<form ng-submit="controller.saveLink()">
+    <div>
+        <label>Name</label>
+        <input placeholder="name" ng-model="controller.link.name" />
+    </div>
+
+    <div>
+        <label>URL</label>
+        <input placeholder="url" ng-model="controller.link.url" />
+    </div>
+
+    <input type="submit" class="btn btn-warning" value="Edit Link" />
+    
+</form>
