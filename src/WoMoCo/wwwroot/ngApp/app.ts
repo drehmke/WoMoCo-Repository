@@ -141,6 +141,27 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.AddChatController,
                 controllerAs: `controller`
             })
+            .state(`inbox`, {
+                url: `/message/inbox`,
+                templateUrl: `/ngApp/views/message/inbox.html`,
+                controller: WoMoCo.Controllers.MessageController,
+                controllerAs: `controller`
+            })
+            .state(`message`, {
+                url: `/message/message`,
+                templateUrl: `/ngApp/views/message/message.html`,
+                controller: WoMoCo.Controllers.InfoMessageController,
+                controllerAs: `controller`
+            })
+            .state(`messageModal`, {
+                url: `/message/modal/messageModal`,
+                templateUrl: `/ngApp/views/message/modal/messageModal.html`,
+                controller: WoMoCo.Controllers.MessageController,
+                controllerAs: `controller`
+            })
+            
+            
+        //====================================>
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
