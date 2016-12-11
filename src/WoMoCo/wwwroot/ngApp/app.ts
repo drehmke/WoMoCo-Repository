@@ -184,6 +184,5 @@ namespace WoMoCo {
         $httpProvider.interceptors.push('authInterceptor');
     });
 
-    
 
 }
