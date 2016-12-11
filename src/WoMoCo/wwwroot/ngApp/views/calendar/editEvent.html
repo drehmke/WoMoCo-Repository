@@ -31,4 +31,11 @@
         </div>
     </fieldset>
 </form>
+<div>
+    <ul>
+        <li ng-repeat="alarm in controller.eventAlarms">
+            {{alarm.alarmMethod}} | {{alarm.alarmTime}}
+        </li>
+    </ul>
+</div>
 <div ng-include="'/ngApp/views/alarms/add.html'"></div>

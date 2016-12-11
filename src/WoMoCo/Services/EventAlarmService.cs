@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
+using WoMoCo.ViewModels.EventAlarms;
 
 namespace WoMoCo.Services
 {
@@ -16,7 +18,7 @@ namespace WoMoCo.Services
         // ---- Basic CRUD ----------------------------------------------------
         public IList<EventAlarm> GetAllAlarms()
         {
-            IList<EventAlarm> allAlarms = _repo.Query<EventAlarm>().ToList();
+            IList<EventAlarm> allAlarms = _repo.Query<EventAlarm>().Include(o => o.Owner).Include(e => e.Event).ToList();
             return allAlarms;
         }
 
@@ -26,9 +28,9 @@ namespace WoMoCo.Services
             return allAlarms;
         }
 
-        public IList<EventAlarm> GetAllAlarmsByEvent()
+        public IList<EventAlarm> GetAllAlarmsByEvent(int id)
         { // TODO: Fill out this method
-            IList<EventAlarm> allAlarms = _repo.Query<EventAlarm>().ToList();
+            IList<EventAlarm> allAlarms = _repo.Query<EventAlarm>().Where(a => a.Event.Id == id).ToList();
             return allAlarms;
         }
 
@@ -43,15 +45,49 @@ namespace WoMoCo.Services
             return _repo.Query<EventAlarm>().Where(e => e.Id == id).FirstOrDefault();
         }
 
-        public void SaveEventAlarm(EventAlarm eventAlarmToSave, string uid)
+        public void SaveEventAlarm(EventAlarmToSave eventAlarmToSave, string uid)
         {
-            if( eventAlarmToSave.Id == 0)
+            ApplicationUser owner = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
+            CalendarEvent calendarEvent = _repo.Query<CalendarEvent>().Where(c => c.Id == eventAlarmToSave.CalenderEventId).FirstOrDefault();
+            DateTime alarmDate = DateTime.Now;
+
+            // get the calender Event's time
+            DateTime eventDateTime = calendarEvent.EventDateTime;
+            // now we need to find out when the user wants the alarm set for ...
+            int negOffsetTime = eventAlarmToSave.OffsetTime * -1;
+
+            switch (eventAlarmToSave.OffsetPeriod)
             {
-                _repo.Add(eventAlarmToSave);
+                case "minute":
+                    alarmDate = eventDateTime.AddMinutes(negOffsetTime);
+                    break;
+                case "hour":
+                    alarmDate = eventDateTime.AddHours(negOffsetTime);
+                    break;
+                case "day":
+                    alarmDate = eventDateTime.AddDays(negOffsetTime);
+                    break;
+                case "week":
+                    alarmDate = eventDateTime.AddDays(negOffsetTime * 7);
+                    break;
+            }
+            // Convert to the eventAlarm model to save
+            EventAlarm saveableAlarm = new EventAlarm
+            {
+                AlarmTime = alarmDate,
+                AlarmMethod = eventAlarmToSave.AlarmMethod
+            };
+            if (saveableAlarm.Id == 0)
+            {
+                saveableAlarm.isActive = true;
+                _repo.Add(saveableAlarm);
             } else
             {
-                _repo.Update(eventAlarmToSave);
+                _repo.Update(saveableAlarm);
             }
+            saveableAlarm.Owner = owner;
+            saveableAlarm.Event = calendarEvent;
+            _repo.SaveChanges();
         }
 
         public void SoftDeleteEventAlarm(int id)

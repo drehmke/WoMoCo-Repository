@@ -149,15 +149,23 @@
         public AlarmResource;
         public calendarEvent: CalendarEvent;
         public eventAlarm: EventAlarm;
+        public eventAlarms;
 
         public GetCalendarEvent(id: number) {
             this.GetResource.get({ id: id }).$promise
                 .then((tmpResult) => {
                     this.calendarEvent = new CalendarEvent(tmpResult);
-                    console.log(this.calendarEvent);
+                    //console.log(this.calendarEvent);
                 });
         }
-        
+        public GetCalenderEventAlarms(id: number) {
+            this.eventAlarmService.getAlarmsByEvent(id).$promise
+                .then((tmpResult) => {
+                    this.eventAlarms = tmpResult;
+                    console.log(tmpResult);
+                });
+        }
+
         public SaveCalendarEvent() {
             this.calendarEvent.setEventDateTime();
             this.calendarEventService.SaveCalendarEvent(this.calendarEvent).then(() => {

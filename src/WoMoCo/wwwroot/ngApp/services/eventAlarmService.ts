@@ -6,6 +6,10 @@
             //return this.$resource('/api/calendarEvents').query();
         }
 
+        public getAlarmsByEvent(eventId: number) {
+            return this.$resource(`/api/eventAlarm/GetByEvent/:eventId`).query({eventId: eventId});
+        }
+
         public saveEventAlarm(eventAlarm) {
             return this.$resource(`/api/eventAlarm`).save(eventAlarm).$promise
                 .then(() => {

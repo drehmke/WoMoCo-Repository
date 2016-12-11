@@ -18,8 +18,8 @@
             <td></td>
             <td><a ng-href="/calendar/viewAlarm/{{alarm.id}}">{{alarm.name}}</a></td>
             <td>{{alarm.ownerName}}</td>
-            <td>{{alarm.eventDateTime|date:'medium'}}</td>
-            <td>{{alarm.method}}</td>
+            <td>{{alarm.alarmTime|date:"medium"}}</td>
+            <td>{{alarm.alarmMethod}}</td>
             <td>{{alarm.isActive}}</td>
             <td colspan="2">
                 <a ng-href="/admin/calendar/editAlarm/{{alarm.id}}" class="btn btn-info">edit</a>

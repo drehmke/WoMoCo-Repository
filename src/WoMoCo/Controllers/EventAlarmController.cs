@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using WoMoCo.Models;
+using WoMoCo.ViewModels.EventAlarms;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,22 +31,22 @@ namespace WoMoCo.Controllers
         {
             return Ok(_service.GetEventAlarmById(id));
         }
+        [HttpGet("/GetByEvent/{eventId}")]
+        public IActionResult GetByEvent(int id)
+        {
+            return Ok(_service.GetAllAlarmsByEvent(id));
+        }
         // TODO: Get Alarm by User
+        // TODO: Get Alarm by Event
         // TODO: Get Alarm by Date Range
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody]EventAlarm eventAlarm)
+        public IActionResult Post([FromBody]EventAlarmToSave eventAlarm)
         {
             string uid = _manager.GetUserId(User);
             _service.SaveEventAlarm(eventAlarm, uid);
             return Ok(eventAlarm);
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
         }
 
         // DELETE api/values/5
