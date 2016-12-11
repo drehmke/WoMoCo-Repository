@@ -37,7 +37,7 @@ namespace WoMoCo {
                 templateUrl: '/ngApp/views/externalRegister.html',
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
-            }) 
+            })
            // ================  Interest ======>
             .state(`addInterest`, {
 
@@ -93,6 +93,7 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.LinkController,
                 controllerAs: `controller`
             })
+<<<<<<< HEAD
             
             //===================== Baby Sitter Links ===============>
             .state(`babySitterlink`, {
@@ -104,6 +105,10 @@ namespace WoMoCo {
             })
             //========================================================>
 
+=======
+
+            //====================================>
+>>>>>>> master
             // ---- Calender Events -------------------------------------------
             .state('calenderEvents', {
                 url: `/admin/calender/allEvents`,
@@ -150,6 +155,30 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.AddChatController,
                 controllerAs: `controller`
             })
+<<<<<<< HEAD
+=======
+            .state(`inbox`, {
+                url: `/message/inbox`,
+                templateUrl: `/ngApp/views/message/inbox.html`,
+                controller: WoMoCo.Controllers.MessageController,
+                controllerAs: `controller`
+            })
+            .state(`message`, {
+                url: `/message/message`,
+                templateUrl: `/ngApp/views/message/message.html`,
+                controller: WoMoCo.Controllers.InfoMessageController,
+                controllerAs: `controller`
+            })
+            .state(`messageModal`, {
+                url: `/message/modal/messageModal`,
+                templateUrl: `/ngApp/views/message/modal/messageModal.html`,
+                controller: WoMoCo.Controllers.MessageController,
+                controllerAs: `controller`
+            })
+            
+            
+        //====================================>
+>>>>>>> master
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
@@ -180,7 +209,7 @@ namespace WoMoCo {
         $locationProvider.html5Mode(true);
     });
 
-    
+
     angular.module('WoMoCo').factory('authInterceptor', (
         $q: ng.IQService,
         $window: ng.IWindowService,
@@ -205,6 +234,5 @@ namespace WoMoCo {
         $httpProvider.interceptors.push('authInterceptor');
     });
 
-    
 
 }
