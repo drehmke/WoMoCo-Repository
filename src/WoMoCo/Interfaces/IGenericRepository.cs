@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace WoMoCo.Repositories
+namespace WoMoCo.Interfaces
 {
     public interface IGenericRepository
     {

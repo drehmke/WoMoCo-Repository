@@ -7,15 +7,16 @@
 
         //Message Modal 
         public messageModal(messageId) {
-            this.$uibModal.open({
-                templateUrl: '/ngApp/views/modal/messageModal.html',
-                controller: WoMoCo.Controllers.CreateMessageController,
-                controllerAs: 'c',
-                resolve: {
-                    messageId: () => messageId
-                },
-                size: 'lg'
-            });
+            //this.$uibModal.open
+            //({
+            //    templateUrl: '/ngApp/views/modal/messageModal.html',
+            //    controller: WoMoCo.Controllers.CreateMessageController,
+            //    controllerAs: 'c',
+            //    resolve: {
+            //        messageId: () => messageId
+            //    },
+            //    size: 'lg'
+            //});
         }
         constructor(private messageService: WoMoCo.Services.MessageService,
             private userId, private accountService: WoMoCo.Services.AccountService,
