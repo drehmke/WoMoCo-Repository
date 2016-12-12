@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using WoMoCo.Models;
+using WoMoCo.ViewModels.Account;
 
 namespace WoMoCo.Services
 {
@@ -10,5 +11,6 @@ namespace WoMoCo.Services
         ApplicationUser GetByUsername(string username);
         ApplicationUser GetUserById(string id);
         void SaveUser(ApplicationUser user);
+        IList<UserForPullDown> GetAllUsersForPullDown();
     }
 }

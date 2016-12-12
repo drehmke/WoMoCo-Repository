@@ -87,6 +87,11 @@
         }
     }
 
+    class ShareEvent {
+        
+        constructor(public userName: string, public eventId: number) { }
+    }
+
     export class CalendarEventsController {
         public calendarEvents;
 
@@ -116,7 +121,7 @@
         public calendarEvent;
         public eventDate;
         public eventTime;
-
+        
 
         public saveEvent() {
             // becuase the form fields didn't let me do a datetime picker in one field, I broke them out
@@ -141,12 +146,26 @@
 
     export class CalendarViewEventController {
         public calendarEvent;
+        public pulldownUsers;
+        public shareWithUserName;
+
+        public shareThisEvent() {
+            let eventToShare = new ShareEvent(this.shareWithUserName, this.$stateParams[`id`]);
+            this.calendarEventService.ShareThisEvent(eventToShare).$promise
+                .then((test) => {
+                    console.log(test);
+                    eventToShare = null;
+                    //this.$state.go(`calendar`);
+                });
+        }
 
         constructor(
             private calendarEventService: WoMoCo.Services.CalendarEventService,
             private $stateParams: ng.ui.IStateParamsService,
+            private $state: ng.ui.IStateService
         ) {
             this.calendarEvent = this.calendarEventService.GetCalendarEventById($stateParams[`id`]);
+            this.pulldownUsers = this.calendarEventService.GetUsersForPullDown();
         }
     }
     angular.module(`WoMoCo`).controller(`calendarViewEventController`, CalendarViewEventController);

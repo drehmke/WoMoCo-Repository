@@ -16,6 +16,7 @@ using WoMoCo.Models;
 using WoMoCo.Services;
 
 using WoMoCo.Repositories;
+using WoMoCo.Interfaces;
 
 namespace WoMoCo
 {

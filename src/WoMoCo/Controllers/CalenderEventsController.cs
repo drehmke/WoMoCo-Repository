@@ -43,6 +43,13 @@ namespace WoMoCo.Controllers
             _service.SaveCalendarEvent(calendarEvent, uid );
             return Ok(calendarEvent);
         }
+
+        [HttpPost("ShareEvent/")]
+        public IActionResult Post([FromBody]SharedCalendarEvent shareEvent)
+        {
+            _service.ShareCalenderEvent(shareEvent);
+            return Ok(shareEvent);
+        }
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

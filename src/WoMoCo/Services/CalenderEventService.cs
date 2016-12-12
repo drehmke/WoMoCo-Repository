@@ -118,23 +118,27 @@ namespace WoMoCo.Services
                 calendarEventToSave.EventType = "playdate";
                 _repo.Add(calendarEventToSave); // saves the new entry to the database
 
-                /* Use this when sharing
-                // add the user and the event to the join table
-                var newUsercalendarEvent = new SharedcalendarEvent
-                {
-                    User = currUser,
-                    UserId = currUser.Id,
-                    calendarEvent = calendarEventToSave,
-                    calendarEventId = calendarEventToSave.Id
-                };
-                _repo.Add(newUsercalendarEvent);
-                _repo.SaveChanges();
-                */
             } else
             {
                 _repo.Update(calendarEventToSave);
             }
         }
+
+        public void ShareCalenderEvent(SharedCalendarEvent calenderEventToShare)
+        {
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.UserName == calenderEventToShare.UserId).FirstOrDefault();
+            CalendarEvent calendarEvent = _repo.Query<CalendarEvent>().Where(e => e.Id == calenderEventToShare.CalendarEventId).FirstOrDefault();
+            var newUsercalendarEvent = new SharedCalendarEvent
+            {
+                User = user,
+                UserId = user.Id,
+                CalendarEvent = calendarEvent,
+                CalendarEventId = calendarEvent.Id
+            };
+            _repo.Add(newUsercalendarEvent);
+            _repo.SaveChanges();
+        }
+
         public void SoftDeleteCalendarEvent(int id)
         {
             CalendarEvent calendarEventToDelete = _repo.Query<CalendarEvent>().Where(c => c.Id == id).FirstOrDefault();
