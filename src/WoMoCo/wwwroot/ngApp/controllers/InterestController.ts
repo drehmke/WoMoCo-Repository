@@ -58,7 +58,7 @@
 
         }
     }
-    //DeleteMovieController
+ 
     export class DeleteInterestController {
         public interest;
         public InterestResource;

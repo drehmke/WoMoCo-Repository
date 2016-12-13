@@ -1,0 +1,24 @@
+﻿<div class="container">
+    <img src="../../images/babysitter_logo.jpg" />
+    <div>
+        <div class="panel-danger">
+            <div class="panel-heading">BabySitter Links</div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>  
+                    <th>Names</th>
+                    <th>Logo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="link in controller.babySitters">
+                    
+                    <td><a target="_blank" href="{{link.linkBase}}">{{link.name}}</a></td>
+                    <td><a target="_blank" href="{{link.linkBase}}"><img ng-src="{{link.image}}" width="50" hight="50"/></a></td>
+                    
+                </tr>  
+            </tbody>
+        </table>
+    </div>
+</div>

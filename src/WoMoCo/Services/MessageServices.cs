@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using WoMoCo.Models;
+
 namespace WoMoCo.Services
 {
     // This class is used by the application to send Email and SMS
@@ -22,4 +24,5 @@ namespace WoMoCo.Services
             return Task.FromResult(0);
         }
     }
+    
 }

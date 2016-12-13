@@ -1,6 +1,18 @@
 <html ng-app="WoMoCo">
 <head>
     <title>WoMoCo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />*@
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--  theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css">
+    <base href="/" />
+    <!---google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Orbitron" rel="stylesheet">
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/chat.css" rel="stylesheet" />
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <base href="/" />
@@ -12,14 +24,22 @@
           <a href="/">Home</a> /
            <a href="/about">About</a> /
             <a href="/interest">Interest</a> /
+
             <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin /</a>
-            <a href="/profile"  ng-show="account.isLoggedIn()">Profile /</a>
+            <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
+           <a href="/about">About</a>/
             <a href="/search">Search</a> /
+            <a href="/interest">Interest</a>/
+            <a href="/message/inbox"> Inbox</a>/
+            <a href="/message/message">Message</a>/
+            <a href="/message/modal/messageModal">Message Modal</a>
+            <a href="/link">Link</a> /
+            <a href="/babySitterlink">BabySitterLink</a> /
            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
            <div ng-show="account.isLoggedIn()">
                [{{account.getUserName()}}]
-           </div> 
+           </div>
         </div>
         <hr />
 
@@ -33,6 +53,8 @@
     <script src="/bower_components/angular-touch/angular-touch.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="//api.filepicker.io/v2/filepicker.js"></script>
+    <script src="~/lib/angular-filepicker/dist/angular_filepicker.js"></script>
 
 
     <!-- App Files-->
@@ -42,10 +64,14 @@
     <script src="~/ngApp/controllers/calenderEventsController.js"></script>
     <script src="~/ngApp/services/calenderEventsService.js"></script>
     <script src="~/ngApp/controllers/userController.js"></script>
+<<<<<<< HEAD
+
+=======
     <script src="~/ngApp/controllers/searchController.js"></script>
     <script src="~/ngApp/services/searchService.js"></script>
 
     
+>>>>>>> searchBar
 
 
     <!-- Security -->
@@ -54,6 +80,12 @@
 
     <!-- Interest -->
     <script src="~/ngapp/controllers/InterestController.js"></script>
+
+    <!-- Link -->
+    <script src="~/ngapp/controllers/linkController.js"></script>
+
+    <!-- Baby Sitter Link -->
+    <script src="~/ngapp/controllers/babySitterController.js"></script>
 
 </body>
 </html>

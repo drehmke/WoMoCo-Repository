@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WoMoCo.Services;
 using WoMoCo.Models;
+using WoMoCo.Services;
 using Microsoft.AspNetCore.Identity;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,40 +12,49 @@ using Microsoft.AspNetCore.Identity;
 namespace WoMoCo.Controllers
 {
     [Route("api/[controller]")]
-    public class InterestController : Controller
+    public class LinkController : Controller
     {
-        private IInterestService _service;
-
+       
+        private ILinkService _service;
         private UserManager<ApplicationUser> _manager;
-
+       
         [HttpGet]
-        public IEnumerable<Interest> Get()
+      
+        public IEnumerable<Link> Get()
         {
-            return _service.GetAllInterests();
+            return _service.GetAllLinks();
         }
+       
+   
         [HttpGet("{id}")]
+        //
         public IActionResult Get(int id)
         {
-            return Ok(_service.GetInterestbyId(id));
+            return Ok(_service.GetLinkById(id));
         }
+
+      
+
         [HttpPost]
-        public IActionResult Post([FromBody]Interest interest)
+        public IActionResult Post([FromBody]Link link)
         {
             string uid = _manager.GetUserId(User);
-            _service.SaveInterest(interest, uid);
+            _service.SaveLink(link, uid);
+         
             return Ok();
         }
+    
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _service.DeleteInterest(id);
+            _service.DeleteList(id);
             return Ok();
         }
-
-        public InterestController(IInterestService service, UserManager<ApplicationUser> manager)
+        public LinkController(ILinkService service, UserManager<ApplicationUser> manager)
         {
             this._service = service;
             this._manager = manager;
+           
         }
     }
 }

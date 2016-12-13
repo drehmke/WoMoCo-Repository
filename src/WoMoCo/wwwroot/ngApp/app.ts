@@ -37,8 +37,8 @@ namespace WoMoCo {
                 templateUrl: '/ngApp/views/notUsing/externalRegister.html',
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
-            }) 
-           // ================ Interest======>
+            })
+           // ================  Interest ======>
             .state(`addInterest`, {
 
                 url: `/addInterest`,
@@ -65,6 +65,45 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.InterestController,
                 controllerAs: `controller`
             })
+        //======================  Link ==============>
+            .state(`addLink`, {
+
+                url: `/addLink`,
+                templateUrl: `/ngApp/views/links/addLink.html`,
+                controller: WoMoCo.Controllers.AddLinkController,
+                controllerAs: `controller`
+            })
+
+            .state(`editLink`, {
+                url: `/editLink/:id`,
+                templateUrl: `/ngApp/views/links/editLink.html`,
+                controller: WoMoCo.Controllers.EditLinkController,
+                controllerAs: `controller`
+            })
+
+            .state(`deleteLink`, {
+                url: `/deleteLink/:id`,
+                templateUrl: `/ngApp/views/links/deleteLink.html`,
+                controller: WoMoCo.Controllers.DeleteLinkController,
+                controllerAs: `controller`
+            })
+            .state(`link`, {
+                url: `/link`,
+                templateUrl: `/ngApp/views/links/link.html`,
+                controller: WoMoCo.Controllers.LinkController,
+                controllerAs: `controller`
+            })
+            
+            //===================== Baby Sitter Links ===============>
+            .state(`babySitterlink`, {
+                url: `/babySitterlink`,
+                templateUrl: `/ngApp/views/babySitterLinks/babySitterlink.html`,
+                controller: WoMoCo.Controllers.BabySitterController,
+                controllerAs: `controller`
+                
+            })
+            //========================================================>
+
             // ---- Calender Events -------------------------------------------
             .state('calenderEvents', {
                 url: `/admin/calender/allEvents`,
@@ -111,6 +150,26 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.AddChatController,
                 controllerAs: `controller`
             })
+
+            .state(`inbox`, {
+                url: `/message/inbox`,
+                templateUrl: `/ngApp/views/message/inbox.html`,
+                controller: WoMoCo.Controllers.MessageController,
+                controllerAs: `controller`
+            })
+            .state(`message`, {
+                url: `/message/message`,
+                templateUrl: `/ngApp/views/message/message.html`,
+                controller: WoMoCo.Controllers.InfoMessageController,
+                controllerAs: `controller`
+            })
+            .state(`messageModal`, {
+                url: `/message/modal/messageModal`,
+                templateUrl: `/ngApp/views/message/modal/messageModal.html`,
+                controller: WoMoCo.Controllers.MessageController,
+                controllerAs: `controller`
+            })
+          
             //=============Search==============================================================
             .state('searches', {
                 url: '/search',
@@ -120,6 +179,7 @@ namespace WoMoCo {
             })
 
             //=============End Search==========================================================
+
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
@@ -150,7 +210,7 @@ namespace WoMoCo {
         $locationProvider.html5Mode(true);
     });
 
-    
+
     angular.module('WoMoCo').factory('authInterceptor', (
         $q: ng.IQService,
         $window: ng.IWindowService,
@@ -175,6 +235,5 @@ namespace WoMoCo {
         $httpProvider.interceptors.push('authInterceptor');
     });
 
-    
 
 }
