@@ -13,9 +13,11 @@ namespace WoMoCo.Services
         public IGenericRepository _repo;
 
         //get all users
-        public IList<ApplicationUser> GetAllUsers()
+        
+        public List<ApplicationUser> GetAllUsers()
         {
-            return _repo.Query<ApplicationUser>().ToList();
+            var users = _repo.Query<ApplicationUser>().ToList();
+            return users;
         }
 
         public IList<UserForPullDown> GetAllUsersForPullDown()
@@ -35,7 +37,6 @@ namespace WoMoCo.Services
             }
             return allPullDownUsers;
         }
-
         //get single user by id
         public ApplicationUser GetUserById(string id)
         {

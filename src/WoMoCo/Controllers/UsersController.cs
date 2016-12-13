@@ -19,10 +19,16 @@ namespace WoMoCo.Controllers
         private UserManager<ApplicationUser> _manager;
         // GET: api/values
         [HttpGet]
-        public IEnumerable<ApplicationUser> Get()
+        public IActionResult Get()
         {
-            return _service.GetAllUsers();
+            return Ok(_service.GetAllUsers());
         }
+
+        //[HttpGet]
+        //public IEnumerable<UserViewModel> Get()
+        //{
+        //    return _service.GetUsers();
+        //}
 
         // GET api/values/5
         [HttpGet("{id}")]

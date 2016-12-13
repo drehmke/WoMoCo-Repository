@@ -7,8 +7,8 @@ namespace WoMoCo.Services
     public interface IUserService
     {
         void DeleteUser(string id);
-        IList<ApplicationUser> GetAllUsers();
-        ApplicationUser GetByUsername(string username);
+        List<ApplicationUser> GetAllUsers();
+        ApplicationUser GetByUsername(string uid);
         ApplicationUser GetUserById(string id);
         void SaveUser(ApplicationUser user);
         IList<UserForPullDown> GetAllUsersForPullDown();

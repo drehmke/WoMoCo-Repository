@@ -14,7 +14,7 @@ namespace WoMoCo {
             })
             .state('secret', {
                 url: '/secret',
-                templateUrl: '/ngApp/views/secret.html',
+                templateUrl: '/ngApp/views/notUsing/secret.html',
                 controller: WoMoCo.Controllers.SecretController,
                 controllerAs: 'controller'
             })
@@ -32,7 +32,7 @@ namespace WoMoCo {
             })
             .state('externalRegister', {
                 url: '/externalRegister',
-                templateUrl: '/ngApp/views/externalRegister.html',
+                templateUrl: '/ngApp/views/notUsing/externalRegister.html',
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
             })
@@ -91,7 +91,6 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.LinkController,
                 controllerAs: `controller`
             })
-
             //===================== Baby Sitter Links ===============>
             .state(`babySitterlink`, {
                 url: `/babySitterlink`,
@@ -108,15 +107,10 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.CalendarUserEventsController,
                 controllerAs: `controller`
             })
+            // ---- Calender Events -------------------------------------------
             .state('calenderEvents', {
                 url: `/admin/calender/allEvents`,
                 templateUrl: `/ngApp/views/calender/eventsList.html`,
-                controller: WoMoCo.Controllers.CalendarEventsController,
-                controllerAs: `controller`
-            })
-            .state('calendarEvents', {
-                url: `/admin/calendar/allEvents`,
-                templateUrl: `/ngApp/views/calendar/eventsList.html`,
                 controller: WoMoCo.Controllers.CalendarEventsController,
                 controllerAs: `controller`
             })
@@ -197,8 +191,18 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
 
-
         //====================================>
+          
+            //=============Search==============================================================
+            .state('searches', {
+                url: '/search',
+                templateUrl: '/ngApp/views/search/search.html',
+                controller: WoMoCo.Controllers.SearchController,
+                controllerAs: 'controller'
+            })
+
+            //=============End Search==========================================================
+
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
