@@ -20,32 +20,48 @@
 
     <form ng-submit="controller.register()">
         <div>
-            <label>First Name:</label>
-            <input ng-model="controller.registerUser.firstName " />
-        </div>
-        <div>
-            <label>Last Name:</label>
-            <input ng-model="controller.registerUser.lastName" />
-        </div>
-        <div>
             <label>User Name:</label>
             <input ng-model="controller.registerUser.userName" />
         </div>
+        <br />
+        <div>
+            <label>Password:</label>
+            <input type="password" ng-model="controller.registerUser.password" />
+        </div>
+        <br />
+        <div>
+            <label>Confirm Password:</label>
+            <input type="password" ng-model="controller.registerUser.confirmPassword" />
+        </div>
+        <br />
         <div>
             <label>Email:</label>
             <input ng-model="controller.registerUser.email" />
         </div>
+        <br />
+        <div>
+            <label>First Name:</label>
+            <input ng-model="controller.registerUser.firstName " />
+        </div>
+        <br />
+        <div>
+            <label>Last Name:</label>
+            <input ng-model="controller.registerUser.lastName" />
+        </div>
+        <br />
         <div>
             <label>Zip Code:</label>
             <input ng-model="controller.registerUser.location" />
         </div>
+        <br />
         <div>
-            <label>Password:</label>
-            <input ng-model="controller.registerUser.password" />
+            <label>Employer</label>
+            <input ng-model="controller.registerUser.employer" />
         </div>
+        <br />
         <div>
-            <label>Confirm Password:</label>
-            <input ng-model="controller.registerUser.confirmPassword" />
+            <label>Job Title</label>
+            <input ng-model="controller.registerUser.currentJobTitle" />
         </div>
         <input type="submit" value="Register" />
     </form>

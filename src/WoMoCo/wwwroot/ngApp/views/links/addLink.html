@@ -1,0 +1,13 @@
+﻿<h1> Add Link </h1>
+<form ng-submit="controller.save()">
+    <div>
+        <label>Name</label>
+        <input placeholder="name" ng-model="controller.link.name" />
+    </div>
+    <div>
+        <label>URL</label>
+        <input placeholder="url" ng-model="controller.link.url" /> 
+    </div>
+    <input type="submit" class="btn btn-primary" value="Add Link" />
+
+</form>

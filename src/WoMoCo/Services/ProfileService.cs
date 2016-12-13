@@ -49,5 +49,10 @@ namespace WoMoCo.Services
         {
             return _repo.Query<ApplicationUser>().Where(m => m.UserName == username).FirstOrDefault();
         }
+        
+        public ProfileService(IGenericRepository repo)
+        {
+            this._repo = repo;
+        }
     }
 }
