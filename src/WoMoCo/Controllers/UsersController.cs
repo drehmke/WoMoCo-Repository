@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Models;
 using WoMoCo.Services;
 using Microsoft.AspNetCore.Identity;
+using WoMoCo.ViewModels.Account;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,10 +19,16 @@ namespace WoMoCo.Controllers
         private UserManager<ApplicationUser> _manager;
         // GET: api/values
         [HttpGet]
-        public IEnumerable<ApplicationUser> Get()
+        public IActionResult Get()
         {
-            return _service.GetAllUsers();
+            return Ok(_service.GetAllUsers());
         }
+
+        //[HttpGet]
+        //public IEnumerable<UserViewModel> Get()
+        //{
+        //    return _service.GetUsers();
+        //}
 
         // GET api/values/5
         [HttpGet("{id}")]

@@ -24,17 +24,17 @@
           <a href="/">Home</a> /
            <a href="/about">About</a> /
             <a href="/interest">Interest</a> /
-            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin</a>/
-            <a href="/profile">Profile</a>/
+
+            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin /</a>
+            <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
            <a href="/about">About</a>/
+            <a href="/search">Search</a> /
             <a href="/interest">Interest</a>/
             <a href="/message/inbox"> Inbox</a>/
             <a href="/message/message">Message</a>/
             <a href="/message/modal/messageModal">Message Modal</a>
             <a href="/link">Link</a> /
-            <a href="/babySitterlink">BabySitterLink</a>
-
-           / <a href="/secret">Secret</a> /
+            <a href="/babySitterlink">BabySitterLink</a> /
            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
            <div ng-show="account.isLoggedIn()">
@@ -45,7 +45,7 @@
 
         <ui-view></ui-view>
     </div>
-
+    @*/ <a href="/secret">Secret</a>*@
     <!-- Library Files -->
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
@@ -64,7 +64,14 @@
     <script src="~/ngApp/controllers/calenderEventsController.js"></script>
     <script src="~/ngApp/services/calenderEventsService.js"></script>
     <script src="~/ngApp/controllers/userController.js"></script>
+<<<<<<< HEAD
 
+=======
+    <script src="~/ngApp/controllers/searchController.js"></script>
+    <script src="~/ngApp/services/searchService.js"></script>
+
+    
+>>>>>>> searchBar
 
 
     <!-- Security -->
