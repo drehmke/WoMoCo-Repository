@@ -1,0 +1,14 @@
+﻿<form ng-submit="controller.save()">
+    <div>
+        <label>Title:</label>
+        <input placeholder="Title" ng-model="controller.post.title" />
+       </div>
+    <div>
+        <label>Discription:</label>
+        <input placeholder="Discription" ng-model="controller.post.discription" />
+    </div>
+    <div>
+        {{post.userName}}
+    </div>
+    <input type="submit" class="btn" value="Add Post" />
+</form>

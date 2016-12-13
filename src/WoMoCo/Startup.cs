@@ -62,6 +62,7 @@ namespace WoMoCo
         
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IPostService, PostService>();
             
 
 

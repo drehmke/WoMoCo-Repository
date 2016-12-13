@@ -1,0 +1,18 @@
+﻿<h1>Posts</h1>
+
+
+<a ng-href="/addPost" class="btn">Add Post</a>
+<div class="panel panel-primary" ng-repeat="post in controller.posts">
+    <div class="panel-heading">
+        <h2 class="panel-title">{{post.userName}}</h2>
+        </div>
+        <div class="panel-body">
+            <ul style="list-style-type: none">
+                <li>{{post.discription}}</li>
+                <li>{{post.title}}</li>
+                <li><a ng-href="/editPost/{{post.id}}" class="btn">Edit Post</a></li>
+                <li><a ng-href="/deletePost/{{post.id}}" class="btn">Delete Post</a></li>
+            </ul>
+        </div>
+    
+</div>

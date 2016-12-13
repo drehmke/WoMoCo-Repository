@@ -11,7 +11,7 @@
         constructor(private accountService:WoMoCo.Services.AccountService ,private $resource: angular.resource.IResourceService,
             ) {
             //this.UserReource = $resource('/api/account/user/');
-            this.UserReource = $resource('/api/users/getUser');
+            this.UserReource = $resource('/api/users/getUser');               
             this.user = this.getUser();
         }
     }

@@ -35,7 +35,7 @@ namespace WoMoCo.Services
             }
         }
 
-        //delete single movie from the database
+        //delete single User from the database
 
         public void DeleteUser(string id)
         {
