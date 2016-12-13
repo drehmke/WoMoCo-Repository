@@ -36,7 +36,8 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
             })
-           // ================  Interest ======>
+
+            // ================ Interest======>
             .state(`addInterest`, {
 
                 url: `/addInterest`,
@@ -224,7 +225,39 @@ namespace WoMoCo {
                 templateUrl: 'ngApp/views/editProfile.html',
                 controller: WoMoCo.Controllers.EditUserController,
                 controllerAs: 'controller'
+            })
+            //Posting or bloging stuffs-----------------------------------------
+            .state('post', {
+                url: '/post',
+                templateUrl: 'ngApp/views/posts/post.html',
+                controller: WoMoCo.Controllers.PostController,
+                controllerAs: 'controller'
+            })
+            .state('addPost', {
+                url: '/addPost',
+                templateUrl: 'ngApp/views/posts/addPost.html',
+                controller: WoMoCo.Controllers.AddPostController,
+                controllerAs: 'controller'
+            })
+            .state('editPost', {
+                url: '/editPost/:id',
+                templateUrl: 'ngApp/views/posts/editPost.html',
+                controller: WoMoCo.Controllers.EditPostController,
+                controllerAs: 'controller'
+            })
+            .state('deletePost', {
+                url: '/deletePost/:id',
+                templateUrl: 'ngApp/views/posts/deletePost.html',
+                controller: WoMoCo.Controllers.DeletePostController,
+                controllerAs: 'controller'
+            })
+            .state('editingPost', {
+                url: '/editingPost',
+                templateUrl: 'ngApp/views/posts/editingPost.html',
+                controller: WoMoCo.Controllers.GetByUsernameController,
+                controllerAs: 'controller'
             });
+            
 
         // Handle request for non-existent route
         $urlRouterProvider.otherwise('/notFound');

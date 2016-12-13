@@ -20,10 +20,14 @@ namespace WoMoCo.Data
         public DbSet<BabySitterLocation> BabySitterLocations { get; set; }
         public DbSet<BabySitterLink> BabySitterLinks { get; set; }
         public DbSet<EventAlarm> EventAlarms { get; set; }
+<<<<<<< HEAD
+        public DbSet<Post> Post { get; set; }
+=======
         public DbSet<Message> Messages { get; set; }
         public DbSet<Inbox> Indoxes { get; set; }
         public DbSet<SharedCalendarEvent> SharedCalenderEvents { get; set; }
 
+>>>>>>> master
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<SharedCalendarEvent>().HasKey(x => new { x.UserId, x.CalendarEventId });
