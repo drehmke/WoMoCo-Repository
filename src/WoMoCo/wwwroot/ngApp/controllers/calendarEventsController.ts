@@ -112,7 +112,6 @@
 
         public getSharedEvents() {
             this.calendarShared = this.calendarEventService.GetSharedEventsForUser();
-            console.log(calenderShared);
         }
 
         constructor(private calendarEventService: WoMoCo.Services.CalendarEventService) {
