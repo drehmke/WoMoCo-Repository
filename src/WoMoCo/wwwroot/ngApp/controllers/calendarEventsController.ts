@@ -87,10 +87,7 @@
         }
     }
 
-    class ShareEvent {
-        
-        constructor(public userName: string, public eventId: number) { }
-    }
+
 
     export class CalendarEventsController {
         public calendarEvents;
@@ -144,31 +141,40 @@
     }
     angular.module(`WoMoCo`).controller(`calendarAddEventController`, CalendarAddEventController);
 
+
+    class ShareEvent {
+
+        constructor(public userId: string, public calendarEventId: number) { }
+    }
+
     export class CalendarViewEventController {
         public calendarEvent;
         public pulldownUsers;
         public shareWithUserName;
+        private ShareResource;
+        private eventToShare;
 
         public shareThisEvent() {
             let eventToShare = new ShareEvent(this.shareWithUserName, this.$stateParams[`id`]);
-            this.calendarEventService.ShareThisEvent(eventToShare).$promise
-                .then((test) => {
-                    console.log(test);
-                    eventToShare = null;
-                    //this.$state.go(`calendar`);
+            this.ShareResource.save(eventToShare).$promise
+                .then(() => {
+                    console.log('Hopefully this controller resource saved it!');
                 });
         }
 
         constructor(
             private calendarEventService: WoMoCo.Services.CalendarEventService,
             private $stateParams: ng.ui.IStateParamsService,
-            private $state: ng.ui.IStateService
+            private $state: ng.ui.IStateService,
+            private $resource: angular.resource.IResourceService
         ) {
+            this.ShareResource = $resource(`/api/calendarEvents/shareEvent`);
             this.calendarEvent = this.calendarEventService.GetCalendarEventById($stateParams[`id`]);
             this.pulldownUsers = this.calendarEventService.GetUsersForPullDown();
         }
     }
     angular.module(`WoMoCo`).controller(`calendarViewEventController`, CalendarViewEventController);
+
 
     export class CalendarEditEventController {
         public GetResource;
@@ -220,15 +226,17 @@
     }
     angular.module(`WoMoCo`).controller(`calendarEditEventController`, CalendarEditEventController);
 
+
     export class CalendarDeleteEventController {
-        public calendarEvent;
+        public currentCalenderEvent;
 
         public GetCalendarEvent(id: number) {
-            this.calendarEvent = this.calendarEventService.GetCalendarEventById(id);
+            return this.calendarEventService.GetCalendarEventById(id);
         }
         public DeleteCalendarEvent() {
-            this.calendarEventService.DeleteCalendarEvent(this.calendarEvent.id).then(() => {
-                    this.calendarEvent = null;
+            this.calendarEventService.DeleteCalendarEvent(this.currentCalenderEvent.id).$promise
+                .then(() => {
+                    this.currentCalenderEvent = null;
                     this.$state.go(`calendarEvents`);
                 });
         }
@@ -236,9 +244,10 @@
         constructor(
             private calendarEventService: WoMoCo.Services.CalendarEventService,
             private $state: ng.ui.IStateService,
-            private $stateParams: ng.ui.IStateParamsService
+            private $stateParams: ng.ui.IStateParamsService,
+            private $resource: angular.resource.IResourceService
         ) {
-            this.GetCalendarEvent($stateParams[`id`]);
+            this.currentCalenderEvent = this.GetCalendarEvent($stateParams[`id`]);
         }
     }
     angular.module(`WoMoCo`).controller(`calendarDeleteEventController`, CalendarDeleteEventController);

@@ -22,9 +22,11 @@ namespace WoMoCo.Data
         public DbSet<EventAlarm> EventAlarms { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Inbox> Indoxes { get; set; }
+        public DbSet<SharedCalendarEvent> SharedCalenderEvents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<SharedCalendarEvent>().HasKey(x => new { x.UserId, x.CalendarEventId });
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.

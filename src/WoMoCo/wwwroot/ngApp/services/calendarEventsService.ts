@@ -42,10 +42,8 @@
         }
 
         public DeleteCalendarEvent(id: number) {
-            return this.$resource(`/api/calendarEvents/:id`).delete({ id: id }).$promise
-                .then(() => {
-                    id = null;
-                });
+            // I am returning this because the $promise on the controller side needs something returned
+            return this.$resource(`/api/calendarEvents/:id`).delete({ id: id });
         }
         
         constructor(

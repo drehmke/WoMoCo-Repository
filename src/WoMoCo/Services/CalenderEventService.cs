@@ -15,6 +15,70 @@ namespace WoMoCo.Services
     {
         private IGenericRepository _repo;
         private UserManager<ApplicationUser> _manager;
+
+        /// <summary>
+        /// Converts the CalenderEvent object to a FullListCalenderEvent object so that we send back only
+        /// the information we need and we can handle any infinite loops.
+        /// </summary>
+        /// <param name="calenderEventToConvert">The calender event to convert.</param>
+        /// <returns></returns>
+        private FullListCalendarEvents ConvertCalendarToListable(CalendarEvent calendarEventToConvert)
+        {
+            FullListCalendarEvents listableCalendarEvent = new FullListCalendarEvents();
+            listableCalendarEvent.Id = calendarEventToConvert.Id;
+            listableCalendarEvent.Name = calendarEventToConvert.Name;
+            listableCalendarEvent.EventDateTime = calendarEventToConvert.EventDateTime;
+            listableCalendarEvent.CreatedDate = calendarEventToConvert.CreatedDate;
+            listableCalendarEvent.Location = calendarEventToConvert.Location;
+            listableCalendarEvent.EventType = calendarEventToConvert.Location;
+            listableCalendarEvent.isActive = calendarEventToConvert.isActive;
+            listableCalendarEvent.OwnerName = calendarEventToConvert.EventOwner.UserName;
+            if (calendarEventToConvert.EventAlarms != null)
+            {
+                listableCalendarEvent.AlarmCount = calendarEventToConvert.EventAlarms.Count();
+            }
+            /*
+            {
+                Id = calendarEventToConvert.Id,
+                Name = calendarEventToConvert.Name,
+                EventDateTime = calendarEventToConvert.EventDateTime,
+                CreatedDate = calendarEventToConvert.CreatedDate,
+                Location = calendarEventToConvert.Location,
+                EventType = calendarEventToConvert.Location,
+                isActive = calendarEventToConvert.isActive,
+                OwnerName = calendarEventToConvert.EventOwner.UserName,
+                if(calendarEventToConvert.EventAlarms != null )
+                {
+                    AlarmCount = calendarEventToConvert.EventAlarms.Count()
+                }
+                
+            };
+            */
+            return listableCalendarEvent;
+        }
+
+        /// <summary>
+        /// Converts the CalendarEvent object to an EditableCalendar object.
+        /// This let's us control what is sent back and handle any possible infinite loops.
+        /// </summary>
+        /// <param name="calendarEventToConvert">The calendar event to convert.</param>
+        /// <returns></returns>
+        private EditCalendarEvent ConvertCalendarEventToEditable(CalendarEvent calendarEventToConvert)
+        {
+            EditCalendarEvent editablecalendarEvent = new EditCalendarEvent
+            {
+                Id = calendarEventToConvert.Id,
+                Name = calendarEventToConvert.Name,
+                CreatedDate = calendarEventToConvert.CreatedDate,
+                Location = calendarEventToConvert.Location,
+                EventType = calendarEventToConvert.EventType,
+                isActive = calendarEventToConvert.isActive,
+                OwnerName = calendarEventToConvert.EventOwner.UserName,
+                EventDate = calendarEventToConvert.EventDateTime.Date.ToString("yyyy-MM-dd"),
+                EventTime = calendarEventToConvert.EventDateTime.TimeOfDay.ToString()
+            };
+            return editablecalendarEvent;
+        }
         // ---- Basic CRUD ----------------------------------------------------
         public IList<FullListCalendarEvents> GetAllEvents()
         {
@@ -23,19 +87,7 @@ namespace WoMoCo.Services
             IList<FullListCalendarEvents> calendarEventsWithOwnersName = new List<FullListCalendarEvents>();
             foreach (CalendarEvent calEvent in calendarEvents)
             {
-                FullListCalendarEvents listableCalendarEvent = new FullListCalendarEvents
-                {
-                    Id = calEvent.Id,
-                    Name = calEvent.Name,
-                    EventDateTime = calEvent.EventDateTime,
-                    CreatedDate = calEvent.CreatedDate,
-                    Location = calEvent.Location,
-                    EventType = calEvent.Location,
-                    isActive = calEvent.isActive,
-                    OwnerName = calEvent.EventOwner.UserName,
-                    EventAlarms = calEvent.EventAlarms
-                };
-                calendarEventsWithOwnersName.Add(listableCalendarEvent);
+                calendarEventsWithOwnersName.Add(this.ConvertCalendarToListable(calEvent));
             }
             
             return calendarEventsWithOwnersName;
@@ -49,19 +101,7 @@ namespace WoMoCo.Services
             {
                 if( calEvent.EventOwner.Id == userId)
                 {
-                    FullListCalendarEvents listcalendarEvent = new FullListCalendarEvents
-                    {
-                        Id = calEvent.Id,
-                        Name = calEvent.Name,
-                        EventDateTime = calEvent.EventDateTime,
-                        CreatedDate = calEvent.CreatedDate,
-                        Location = calEvent.Location,
-                        EventType = calEvent.EventType,
-                        isActive = calEvent.isActive,
-                        OwnerName = calEvent.EventOwner.UserName,
-                        EventAlarms = calEvent.EventAlarms
-                    };
-                    calendarEventsList.Add(listcalendarEvent);
+                    calendarEventsList.Add(this.ConvertCalendarToListable(calEvent));
                 }
             }
             return calendarEventsList;
@@ -76,16 +116,7 @@ namespace WoMoCo.Services
         {
             CalendarEvent originalCalendarEvent = _repo.Query<CalendarEvent>().Where(c => c.Id == id).Include( c => c.EventOwner).Include(a => a.EventAlarms).FirstOrDefault();
 
-            EditCalendarEvent editablecalendarEvent = new EditCalendarEvent();
-            editablecalendarEvent.Id = originalCalendarEvent.Id;
-            editablecalendarEvent.Name = originalCalendarEvent.Name;
-            editablecalendarEvent.CreatedDate = originalCalendarEvent.CreatedDate;
-            editablecalendarEvent.Location = originalCalendarEvent.Location;
-            editablecalendarEvent.EventType = originalCalendarEvent.EventType;
-            editablecalendarEvent.isActive = originalCalendarEvent.isActive;
-            editablecalendarEvent.OwnerName = originalCalendarEvent.EventOwner.UserName;
-            editablecalendarEvent.EventDate = originalCalendarEvent.EventDateTime.Date.ToString("yyyy-MM-dd");
-            editablecalendarEvent.EventTime = originalCalendarEvent.EventDateTime.TimeOfDay.ToString();
+            EditCalendarEvent editablecalendarEvent = ConvertCalendarEventToEditable(originalCalendarEvent);
             IList<EventAlarmForList> listableAlarms = new List<EventAlarmForList>();
             foreach( EventAlarm alarm in originalCalendarEvent.EventAlarms )
             {

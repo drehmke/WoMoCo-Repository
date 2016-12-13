@@ -44,8 +44,9 @@ namespace WoMoCo.Controllers
             return Ok(calendarEvent);
         }
 
-        [HttpPost("ShareEvent/")]
-        public IActionResult Post([FromBody]SharedCalendarEvent shareEvent)
+        [HttpPost("ShareEvent")]
+        //public IActionResult ShareEvent([FromBody]SharedCalendarEvent shareEvent)
+        public IActionResult ShareEvent([FromBody] SharedCalendarEvent shareEvent)
         {
             _service.ShareCalenderEvent(shareEvent);
             return Ok(shareEvent);
@@ -57,7 +58,6 @@ namespace WoMoCo.Controllers
             return Ok();
         }
 
-        // TODO: Get by User
         // TODO: Get By Date Range
         // TODO: SoftDelete
         public CalendarEventsController(ICalendarEventService service, UserManager<ApplicationUser> manager)

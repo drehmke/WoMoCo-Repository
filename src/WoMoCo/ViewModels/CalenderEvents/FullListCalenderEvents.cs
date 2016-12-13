@@ -16,6 +16,6 @@ namespace WoMoCo.ViewModels.calendarEvents
         public string EventType { get; set; }
         public bool isActive { get; set; }
         public string OwnerName { get; set; }
-        public ICollection<EventAlarm> EventAlarms { get; set; }
+        public int AlarmCount { get; set; }
     }
 }
