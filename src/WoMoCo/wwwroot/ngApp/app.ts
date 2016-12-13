@@ -16,7 +16,7 @@ namespace WoMoCo {
             })
             .state('secret', {
                 url: '/secret',
-                templateUrl: '/ngApp/views/secret.html',
+                templateUrl: '/ngApp/views/notUsing/secret.html',
                 controller: WoMoCo.Controllers.SecretController,
                 controllerAs: 'controller'
             })
@@ -34,7 +34,7 @@ namespace WoMoCo {
             })
             .state('externalRegister', {
                 url: '/externalRegister',
-                templateUrl: '/ngApp/views/externalRegister.html',
+                templateUrl: '/ngApp/views/notUsing/externalRegister.html',
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
             }) 
@@ -111,6 +111,15 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.AddChatController,
                 controllerAs: `controller`
             })
+            //=============Search==============================================================
+            .state('searches', {
+                url: '/search',
+                templateUrl: '/ngApp/views/search/search.html',
+                controller: WoMoCo.Controllers.SearchController,
+                controllerAs: 'controller'
+            })
+
+            //=============End Search==========================================================
             .state('about', {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',

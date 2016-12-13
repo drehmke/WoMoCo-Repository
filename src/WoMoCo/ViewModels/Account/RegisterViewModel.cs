@@ -20,6 +20,11 @@ namespace WoMoCo.ViewModels.Account
         [Required]
         public string Location { get; set; }
 
+        [Required]
+        public string CurrentJobTitle { get; set; }
+
+        [Required]
+        public string Employer { get; set; }
 
         [Required]
         [EmailAddress]

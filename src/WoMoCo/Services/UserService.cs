@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
+using WoMoCo.ViewModels.Account;
 
 namespace WoMoCo.Services
 {
@@ -12,11 +13,15 @@ namespace WoMoCo.Services
         public IGenericRepository _repo;
 
         //get all users
-        public IList<ApplicationUser> GetAllUsers()
+        
+        public List<ApplicationUser> GetAllUsers()
         {
-            return _repo.Query<ApplicationUser>().ToList();
+            var users = _repo.Query<ApplicationUser>().ToList();
+            return users;
         }
 
+        
+        
         //get single user by id
         public ApplicationUser GetUserById(string id)
         {
