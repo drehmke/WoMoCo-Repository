@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WoMoCo.Models
+namespace WoMoCo.ViewModels.EventAlarms
 {
-    public class EventAlarm
+    public class EventAlarmForList
     {
         public int Id { get; set; }
         public DateTime AlarmTime { get; set; }
         public string AlarmMethod { get; set; }
         public bool isActive { get; set; }
-        public CalendarEvent Event { get; set; }
-        public ApplicationUser Owner { get; set; }
+        public int CalendarEventId { get; set; }
+        public string CalenderEventName { get; set; }
+        public string OwnerUserName { get; set; }
+
     }
 }

@@ -16,6 +16,7 @@ using WoMoCo.Models;
 using WoMoCo.Services;
 
 using WoMoCo.Repositories;
+using WoMoCo.Interfaces;
 
 namespace WoMoCo
 {
@@ -58,9 +59,10 @@ namespace WoMoCo
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IInterestService, InterestService>();
+            services.AddScoped<ICalendarEventService, CalendarEventService>();
+            services.AddScoped<IEventAlarmService, EventAlarmService>();
             services.AddScoped<ILinkService, LinkService>();
             services.AddScoped<IBabySitterService, BabySitterService>();
-            services.AddScoped<ICalenderEventService, CalenderEventService>();
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IUserService, UserService>();
 
