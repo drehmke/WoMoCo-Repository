@@ -32,28 +32,11 @@ namespace WoMoCo.Services
             listableCalendarEvent.Location = calendarEventToConvert.Location;
             listableCalendarEvent.EventType = calendarEventToConvert.Location;
             listableCalendarEvent.isActive = calendarEventToConvert.isActive;
-            listableCalendarEvent.OwnerName = calendarEventToConvert.EventOwner.UserName;
+            if (calendarEventToConvert.EventOwner != null)
+            { listableCalendarEvent.OwnerName = calendarEventToConvert.EventOwner.UserName; }
+            // I did the assigning this way so that I could null-check the EventAlarms list
             if (calendarEventToConvert.EventAlarms != null)
-            {
-                listableCalendarEvent.AlarmCount = calendarEventToConvert.EventAlarms.Count();
-            }
-            /*
-            {
-                Id = calendarEventToConvert.Id,
-                Name = calendarEventToConvert.Name,
-                EventDateTime = calendarEventToConvert.EventDateTime,
-                CreatedDate = calendarEventToConvert.CreatedDate,
-                Location = calendarEventToConvert.Location,
-                EventType = calendarEventToConvert.Location,
-                isActive = calendarEventToConvert.isActive,
-                OwnerName = calendarEventToConvert.EventOwner.UserName,
-                if(calendarEventToConvert.EventAlarms != null )
-                {
-                    AlarmCount = calendarEventToConvert.EventAlarms.Count()
-                }
-                
-            };
-            */
+            { listableCalendarEvent.AlarmCount = calendarEventToConvert.EventAlarms.Count(); }
             return listableCalendarEvent;
         }
 
@@ -82,7 +65,6 @@ namespace WoMoCo.Services
         // ---- Basic CRUD ----------------------------------------------------
         public IList<FullListCalendarEvents> GetAllEvents()
         {
-            //IList<calendarEvent> calendarEvents = _repo.Query<calendarEvent>().ToList();
             IList<CalendarEvent> calendarEvents = _repo.Query<CalendarEvent>().Include(c => c.EventOwner).Include(a => a.EventAlarms).ToList();
             IList<FullListCalendarEvents> calendarEventsWithOwnersName = new List<FullListCalendarEvents>();
             foreach (CalendarEvent calEvent in calendarEvents)
@@ -105,6 +87,24 @@ namespace WoMoCo.Services
                 }
             }
             return calendarEventsList;
+        }
+
+        public IList<FullListCalendarEvents> GetSharedCalendarEventsForUser(string userId)
+        {
+            // Get the user for userId
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == userId).FirstOrDefault();
+            // Get a list of all the events
+            IList<SharedCalendarEvent> sharedEvents = _repo.Query<SharedCalendarEvent>().Where(s => s.UserId == userId).Include(e => e.CalendarEvent).Include( o => o.CalendarEvent.EventOwner).ToList();
+            IList<FullListCalendarEvents> listableSharedEvents = new List<FullListCalendarEvents>();
+            // Convert the shared events into something we can use and display
+            foreach( SharedCalendarEvent shared in sharedEvents)
+            {
+                FullListCalendarEvents tempEvent = this.ConvertCalendarToListable(shared.CalendarEvent);
+                tempEvent.OwnerName = shared.CalendarEvent.EventOwner.UserName;
+                listableSharedEvents.Add(tempEvent);
+            }
+            
+            return listableSharedEvents;
         }
 
         public IList<CalendarEvent> GetCalendarEventsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd)

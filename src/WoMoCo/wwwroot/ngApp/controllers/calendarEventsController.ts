@@ -104,13 +104,20 @@
 
     export class CalendarUserEventsController {
         public calendarEvents;
+        public calendarShared;
 
         public getAllUserCalendarEvents() {
             return this.calendarEventService.GetCalendarEventsByUser();
         }
 
+        public getSharedEvents() {
+            this.calendarShared = this.calendarEventService.GetSharedEventsForUser();
+            console.log(calenderShared);
+        }
+
         constructor(private calendarEventService: WoMoCo.Services.CalendarEventService) {
             this.calendarEvents = this.getAllUserCalendarEvents();
+            this.getSharedEvents();
         }
     }
 
@@ -158,7 +165,8 @@
             let eventToShare = new ShareEvent(this.shareWithUserName, this.$stateParams[`id`]);
             this.ShareResource.save(eventToShare).$promise
                 .then(() => {
-                    console.log('Hopefully this controller resource saved it!');
+                    eventToShare = null;
+                    this.$state.go(`calendar`);
                 });
         }
 

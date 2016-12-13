@@ -3,6 +3,7 @@
     export class CalendarEventService {
         private getEventsByUserResource;
         private getPullDownResource;
+        private getSharedEventsResource;
 
         public GetAllCalendarEvents() {
             return this.$resource('/api/calendarEvents').query();
@@ -36,9 +37,12 @@
         }
 
         public ShareThisEvent(shareCalenderEvent) {
-            console.log("got to ShareThiseEvent ...");
-            console.log(shareCalenderEvent);
+            // Currently not used - the Controller has the API point
             return this.$resource(`/api/calenderEvents/ShareEvent`).save(shareCalenderEvent);
+        }
+
+        public GetSharedEventsForUser() {
+            return this.getSharedEventsResource.getMyShared();
         }
 
         public DeleteCalendarEvent(id: number) {
@@ -53,6 +57,13 @@
                 getMyEvents: {
                     method: `GET`,
                     url: `/api/calendarEvents/getMy`,
+                    isArray: true
+                }
+            });
+            this.getSharedEventsResource = $resource(`/api/calendarEvents`, null, {
+                getMyShared: {
+                    method: `GET`,
+                    url: `/api/calendarEvents/getMyShared`,
                     isArray: true
                 }
             });

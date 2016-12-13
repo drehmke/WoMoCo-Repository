@@ -36,6 +36,12 @@ namespace WoMoCo.Controllers
             string uid = _manager.GetUserId(User);
             return _service.GetCalendarEventsByUser(uid);
         }
+        [HttpGet("getMyShared/")]
+        public IEnumerable<FullListCalendarEvents> GetMyShared()
+        {
+            string uid = _manager.GetUserId(User);
+            return _service.GetSharedCalendarEventsForUser(uid);
+        }
         [HttpPost]
         public IActionResult Post([FromBody]CalendarEvent calendarEvent)
         {

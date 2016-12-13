@@ -11,6 +11,7 @@ namespace WoMoCo.Interfaces
         IList<FullListCalendarEvents> GetAllEvents();
         EditCalendarEvent GetCalendarEventById(int id);
         IList<FullListCalendarEvents> GetCalendarEventsByUser(string userId);
+        IList<FullListCalendarEvents> GetSharedCalendarEventsForUser(string uid);
         IList<CalendarEvent> GetCalendarEventsForDateRange(DateTime dateRangeStart, DateTime dateRangeEnd);
         void SaveCalendarEvent(CalendarEvent calendarEventToSave, string uid);
         void ShareCalenderEvent(SharedCalendarEvent calenderEventToShare);
