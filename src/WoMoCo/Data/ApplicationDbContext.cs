@@ -14,6 +14,7 @@ namespace WoMoCo.Data
             : base(options)
         {
         }
+        public DbSet<ActivityForum> ActivityForums { get; set; }
         public DbSet<Interest> Interests { get; set; }
         public DbSet<CalenderEvent> CalenderEvents { get; set; }
         public DbSet<EventAlarm> EventAlarms { get; set; }

@@ -10,9 +10,10 @@
         <h1>WoMoCo</h1>
         <div>
           <a href="/">Home</a> /
-           <a href="/about">About</a>
+           <a href="/about">About</a> /
             <a href="/interest">Interest</a> /
-            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin</a>
+            <a href="/activityForum" ng-show="account.isLoggedIn()">Activities /</a>
+            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin /</a>
             <a href="/profile">Profile</a>
 
            / <a href="/secret">Secret</a> /
@@ -52,6 +53,9 @@
 
     <!-- Interest -->
     <script src="~/ngapp/controllers/InterestController.js"></script>
+
+    <!-- ActivityForum-->
+    <script src="~/ngApp/controllers/activitiesController.js"></script>
 
 </body>
 </html>

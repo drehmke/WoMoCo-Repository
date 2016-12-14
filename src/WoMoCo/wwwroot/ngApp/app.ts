@@ -99,6 +99,18 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             // ---- end Calender Events ---------------------------------------
+            .state(`activityForum`, {
+                url: `/activityForum`,
+                templateUrl: `/ngApp/views/activityForum/activitiesForum.html`,
+                controller: WoMoCo.Controllers.ActivitiesController,
+                controllerAs: `controller`
+            })
+            .state(`addActivity`, {
+                url: `/addActivity`,
+                templateUrl: `/ngApp/views/activityForum/activitiesPost.html`,
+                controller: WoMoCo.Controllers.AddActivitiesController,
+                controllerAs: `controller`
+            })
             .state(`chat`, {
                 url: `/chat`,
                 templateUrl: `/ngApp/views/interest/interst.html`,
