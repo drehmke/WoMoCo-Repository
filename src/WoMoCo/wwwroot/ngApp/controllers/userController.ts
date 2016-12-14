@@ -1,18 +1,18 @@
 ﻿namespace WoMoCo.Controllers {
     export class UserController {
         public user;
-        public UserReource;
+        public UserResource;
         public username;
         public userId;
 
         public getUser() {
-          return this.UserReource.get();
+          return this.UserResource.get();
         }
 
         constructor(private accountService:WoMoCo.Services.AccountService ,private $resource: angular.resource.IResourceService,
             ) {
             //this.UserReource = $resource('/api/account/user/');
-            this.UserReource = $resource('/api/users/getUser');
+            this.UserResource = $resource('/api/users/getUser');
             this.user = this.getUser();
         }
     }

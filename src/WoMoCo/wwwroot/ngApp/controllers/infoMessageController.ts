@@ -16,9 +16,7 @@
             private $state: ng.ui.IStateService) {
             
             this.getComm($stateParams[`id`]);
-
-
-
+       
 
         }
     }

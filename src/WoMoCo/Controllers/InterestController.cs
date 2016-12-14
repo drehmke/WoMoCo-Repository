@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Services;
 using WoMoCo.Models;
+using Microsoft.AspNetCore.Identity;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,6 +15,9 @@ namespace WoMoCo.Controllers
     public class InterestController : Controller
     {
         private IInterestService _service;
+
+        private UserManager<ApplicationUser> _manager;
+
         [HttpGet]
         public IEnumerable<Interest> Get()
         {
@@ -27,7 +31,8 @@ namespace WoMoCo.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]Interest interest)
         {
-            _service.SaveInterest(interest);
+            string uid = _manager.GetUserId(User);
+            _service.SaveInterest(interest, uid);
             return Ok();
         }
         [HttpDelete("{id}")]
@@ -37,9 +42,10 @@ namespace WoMoCo.Controllers
             return Ok();
         }
 
-        public InterestController(IInterestService service)
+        public InterestController(IInterestService service, UserManager<ApplicationUser> manager)
         {
             this._service = service;
+            this._manager = manager;
         }
     }
 }

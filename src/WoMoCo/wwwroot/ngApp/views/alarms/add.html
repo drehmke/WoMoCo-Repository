@@ -1,0 +1,27 @@
+﻿<form class="form-horizontal">
+    <fieldset>
+        <legend>Add An Alarm</legend>
+        <div class="form-group">
+            <label for="alarmMethod" class="col-sm-2">Alert</label>
+            <div class="col-sm-3">
+                <select id="alarmMethod" name="alarmMethod" class="form-control" ng-model="controller.eventAlarm.alarmMethod">
+                    <option value="email">Email</option>
+                    <option value="popup">PopUp</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" id="alarmOffsetNumber" name="alarmOffSetNumber" ng-model="controller.eventAlarm.offsetTime" />
+            </div>
+            <div class="col-sm-2">
+                <select id="alarmOffSetPeriod" class="form-control" name="alarmOffSetPeriod" ng-model="controller.eventAlarm.offsetPeriod">
+                    <option value="minute">Minutes</option>
+                    <option value="hour">Hours</option>
+                    <option value="day">Days</option>
+                    <option value="week">Weeks</option>
+                </select>
+            </div>
+            <div class="col-sm-2"><button type="button" ng-click="controller.SaveNewAlarm()" class="btn btn-info" />Add Reminder</button></div>
+        </div>
+    </fieldset>
+
+</form>
