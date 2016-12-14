@@ -1,0 +1,29 @@
+﻿<h1>Search for your Connections here!</h1>
+
+<label>Search</label>
+<!--<input type="text" placeholder="Search for a connection" ng-model="controller.username" />
+<button type="button" ng-click="controller.userByUsername()">Search</button>-->
+<input type="text" placeholder="Search for a connection" ng-model="searchTerm" />
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Location</th>
+            <th>Job Title</th>
+            <th>Employer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in controller.users | filter: searchTerm">
+            <td>{{user.userName}}</td>
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.location}}</td>
+            <td>{{user.currentJobTitle}}</td>
+            <td>{{user.employer}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿
+<div class="container">
+    <div id="inboxContainer" class="col-lg-8 col-lg-offset-2 img-rounded">
+        <div class="row">
+            <div id="messagesContainer" class="img-rounded shadowDark">
+                <h2 id="inboxHeader"> Messages</h2>
+
+                <br />
+                <table class="table table-hover table-striped img-rounded">
+                    <thread>
+                        <tr class="alert-info">
+                            <th>To</th>
+                            <th>From</th>
+                            <th>Subject</th>
+                            
+                            <th>Date</th>
+                            <th>Message</th>
+                            
+                        <tr>
+                    </thread>
+                    <thread>
+                        <tbody>
+                            <tr class="info" ng-model="controller.comm">
+                                <td>{{controller.comm.recID}}</td>
+                                <td>{{controller.comm.sendingUser}}</td>
+                                <td>{{controller.comm.subject}}</td>
+                                
+                                <td>{{controller.comm.dateSent}}</td>
+                                <td>{{controller.comm.msg}}</td>
+                                <!--<td><a ng-href="/message/{{comm.id}}" class="btn btn-primary">Message Detail</a></td>-->
+                            </tr>
+                        </tbody>
+                    </thread>
+
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+

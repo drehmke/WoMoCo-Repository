@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WoMoCo.Models
 {
-    public class CalenderEvent
+    public class CalendarEvent
     {
         public int Id { get; set; }
         // id will be auto-increment in the database

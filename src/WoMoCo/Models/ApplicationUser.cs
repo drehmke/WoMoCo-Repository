@@ -9,6 +9,7 @@ namespace WoMoCo.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
+        public string User { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Location { get; set; }
@@ -17,5 +18,6 @@ namespace WoMoCo.Models
         public string CurrentJobTitle { get; set; }
         public string Employer { get; set; }
 
+        //public ICollection<Message> Messages { get; set; }
     }
 }

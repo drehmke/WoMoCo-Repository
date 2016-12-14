@@ -1,0 +1,8 @@
+﻿<div class="deleteEvent">
+    <p class="text-danger">Are you sure you wish to delete {{controller.currentCalenderEvent.name}}, scheduled for {{controller.currentCalenderEvent.eventDate}} at {{controller.currentCalenderEvent.eventTime}}?</p>
+    <p class="text-warning">ToDo: list alerts that will be deleted</p>
+    <p class="text-warning">ToDo: list shared people who will have it deleted? (Do we want to auto-generate a message from this person that the event was deleted?)</p>
+    <div class="actionButtons">
+        <button class="btn btn-danger" ng-click="controller.DeleteCalendarEvent()">Yes - Delete this {{controller.currentCalenderEvent.eventType}}</button>
+    </div>
+</div>

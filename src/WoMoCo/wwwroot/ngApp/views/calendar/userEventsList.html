@@ -1,0 +1,54 @@
+﻿<h2>My Events List</h2>
+<table class="table table-bordered table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>Event Name</th>
+            <th>Event Time</th>
+            <th>Event Location</th>
+            <th>Active Status</th>
+            <th>Actions</th>
+            <th><a href="/admin/calendar/addEvent" class="btn btn-success">Add</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="event in controller.calendarEvents">
+            <td></td>
+            <td><a ng-href="/calendar/viewEvent/{{event.id}}">{{event.name}}</a></td>
+            <td>{{event.eventDateTime|date:'medium'}}</td>
+            <td>{{event.location}}</td>
+            <td>{{event.isActive}}</td>
+            <td colspan="2">
+                <a ng-href="/admin/calendar/editEvent/{{event.id}}" class="btn btn-info">edit</a>
+                <a ng-href="/admin/calendar/deleteEvent/{{event.id}}" class="btn btn-danger">delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h3>Events Shared With Me</h3>
+<table class="table table-bordered table-condensed table-hover table-striped">
+    <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>Event Name</th>
+            <th>Event Time</th>
+            <th>Event Location</th>
+            <th>Active Status</th>
+            <th>Actions</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="event in controller.calendarShared">
+            <td></td>
+            <td><a ng-href="/calendar/viewEvent/{{event.id}}">{{event.name}}</a></td>
+            <td>{{event.eventDateTime|date:'medium'}}</td>
+            <td>{{event.location}}</td>
+            <td>{{event.isActive}}</td>
+            <td colspan="2">
+                <a ng-href="/admin/calendar/editEvent/{{event.id}}" class="btn btn-info">edit</a>
+                <a ng-href="/admin/calendar/deleteEvent/{{event.id}}" class="btn btn-danger">delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
