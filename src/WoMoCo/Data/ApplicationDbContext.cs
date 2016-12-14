@@ -18,7 +18,8 @@ namespace WoMoCo.Data
         public DbSet<CalenderEvent> CalenderEvents { get; set; }
         public DbSet<EventAlarm> EventAlarms { get; set; }
         public DbSet<Message> Messages { get; set; }
-        public DbSet<Inbox> Indoxes { get; set; }
+        public DbSet<Inbox> Inboxes { get; set; }
+        public DbSet<Comm> Comms { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

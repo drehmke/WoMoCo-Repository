@@ -127,17 +127,29 @@ namespace WoMoCo.Data.Migrations
                 {
                     b.Property<string>("Id");
 
+                    b.Property<string>("About");
+
                     b.Property<int>("AccessFailedCount");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<string>("CurrentJobTitle");
 
                     b.Property<string>("Email")
                         .HasAnnotation("MaxLength", 256);
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<string>("Employer");
+
+                    b.Property<string>("FirstName");
+
                     b.Property<int?>("InterestId");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Location");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -159,6 +171,8 @@ namespace WoMoCo.Data.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
+                    b.Property<string>("UserImage");
+
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 
@@ -176,18 +190,122 @@ namespace WoMoCo.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("WoMoCo.Models.CalenderEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<DateTime>("EventDateTime");
+
+                    b.Property<string>("EventOwnerId");
+
+                    b.Property<string>("EventType");
+
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Name");
+
+                    b.Property<bool>("isActive");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventOwnerId");
+
+                    b.ToTable("CalenderEvents");
+                });
+
+            modelBuilder.Entity("WoMoCo.Models.Comm", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CommType");
+
+                    b.Property<DateTime>("DateSent");
+
+                    b.Property<bool>("HasBeenViewed");
+
+                    b.Property<int?>("InboxId");
+
+                    b.Property<string>("Msg");
+
+                    b.Property<string>("RecId");
+
+                    b.Property<string>("ReceivingUserId");
+
+                    b.Property<string>("SendingUserId");
+
+                    b.Property<string>("Status");
+
+                    b.Property<string>("Subject");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InboxId");
+
+                    b.HasIndex("ReceivingUserId");
+
+                    b.HasIndex("SendingUserId");
+
+                    b.ToTable("Comms");
+                });
+
+            modelBuilder.Entity("WoMoCo.Models.EventAlarm", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AlarmMethod");
+
+                    b.Property<DateTime>("AlarmTime");
+
+                    b.Property<int?>("EventId");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("OwnerId");
+
+                    b.Property<bool>("isActive");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("EventAlarms");
+                });
+
             modelBuilder.Entity("WoMoCo.Models.Inbox", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("DateSent");
+
+                    b.Property<bool>("HasBeenViewed");
+
+                    b.Property<string>("Msg");
+
+                    b.Property<string>("RecId");
+
+                    b.Property<string>("ReceivingUserId");
+
+                    b.Property<string>("SendingUserId");
+
+                    b.Property<string>("Subject");
+
                     b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ReceivingUserId");
 
-                    b.ToTable("Indoxes");
+                    b.HasIndex("SendingUserId");
+
+                    b.ToTable("Inboxes");
                 });
 
             modelBuilder.Entity("WoMoCo.Models.Interest", b =>
@@ -209,31 +327,27 @@ namespace WoMoCo.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUserId");
-
                     b.Property<DateTime>("DateSent");
 
                     b.Property<bool>("HasBeenViewed");
-
-                    b.Property<int?>("InboxId");
 
                     b.Property<string>("Msg");
 
                     b.Property<string>("RecId");
 
-                    b.Property<string>("SendingUser");
+                    b.Property<string>("ReceivingUserId");
+
+                    b.Property<string>("SendingUserId");
 
                     b.Property<string>("Status");
 
                     b.Property<string>("Subject");
 
-                    b.Property<string>("UserName");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("ReceivingUserId");
 
-                    b.HasIndex("InboxId");
+                    b.HasIndex("SendingUserId");
 
                     b.ToTable("Messages");
                 });
@@ -282,22 +396,59 @@ namespace WoMoCo.Data.Migrations
                         .HasForeignKey("InterestId");
                 });
 
+            modelBuilder.Entity("WoMoCo.Models.CalenderEvent", b =>
+                {
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "EventOwner")
+                        .WithMany()
+                        .HasForeignKey("EventOwnerId");
+                });
+
+            modelBuilder.Entity("WoMoCo.Models.Comm", b =>
+                {
+                    b.HasOne("WoMoCo.Models.Inbox")
+                        .WithMany("Comms")
+                        .HasForeignKey("InboxId");
+
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "ReceivingUser")
+                        .WithMany()
+                        .HasForeignKey("ReceivingUserId");
+
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "SendingUser")
+                        .WithMany()
+                        .HasForeignKey("SendingUserId");
+                });
+
+            modelBuilder.Entity("WoMoCo.Models.EventAlarm", b =>
+                {
+                    b.HasOne("WoMoCo.Models.CalenderEvent", "Event")
+                        .WithMany("EventAlarms")
+                        .HasForeignKey("EventId");
+
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId");
+                });
+
             modelBuilder.Entity("WoMoCo.Models.Inbox", b =>
                 {
-                    b.HasOne("WoMoCo.Models.ApplicationUser", "User")
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "ReceivingUser")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("ReceivingUserId");
+
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "SendingUser")
+                        .WithMany()
+                        .HasForeignKey("SendingUserId");
                 });
 
             modelBuilder.Entity("WoMoCo.Models.Message", b =>
                 {
-                    b.HasOne("WoMoCo.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("Messages")
-                        .HasForeignKey("ApplicationUserId");
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "ReceivingUser")
+                        .WithMany()
+                        .HasForeignKey("ReceivingUserId");
 
-                    b.HasOne("WoMoCo.Models.Inbox")
-                        .WithMany("Messages")
-                        .HasForeignKey("InboxId");
+                    b.HasOne("WoMoCo.Models.ApplicationUser", "SendingUser")
+                        .WithMany()
+                        .HasForeignKey("SendingUserId");
                 });
         }
     }

@@ -3,6 +3,7 @@
         public user;
         public UserReource;
         public username;
+        public userId;
 
         public getUser() {
           return this.UserReource.get();

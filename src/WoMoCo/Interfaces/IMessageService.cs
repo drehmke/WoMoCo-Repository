@@ -1,4 +1,5 @@
-﻿using WoMoCo.Models;
+﻿using System.Collections.Generic;
+using WoMoCo.Models;
 
 namespace WoMoCo.Services
 {
@@ -6,7 +7,7 @@ namespace WoMoCo.Services
     {
         void DeleteMessage(int id);
         object getMessageInfo(int id);
-        object MsgsByUser(string id);
-        void sendMessage(Message msg);
+        void sendMessage(Message message, string senderId);
+        IList<Message> GetAllMessages();
     }
 }

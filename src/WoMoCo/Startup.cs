@@ -16,6 +16,7 @@ using WoMoCo.Models;
 using WoMoCo.Services;
 
 using WoMoCo.Repositories;
+using WoMoCo.Interfaces;
 
 namespace WoMoCo
 {
@@ -59,9 +60,11 @@ namespace WoMoCo
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IInterestService, InterestService>();
             services.AddScoped<ICalenderEventService, CalenderEventService>();
+            services.AddScoped<IMessageService, MessageService>();
         
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICommService, CommService>();
             
 
 
