@@ -180,7 +180,7 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             .state(`message`, {
-                url: `/message/message`,
+                url: `/message/message/:id`,
                 templateUrl: `/ngApp/views/message/message.html`,
                 controller: WoMoCo.Controllers.InfoMessageController,
                 controllerAs: `controller`
@@ -188,7 +188,7 @@ namespace WoMoCo {
             .state(`messageModal`, {
                 url: `/message/modal/messageModal`,
                 templateUrl: `/ngApp/views/message/modal/messageModal.html`,
-                controller: WoMoCo.Controllers.MessageController,
+                controller: WoMoCo.Controllers.CreateMessageController,
                 controllerAs: `controller`
             })
 

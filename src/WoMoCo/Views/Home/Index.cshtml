@@ -6,6 +6,8 @@
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <!--  theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
     <base href="/" />
@@ -13,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
     <link href="~/css/chat.css" rel="stylesheet" type="text/css" />
+
     <base href="/" />
 </head>
 <body ng-controller="AccountController as account">
@@ -55,7 +58,9 @@
 
         <ui-view></ui-view>
     </div>
+
     @*/ <a href="/secret">Secret</a>*@
+
     <!-- Library Files -->
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
@@ -63,10 +68,8 @@
     <script src="/bower_components/angular-touch/angular-touch.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<!--
-    <script type="text/javascript" src="//api.filepicker.io/v2/filepicker.js"></script>
-    <script src="~/lib/angular-filepicker/dist/angular_filepicker.js"></script>
-    -->
+
+    
 
     <!-- App Files-->
     <script src="/ngApp/app.js"></script>
@@ -76,10 +79,13 @@
     <script src="~/ngApp/controllers/calendarEventsController.js"></script>
     <script src="~/ngApp/services/calendarEventsService.js"></script>
     <script src="~/ngApp/controllers/userController.js"></script>
-
-    <script src="~/ngApp/controllers/postController.js"></script>
-    
-
+    <script src="~/ngApp/controllers/createMessageController.js"></script>
+    <script src="~/ngApp/controllers/messageController.js"></script>
+    <script src="~/ngApp/services/messageService.js"></script>
+    <script src="~/ngApp/controllers/postController.js"></script>    
+    <script src="~/ngApp/controllers/chatController.js"></script>
+    <script src="~/ngApp/controllers/deleteMessageController.js"></script>
+    <script src="~/ngApp/controllers/infoMessageController.js"></script>
     <script src="~/ngApp/services/eventAlarmService.js"></script>
     <script src="~/ngApp/controllers/eventAlarmController.js"></script>
     <script src="~/ngApp/controllers/searchController.js"></script>
