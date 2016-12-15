@@ -2,20 +2,40 @@
     export class UserController {
         public user;
         public UserResource;
-        public username;
-        public userId;
+        // interests
+        public interests; // this is for the list
+        public interest; // this is for the add 
 
         public getUser() {
           return this.UserResource.get();
         }
+        
+        // get all Interests for the currently logged in user
+        public getMyInterests() {
+            return this.interestService.getAllUsersInterest();
+        }
 
-        constructor(private accountService:WoMoCo.Services.AccountService ,private $resource: angular.resource.IResourceService,
+        // add an interest
+        public saveInterest() {
+            this.interestService.saveInterest(this.interest).$promise
+                .then(() => {
+                    this.interest = null;
+                    this.interests = this.getMyInterests();
+                });
+        }
+        
+        constructor(
+            private accountService: WoMoCo.Services.AccountService,
+            private $resource: angular.resource.IResourceService,
+            private interestService: WoMoCo.Services.InterestService
             ) {
-            //this.UserReource = $resource('/api/account/user/');
             this.UserResource = $resource('/api/users/getUser');
             this.user = this.getUser();
+            this.interests = this.getMyInterests();
         }
     }
+    angular.module(`WoMoCo`).controller(`UserController`, UserController);
+
     //Add UserController controller
     export class AddUserController {
         public user;

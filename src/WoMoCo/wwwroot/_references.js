@@ -28,6 +28,7 @@
 /// <reference path="ngapp/services/accountservice.js" />
 /// <reference path="ngapp/services/calendareventsservice.js" />
 /// <reference path="ngapp/services/eventalarmservice.js" />
+/// <reference path="ngapp/services/interestservice.js" />
 /// <reference path="ngapp/services/messageservice.js" />
 /// <reference path="ngapp/services/searchservice.js" />
 /// <reference path="ngapp/services/services.js" />
