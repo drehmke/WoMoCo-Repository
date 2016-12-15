@@ -16,10 +16,17 @@
         }
 
         // add an interest
-        public saveInterest() {
+        public addInterest() {
             this.interestService.saveInterest(this.interest).$promise
                 .then(() => {
                     this.interest = null;
+                    this.interests = this.getMyInterests();
+                });
+        }
+        // remove an interest
+        public removeInterest(id: number) {
+            this.interestService.removeInterest(id).$promise
+                .then(() => {
                     this.interests = this.getMyInterests();
                 });
         }

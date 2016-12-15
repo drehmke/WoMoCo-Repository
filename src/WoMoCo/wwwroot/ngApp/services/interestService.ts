@@ -12,6 +12,10 @@
             return temp;
         }
 
+        public removeInterest(id: number) {
+            return this.$resource(`/api/interest/:id`).delete({id: id});
+        }
+
         // ---- CONSTRUCTOR ---------------------------------------------------
         constructor(
             private $resource: angular.resource.IResourceService
