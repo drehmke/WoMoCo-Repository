@@ -5,6 +5,9 @@
         // interests
         public interests; // this is for the list
         public interest; // this is for the add 
+        // links
+        public links; // this is for the list
+        public link; // this is for the add
 
         public getUser() {
           return this.UserResource.get();
@@ -30,15 +33,37 @@
                     this.interests = this.getMyInterests();
                 });
         }
+
+        // get all the Links for the currently logged in user
+        public getMyLinks() {
+            return this.linkService.getAllUserLinks();
+        }
+        // add a link
+        public addLink() {
+            this.linkService.saveLink(this.link).$promise
+                .then(() => {
+                    this.link = null;
+                    this.links = this.getMyLinks();
+                });
+        }
+        // remove a link
+        public removeLink(id: number) {
+            this.linkService.removeLink(id).$promise
+                .then(() => {
+                    this.links = this.getMyLinks();
+                });
+        }
         
         constructor(
             private accountService: WoMoCo.Services.AccountService,
             private $resource: angular.resource.IResourceService,
-            private interestService: WoMoCo.Services.InterestService
+            private interestService: WoMoCo.Services.InterestService,
+            private linkService: WoMoCo.Services.LinkService
             ) {
             this.UserResource = $resource('/api/users/getUser');
             this.user = this.getUser();
             this.interests = this.getMyInterests();
+            this.links = this.getMyLinks();
         }
     }
     angular.module(`WoMoCo`).controller(`UserController`, UserController);

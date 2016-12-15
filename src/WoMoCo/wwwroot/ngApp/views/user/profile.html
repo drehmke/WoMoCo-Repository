@@ -9,11 +9,8 @@
     <li>{{controller.user.currentJobTitle}}</li>
     <li>{{controller.user.employer}}</li>
 </ul>
-<h3>My Interests</h3>
-<ul>
-    <li ng-repeat="interest in controller.interests">{{interest.name}} <a href="#" ng-click="controller.removeInterest(interest.id)">x</a></li>
-</ul>
-<div ng-include="'/ngApp/views/interest/inc-addInterest.html'"></div>
+<div ng-include="'/ngApp/views/interest/inc-profileList.html'"></div>
+<div ng-include="'/ngApp/views/links/inc-profileList.html'"></div>
 
 <h3>Actions</h3>
 <ul>

@@ -23,30 +23,21 @@
         <div>
           <a href="/">Home</a> /
            <a href="/about">About</a> /
-            <a href="/interest">Interest</a> /
-            <a href="/admin/calendar/allEvents"  ng-show="account.isLoggedIn()">Event Admin</a>
-            <a href="/profile">Profile</a>
-
-            <a href="/post">Post</a>/
-            <a href="/editingPost">EditingPost</a>
-
-           / <a href="/secret">Secret</a> /
-
-           <a href="/about">About</a>|
-            <a href="/interest">Interest</a>|
-            <a href="/message/inbox"> Inbox</a>|
-            <a href="/message/message">Message</a>|
-            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin /</a>
-            <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
-           <a href="/about">About</a>/
             <a href="/search">Search</a> /
-            <a href="/interest">Interest</a>/
-            <a href="/message/inbox"> Inbox</a>/
-            <a href="/message/message">Message</a>/
-            <a href="/message/modal/messageModal">Message Modal</a>
-            <a href="/link">Link</a> /
             <a href="/babySitterlink">BabySitterLink</a> /
 
+            <!-- Logged In -->
+            <a href="/post">(l) Post</a>/
+            <a href="/editingPost">(l) EditingPost</a>
+            <a href="/link">(l) Link</a> /
+            <a href="/message/inbox">(l) Inbox</a>|
+            <a href="/message/message">(l) Message</a>/
+            <a href="/message/modal/messageModal">(l) Message Modal</a>
+            <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
+
+            <!-- Admin -->
+            <a href="/interest">(a) Interest</a>|
+            <a href="/admin/calendar/allEvents" ng-show="account.isLoggedIn()">(a) Event Admin</a>
            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
            <div ng-show="account.isLoggedIn()">
@@ -99,6 +90,7 @@
 
     <!-- Link -->
     <script src="~/ngApp/controllers/linkController.js"></script>
+    <script src="~/ngApp/services/linkService.js"></script>
 
     <!-- Baby Sitter Link -->
     <script src="~/ngApp/controllers/babySitterController.js"></script>

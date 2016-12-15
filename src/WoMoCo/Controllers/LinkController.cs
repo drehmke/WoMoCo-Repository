@@ -33,7 +33,13 @@ namespace WoMoCo.Controllers
             return Ok(_service.GetLinkById(id));
         }
 
-      
+        [HttpGet("GetMy/")]
+        public IEnumerable<Link> GetMy()
+        {
+            string uid = _manager.GetUserId(User);
+            IList<Link> listableLinks = _service.GetLinksByUser(uid);
+            return listableLinks;
+        }
 
         [HttpPost]
         public IActionResult Post([FromBody]Link link)

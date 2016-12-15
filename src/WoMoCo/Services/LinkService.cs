@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,6 +22,26 @@ namespace WoMoCo.Services
         {
           return _repo.Query<Link>().Where(l => l.Id == id).FirstOrDefault();
         }
+
+        public IList<Link> GetLinksByUser(string uid)
+        {
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
+            IList<Link> userLinks = _repo.Query<Link>().Include(l => l.User).ToList();
+            IList<Link> listableLinks = new List<Link>();
+            foreach(Link link in userLinks)
+            {
+                Link listable = new Link
+                {
+                    Id = link.Id,
+                    Name = link.Name,
+                    Url = link.Url,
+                    LinkType = link.LinkType
+                };
+                listableLinks.Add(listable);
+            }
+            return listableLinks;
+        }
+
         public void SaveLink(Link link, string uid)
         {
             if (link.Id==0)
