@@ -13,11 +13,20 @@ namespace WoMoCo.Models
         //public ICollection<FriendRequest> FriendRequests { get; set; }
 
 
-        public ApplicationUser User { get; set; }
+       
 
         [ForeignKey("UserId")]
         public string UserId { get; set; }
-        public ICollection<Message> Messages { get; set; }
+        //public ICollection<Message> Messages { get; set; }
+        public ICollection<Comm> Comms { get; set; }
+
+        public string RecId { get; set; }
+        public ApplicationUser SendingUser { get; set; }
+        public string Subject { get; set; }
+        public ApplicationUser ReceivingUser { get; set; }
+        public bool HasBeenViewed { get; set; }
+        public DateTime DateSent { get; set; }
+        public string Msg { get; set; }
 
     }
 }

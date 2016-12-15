@@ -1,0 +1,53 @@
+﻿<h2>Update calendar Event</h2>
+<form class="form-horizontal">
+    <fieldset>
+        <legend>Update Your Event</legend>
+
+        <div class="form-group">
+            <label for="eventName" class="col-sm-2">Event Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="eventName" name="eventName" placeholder="Event Name" ng-model="controller.calendarEvent.name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventLocation" class="col-sm-2">Location</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="eventLocation" name="eventLocation" placeholder="Location for the event" ng-model="controller.calendarEvent.location" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventDate" class="col-sm-2">Event Date</label>
+            
+            <div class="col-md-2">
+                <input type="date" class="form-control" id="eventDate" name="eventDate" placeholder="mm/dd/YYYY" ng-model="controller.calendarEvent.eventDateObject" />
+            </div>
+            <div class="col-md-2">
+                <input type="time" class="form-control" id="eventTime" name="eventTime" ng-model="controller.calendarEvent.eventTimeObject"  />
+            </div>
+        </div>
+
+        <div>
+            <input type="button" value="Update Event" class="btn btn-success" ng-click="controller.SaveCalendarEvent()" />
+        </div>
+    </fieldset>
+</form>
+<div>
+    <h3>Existing Alarms</h3>
+    <table class="table table-bordered table-striped table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Alarm Method</th>
+                <th>Alarm Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="alarm in controller.calendarEvent.eventAlarms">
+                <td>{{alarm.alarmMethod}}</td>
+                <td>{{alarm.alarmTime | date:"medium"}}</td>
+                <td><a class="btn btn-danger btn-sm" ng-href="/alarm/delete/{{alarm.id}}/{{controller.calendarEvent.id}}" >Delete Alarm</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div ng-include="'/ngApp/views/alarms/add.html'"></div>
