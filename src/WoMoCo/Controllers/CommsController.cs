@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Models;
 using WoMoCo.Services;
+using WoMoCo.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,6 +15,8 @@ namespace WoMoCo.Controllers
     public class CommsController : Controller
     {
         private ICommService _service;
+        private ICommService _manager;
+
 
         // GET: api/values
         [HttpGet]
@@ -33,6 +36,9 @@ namespace WoMoCo.Controllers
        [HttpPost]
         public IActionResult Post([FromBody]Comm comm)
         {
+
+            //string uid = _manager.GetUserId(User);
+            //_service.sendComm(comm, uid);
             _service.SaveComm(comm);
             return Ok(comm);
         }
@@ -50,9 +56,10 @@ namespace WoMoCo.Controllers
             _service.DeleteComm(id);
             return Ok();
         }
-        public CommsController(ICommService service)
+        public CommsController(ICommService service, ICommService manager)
         {
             this._service = service;
+            this._manager = manager;
         }
     }
 }

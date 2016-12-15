@@ -58,8 +58,7 @@ namespace WoMoCo
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.AddScoped<IGenericRepository, GenericRepository>();
-            services.AddScoped<IInterestService, InterestService>();
-            services.AddScoped<IMessageService, MessageService>();        
+            services.AddScoped<IInterestService, InterestService>();                 
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICommService, CommService>();
