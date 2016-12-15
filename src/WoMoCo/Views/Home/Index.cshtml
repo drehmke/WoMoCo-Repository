@@ -27,15 +27,16 @@
             <a href="/babySitterlink">BabySitterLink</a> /
 
             <!-- Logged In -->
+            <a href="/activityForum" ng-show="account.isLoggedIn()">(l) Activities /</a>
             <a href="/post">(l) Post</a>/
             <a href="/editingPost">(l) EditingPost</a>
-            <a href="/link">(l) Link</a> /
             <a href="/message/inbox">(l) Inbox</a>|
             <a href="/message/message">(l) Message</a>/
             <a href="/message/modal/messageModal">(l) Message Modal</a>
             <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
 
             <!-- Admin -->
+            <a href="/link">(a) Link</a> /
             <a href="/interest">(a) Interest</a>|
             <a href="/admin/calendar/allEvents" ng-show="account.isLoggedIn()">(a) Event Admin</a>
            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
@@ -94,6 +95,9 @@
 
     <!-- Baby Sitter Link -->
     <script src="~/ngApp/controllers/babySitterController.js"></script>
+
+    <!-- ActivityForum-->
+    <script src="~/ngApp/controllers/activitiesController.js"></script>
 
 </body>
 </html>

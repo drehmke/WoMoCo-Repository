@@ -39,7 +39,6 @@ namespace WoMoCo {
 
             // ================ Interest======>
             .state(`addInterest`, {
-
                 url: `/addInterest`,
                 templateUrl: `/ngApp/views/interest/addInterest.html`,
                 controller: WoMoCo.Controllers.AddInterestController,
@@ -66,7 +65,6 @@ namespace WoMoCo {
             })
         //======================  Link ==============>
             .state(`addLink`, {
-
                 url: `/addLink`,
                 templateUrl: `/ngApp/views/links/addLink.html`,
                 controller: WoMoCo.Controllers.AddLinkController,
@@ -98,7 +96,6 @@ namespace WoMoCo {
                 templateUrl: `/ngApp/views/babySitterLinks/babySitterlink.html`,
                 controller: WoMoCo.Controllers.BabySitterController,
                 controllerAs: `controller`
-
             })
             //========================================================>
             // ---- calendar Events -------------------------------------------
@@ -161,6 +158,18 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             // ---- end Event Alarms ------------------------------------------
+            .state(`activityForum`, {
+                url: `/activityForum`,
+                templateUrl: `/ngApp/views/activityForum/activitiesForum.html`,
+                controller: WoMoCo.Controllers.ActivitiesController,
+                controllerAs: `controller`
+            })
+            .state(`addActivity`, {
+                url: `/addActivity`,
+                templateUrl: `/ngApp/views/activityForum/activitiesPost.html`,
+                controller: WoMoCo.Controllers.AddActivitiesController,
+                controllerAs: `controller`
+            })
             .state(`chat`, {
                 url: `/chat`,
                 templateUrl: `/ngApp/views/interest/interst.html`,
