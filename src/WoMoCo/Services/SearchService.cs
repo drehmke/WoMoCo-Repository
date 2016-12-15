@@ -4,49 +4,62 @@ using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
+using WoMoCo.Repositories;
 using WoMoCo.ViewModels.Account;
 
 namespace WoMoCo.Services
 {
-    public class SearchService : ISearchService
+    public class SearchesService : ISearchesService
     {
-
         public IGenericRepository _repo;
 
-        public IList<ApplicationUser> GetAllUsers()
+        public SearchesService(IGenericRepository repo)
         {
-            return _repo.Query<ApplicationUser>().ToList();
+            this._repo = repo;
         }
 
-        public IList<UserViewModel> GetAllUsersForSearch()
-        {
-            
-            IList<ApplicationUser> appUser = _repo.Query<ApplicationUser>().ToList();
-            List<UserViewModel> grUsers = new List<UserViewModel>();
+        //get all users
 
-            foreach(ApplicationUser aUser in appUser)
+        public List<ApplicationUser> GetAllUsersSearch()
+        {
+            var users = _repo.Query<ApplicationUser>().ToList();
+            return users;
+        }
+
+
+
+        //get single user by id
+        public ApplicationUser GetUserByIds(string id)
+        {
+            return _repo.Query<ApplicationUser>().Where(m => m.Id == id).FirstOrDefault();
+        }
+
+        //post a single user to the database
+        public void SaveUsers(ApplicationUser user)
+        {
+            if (user.Id == null)
             {
-                UserViewModel listUser = new UserViewModel
-                {
-                    UserName = aUser.UserName,
-                    FirstName = aUser.FirstName,
-                    LastName = aUser.LastName,
-                    Email = aUser.Email,
-                    Location = aUser.Location,
-                    CurrentJobTitle = aUser.CurrentJobTitle,
-                    Employer = aUser.Employer
-
-                };
-
-                grUsers.Add(listUser);
+                _repo.Add(user);
             }
-            return grUsers;
+            else
+            {
+                _repo.Update(user);
+            }
         }
 
-        public ApplicationUser GetUserByIdForSearch(string id)
+        //delete single movie from the database
+
+        public void DeleteUsers(string id)
         {
-            return _repo.Query<ApplicationUser>().Where(u => u.Id == id).FirstOrDefault();
+            ApplicationUser userToDelete = _repo.Query<ApplicationUser>().Where(u => u.Id == id).FirstOrDefault();
+            _repo.Delete(userToDelete);
         }
+
+        public ApplicationUser GetByUsernames(string uid)
+        {
+            return _repo.Query<ApplicationUser>().Where(m => m.Id == uid).FirstOrDefault();
+        }
+
 
 
         //public List<dynamic> TableFilter(UserViewModel _data)
@@ -91,9 +104,6 @@ namespace WoMoCo.Services
 
         //}
 
-        public SearchService(IGenericRepository repo)
-        {
-            this._repo = repo;
-        }
+
     }
 }

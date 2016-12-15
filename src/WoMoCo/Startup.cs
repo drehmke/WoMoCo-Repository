@@ -16,6 +16,7 @@ using WoMoCo.Models;
 using WoMoCo.Services;
 
 using WoMoCo.Repositories;
+using WoMoCo.Interfaces;
 
 namespace WoMoCo
 {
@@ -63,6 +64,7 @@ namespace WoMoCo
             services.AddScoped<ICalenderEventService, CalenderEventService>();
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ISearchesService, SearchesService>();
 
             // add security policies
             services.AddAuthorization(options =>

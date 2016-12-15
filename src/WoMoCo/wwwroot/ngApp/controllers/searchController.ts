@@ -2,8 +2,6 @@
 
     export class SearchController {
         public SearchResource;
-        public searches;
-        public username;
         public users;
         
 
@@ -14,7 +12,7 @@
 
         constructor(
             private SearchService: WoMoCo.Services.SearchService,
-            private $resource: angular.resource.IResourceService,) {
+            private $resource: angular.resource.IResourceService) {
             //this.SearchResource = $resource('/api/filters/');
             ////this.userByUsername($stateParams['username']);
             this.getUsers();
