@@ -46,6 +46,13 @@ namespace WoMoCo.Controllers
             return _service.GetByUsername(uid);
         }
 
+        //GET usersForPullDown
+        [HttpGet("GetUsersForPullDown/")]
+        public IEnumerable<UserForPullDown> GetUsersForPullDown()
+        {
+            return _service.GetAllUsersForPullDown();
+        }
+
         // POST api/values
         [HttpPost]
         public IActionResult Post([FromBody]ApplicationUser user)

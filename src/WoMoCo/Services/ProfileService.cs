@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
+using WoMoCo.Repositories;
 
 namespace WoMoCo.Services
 {
@@ -48,6 +49,11 @@ namespace WoMoCo.Services
         public ApplicationUser GetByUsername(string username)
         {
             return _repo.Query<ApplicationUser>().Where(m => m.UserName == username).FirstOrDefault();
+        }
+        
+        public ProfileService(IGenericRepository repo)
+        {
+            this._repo = repo;
         }
     }
 }

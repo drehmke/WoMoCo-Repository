@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WoMoCo.Interfaces;
 using WoMoCo.Models;
 using WoMoCo.Repositories;
 
@@ -19,35 +20,42 @@ namespace WoMoCo.Services
             _manager = manager;
         }
 
-        //get messages by user
-        public object MsgsByUser(string id)
+        //Get all Messages
+
+        public IList<Message>GetAllMessages()
         {
-            //var messages = new List<Messages>();
-            var msg2 = _repo.Query<ApplicationUser>().Where(a => a.Id == id).Include(m => m.Messages).Select(m => new
-            {
-                messages = m.Messages
-            }).FirstOrDefault();
-            var msg = _repo.Query<ApplicationUser>().Where(a => a.Id == id).Include(m => m.Messages).FirstOrDefault();
-
-            var msgList = msg.Messages;
-
-            foreach (var singleMessage in msgList)
-            {
-                singleMessage.HasBeenViewed = true;
-                _repo.Update(singleMessage);
-
-            }
-
-            //var msgList = messages;
-
-            _repo.SaveChanges();
-
-
-            //messages = msg.Messages.ToList();
-            //return msg;
-            return msg2;
-
+            return _repo.Query<Message>().ToList();
         }
+
+        //get messages by user
+        //public object MsgsByUser(string id)
+        //{
+        //    var messages = new List<Message>();
+        //    var msg2 = _repo.Query<ApplicationUser>().Where(a => a.Id == id).Select(m => new
+        //    {
+        //        messages = m.Message
+        //    }).FirstOrDefault();
+        //    var msg = _repo.Query<ApplicationUser>().Where(a => a.Id == id).FirstOrDefault();
+
+        //    var msgList = msg.messages;
+
+        //    foreach (var singleMessage in messages)
+        //    {
+        //        singleMessage.HasBeenViewed = true;
+        //        _repo.Update(singleMessage);
+
+        //    }
+
+        //    var msgList = messages;
+
+        //    _repo.SaveChanges();
+
+
+        //    //messages = msg.Messages.ToList();
+        //    //return msg;
+        //    return msg2;
+
+        //}
         //get message info by id
         public object getMessageInfo(int id)
         {
@@ -64,14 +72,18 @@ namespace WoMoCo.Services
         }
         //save Message
 
-        public void sendMessage(Message msg)
+        public void sendMessage(Message message, string senderId)
         {
-            var appUser = _repo.Query<ApplicationUser>().Where(a => a.Id == msg.RecId).Include(m => m.Messages).FirstOrDefault();
-            msg.DateSent = DateTime.Now;
-            appUser.Messages.Add(msg);
-
+            var receivingUser = _repo.Query<ApplicationUser>().Where(a => a.Id == message.RecId).FirstOrDefault();
+            var sendingUser = _repo.Query<ApplicationUser>().Where(s => s.Id == senderId).FirstOrDefault();
+            
+            message.DateSent = DateTime.Now;
+            _repo.Add(message);
+            //associate users with message
+            message.SendingUser = sendingUser;
+            message.ReceivingUser = receivingUser;
             _repo.SaveChanges();
-           
+
 
 
         }

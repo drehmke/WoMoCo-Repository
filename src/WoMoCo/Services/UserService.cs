@@ -6,6 +6,7 @@ using WoMoCo.Interfaces;
 using WoMoCo.Models;
 using WoMoCo.ViewModels.Account;
 
+
 namespace WoMoCo.Services
 {
     public class UserService : IUserService
@@ -20,8 +21,23 @@ namespace WoMoCo.Services
             return users;
         }
 
-        
-        
+        public IList<UserForPullDown> GetAllUsersForPullDown()
+        { // we will need to modify or make another version to get friends only
+            IList<ApplicationUser> allUsers = _repo.Query<ApplicationUser>().ToList();
+            IList<UserForPullDown> allPullDownUsers = new List<UserForPullDown>();
+            foreach(ApplicationUser user in allUsers )
+            {
+                UserForPullDown addUser = new UserForPullDown
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName
+                };
+                allPullDownUsers.Add(addUser);
+            }
+            return allPullDownUsers;
+        }
         //get single user by id
         public ApplicationUser GetUserById(string id)
         {
@@ -40,7 +56,7 @@ namespace WoMoCo.Services
             }
         }
 
-        //delete single movie from the database
+        //delete single User from the database
 
         public void DeleteUser(string id)
         {

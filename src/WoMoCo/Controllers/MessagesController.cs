@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Services;
 using WoMoCo.Models;
+using Microsoft.AspNetCore.Identity;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,17 +14,19 @@ namespace WoMoCo.Controllers
     [Route("api/[controller]")]
     public class MessagesController : Controller
     {
+        private UserManager<ApplicationUser> _manager;
+
         private IMessageService _service;
 
-        // GET: api/values
+        // GET: api/values 
         [HttpGet]
-        public IActionResult MsgsByUser(string id)
+        public IEnumerable<Message> Get()
         {
 
-            return Ok(_service.MsgsByUser(id));
-           
-           
-            
+            return _service.GetAllMessages();
+
+
+
         }
 
         // GET api/values/5
@@ -37,17 +40,17 @@ namespace WoMoCo.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]Message msg)
         {
-            _service.sendMessage(msg);
+            string uid = _manager.GetUserId(User);
+            _service.sendMessage(msg, uid);
             return Ok(msg);
         }
 
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public IActionResult Put(int id, [FromBody]Message message)
-        //{
-        //    _service.SaveMessage(int id);
-        //    return Ok(message);
-        //}
+        //PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+            
+        }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
@@ -56,8 +59,9 @@ namespace WoMoCo.Controllers
             
             return Ok();
         }
-        public MessagesController(IMessageService service)
+        public MessagesController(IMessageService service, UserManager<ApplicationUser> manager)
         {
+            this._manager = manager;
             this._service = service;
         }
     }

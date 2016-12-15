@@ -1,0 +1,12 @@
+﻿<h1>Edit Post</h1>
+<form ng-submit="controller.savePost()">
+    <div>
+        <label>Title</label>
+        <input ng-model="controller.post.title" />
+    </div>
+    <div>
+        <label>Discription</label>
+        <input ng-model="controller.post.discription" />
+    </div>
+    <input type="submit" class="btn" value="Edit Post" />
+</form>

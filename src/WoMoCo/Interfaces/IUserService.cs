@@ -11,5 +11,6 @@ namespace WoMoCo.Services
         ApplicationUser GetByUsername(string uid);
         ApplicationUser GetUserById(string id);
         void SaveUser(ApplicationUser user);
+        IList<UserForPullDown> GetAllUsersForPullDown();
     }
 }
