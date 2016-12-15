@@ -8,6 +8,8 @@
         // links
         public links; // this is for the list
         public link; // this is for the add
+        // activities
+        public activities; // this is for the list
 
         public getUser() {
           return this.UserResource.get();
@@ -53,17 +55,27 @@
                     this.links = this.getMyLinks();
                 });
         }
+
+        //get all Activities for the currently logged in user
+        public getMyActivities() {
+            let temp = this.activitiesService.getAllUsersActivities();
+            console.log(temp);
+            return temp;
+        }
+
         
         constructor(
             private accountService: WoMoCo.Services.AccountService,
             private $resource: angular.resource.IResourceService,
             private interestService: WoMoCo.Services.InterestService,
+            private activitiesService: WoMoCo.Services.ActivitiesService,
             private linkService: WoMoCo.Services.LinkService
             ) {
             this.UserResource = $resource('/api/users/getUser');
             this.user = this.getUser();
             this.interests = this.getMyInterests();
             this.links = this.getMyLinks();
+            this.activities = this.getMyActivities();
         }
     }
     angular.module(`WoMoCo`).controller(`UserController`, UserController);
