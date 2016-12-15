@@ -20,8 +20,7 @@ namespace WoMoCo.Data
         public DbSet<BabySitterLocation> BabySitterLocations { get; set; }
         public DbSet<BabySitterLink> BabySitterLinks { get; set; }
         public DbSet<EventAlarm> EventAlarms { get; set; }
-        public DbSet<Post> Post { get; set; }
-        public DbSet<Message> Messages { get; set; }
+        public DbSet<Post> Post { get; set; }        
         public DbSet<Inbox> Inboxes { get; set; }
         public DbSet<Comm> Comms { get; set; }        
         public DbSet<SharedCalendarEvent> SharedCalenderEvents { get; set; }
