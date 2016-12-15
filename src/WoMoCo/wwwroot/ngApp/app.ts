@@ -42,7 +42,9 @@ namespace WoMoCo {
             .state(`home-login`, {
 
                 url: `/home-login`,
-                templateUrl: `/ngApp/views/home-login.html`
+                templateUrl: `/ngApp/views/home-login.html`,
+                controller: WoMoCo.Controllers.HomeController,
+                controllerAs: 'controller'
             })
 
             // ================ Interest======>
