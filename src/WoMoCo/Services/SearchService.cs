@@ -27,6 +27,22 @@ namespace WoMoCo.Services
         }
 
 
+        //get all requests
+        //public IList<Comm> GetAllRequests(string userName)
+        //{
+        //    var user = _repo.Query<ApplicationUser>().Where(u => u.UserName == userName).FirstOrDefault();
+        //    user.Requests = new List<Comm>();
+        //    IList<Comm> allRequests = _repo.Query<Comm>().ToList();
+        //    IList<Comm> requests = user.Requests;
+        //    return user.Requests;
+        //}
+        //public IList<Comm> GetAllRequests(string userId)
+        //{
+        //    var currentUser = _repo.Query<ApplicationUser>().Where(u => u.Id == userId).FirstOrDefault();
+            
+        //}
+
+
 
         //get single user by id
         public ApplicationUser GetUserByIds(string id)

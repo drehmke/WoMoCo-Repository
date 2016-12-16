@@ -14,10 +14,12 @@ namespace WoMoCo.Controllers
     {
         private ISearchesService _service;
         private UserManager<ApplicationUser> _manager;
-        public SearchesController(ISearchesService service, UserManager<ApplicationUser> manager)
+        private ICommService _communication;
+        public SearchesController(ISearchesService service, UserManager<ApplicationUser> manager, ICommService communication)
         {
             this._manager = manager;
             this._service = service;
+            this._communication = communication;
         }
         // GET: api/values
         //[HttpGet]
@@ -31,6 +33,14 @@ namespace WoMoCo.Controllers
         {
             return _service.GetAllUsersSearch();
         }
+
+        //Get all requests
+        //[HttpGet("Requests")]
+        //public IEnumerable<Comm> GetRequests(string userName)
+        //{
+            
+        //}
+
 
         // GET api/values/5
         [HttpGet("{id}")]

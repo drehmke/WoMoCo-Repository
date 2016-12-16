@@ -11,7 +11,6 @@
             return this.MessageService.getAllComms();
             
         }
-                      
 
         public msgsByUser() {
             this.MessageService.getMsgsByUser().$promise.then((data) => {
@@ -19,11 +18,6 @@
                 
             });
         }
-        
-
-              
-
-
 
         public deleteMessage(id) {
             this.MessageService.deleteMessage(id).then(() => {

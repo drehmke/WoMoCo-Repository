@@ -25,7 +25,7 @@
             <td>{{user.location}}</td>
             <td>{{user.currentJobTitle}}</td>
             <td>{{user.employer}}</td>
-            <td><a href="" >Connect</a></td>
+            <td><button ng-click="controller.reqConnect(user.userName)">Connect</button></td>
         </tr>
     </tbody>
 </table>

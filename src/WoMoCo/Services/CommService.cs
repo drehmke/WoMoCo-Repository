@@ -20,10 +20,21 @@ namespace WoMoCo.Services
         }
         public Comm GetCommById(int id)
         {
+
             return _repo.Query<Comm>().Where(c => c.Id == id).FirstOrDefault();
         }
-        public void SaveComm(Comm comm)
+
+
+        public void SaveComm(Comm comm, string uid)
         {
+            var user = _repo.Query<ApplicationUser>().Where(c => c.Id == uid).FirstOrDefault();
+            var recUser = _repo.Query<ApplicationUser>().Where(r => r.UserName == comm.RecId).FirstOrDefault();
+            comm.SendingUser = user;
+            comm.ReceivingUser = recUser;
+            comm.DateSent = DateTime.Now;
+            comm.CommType = "system";
+
+
             if(comm.Id == 0)
             {
                 _repo.Add(comm);
@@ -32,7 +43,11 @@ namespace WoMoCo.Services
             {
                 _repo.Update(comm);
             }
+
+            
         }
+
+
         public void DeleteComm(int id)
         {
             Comm commToDelete = _repo.Query<Comm>().Where(c => c.Id == id).FirstOrDefault();
