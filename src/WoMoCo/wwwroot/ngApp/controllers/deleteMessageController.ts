@@ -1,26 +1,31 @@
 ﻿namespace WoMoCo.Controllers {
 
     export class DeleteMessageController {
+        
+        public comm;
+        public getComm(id) {
+            this.comm = this.MessageService.getCommById(id);
 
-        public messageToDelete;
-        private messageId;
-        constructor(private $stateParams: angular.ui.IStateParamsService, private $state: angular.ui.IStateService, private MessageService: WoMoCo.Services.MessageService) {
-            this.messageId = this.$stateParams['messageId'];
-            //this.getMessage();
+
         }
 
-        //public getMessage() {
-        //    this.messageToDelete = this.MessageService.getMessageInfo(this.messageId);
-        //}
+        public deleteCommById() {
+            
+            this.comm = this.MessageService.deleteCommById(this.comm);
 
-        public deleteMessage() {
-            this.MessageService.deleteMessage(this.messageId)
-                .then(() => {
-                    this.$state.go('inbox');
-                })
-                .catch(() => {
-                    console.log("something went wrong!");
-                });
+
         }
-    }
+
+    
+        constructor(private $resource: angular.resource.IResourceService,
+        private MessageService: WoMoCo.Services.MessageService,
+        public $stateParams: ng.ui.IStateParamsService,
+        private $state: ng.ui.IStateService,
+        private accountService: WoMoCo.Services.AccountService) {
+        this.getComm($stateParams[`id`]);
+
+        }
+
+    }   
+        
 }
