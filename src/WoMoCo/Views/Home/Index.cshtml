@@ -23,27 +23,27 @@
     <div class="container">
         <h1>WoMoCo</h1>
         <div>
-          <a href="/">Home</a> /
-           <a href="/about">About</a> /
+            <a href="/">Home</a> /
+            <a href="/about">About</a> /
             <a href="/interest">Interest</a> /
             <a href="/activityForum" ng-show="account.isLoggedIn()">Activities /</a>
             <a href="/post">Post</a>/
-            <a href="/editingPost">EditingPost</a>
-           / <a href="/secret">Secret</a> /
+            <a href="/editingPost">EditingPost</a>/
+            <a href="/secret">Secret</a> /
             <a href="/message/inbox"> Inbox</a>|
             <a href="/message/message">Message</a>|
-            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin /</a>
+            <a href="/admin/calender/allEvents" ng-show="account.isLoggedIn()">Event Admin /</a>
             <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
             <a href="/search">Search</a> /
             <a href="/message/modal/messageModal">Message Modal</a>
             <a href="/link">Link</a> /
             <a href="/babySitterlink">BabySitterLink</a> /
 
-           <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
-           <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
-           <div ng-show="account.isLoggedIn()">
-               [{{account.getUserName()}}]
-           </div>
+            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
+            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+            <div ng-show="account.isLoggedIn()">
+                [{{account.getUserName()}}]
+            </div>
         </div>
         <hr />
 
@@ -71,7 +71,7 @@
     <script src="~/ngApp/controllers/createMessageController.js"></script>
     <script src="~/ngApp/controllers/messageController.js"></script>
     <script src="~/ngApp/services/messageService.js"></script>
-    <script src="~/ngApp/controllers/postController.js"></script>    
+    <script src="~/ngApp/controllers/postController.js"></script>
     <script src="~/ngApp/controllers/chatController.js"></script>
     <script src="~/ngApp/controllers/deleteMessageController.js"></script>
     <script src="~/ngApp/controllers/infoMessageController.js"></script>
@@ -82,7 +82,7 @@
     <script src="~/ngApp/services/postService.js"></script>
 
 
-    
+
 
     <!-- Security -->
     <script src="/ngApp/controllers/accountcontroller.js"></script>
