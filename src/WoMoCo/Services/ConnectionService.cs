@@ -5,23 +5,38 @@ using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
+using WoMoCo.ViewModels.Account;
 
 namespace WoMoCo.Services
 {
     public class ConnectionService : IConnectionService
     {
         private IGenericRepository _repo;
-
+        
 
         public IEnumerable<UserConnection> GetAllFriends()
         {
             return _repo.Query<UserConnection>().ToList();
         }
         
-        public IList<UserConnection> GetFriendsId(string id)
+        public IList<ApplicationUser> GetFriendsId(string id)
         {
-            return _repo.Query<UserConnection>().Where(u => u.CurrentUserId == id).ToList();
-
+            IList<UserConnection> connectedUsersForCurrent = _repo.Query<UserConnection>().Where(u => u.CurrentUserId == id).ToList();
+            IList<ApplicationUser> connectedUsers = new List<ApplicationUser>();
+            foreach(UserConnection userConn in connectedUsersForCurrent)
+            {
+                ApplicationUser tempUser = _repo.Query<ApplicationUser>().Where(u => u.Id == userConn.ConnectedUserId).FirstOrDefault();
+                ApplicationUser listable = new ApplicationUser
+                {
+                    Id = tempUser.Id,
+                    UserName = tempUser.UserName,
+                    UserImage = tempUser.UserImage,
+                    FirstName = tempUser.FirstName,
+                    LastName = tempUser.LastName
+                };
+                connectedUsers.Add(listable);
+            }
+            return connectedUsers;
         }
 
         public void SavingFriends(UserConnection user)

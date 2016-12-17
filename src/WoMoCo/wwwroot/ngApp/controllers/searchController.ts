@@ -1,10 +1,10 @@
 ﻿namespace WoMoCo.Controllers {
 
     class Com {
-        constructor(public recId: string, public subject: string) {
+        constructor(public recId: string, public subject: string, public commType: string) {
             this.recId = recId;
             this.subject = subject;
-            
+            this.commType = commType;
         }
     }
 
@@ -22,7 +22,7 @@
         }
 
         public reqConnect(recUser: string) {
-            let Comm = new Com(recUser, "connection request");
+            let Comm = new Com(recUser, "connection request", "connection request");
             this.saveUser(recUser);
             this.RequestResource.save(Comm).$promise.then(() =>
             {

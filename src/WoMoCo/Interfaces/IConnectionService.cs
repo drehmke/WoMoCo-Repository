@@ -8,7 +8,7 @@ namespace WoMoCo.Interfaces
     {
         void DeletingFriends(string fId);
         IEnumerable<UserConnection> GetAllFriends();
-        IList<UserConnection> GetFriendsId(string id);
+        IList<ApplicationUser> GetFriendsId(string id);
         void SavingFriends(UserConnection user);
     }
 }

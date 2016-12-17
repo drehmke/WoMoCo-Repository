@@ -243,13 +243,13 @@ namespace WoMoCo {
             })
             .state('profile', {
                 url: '/profile',
-                templateUrl: 'ngApp/views/profile.html',
+                templateUrl: 'ngApp/views/user/profile.html',
                 controller: WoMoCo.Controllers.UserController,
                 controllerAs: 'controller'
             })
             .state('editProfile', {
                 url: '/editProfile',
-                templateUrl: 'ngApp/views/editProfile.html',
+                templateUrl: 'ngApp/views/user/editProfile.html',
                 controller: WoMoCo.Controllers.EditUserController,
                 controllerAs: 'controller'
             })

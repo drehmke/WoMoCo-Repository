@@ -1,0 +1,34 @@
+﻿<h1>Edit Profile</h1>
+
+<form ng-submit="controller.saveUser()">
+    <div>
+        <label>Avatar</label>
+        <img ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" />
+        <a href="http://gravatar.com" target="_blank">Gravatar</a>
+    </div>
+    <div>
+        <label>First Name</label>
+        <input placeholder="First Name" ng-model="controller.user.firstName" />
+    </div>
+    <div>
+        <label>Last Name</label>
+        <input placeholder="Last Name" ng-model="controller.user.lastName" />
+    </div>
+    <div>
+        <label>Location</label>
+        <input placeholder="Last Name" ng-model="controller.user.location" />
+    </div>
+    <div>
+        <label>About</label>
+        <input placeholder="About Me" ng-model="controller.user.about" />
+    </div>
+    <div>
+        <label>Job Title</label>
+        <input placeholder="Last Name" ng-model="controller.user.currentJobTitle" />
+    </div>
+    <div>
+        <label>Employer</label>
+        <input placeholder="Last Name" ng-model="controller.user.employer" />
+    </div>
+    <input type="submit" value="Edit Profile" />
+</form>

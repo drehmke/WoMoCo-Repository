@@ -27,9 +27,10 @@ namespace WoMoCo.Services
         {
             return _repo.Query<ActivityForum>().Where(a => a.Id == id).FirstOrDefault();
         }
-        public IList<ActivityForum> GetByUsername(string username)
+        public IList<ActivityForum> GetByUsername(string uid)
         {
-            var getpostbyuser = _repo.Query<ActivityForum>().Where(m => m.UserName == username).ToList();
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
+            var getpostbyuser = _repo.Query<ActivityForum>().Where(m => m.UserName == user.UserName).ToList();
             return getpostbyuser;
         }
         public void SaveActivity(string user, ActivityForum activityForum)

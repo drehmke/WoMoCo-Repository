@@ -14,21 +14,26 @@
 
         }
     }
+
     export class AddInterestController {
         public interest;
-        public InterestResource
-        public save() {
+        public InterestResource;
 
+        public save() {
             this.InterestResource.save(this.interest).$promise.then(() => {
                 this.interest = null;
                 this.$state.go(`interest`);
             });
         }
 
-        constructor(private $resource: angular.resource.IResourceService, private $state: ng.ui.IStateService) {
+        constructor(
+            private $resource: angular.resource.IResourceService,
+            private $state: ng.ui.IStateService
+        ) {
             this.InterestResource = this.$resource(`/api/interest`);
         }
     }
+    angular.module(`WoMoCo`).controller(`addInterestController`, AddInterestController);
 
     export class EditInterestController {
         public interest;

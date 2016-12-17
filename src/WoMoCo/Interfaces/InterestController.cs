@@ -15,7 +15,6 @@ namespace WoMoCo.Controllers
     public class InterestController : Controller
     {
         private IInterestService _service;
-
         private UserManager<ApplicationUser> _manager;
 
         [HttpGet]
@@ -28,6 +27,14 @@ namespace WoMoCo.Controllers
         {
             return Ok(_service.GetInterestbyId(id));
         }
+        [HttpGet("GetMy/")]
+        public IEnumerable<Interest> GetMy()
+        {
+            string uid = _manager.GetUserId(User);
+            IList<Interest> listableInterests = _service.GetInterestsByUser(uid);
+            return listableInterests;
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody]Interest interest)
         {

@@ -1,0 +1,10 @@
+﻿<div class="profileActivityList">
+    <h3>My Activities<small><a href="/addActivity">Add</a></small></h3>
+    <ul>
+        <li ng-repeat="a in controller.activities">
+            {{a.location}} - 
+            {{a.activity}} - 
+            {{a.description}}
+        </li>
+    </ul>
+</div>

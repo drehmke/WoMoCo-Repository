@@ -32,6 +32,13 @@ namespace WoMoCo.Controllers
             return Ok(_service.GetFriendsId(id));
         }
 
+        [HttpGet("GetConnections/")]
+        public IActionResult GetConnections()
+        {
+            string uid = _manager.GetUserId(User);
+            return Ok(_service.GetFriendsId(uid));
+        }
+
         // POST api/values
         [HttpPost]
         public void SavingFriends([FromBody]UserConnection user)
