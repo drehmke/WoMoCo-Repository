@@ -16,7 +16,9 @@ namespace WoMoCo.Controllers
     public class CommsController : Controller
     {
         private ICommService _service;
+
         private readonly UserManager<ApplicationUser> _manager;
+
 
         // GET: api/values
         [HttpGet]
@@ -54,11 +56,7 @@ namespace WoMoCo.Controllers
             _service.DeleteComm(id);
             return Ok();
         }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CommsController"/> class.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="manager">The manager.</param>
+
         public CommsController(ICommService service, UserManager<ApplicationUser> manager)
         {
             this._service = service;

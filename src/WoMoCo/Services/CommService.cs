@@ -1,20 +1,26 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
 using WoMoCo.Repositories;
+using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace WoMoCo.Services
 {
     public class CommService : ICommService
     {
         private IGenericRepository _repo;
+        private UserManager<ApplicationUser> _manager;
 
         //Get all Comms
         public IList<Comm> GetAllComms()
         {
+
+            
             return _repo.Query<Comm>().ToList();
             
         }
@@ -25,14 +31,17 @@ namespace WoMoCo.Services
         }
 
 
-        public void SaveComm(Comm comm, string uid)
+        public void SaveComm(Comm comm, string uid)      
+
         {
-            var user = _repo.Query<ApplicationUser>().Where(c => c.Id == uid).FirstOrDefault();
-            var recUser = _repo.Query<ApplicationUser>().Where(r => r.UserName == comm.RecId).FirstOrDefault();
-            comm.SendingUser = user;
+            // get currently logged in user by uid to assign as SendingUser
+            ApplicationUser currUser = _repo.Query<ApplicationUser>().Where(a => a.Id == uid).FirstOrDefault();
+            //get the RecievingUser
+            ApplicationUser recUser = _repo.Query<ApplicationUser>().Where(u => u.UserName == comm.RecId).FirstOrDefault();
+            comm.SendingUser = currUser;
+            comm.RecId = recUser.UserName;
             comm.ReceivingUser = recUser;
             comm.DateSent = DateTime.Now;
-            comm.CommType = "Connection/Friendish Request";
 
 
             if(comm.Id == 0)
@@ -53,9 +62,11 @@ namespace WoMoCo.Services
             Comm commToDelete = _repo.Query<Comm>().Where(c => c.Id == id).FirstOrDefault();
             _repo.Delete(commToDelete);
         }
-        public CommService(IGenericRepository repo)
+
+        public CommService(IGenericRepository repo, UserManager<ApplicationUser> manager)
         {
             _repo = repo;
+            _manager = manager;
         }
     }
 }
