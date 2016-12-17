@@ -26,6 +26,7 @@ namespace WoMoCo.Services
         }
         public Comm GetCommById(int id)
         {
+
             return _repo.Query<Comm>().Where(c => c.Id == id).FirstOrDefault();
         }
 
@@ -40,7 +41,6 @@ namespace WoMoCo.Services
             comm.RecId = recUser.UserName;
             comm.ReceivingUser = recUser;
             comm.DateSent = DateTime.Now;
-
             if(comm.Id == 0)
             {
                 _repo.Add(comm);
@@ -50,6 +50,8 @@ namespace WoMoCo.Services
                 _repo.Update(comm);
             }
         }
+
+
         public void DeleteComm(int id)
         {
             Comm commToDelete = _repo.Query<Comm>().Where(c => c.Id == id).FirstOrDefault();

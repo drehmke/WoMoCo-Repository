@@ -19,17 +19,6 @@ namespace WoMoCo.ViewModels.Account
 
         public string LastName { get; set; }
 
-        //public ApplicationUser AppUser { get; set; }
-
-        //public FullName UsersFullName { get; set; }
-
-        //public FullName(string firstName, string lastName)
-        //{
-        //    this.FirstName = firstName;
-        //    this.LastName = lastName;
-        //    return this.fullName = firstName + lastName;
-        //}
-
         public string CurrentJobTitle { get; set; }
 
         public string Employer { get; set; }
@@ -39,16 +28,4 @@ namespace WoMoCo.ViewModels.Account
         public string Email { get; set; }
     }
 
-    //class FullName
-    //{
-    //    public string FirstName { get; set; }
-
-    //    public string LastName { get; set; }
-
-    //    public FullName(string firstName, string lastName)
-    //    {
-    //        this.FirstName = firstName;
-    //        this.LastName = lastName;
-    //    }
-    //}
 }

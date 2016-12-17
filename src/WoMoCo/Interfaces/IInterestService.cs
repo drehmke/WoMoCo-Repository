@@ -10,5 +10,7 @@ namespace WoMoCo.Services
         Interest GetInterestbyId(int id);
         void SaveInterest(Interest interest, string uid);
         List<Interest> SearchById(string searchTerm);
+
+        IList<Interest> GetInterestsByUser(string uid);
     }
 }

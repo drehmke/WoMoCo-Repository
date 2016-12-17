@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,6 +21,25 @@ namespace WoMoCo.Services
         {
             return _repo.Query<Interest>().Where(i => i.Id == id).FirstOrDefault();
         }
+
+        public IList<Interest> GetInterestsByUser(string uid)
+        {
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
+            IList<Interest> userInterests = _repo.Query<Interest>().Include(i => i.User).ToList();
+            IList<Interest> listableInterests = new List<Interest>();
+            foreach(Interest interest in userInterests)
+            {
+                Interest listable = new Interest
+                {
+                    Id = interest.Id,
+                    Name = interest.Name,
+                    BadgeImage = interest.BadgeImage
+                };
+                listableInterests.Add(listable);
+            }
+            return listableInterests;
+        }
+
         public void SaveInterest(Interest interest, string uid)
         
         {

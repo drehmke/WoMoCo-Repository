@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using WoMoCo.Models;
 using WoMoCo.Services;
 using WoMoCo.ViewModels.Account;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace WoMoCo.Controllers
 {
@@ -101,6 +103,20 @@ namespace WoMoCo.Controllers
 
 
         //
+        private string GetMd5Hash(MD5 md5Hash, string input)
+        {
+            // convert the input string to a byte array and compute the hash
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            // create a new StringBuilder to collect the bytes and create a string
+            StringBuilder sBuilder = new StringBuilder();
+            // loop through each byte of the hashed data and format each one as a hexadecimal string
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+            // return the hexadecimal string
+            return sBuilder.ToString();
+        }
         // POST: /Account/Register
         [HttpPost("Register")]
         [AllowAnonymous]
@@ -108,7 +124,9 @@ namespace WoMoCo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Location = model.Location, Employer = model.Employer, CurrentJobTitle = model.CurrentJobTitle };
+                MD5 md5Hash = MD5.Create();
+                string HashedUserEmail = this.GetMd5Hash(md5Hash, model.Email);
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, Location = model.Location, Employer = model.Employer, CurrentJobTitle = model.CurrentJobTitle, UserImage = HashedUserEmail };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

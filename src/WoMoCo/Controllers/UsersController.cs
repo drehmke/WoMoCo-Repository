@@ -8,6 +8,7 @@ using WoMoCo.Services;
 using Microsoft.AspNetCore.Identity;
 using WoMoCo.ViewModels.Account;
 
+
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WoMoCo.Controllers
@@ -41,10 +42,10 @@ namespace WoMoCo.Controllers
         [HttpGet("GetUser/")]
         public ApplicationUser GetUser()
         {
-            //var user = this.User;
-            var uid = _manager.GetUserId(User);
+            string uid = _manager.GetUserId(User);
             return _service.GetByUsername(uid);
         }
+        // move to service
 
         //GET usersForPullDown
         [HttpGet("GetUsersForPullDown/")]

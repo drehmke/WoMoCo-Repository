@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
 using WoMoCo.ViewModels.Account;
-
+using System.Security.Cryptography;
+using System.Text;
 
 namespace WoMoCo.Services
 {
@@ -13,8 +14,33 @@ namespace WoMoCo.Services
     {
         public IGenericRepository _repo;
 
+        private string GetMd5Hash(MD5 md5Hash, string input)
+        {
+            // convert the input string to a byte array and compute the hash
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            // create a new StringBuilder to collect the bytes and create a string
+            StringBuilder sBuilder = new StringBuilder();
+            // loop through each byte of the hashed data and format each one as a hexadecimal string
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+            // return the hexadecimal string
+            return sBuilder.ToString();
+        }
+
+        private string CheckUserImage(string userImage, string email)
+        {
+            if( userImage == null)
+            { // our userImage field is null, we need to generate the md5 hash string for gravatar
+                MD5 md5Hash = MD5.Create();
+                userImage = this.GetMd5Hash(md5Hash, email);
+            }
+            return userImage;
+        }
+
         //get all users
-        
+
         public List<ApplicationUser> GetAllUsers()
         {
             var users = _repo.Query<ApplicationUser>().ToList();
@@ -47,7 +73,11 @@ namespace WoMoCo.Services
         //post a single user to the database
         public void SaveUser(ApplicationUser user)
         {
-            if(user.Id == null)
+            // not sure we need this here as user saving is handled by the userManager,
+            // but just in case ...
+            MD5 md5Hash = MD5.Create();
+            user.UserImage = this.GetMd5Hash(md5Hash, user.Email);
+            if (user.Id == null)
             {
                 _repo.Add(user);
             }else

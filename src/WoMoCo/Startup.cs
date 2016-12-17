@@ -67,13 +67,9 @@ namespace WoMoCo
             services.AddScoped<IEventAlarmService, EventAlarmService>();
             services.AddScoped<ILinkService, LinkService>();
             services.AddScoped<IBabySitterService, BabySitterService>();
-            services.AddScoped<IProfileService, ProfileService>();
-            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ISearchesService, SearchesService>();
             services.AddScoped<IPostService, PostService>();
-
-            
-
-
+            services.AddScoped<IConnectionService, ConnectionService>();
 
             // add security policies
             services.AddAuthorization(options =>

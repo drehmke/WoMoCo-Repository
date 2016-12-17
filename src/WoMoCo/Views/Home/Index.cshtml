@@ -16,44 +16,32 @@
     <!---google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
-
-    <link href="~/css/chat.css" rel="stylesheet" type="text/css" />
-  <base href="/" />
+    <base href="/" />
 </head>
 <body ng-controller="AccountController as account">
     <div class="container">
         <h1>WoMoCo</h1>
         <div>
-            <a href="/">Home</a> /
-            <a href="/about">About</a> /
-            <a href="/interest">Interest</a> /
-            <a href="/activityForum" ng-show="account.isLoggedIn()">Activities /</a>
-            <a href="/post">Post</a>/
-            <a href="/editingPost">EditingPost</a>/
-
-            <a href="/secret">Secret</a> /
-            <a href="/message/inbox"> Inbox</a>|
-
-            <a href="/secret">Secret</a> /          
-
-            <a href="/message/message">Message</a>|
-            <a href="/admin/calender/allEvents" ng-show="account.isLoggedIn()">Event Admin /</a>
-            <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
-            <a href="/search">Search</a>/
-            <a href="/message/inbox" ng-show="account.isLoggedIn()"> Inbox</a>/
-            <a href="/profile" ng-show="account.isLoggedIn()">Profile</a>/ 
-            <a href="/link">Link</a> /
-
+<<<<<<< HEAD
+          <a href="/">Home</a> /
+           <a href="/about">About</a> /
+            <a href="/search">Search</a> /
             <a href="/babySitterlink">BabySitterLink</a> /
 
-            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
-            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
-            <div ng-show="account.isLoggedIn()">
-                [{{account.getUserName()}}]
-            </div>
+            <!-- Logged In -->
+            <a href="/activityForum" ng-show="account.isLoggedIn()">(l) Activities /</a>
+            <a href="/post">(l) Post</a>/
+            <a href="/editingPost">(l) EditingPost</a>
+            <a href="/message/inbox">(l) Inbox</a>|
+            <a href="/message/message">(l) Message</a>/
+            <a href="/message/modal/messageModal">(l) Message Modal</a>
+            <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
 
-            <a href="/babySitterlink">BabySitterLink</a>/
-           <a href="/login" ng-show="!account.isLoggedIn()">Login</a>/
+            <!-- Admin -->
+            <a href="/link">(a) Link</a> /
+            <a href="/interest">(a) Interest</a>|
+            <a href="/admin/calendar/allEvents" ng-show="account.isLoggedIn()">(a) Event Admin</a>
+           <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
            <div ng-show="account.isLoggedIn()">
                [{{account.getUserName()}}]
@@ -67,6 +55,7 @@
     @*/ <a href="/secret">Secret</a>*@
 
     <!-- Library Files -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
@@ -97,9 +86,8 @@
     <script src="~/ngApp/controllers/eventAlarmController.js"></script>
     <script src="~/ngApp/controllers/searchController.js"></script>
     <script src="~/ngApp/services/searchService.js"></script>
+    <script src="~/ngApp/services/connectionService.js"></script>
     <script src="~/ngApp/services/postService.js"></script>
-
-
 
     <!-- Security -->
     <script src="/ngApp/controllers/accountcontroller.js"></script>
@@ -107,15 +95,18 @@
 
     <!-- Interest -->
     <script src="~/ngApp/controllers/InterestController.js"></script>
+    <script src="~/ngApp/services/interestService.js"></script>
 
     <!-- Link -->
     <script src="~/ngApp/controllers/linkController.js"></script>
+    <script src="~/ngApp/services/linkService.js"></script>
 
     <!-- Baby Sitter Link -->
     <script src="~/ngApp/controllers/babySitterController.js"></script>
 
     <!-- ActivityForum-->
     <script src="~/ngApp/controllers/activitiesController.js"></script>
+    <script src="~/ngApp/services/activitiesService.js"></script>
 
 </body>
 </html>

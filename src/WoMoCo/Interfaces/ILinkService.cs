@@ -10,5 +10,6 @@ namespace WoMoCo.Services
         Link GetLinkById(int id);
         void SaveLink(Link link, string uid);
         List<Link> SearchByID(string searchTerm);
+        IList<Link> GetLinksByUser(string uid);
     }
 }

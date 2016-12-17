@@ -18,6 +18,7 @@ namespace WoMoCo.Models
         public string CurrentJobTitle { get; set; }
         public string Employer { get; set; }
 
+        //public List<Comm> Requests { get; set; }
         //public ICollection<Message> Messages { get; set; }
     }
 }

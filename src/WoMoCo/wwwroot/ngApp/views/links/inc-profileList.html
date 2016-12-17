@@ -1,0 +1,17 @@
+﻿<div class="profileLinkList">
+    <h3>My Social Links</h3>
+    <ul>
+        <li ng-repeat="link in controller.links"><a ng-href="{{link.url}}" target="_blank">{{link.name}}</a> <a href="#" ng-click="controller.removeLink(link.id)">x</a></li>
+    </ul>
+    <div class="linkAddForm">
+        <form ng-submit="controller.addLink()">
+            <div>
+                <input placeholder="Social Media Network" ng-model="controller.link.name" />
+            </div>
+            <div>
+                <input placeholder="Link" ng-model="controller.link.url" />
+            </div>
+            <input type="submit" class="btn btn-primary" value="Add Social Network Link" />
+        </form>
+    </div>
+</div>
