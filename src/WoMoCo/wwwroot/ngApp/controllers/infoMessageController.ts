@@ -9,6 +9,8 @@
             
             
         }
+
+
         constructor(private $resource: angular. resource.IResourceService,
             private MessageService: WoMoCo.Services.MessageService,
             public $stateParams: ng.ui.IStateParamsService,
@@ -16,6 +18,9 @@
             private accountService: WoMoCo.Services.AccountService) {            
             this.getComm($stateParams[`id`]);       
 
+
+            this.getComm($stateParams[`id`]);
         }
+
     }
 }

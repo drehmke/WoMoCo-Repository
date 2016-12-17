@@ -34,6 +34,7 @@
 /// <reference path="ngapp/services/interestservice.js" />
 /// <reference path="ngapp/services/linkservice.js" />
 /// <reference path="ngapp/services/messageservice.js" />
+/// <reference path="ngapp/services/postservice.js" />
 /// <reference path="ngapp/services/searchservice.js" />
 /// <reference path="ngapp/services/services.js" />
 /// <reference path="ngapp/services/utilities.js" />
