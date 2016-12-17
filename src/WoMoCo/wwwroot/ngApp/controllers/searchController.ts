@@ -13,6 +13,7 @@
         public users;
         public requests;
         public RequestResource;
+        public ConnectResource;
         
 
         public getUsers() {
@@ -22,6 +23,7 @@
 
         public reqConnect(recUser: string) {
             let Comm = new Com(recUser, "connection request");
+            this.saveUser(recUser);
             this.RequestResource.save(Comm).$promise.then(() =>
             {
                 Comm = null;
@@ -29,12 +31,23 @@
             });
         }
 
+        public saveUser( recUser: string) {
+
+            this.ConnectResource.save({ connectedUserId : recUser }).$promise.then(() => {
+
+            });
+        }
+
+        public deleteUser() {
+
+        }
 
 
         constructor(
             private SearchService: WoMoCo.Services.SearchService,
             private $resource: angular.resource.IResourceService) {
             this.RequestResource = $resource('/api/comms/');
+            this.ConnectResource = $resource('/api/connections/');
             ////this.userByUsername($stateParams['username']);
             this.getUsers();
 

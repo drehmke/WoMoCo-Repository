@@ -32,7 +32,7 @@ namespace WoMoCo.Services
             comm.SendingUser = user;
             comm.ReceivingUser = recUser;
             comm.DateSent = DateTime.Now;
-            comm.CommType = "system";
+            comm.CommType = "Connection/Friendish Request";
 
 
             if(comm.Id == 0)

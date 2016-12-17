@@ -70,6 +70,7 @@ namespace WoMoCo
             services.AddScoped<IBabySitterService, BabySitterService>();
             services.AddScoped<ISearchesService, SearchesService>();
             services.AddScoped<IPostService, PostService>();
+            services.AddScoped<IConnectionService, ConnectionService>();
 
             // add security policies
             services.AddAuthorization(options =>
