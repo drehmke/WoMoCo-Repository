@@ -212,6 +212,12 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.CreateMessageController,
                 controllerAs: `controller`
             })
+            .state(`deleteMessage`, {
+                url: `/message/deleteMessage/:id`,
+                templateUrl: `/ngApp/views/message/deleteMessage.html`,
+                controller: WoMoCo.Controllers.DeleteMessageController,
+                controllerAs: `controller`
+            })
 
         //====================================>
           
