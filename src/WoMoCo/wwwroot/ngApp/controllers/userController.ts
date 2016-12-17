@@ -10,6 +10,8 @@
         public link; // this is for the add
         // activities
         public activities; // this is for the list
+        // connections
+        public connections; // this is for the list
 
         public getUser() {
           return this.UserResource.get();
@@ -59,23 +61,30 @@
         //get all Activities for the currently logged in user
         public getMyActivities() {
             let temp = this.activitiesService.getAllUsersActivities();
-            console.log(temp);
             return temp;
         }
 
+        // get all the Connections for the currently logged in user
+        public getMyConnections() {
+            let temp = this.connectionService.getAllMyConnections();
+            return temp;
+        }
         
         constructor(
             private accountService: WoMoCo.Services.AccountService,
             private $resource: angular.resource.IResourceService,
             private interestService: WoMoCo.Services.InterestService,
             private activitiesService: WoMoCo.Services.ActivitiesService,
-            private linkService: WoMoCo.Services.LinkService
+            private linkService: WoMoCo.Services.LinkService,
+            private connectionService: WoMoCo.Services.ConnectionService
             ) {
             this.UserResource = $resource('/api/users/getUser');
             this.user = this.getUser();
             this.interests = this.getMyInterests();
             this.links = this.getMyLinks();
             this.activities = this.getMyActivities();
+            this.connections = this.getMyConnections();
+            console.log(this.connections);
         }
     }
     angular.module(`WoMoCo`).controller(`UserController`, UserController);
