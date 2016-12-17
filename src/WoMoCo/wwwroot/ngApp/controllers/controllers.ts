@@ -1,7 +1,16 @@
 namespace WoMoCo.Controllers {
 
     export class HomeController {
-        public message = 'Hello from the home page!';
+        public posts;
+        constructor(
+            private PostService: WoMoCo.Services.PostService
+        ) {
+            this.posts = this.getPostByUsername();
+        }
+        public getPostByUsername() {
+            return this.PostService.getPostByUsername()
+        }
+
     }
 
 

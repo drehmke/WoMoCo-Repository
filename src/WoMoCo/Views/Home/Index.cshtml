@@ -9,33 +9,49 @@
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
     <!--  theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
     <base href="/" />
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"> 
     <!---google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
-   
 
-    <base href="/" />
+    <link href="~/css/chat.css" rel="stylesheet" type="text/css" />
+  <base href="/" />
 </head>
 <body ng-controller="AccountController as account">
     <div class="container">
         <h1>WoMoCo</h1>
         <div>
-          <a href="/">Home</a> /
-           <a href="/about">About</a> /
+            <a href="/">Home</a> /
+            <a href="/about">About</a> /
             <a href="/interest">Interest</a> /
             <a href="/activityForum" ng-show="account.isLoggedIn()">Activities /</a>
             <a href="/post">Post</a>/
             <a href="/editingPost">EditingPost</a>/
+
+            <a href="/secret">Secret</a> /
+            <a href="/message/inbox"> Inbox</a>|
+
             <a href="/secret">Secret</a> /          
+
             <a href="/message/message">Message</a>|
-            <a href="/admin/calender/allEvents"  ng-show="account.isLoggedIn()">Event Admin /</a>
+            <a href="/admin/calender/allEvents" ng-show="account.isLoggedIn()">Event Admin /</a>
             <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
             <a href="/search">Search</a>/
             <a href="/message/inbox" ng-show="account.isLoggedIn()"> Inbox</a>/
             <a href="/profile" ng-show="account.isLoggedIn()">Profile</a>/ 
             <a href="/link">Link</a> /
+
+            <a href="/babySitterlink">BabySitterLink</a> /
+
+            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
+            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+            <div ng-show="account.isLoggedIn()">
+                [{{account.getUserName()}}]
+            </div>
+
             <a href="/babySitterlink">BabySitterLink</a>/
            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>/
            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
@@ -60,8 +76,6 @@
     <script src="~/bower_components/jquery/dist/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    
-
     <!-- App Files-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -75,7 +89,7 @@
     <script src="~/ngApp/controllers/createMessageController.js"></script>
     <script src="~/ngApp/controllers/messageController.js"></script>
     <script src="~/ngApp/services/messageService.js"></script>
-    <script src="~/ngApp/controllers/postController.js"></script>    
+    <script src="~/ngApp/controllers/postController.js"></script>
     <script src="~/ngApp/controllers/chatController.js"></script>
     <script src="~/ngApp/controllers/deleteMessageController.js"></script>
     <script src="~/ngApp/controllers/infoMessageController.js"></script>
@@ -83,9 +97,9 @@
     <script src="~/ngApp/controllers/eventAlarmController.js"></script>
     <script src="~/ngApp/controllers/searchController.js"></script>
     <script src="~/ngApp/services/searchService.js"></script>
+    <script src="~/ngApp/services/postService.js"></script>
 
 
-    
 
     <!-- Security -->
     <script src="/ngApp/controllers/accountcontroller.js"></script>

@@ -1,0 +1,189 @@
+﻿
+
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="Home"></span>
+                    <span class="About"></span>
+                    <span class="/profile"></span>
+                </button>
+                <a class="navbar-brand" href="#"> WoMoCo </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">About</a></li>
+                    <li class="dropdown">
+                        <a href="/profile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/message/inbox">Inbox</a></li>
+                            <li><a href="/message/message">Message</a></li>
+                            <li><a href="/admin/calender/allEvents">Admin</a></li>
+                            <li><a href="#">BabySitter</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">WomenCarrier</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-----------------regestration and Log in -->
+                <form class="navbar-form navbar-right" role="Login">
+                    <div class="login-area">
+                        <div class="bg-image">
+                            <div class="login-signup">
+                                <div class="container">
+                                    <div class="login-header">
+                                        <div class="row">
+
+                                            <div class="col-md-1 col-sm-1 col-xs-1">
+                                                <div class="login-details">
+                                                    <ul class="nav nav-tabs navbar-right">
+
+                                                        <li class="active"><a data-toggle="tab" href="/login">Login</a></li>&nbsp;
+                                                        <li><a data-toggle="tab" href="/register">/Register</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div id="login" class="tab-pane fade in active">
+                                        <div class="login-inner">
+
+                                            <div class="login-form">
+                                                <form>
+                                                    <div class="form-details">
+                                                        <label class="user">
+                                                            <input type="text" name="username" placeholder="Username" id="username">
+                                                        </label>
+                                                        <label class="pass">
+                                                            <input type="password" name="passsword" placeholder="Password" id="password">
+                                                        </label>
+                                                    </div>
+                                                    <button type="submit" class="form-btn" onsubmit="">Sent</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div id="register" class="tab-pane">
+                                            <div class="login-inner">
+
+                                                <div class="login-form">
+                                                    <form>
+                                                        <div class="form-details">
+                                                            <label class="user">
+                                                                <input type="text" name="username" placeholder="Full Name" id="username">
+                                                            </label>
+                                                            <label class="mail">
+                                                                <input type="email" name="mail" placeholder="Email Address" id="mail">
+                                                            </label>
+                                                            <label class="pass">
+                                                                <input type="password" name="passsword" placeholder="Password" id="password">
+                                                            </label>
+                                                            <label class="pass">
+                                                                <input type="password" name="passsword" placeholder="Confirm Password" id="password">
+                                                            </label>
+                                                        </div>
+                                                        <button type="submit" class="form-btn" onsubmit="">Sent</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="nav navbar-nav navbar-right">
+                <a target="_blank" href="https://www.linkedin.com/" />
+                <img src="/images/Linkedin_Logo.jpeg" width="30px" hight="30px" /></a> &nbsp;
+                <a target="_blank" href="http://www.facebook.com" />
+                <img src="/images/Facebook-logo.png" width="30px" hight="30px" /></a> &nbsp;
+                <a target="_blank" href="http://www.twitter.com" />
+                <img src="/images/Twitter-Logo.png" width="30px" hight="30px" /></a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <ul style="width: 60px">
+        <img src="/images/mom1.jpeg" />
+        <li style="width: 1200px; height: 40px;background-color :#ff00ff">
+        <li colspan="3">
+        </li>
+
+        <li style="width: 1100px">
+        <li colspan="3"></li>
+
+        <li style="width: 1100px; height: 20px">
+        <li colspan="3"></li>
+
+    </ul>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <!-- put the list here -->
+
+            <div class=""></div><a href="/message/inbox"> Inbox</a>
+            <div class=""></div><a href="/message/message">Message</a>
+            <div class=""></div><a href="/babySitterlink">BabySitter</a>
+            <div class="list-group-item">MoreToDo</div>
+            <div class="list-group-item">StillMoreToDo</div>
+            <!-- end List-->
+        </div>
+
+
+        <div class="container">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-8">
+
+
+
+                    <div class="row">
+                        <div ng-include="'/ngApp/views/posts/editingPost.html'"></div>
+                        
+
+                        <div class="row">
+                            <div class="col-md-4 portfolio-item">
+                                <a href="#">
+                                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                                </a>
+                            </div>
+
+
+                            <!--Content goes here -->
+
+                        </div>
+
+                        <!-- /.row -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
