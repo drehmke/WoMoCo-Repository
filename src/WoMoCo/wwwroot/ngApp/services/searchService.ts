@@ -9,7 +9,7 @@
         }
 
         constructor(private $resource: angular.resource.IResourceService) {
-            this.userSearchResource = this.$resource('/api/users');
+            this.userSearchResource = this.$resource('/api/searches');
         }
     }
         angular.module(`WoMoCo`).service(`SearchService`, SearchService);

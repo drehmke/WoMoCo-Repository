@@ -117,9 +117,9 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
 
-            .state('calenderEvents', {
-                url: `/admin/calender/allEvents`,
-                templateUrl: `/ngApp/views/calender/eventsList.html`,
+            .state('calendarEvents', {
+                url: `/admin/calendar/allEvents`,
+                templateUrl: `/ngApp/views/calendar/eventsList.html`,
                 controller: WoMoCo.Controllers.CalendarEventsController,
                 controllerAs: `controller`
             })
@@ -212,6 +212,12 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.CreateMessageController,
                 controllerAs: `controller`
             })
+            .state(`deleteMessage`, {
+                url: `/message/deleteMessage/:id`,
+                templateUrl: `/ngApp/views/message/deleteMessage.html`,
+                controller: WoMoCo.Controllers.DeleteMessageController,
+                controllerAs: `controller`
+            })
 
         //====================================>
           
@@ -237,13 +243,13 @@ namespace WoMoCo {
             })
             .state('profile', {
                 url: '/profile',
-                templateUrl: 'ngApp/views/profile.html',
+                templateUrl: 'ngApp/views/user/profile.html',
                 controller: WoMoCo.Controllers.UserController,
                 controllerAs: 'controller'
             })
             .state('editProfile', {
                 url: '/editProfile',
-                templateUrl: 'ngApp/views/editProfile.html',
+                templateUrl: 'ngApp/views/user/editProfile.html',
                 controller: WoMoCo.Controllers.EditUserController,
                 controllerAs: 'controller'
             })

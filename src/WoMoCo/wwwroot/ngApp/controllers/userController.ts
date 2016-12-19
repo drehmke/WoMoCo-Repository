@@ -2,20 +2,93 @@
     export class UserController {
         public user;
         public UserResource;
-        public username;
-        public userId;
+        // interests
+        public interests; // this is for the list
+        public interest; // this is for the add 
+        // links
+        public links; // this is for the list
+        public link; // this is for the add
+        // activities
+        public activities; // this is for the list
+        // connections
+        public connections; // this is for the list
 
         public getUser() {
           return this.UserResource.get();
         }
+        
+        // get all Interests for the currently logged in user
+        public getMyInterests() {
+            return this.interestService.getAllUsersInterest();
+        }
 
-        constructor(private accountService:WoMoCo.Services.AccountService ,private $resource: angular.resource.IResourceService,
+        // add an interest
+        public addInterest() {
+            this.interestService.saveInterest(this.interest).$promise
+                .then(() => {
+                    this.interest = null;
+                    this.interests = this.getMyInterests();
+                });
+        }
+        // remove an interest
+        public removeInterest(id: number) {
+            this.interestService.removeInterest(id).$promise
+                .then(() => {
+                    this.interests = this.getMyInterests();
+                });
+        }
+
+        // get all the Links for the currently logged in user
+        public getMyLinks() {
+            return this.linkService.getAllUserLinks();
+        }
+        // add a link
+        public addLink() {
+            this.linkService.saveLink(this.link).$promise
+                .then(() => {
+                    this.link = null;
+                    this.links = this.getMyLinks();
+                });
+        }
+        // remove a link
+        public removeLink(id: number) {
+            this.linkService.removeLink(id).$promise
+                .then(() => {
+                    this.links = this.getMyLinks();
+                });
+        }
+
+        //get all Activities for the currently logged in user
+        public getMyActivities() {
+            let temp = this.activitiesService.getAllUsersActivities();
+            return temp;
+        }
+
+        // get all the Connections for the currently logged in user
+        public getMyConnections() {
+            let temp = this.connectionService.getAllMyConnections();
+            return temp;
+        }
+        
+        constructor(
+            private accountService: WoMoCo.Services.AccountService,
+            private $resource: angular.resource.IResourceService,
+            private interestService: WoMoCo.Services.InterestService,
+            private activitiesService: WoMoCo.Services.ActivitiesService,
+            private linkService: WoMoCo.Services.LinkService,
+            private connectionService: WoMoCo.Services.ConnectionService
             ) {
-            //this.UserReource = $resource('/api/account/user/');
             this.UserResource = $resource('/api/users/getUser');
             this.user = this.getUser();
+            this.interests = this.getMyInterests();
+            this.links = this.getMyLinks();
+            this.activities = this.getMyActivities();
+            this.connections = this.getMyConnections();
+            console.log(this.connections);
         }
     }
+    angular.module(`WoMoCo`).controller(`UserController`, UserController);
+
     //Add UserController controller
     export class AddUserController {
         public user;
