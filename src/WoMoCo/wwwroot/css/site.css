@@ -3,7 +3,7 @@ body {
     font-family: 'Josefin Sans', sans-serif;
  
 }
-/*---------Body-------------*/
+---------Body-------------
 #subBtn
 {
    margin-left:2%;
@@ -83,10 +83,10 @@ p
     font-family:Orbitron; 
     color:orange;
 }
-/*<----Player Feed styles--->*/
+<----Player Feed styles--->
 #feedBanner
 {
-   /*margin:5%;*/
+   margin:5%;
    margin-left: auto;
    margin-right: auto;
 
@@ -142,7 +142,7 @@ p
 
 
 
-/*------Team Search Styles-------*/
+------Team Search Styles-------
 #teamBannerImg
 {
     margin-top:4%;
@@ -152,12 +152,12 @@ p
    width:750px;
  
 }
-/*<--------User Search Styles--------------->*/
+<--------User Search Styles--------------->
 #userSearchBannerImg
 {
      margin-top:4%;
     margin-bottom:4%;
-    /*margin-left:5%;*/
+    margin-left:5%;
     margin-left: auto;
    margin-right: auto;
 }
@@ -166,7 +166,7 @@ p
     width:75px; 
     display:inline;
 }
-/*<----Table Pager--->*/
+<----Table Pager--->
 #previous
 {
     font-size:2em;
@@ -176,7 +176,7 @@ p
 {
     font-size:2em;
 }
-/*<----Dashboard Styles--->*/
+<----Dashboard Styles--->
 #dashboardBannerImg 
 {
     margin-top:3%;
@@ -192,7 +192,7 @@ p
 {
     display:inline-block;
     margin-top:5%;
-    /*margin-bottom:2%;*/
+    margin-bottom:2%;
 }
 
 #profileImg
@@ -226,7 +226,7 @@ p
     margin:20px;
 }
 
-/*---Friends Page-----*/
+---Friends Page-----
 #friendsBanner
 {
     margin-left:auto;
@@ -245,7 +245,7 @@ p
      padding-right:10px;
       padding-bottom:10px;
 }
-/*<---------My teams------------>*/
+<---------My teams------------>
 #myTeamsBanner
 {
     margin-left:auto;
@@ -262,7 +262,7 @@ p
 {
     font-family:Audiowide; background-color:gray;
 }
-/*<--------Inbox------->*/
+<--------Inbox------->
 #inboxContainer {
     border: 22px;
     background-color: #46c81a;
@@ -302,7 +302,7 @@ p
 {
     cursor:pointer; margin-right:15%;
 }
-/* Set some basic padding to keep content from hitting the edges */
+ Set some basic padding to keep content from hitting the edges 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -324,7 +324,7 @@ strong
     color:#f89406;
 }
 
-/*-------Panels---------------*/
+-------Panels---------------
 
 .panel-body {
     background-image: url('../images/overwatch-logo-hd-pic.jpg');
@@ -347,14 +347,14 @@ strong
     background-size: cover;
 }
 
-/*--------navbar--------------*/
+--------navbar--------------
 .navbar
 {
     padding:0;
     margin:0;
 }
 
-/*--------tables--------------*/
+--------tables--------------
 table
 {
     font-size:1em;
@@ -365,13 +365,13 @@ table
     padding:20px; background-color:#505454; border:solid;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+ Wrapping element 
+ Set some basic padding to keep content from hitting the edges 
 .body-content {
    
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
+ Set widths on the form inputs since otherwise they're 100% wide 
 input,
 textarea,
 select {
@@ -381,7 +381,7 @@ select {
 {
     background-color:mediumpurple
 }
-/*Styles form banners command images*/
+Styles form banners command images
 #headImg {
     background-image: url('../images/game squad.png');
     background-repeat: no-repeat;
@@ -414,14 +414,14 @@ select {
     
 }
 
-/*styles form different formats*/
+styles form different formats
 
-@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ }
-@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
-@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
-@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+@media (min-width:320px)  {  smartphones, iPhone, portrait 480x320 phones  }
+@media (min-width:481px)  {  portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.  }
+@media (min-width:641px)  {  portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones  }
+@media (min-width:961px)  {  tablet, landscape iPad, lo-res laptops ands desktops  }
+@media (min-width:1025px) {  big landscape tablets, laptops, and desktops  }
+@media (min-width:1281px) {  hi-res laptops and desktops  }
 
 
 
