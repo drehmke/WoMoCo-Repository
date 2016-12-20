@@ -2,23 +2,62 @@
 <head>
     <title>WoMoCo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Latest compiled and minified CSS -->
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <!--  theme -->
     <base href="/" />
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"> 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <!--  theme -->
+    <link href="~/css/bootswatch.css" rel="stylesheet" />
     <!---google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <!--CSS Style Sheets-->
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/FrontEnd/navBar.css" rel="stylesheet" />
+    <link href="~/css/colorSchemeReference.css" rel="stylesheet" />
     <base href="/" />
 </head>
 <body ng-controller="AccountController as account">
+    <nav class="navbar navbar-default backgroundFireBrick" id="navBar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img  id="logoLetters" src="~/images/womoco.png" /></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li><a id="Search" href="/about">About <span class="sr-only"></span></a></li>
+                    <li><a id="Search" href="/search">Search</a></li>
+                    <li><a id="Search" href="/babySitterlink">BabySitterLink</a></li>
+                    <li><a id="Search" href="/activityForum" ng-show="account.isLoggedIn()">Activities</a></li>
+                    <li><a id="Search" href="/post">(l) Post</a></li>
+                    <li><a id="Search" href="/editingPost">(l) EditingPost</a></li>
+                    <li><a id="Search" href="/message/inbox">(l) Inbox</a></li>
+                    <li><a id="Search" href="/message/message">(l) Message</a></li>
+                    <li><a id="Search" href="/message/modal/messageModal">(l) Message Modal</a></li>
+                    <li><a id="Search" href="/profile" ng-show="account.isLoggedIn()">Profile </a></li>
+                    <li class="dropdown">
+                        <a id="Search" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="Search" href="#">Link</a></li>
+                </ul>
+            </div>
+        </div>
+        </nav>
     <div class="container">
         <h1>WoMoCo</h1>
         <div>
@@ -54,19 +93,19 @@
     @*/ <a href="/secret">Secret</a>*@
 
     <!-- Library Files -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/angular-touch/angular-touch.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="~/bower_components/jquery/dist/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+   
+    
     <!-- App Files-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  
     <script src="/ngApp/app.js"></script>
     <script src="/ngApp/controllers/controllers.js"></script>
     <script src="/ngApp/services/services.js"></script>
