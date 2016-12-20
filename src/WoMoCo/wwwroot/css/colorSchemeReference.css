@@ -1,8 +1,25 @@
 ﻿/*Here is the color palette that are to be used throughout the project*/
+/*
 DarkRed: #b70100
 FireBrick: #b83a07
 SandyBrown: #e4ae6e
 DarkGray: #97a89e
 DarkSeaGreen: #7ba790
 DimGray: #58795a
+*/
 /*This has also been pinned to the #groupproject channel on slack*/
+
+/* Text Colors */
+.colorDarkRed { color: #b70100; }
+.colorFireBrick { color:#b83a07; }
+.colorSandyBrown {color: #e4ae6e; }
+.colorDarkGray { color:#97a89e; }
+.colorDarkSeaGreen {color: #7ba790; }
+.colorDimGray { color: #58795a; }
+/* Backgrund Colors */
+.backgroundDarkRed { background-color: #b70100; }
+.backgroundFireBrick { background-color:#b83a07; }
+.backgroundSandyBrown {background-color: #e4ae6e; }
+.backgroundDarkGray { background-color:#97a89e; }
+.backgroundDarkSeaGreen {background-color: #7ba790; }
+.backgroundDimGray { background-color: #58795a; }
