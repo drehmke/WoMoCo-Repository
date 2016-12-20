@@ -246,3 +246,4 @@ paket-files/
 
 *.orig
 src/WoMoCo/Data/Migrations/*
+src/WoMoCo/wwwroot/_references.js
