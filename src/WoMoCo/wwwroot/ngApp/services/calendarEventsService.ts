@@ -1,5 +1,12 @@
 ﻿namespace WoMoCo.Services {
 
+    class DayElement {
+        constructor(public DayName: string, public DayNum: number) {
+            this.DayName = DayName;
+            this.DayNum = DayNum;
+        }
+    }
+
     export class CalendarEventService {
         private getEventsByUserResource;
         private getPullDownResource;
@@ -17,22 +24,18 @@
         }
 
         public GetCalendarEventById(id: number) {
-            // return this.$resource(`/api/calendarEvents/:id`).get({id: id});
             let tempResource = this.$resource(`/api/calendarEvents/:id`);
             let tempResult = tempResource.get({ id: id });
-            //console.log(tempResult);
             return tempResult;
         }
 
         public GetCalendarEventsByUser() {
             let tempList = this.getEventsByUserResource.getMyEvents();
-            //console.log(tempList);
             return tempList;
         }
 
         public GetUsersForPullDown() {
             let tempResults = this.getPullDownResource.getUsersForPulldown();
-            //console.log(tempResults);
             return tempResults;
         }
 
@@ -48,6 +51,15 @@
         public DeleteCalendarEvent(id: number) {
             // I am returning this because the $promise on the controller side needs something returned
             return this.$resource(`/api/calendarEvents/:id`).delete({ id: id });
+        }
+
+        public createViewMonthly(date) {
+            // create a list for the month 
+            // the list will contain 4-5 arrays holding a weekList 
+            // Each weekList has 7 day objects
+
+            
+
         }
         
         constructor(
