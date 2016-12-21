@@ -327,7 +327,6 @@ strong
 /*-------Panels---------------*/
 
 .panel-body {
-    background-image: url('../images/overwatch-logo-hd-pic.jpg');
     background-color: black;
     backface-visibility: visible;
     background-repeat: no-repeat;
@@ -335,13 +334,11 @@ strong
 }
 
 #profilepanel {
-    background-image: url('../images/overwatch-logo-hd-pic.jpg');
     padding:30px;
     background-repeat: no-repeat;
     background-size: cover;
 }
 #postpanel {
-    background-image: url('../images/ow_overwatch_flag_header.jpg');
     backface-visibility: visible;
     background-repeat: no-repeat;
     background-size: cover;
@@ -357,7 +354,7 @@ strong
 /*--------tables--------------*/
 table
 {
-    font-size:1em;
+    /*font-size:1em;*/
 }
 
 #teamInfoContainer

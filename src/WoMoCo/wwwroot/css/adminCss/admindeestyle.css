@@ -21,6 +21,9 @@ background: linear-gradient(to bottom,  #7ba790 0%,#b6d6c0 53%,#e1f7e7 100%); /*
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ba790', endColorstr='#e1f7e7',GradientType=0 ); /* IE6-9 */
 }
 #searchable .table>tbody>tr>td { border-top: 1px dashed #e4ae6e; }
+#messageList .table>tbody>tr>td { border-top: 1px dashed #e4ae6e; }
+#messageList .table-striped>tbody>tr:nth-of-type(odd) { background-color: transparent; }
+#messageList .table>tbody>tr.info>td { background-color: transparent; }
 
 #adminbox {
     text-align: center;

@@ -1,0 +1,32 @@
+﻿<div id="messageList" class="">
+    <div class="panel">
+        <div class="panel-heading">Admin : Message Management List</div>
+        <div class="panel-body">
+            <input type="text" class="form-control" ng-model="messageFilter" placeholder="Use this to filter this list" />
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr class="backgroundGradDarkSeaGreen">
+                    <th>To</th>
+                    <th>From</th>
+                    <th>Subject</th>
+                    <th>Date</th>
+                    <th>Message</th>
+                    <th>Actions</th>
+                <tr>
+            </thead>
+            <tbody>
+                <tr class="info" ng-repeat="comm in controller.comms" ng-filter="messageFilter">
+                    <td>{{comm.recId}}</td>
+                    <td>{{comm.sendingUser}}</td>
+                    <td>{{comm.subject}}</td>
+                    <td>{{comm.dateSent | date : 'short' : timezone}}</td>
+                    <td>{{comm.msg}}</td>
+
+                    <td><a ng-href="/modal/deleteinbox/{{comm.recId}}" class="btn btn-danger">Delete Message</a></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
