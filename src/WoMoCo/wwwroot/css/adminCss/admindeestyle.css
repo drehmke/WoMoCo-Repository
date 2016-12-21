@@ -1,7 +1,8 @@
 ﻿body{
-    background-color: #F0F8FF
+    background-color: #ffffff
 
 }
+
 
 #searchable {
     border-width: 8px;
@@ -9,6 +10,17 @@
     border-color: #58795a;
 
 }
+
+/* gradient header - white to darkseagreen */
+.backgroundGradDarkSeaGreen {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7ba790+0,b6d6c0+53,e1f7e7+100 */
+background: #7ba790; /* Old browsers */
+background: -moz-linear-gradient(top,  #7ba790 0%, #b6d6c0 53%, #e1f7e7 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #7ba790 0%,#b6d6c0 53%,#e1f7e7 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #7ba790 0%,#b6d6c0 53%,#e1f7e7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ba790', endColorstr='#e1f7e7',GradientType=0 ); /* IE6-9 */
+}
+#searchable .table>tbody>tr>td { border-top: 1px dashed #e4ae6e; }
 
 #adminbox {
     text-align: center;

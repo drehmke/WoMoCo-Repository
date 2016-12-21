@@ -4,30 +4,31 @@
 <!--<input type="text" placeholder="Search for a connection" ng-model="controller.username" />
 <button type="button" ng-click="controller.userByUsername()">Search</button>-->
 <input type="text" placeholder="Search for a connection" ng-model="searchTerm" />
-
-<table id="searchable" class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Username</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Location</th>
-            <th>Job Title</th>
-            <th>Employer</th>
-            <th>Actions</th>
-            <th>Make Admin</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="user in controller.users | filter: searchTerm">
-            <td>{{user.userName}}</td>
-            <td>{{user.firstName}} {{user.lastName}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.location}}</td>
-            <td>{{user.currentJobTitle}}</td>
-            <td>{{user.employer}}</td>
-            <td><button ng-click="controller.reqConnect(user.userName)">Connect</button></td>
-            <td id="adminbox"><input type="checkbox" name="Make Admine" value="true"/></td>
-        </tr>
-    </tbody>
-</table>
+<div id="searchable">
+    <table class="table table-striped">
+        <thead>
+            <tr class="backgroundGradDarkSeaGreen">
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Location</th>
+                <th>Job Title</th>
+                <th>Employer</th>
+                <th>Actions</th>
+                <th>Make Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in controller.users | filter: searchTerm">
+                <td>{{user.userName}}</td>
+                <td>{{user.firstName}} {{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.location}}</td>
+                <td>{{user.currentJobTitle}}</td>
+                <td>{{user.employer}}</td>
+                <td><button ng-click="controller.reqConnect(user.userName)">Connect</button></td>
+                <td id="adminbox"><input type="checkbox" name="Make Admine" value="true" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
