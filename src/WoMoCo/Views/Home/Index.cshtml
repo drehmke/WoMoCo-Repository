@@ -33,27 +33,24 @@
                     <li><a id="Search" href="/search">Search</a></li>
                     <li><a id="Search" href="/babySitterlink">BabySitterLink</a></li>
                     <li><a id="Search" href="/activityForum" ng-show="account.isLoggedIn()">Activities</a></li>
-                    <li><a id="Search" href="/post">(l) Post</a></li>
-                    <li><a id="Search" href="/editingPost">(l) EditingPost</a></li>
-                    <li><a id="Search" href="/message/inbox">(l) Inbox</a></li>
-                    <li><a id="Search" href="/message/message">(l) Message</a></li>
-                    <li><a id="Search" href="/message/modal/messageModal">(l) Message Modal</a></li>
-                    <li><a id="Search" href="/profile" ng-show="account.isLoggedIn()">Profile </a></li>
-                    <li class="dropdown">
-                        <a id="Search" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
+                    <li><a id="Search" href="/post">Post</a></li>
+                    <li><a id="Search" href="/editingPost">EditingPost</a></li>
+                    <li><a id="Search" href="/message/modal/messageModal">Message Modal</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="Search" href="#">Link</a></li>
+                    <li><a id="Search" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                    <li class="dropdown">
+                        <a id="Search" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+
+                            <li><a href="/profile" ng-show="account.isLoggedIn()">Profile </a></li>
+                            <li><a href="/message/inbox">Inbox</a></li>
+                            <li><a href="/message/message">Message</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/login" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                        </ul>
+                    </li>
+                    
                 </ul>
             </div>
         </div>
