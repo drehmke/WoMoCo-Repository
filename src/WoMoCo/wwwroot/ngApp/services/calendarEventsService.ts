@@ -62,11 +62,21 @@
         /* ---- Calendar Setup Public Function ---- */
         public createViewMonthly(dateToCheck) {
             // create a list for the month 
-            // the list will contain 4-5 arrays holding a weekList 
+            // the list will contain 4-5 arrays holding a weekList
+            let weekOne;
+            let weekTwo;
+            let weekThree;
+            let weekFour;
+            let weekFive;
             // Each weekList has 7 day objects
             console.log(dateToCheck);
             let totalMonthDays = new Date(dateToCheck.month, dateToCheck.year, 0).getDate();
             for (let i = 1; i < totalMonthDays; i++) {
+                let iDateWeekDayNum: number = new Date(dateToCheck.year, (dateToCheck.month - 1), i).getDay();
+                // setup week 1  ...
+                for (let i = 0; i < 6; i++) {
+
+                }
                 console.log(new Date(dateToCheck.year, (dateToCheck.month - 1), i).getDay());
             }
         }
