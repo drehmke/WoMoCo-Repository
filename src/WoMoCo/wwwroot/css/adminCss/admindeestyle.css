@@ -1,0 +1,68 @@
+﻿body{
+    background-color: #F0F8FF
+
+}
+
+#searchable {
+    border-width: 8px;
+    border-style: ridge;
+    border-color: #58795a;
+
+}
+
+#adminbox {
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+input {
+    background-color: #f9f9f9
+}
+
+
+/*textarea {
+    background-color: #58795a  ;
+
+}*/
+
+thead {
+    background-color: #58795a
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #7ba790;
+
+}
+
+
+#activityForm {
+    width: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-width: 8px;
+    border-color: #58795a;
+    border:ridge;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+label {
+    text-align:center;
+    vertical-align: middle;
+    display:inherit;
+}
+
+#activityList {
+    margin-top: 10px;
+    border: ridge;
+    border-color: #58795a;
+    border-width: 8px;
+    width: 30%;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-wrap:normal;
+    background-color: #7ba790;
+}
