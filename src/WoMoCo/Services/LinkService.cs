@@ -7,6 +7,7 @@ using WoMoCo.Data.Migrations;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
 using WoMoCo.Services;
+using WoMoCo.ViewModels.Links;
 
 namespace WoMoCo.Services
 {
@@ -16,6 +17,25 @@ namespace WoMoCo.Services
         public IList<Link>GetAllLinks()
         {
             return _repo.Query<Link>().ToList();
+        }
+
+        public IList<AdminLinkList> GetLinks()
+        {
+            IList<Link> allLinks = _repo.Query<Link>().Include(l => l.User).ToList();
+            IList<AdminLinkList> listableLinks = new List<AdminLinkList>();
+            foreach( Link link in allLinks)
+            {
+                AdminLinkList listable = new AdminLinkList
+                {
+                    Id = link.Id,
+                    Name = link.Name,
+                    Url = link.Url,
+                    LinkType = link.LinkType,
+                    OwnerName = link.User.UserName
+                };
+                listableLinks.Add(listable);
+            }
+            return listableLinks;
         }
 
         public Link GetLinkById(int id)

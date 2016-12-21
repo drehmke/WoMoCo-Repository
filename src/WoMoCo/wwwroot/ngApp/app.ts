@@ -94,13 +94,20 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.DeleteLinkController,
                 controllerAs: `controller`
             })
+            /*
             .state(`link`, {
                 url: `/link`,
                 templateUrl: `/ngApp/views/links/link.html`,
                 controller: WoMoCo.Controllers.LinkController,
                 controllerAs: `controller`
             })
-
+            */
+            .state(`linkAdmin`, {
+                url: `/admin/links`,
+                templateUrl: `/ngApp/views/links/link.html`,
+                controller: WoMoCo.Controllers.AdminLinkController,
+                controllerAs: `controller`
+            })
             //======= Baby Sitter Links =======>
             .state(`babySitterlink`, {
                 url: `/babySitterlink`,

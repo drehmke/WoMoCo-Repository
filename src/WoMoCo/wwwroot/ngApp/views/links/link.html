@@ -1,22 +1,27 @@
-﻿
+﻿<div class="panel">
+    <div class="panel-heading">Admin: User Social Link Management List</div>
+    <div class="panel-body">
+        <input type="text" placeholder="Use this to filter through the links" class="form-control" ng-model="linkFilter" />
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr class="backgroundGradDarkSeaGreen">
+                <th>Owner</th>
+                <th>Name</th>
+                <th>URL</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
 
-<h2>Link</h2>
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>URL</th>
-        </tr>
-    </thead>
-    <tbody>
+            <tr ng-repeat="link in controller.links | filter: linkFilter">
+                <td>{{link.ownerName}}</td>
+                <td>{{link.name}}</td>
+                <td>{{link.url}}</td>
+                <td><a ng-href="/editLink/{{link.id}}" class="btn btn-primary"> Edit</a></td>
+                <td><a ng-href="/deleteLink/{{link.id}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </tbody>
 
-        <tr ng-repeat="link in controller.links">
-            <td>{{link.name}}</td>
-            <td>{{link.url}}</td>
-            <td><a ng-href="/editLink/{{link.id}}" class="btn btn-primary"> Edit</a></td>
-            <td><a ng-href="/deleteLink/{{link.id}}" class="btn btn-danger">Delete</a></td>
-        </tr>
-    </tbody>
-
-</table>
-<a href="/addLink" class="btn btn-success"> Add Link </a>
+    </table>
+</div>

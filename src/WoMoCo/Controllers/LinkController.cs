@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Models;
 using WoMoCo.Services;
 using Microsoft.AspNetCore.Identity;
+using WoMoCo.ViewModels.Links;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -25,7 +26,13 @@ namespace WoMoCo.Controllers
             return _service.GetAllLinks();
         }
        
-   
+        // Admin list of all links
+        [HttpGet("GetAdminList/")]
+        public IEnumerable<AdminLinkList> GetAdminList()
+        {
+            return _service.GetLinks();
+        }
+
         [HttpGet("{id}")]
         //
         public IActionResult Get(int id)

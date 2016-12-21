@@ -88,4 +88,26 @@
         }
 
     }
+
+    export class AdminLinkController {
+        public links;
+        public LinkResource;
+
+        public getLinks() {
+            this.links = this.LinkResource.getAdminList();
+            console.log(this.links);
+        }
+        constructor(private $resource: angular.resource.IResourceService) {
+            this.LinkResource = this.$resource(`/api/link`, null, {
+                getAdminList: {
+                    url: `/api/link/getAdminList/`,
+                    method: `GET`,
+                    isArray: true
+                }
+            });
+            this.getLinks();
+
+        }
+
+    }
 }

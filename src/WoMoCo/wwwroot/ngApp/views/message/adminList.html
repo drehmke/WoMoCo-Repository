@@ -16,7 +16,7 @@
                 <tr>
             </thead>
             <tbody>
-                <tr class="info" ng-repeat="comm in controller.comms" ng-filter="messageFilter">
+                <tr class="info" ng-repeat="comm in controller.comms | filter: messageFilter">
                     <td>{{comm.recId}}</td>
                     <td>{{comm.sendingUser}}</td>
                     <td>{{comm.subject}}</td>
