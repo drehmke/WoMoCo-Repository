@@ -31,6 +31,14 @@ namespace WoMoCo.Controllers
             return Ok(_service.GetCommById(id));
         }
 
+        [HttpGet("GetUserNewMessageCount")]
+        public int GetUserNewMessageCount()
+        {
+            string uid = _manager.GetUserId(User);
+            int count = _service.GetCountCurrentUserNewMessages(uid);
+            return count;
+        }
+
         //POST api/values
        [HttpPost]
         public IActionResult Post([FromBody]Comm comm)

@@ -19,8 +19,6 @@ namespace WoMoCo.Services
         //Get all Comms
         public IList<Comm> GetAllComms()
         {
-
-            
             return _repo.Query<Comm>().ToList();
             
         }
@@ -56,6 +54,19 @@ namespace WoMoCo.Services
         {
             Comm commToDelete = _repo.Query<Comm>().Where(c => c.Id == id).FirstOrDefault();
             _repo.Delete(commToDelete);
+        }
+
+
+        public int GetCountCurrentUserNewMessages(string uid)
+        {
+            ApplicationUser currUser = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
+            IList<Comm> userComms = _repo.Query<Comm>().Where(c => c.ReceivingUser.Id == uid).ToList();
+            int newMessageCount = 0;
+            foreach(Comm comm in userComms)
+            {
+                if(comm.HasBeenViewed != true) { newMessageCount++; }
+            }
+            return newMessageCount;
         }
 
         public CommService(IGenericRepository repo, UserManager<ApplicationUser> manager)
