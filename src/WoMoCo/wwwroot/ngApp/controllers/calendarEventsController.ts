@@ -119,6 +119,21 @@
             this.getSharedEvents();
         }
     }
+    angular.module(`WoMoCo`).controller(`calendarUserEventsController`, CalendarUserEventsController);
+
+    export class CalendarUserEventsViewMonth {
+        private currentDateTime = Date.now;
+        
+        public displayMonth() {
+            return this.calendarEventService.createViewMonthly(this.currentDateTime);
+        }
+
+        constructor(private calendarEventService: WoMoCo.Services.CalendarEventService) {
+            this.displayMonth();
+        }
+    }
+    angular.module(`WoMoCo`).controller(`calendarUserEventsViewMonth`, CalendarUserEventsViewMonth);
+
 
     export class CalendarAddEventController {
         public calendarEvent;

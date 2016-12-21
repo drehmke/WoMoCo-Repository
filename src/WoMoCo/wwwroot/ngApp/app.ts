@@ -149,6 +149,13 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.CalendarDeleteEventController,
                 controllerAs: `controller`
             })
+            // Month view
+            .state(`calendarViewMonth`, {
+                url: `/calendar/view/month`,
+                templateUrl: `/ngApp/views/calendar/viewMonth.html`,
+                controller: WoMoCo.Controllers.CalendarUserEventsViewMonth,
+                controllerAs: `controller`
+            })
             // ---- end calendar Events -------------------------------
             // ---- Events Alarms -------------------------------------
             .state(`eventAlarms`, {

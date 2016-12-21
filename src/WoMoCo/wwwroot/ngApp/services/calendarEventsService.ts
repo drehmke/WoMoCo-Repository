@@ -53,12 +53,20 @@
             return this.$resource(`/api/calendarEvents/:id`).delete({ id: id });
         }
 
+        /* ---- Calendar Setup Private Functions ---- */
+        private getDaysInMonth(month, year) {
+            return new Date(year, month, 0).getDate();
+        }
+        
+
+        /* ---- Calendar Setup Public Function ---- */
         public createViewMonthly(date) {
             // create a list for the month 
             // the list will contain 4-5 arrays holding a weekList 
             // Each weekList has 7 day objects
+            let totalMonthDays = new Date(date.getMonth(), date.getFullYear(), 0).getDate();
+            console.log(totalMonthDays);
 
-            
 
         }
         
