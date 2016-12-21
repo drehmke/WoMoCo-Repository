@@ -2,7 +2,8 @@
 <p>This page has a list of all the events in the database. Filtering will be needed and added in a bit.</p>
 <table class="table table-bordered table-condensed table-hover table-striped">
     <thead>
-        <tr>
+    <tr class="backgroundDarkRed">
+       
             <th>&nbsp;</th>
             <th>Event Name</th>
             <th>Event Owner</th>
@@ -12,7 +13,9 @@
             <th>Active Status</th>
             <th>Actions</th>
             <th><a href="/admin/calendar/addEvent" class="btn btn-success">Add</a></th>
-        </tr>
+       
+    </tr>
+
     </thead>
     <tbody>
         <tr ng-repeat="event in controller.calendarEvents">
