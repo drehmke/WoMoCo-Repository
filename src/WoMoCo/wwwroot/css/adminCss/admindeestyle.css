@@ -36,11 +36,6 @@ input {
 }
 
 
-/*textarea {
-    background-color: #58795a  ;
-
-}*/
-
 thead {
     background-color: #58795a
 }
@@ -51,7 +46,7 @@ thead {
 }
 
 
-#activityForm {
+.activityFormPage {
     width: 30%;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -63,7 +58,7 @@ thead {
     
 }
 
-label {
+#activityLabel {
     text-align:center;
     vertical-align: middle;
     display:inherit;
@@ -71,7 +66,7 @@ label {
 
 #activityList {
     margin-top: 10px;
-    border: ridge;
+    border: double;
     border-color: #58795a;
     border-width: 8px;
     width: 30%;
@@ -80,4 +75,5 @@ label {
     padding-top: 15px;
     text-wrap:normal;
     background-color: #7ba790;
+    /*color: #f9f9f9*/
 }
