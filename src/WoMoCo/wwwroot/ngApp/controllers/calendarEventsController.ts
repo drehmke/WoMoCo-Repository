@@ -122,10 +122,11 @@
     angular.module(`WoMoCo`).controller(`calendarUserEventsController`, CalendarUserEventsController);
 
     export class CalendarUserEventsViewMonth {
-        private currentDateTime = Date.now;
+        private currentDateTime;
         
         public displayMonth() {
-            return this.calendarEventService.createViewMonthly(this.currentDateTime);
+            //this.currentDateTime = Date.now();
+            return this.calendarEventService.createViewMonthly({month: 12, year: 2016});
         }
 
         constructor(private calendarEventService: WoMoCo.Services.CalendarEventService) {

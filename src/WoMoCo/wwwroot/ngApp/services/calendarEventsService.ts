@@ -60,14 +60,15 @@
         
 
         /* ---- Calendar Setup Public Function ---- */
-        public createViewMonthly(date) {
+        public createViewMonthly(dateToCheck) {
             // create a list for the month 
             // the list will contain 4-5 arrays holding a weekList 
             // Each weekList has 7 day objects
-            let totalMonthDays = new Date(date.getMonth(), date.getFullYear(), 0).getDate();
-            console.log(totalMonthDays);
-
-
+            console.log(dateToCheck);
+            let totalMonthDays = new Date(dateToCheck.month, dateToCheck.year, 0).getDate();
+            for (let i = 1; i < totalMonthDays; i++) {
+                console.log(new Date(dateToCheck.year, (dateToCheck.month - 1), i).getDay());
+            }
         }
         
         constructor(
