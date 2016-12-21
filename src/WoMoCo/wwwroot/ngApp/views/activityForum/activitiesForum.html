@@ -1,7 +1,12 @@
 ﻿<!--Page is set up to use media function of bootsrap. Can be re-arranged.-->
 <h3>Activities</h3>
-<a href="/addActivity" type="button" class="btn btn-primary">Post</a>
-<div ng-repeat="a in controller.activities">
+
+<a href="/addActivity" type="button" class="btn btn-primary">Create an activity</a>
+<br />
+<br />
+
+<input type="text" placeholder="Find an activity" ng-model="searchTerms" />
+<div id="activityList" ng-repeat="a in controller.activities | filter: searchTerms">
     <div>
         <h4>{{a.location}}</h4>
         {{a.activity}}
