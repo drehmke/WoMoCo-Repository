@@ -283,7 +283,16 @@ namespace WoMoCo {
                 templateUrl: 'ngApp/views/posts/editingPost.html',
                 controller: WoMoCo.Controllers.GetByUsernameController,
                 controllerAs: 'controller'
-            });
+            })
+
+        //===================Bios======================================================
+            .state('stephenBoatman', {
+            url: '/bios/stephenBoatman',
+            templateUrl: 'ngApp/views/bios/stephenBoatman.html',
+            controller: WoMoCo.Controllers.AboutController,
+            controllerAs: 'controller'
+            })
+
             
 
         // Handle request for non-existent route

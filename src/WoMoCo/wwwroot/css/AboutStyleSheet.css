@@ -1,4 +1,4 @@
-﻿body {background-color: #7ba790; 
+﻿body { 
 }
 #textBody{
 
@@ -6,3 +6,18 @@
     background-color:#e4ae6e;
 }
 
+.inboxPanel {
+   
+    font-size: 0.75em;
+     width: 20%;
+     border: 1px solid #e4ae6e;
+     box-shadow: 5px 5px 5px #b6d6c0;
+     float: left;
+    margin: 5px;
+ }
+ 
+ .inboxPanelGlyph { font-size: 12px; } 
+ .inboxPanel .panel-heading a { color: #000; }
+ .inboxPanel .panel-heading strong { color: #000; }
+ .inboxPanel .panel-default { padding: 5px; font-size: 0.75em; }
+ .inboxPanel .panel-default h4 { border-bottom: 1px solid #b83a07; }
