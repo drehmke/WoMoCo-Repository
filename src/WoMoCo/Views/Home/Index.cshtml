@@ -2,19 +2,61 @@
 <head>
     <title>WoMoCo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/" />
     <!-- Latest compiled and minified CSS -->
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <!--  theme -->
-    <base href="/" />
-    
+    <link href="~/css/bootswatch.css" rel="stylesheet" />
     <!---google Fonts-->
+    <!--CSS Style Sheets-->
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="/css/colorSchemeReference.css">
-    <link href="~/css/adminCss/admindeestyle.css" rel="stylesheet" type="text/css"/>
-    <base href="/" />
+    <link href="~/css/FrontEnd/navBar.css" rel="stylesheet" />
+    <link href="~/css/colorSchemeReference.css" rel="stylesheet" />
+    <link href="~/css/adminCss/admindeestyle.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body ng-controller="AccountController as account">
+    <nav class="navbar navbar-default backgroundFireBrick" id="navBar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img  id="logoLetters" src="~/images/womoco.png" /></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li><a id="Search" href="/about">About <span class="sr-only"></span></a></li>
+                    <li><a id="Search" href="/search">Search</a></li>
+                    <li><a id="Search" href="/babySitterlink">BabySitterLink</a></li>
+                    <li><a id="Search" href="/activityForum" ng-show="account.isLoggedIn()">Activities</a></li>
+                    <li><a id="Search" href="/post">Post</a></li>
+                    <li><a id="Search" href="/editingPost">EditingPost</a></li>
+                    <li><a id="Search" href="/message/modal/messageModal">Message Modal</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a id="Search" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                    <li class="dropdown">
+                        <a id="Search" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+
+                            <li><a href="/profile" ng-show="account.isLoggedIn()">Profile </a></li>
+                            <li><a href="/message/inbox">Inbox</a></li>
+                            <li><a href="/message/message">Message</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/login" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        </nav>
     <div class="container">
         <h1>WoMoCo</h1>
         <div>
@@ -59,7 +101,7 @@
     <script src="/bower_components/angular-touch/angular-touch.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-
+    
     <!-- App Files-->
 
     <script src="/ngApp/app.js"></script>
