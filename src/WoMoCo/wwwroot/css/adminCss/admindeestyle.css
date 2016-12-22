@@ -86,7 +86,8 @@ thead {
     float: left;
     margin: 5px;
 }
-.adminPanel .panel-default { padding: 5px; font-size: 0.75em; }
 .adminPanelGlyph { font-size: 12px; }
 .adminPanel .panel-heading a { color: #000; }
+.adminPanel .panel-heading strong { color: #000; }
+.adminPanel .panel-default { padding: 5px; font-size: 0.75em; }
 .adminPanel .panel-default h4 { border-bottom: 1px solid #b83a07; }
