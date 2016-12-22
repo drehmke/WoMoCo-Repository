@@ -1,31 +1,37 @@
-﻿<h1>Search for your Connections here!</h1>
-
-<label>Search</label>
-<!--<input type="text" placeholder="Search for a connection" ng-model="controller.username" />
-<button type="button" ng-click="controller.userByUsername()">Search</button>-->
-<input type="text" placeholder="Search for a connection" ng-model="searchTerm" />
-
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Username</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Location</th>
-            <th>Job Title</th>
-            <th>Employer</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="user in controller.users | filter: searchTerm">
-            <td>{{user.userName}}</td>
-            <td>{{user.firstName}} {{user.lastName}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.location}}</td>
-            <td>{{user.currentJobTitle}}</td>
-            <td>{{user.employer}}</td>
-            <td><button ng-click="controller.reqConnect(user.userName)">Connect</button></td>
-        </tr>
-    </tbody>
-</table>
+﻿<div id="searchPanel" class="panel panel-default col-md-8 col-md-offset-2">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><h3>Connections</h3></div>
+    <div class="panel-body">
+        <p>
+            <label>Search</label>
+            <!--<input type="text" placeholder="Search for a connection" ng-model="controller.username" />
+    <button type="button" ng-click="controller.userByUsername()">Search</button>-->
+            <input class="form-control control-label" type="text" placeholder="Search for connection" ng-model="searchTerm" />
+        </p>
+    </div>
+    <!-- Table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Location</th>
+                <th>Job Title</th>
+                <th>Employer</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in controller.users | filter: searchTerm">
+                <td>{{user.userName}}</td>
+                <td>{{user.firstName}} {{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.location}}</td>
+                <td>{{user.currentJobTitle}}</td>
+                <td>{{user.employer}}</td>
+                <td><button class="btn btn-primary" ng-click="controller.reqConnect(user.userName)">Connect</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
