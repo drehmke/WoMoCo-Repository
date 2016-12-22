@@ -16,6 +16,7 @@
 /// <reference path="ngapp/controllers/calendareventscontroller.js" />
 /// <reference path="ngapp/controllers/chatcontroller.js" />
 /// <reference path="ngapp/controllers/controllers.js" />
+/// <reference path="ngapp/controllers/countercontroller.js" />
 /// <reference path="ngapp/controllers/createmessagecontroller.js" />
 /// <reference path="ngapp/controllers/deletemessagecontroller.js" />
 /// <reference path="ngapp/controllers/eventalarmcontroller.js" />

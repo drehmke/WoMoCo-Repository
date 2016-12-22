@@ -22,11 +22,6 @@
             })
         }
 
-        // get count of new messages
-        public getNewMessageCount() {
-            return this.$resource(`/api/comms/getUserNewMessageCount`).get();
-        }
-
         constructor(private $resource: angular.resource.IResourceService,
             public $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService) {            

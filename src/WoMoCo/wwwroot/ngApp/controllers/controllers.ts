@@ -6,18 +6,19 @@ namespace WoMoCo.Controllers {
 
         constructor(
             private PostService: WoMoCo.Services.PostService,
-            private MessageService: WoMoCo.Services.MessageService
+            private $http: ng.IHttpService
         ) {
             this.posts = this.getPostByUsername();
-            this.newMessageCount = this.getNewMessageCount();
-            console.log(this.newMessageCount);
+            this.getNewMessageCount();
         }
         public getPostByUsername() {
             return this.PostService.getPostByUsername()
         }
         public getNewMessageCount() {
-            let temp = this.MessageService.getNewMessageCount();
-            console.log(temp);
+            this.$http.get(`/api/comms/GetUserNewMessageCount/`).then((results) => {
+                this.newMessageCount = results.data;
+            });
+            
         }
     }
 
