@@ -5,6 +5,28 @@
     <div class="panel-body">
         <input class="form-control" type="text" placeholder="Use this to filter the list" ng-model="eventFilter" />
     </div>
+    <div class="panel adminPanel" ng-repeat="event in controller.calendarEvents | filter: eventFilter">
+        <div class="panel-heading backgroundGradDarkSeaGreen">
+            <a ng-href="/calendar/viewEvent/{{event.id}}" class="white">{{event.name}}</a>
+        </div>
+        <div class="panel-default">
+            <div class="list-group-item">
+                <h4>Event Information</h4>
+                <span class="glyphicon glyphicon-calendar adminPanelGlyph"></span> {{event.eventDateTime|date:'medium'}}<br />
+                <span class="glyphicon glyphicon-map-marker adminPanelGlyph"></span> {{event.location}}<br />
+            </div>
+            <div class="list-group-item">
+                <h4>Owner Information</h4>
+                <span class="glyphicon glyphicon-user adminPanelGlyph"></span> {{event.ownerName}}<br />
+                <span class="glyphicon glyphicon-calendar adminPanelGlyph"></span> {{event.createdDate|date:'medium'}}
+            </div>
+        </div>
+        <div class="panel-footer">
+            <a ng-href="/admin/calendar/editEvent/{{event.id}}" class=""><span class="glyphicon glyphicon-pencil text-info"></span></a>
+            <a ng-href="/admin/calendar/deleteEvent/{{event.id}}" class="pull-right"><span class="glyphicon glyphicon-remove text-danger"></span></a>
+        </div>
+    </div>
+    <!--
     <table class="table table-condensed table-hover">
         <thead>
             <tr class="backgroundGradDarkSeaGreen">
@@ -36,4 +58,5 @@
             </tr>
         </tbody>
     </table>
+    -->
 </div>
