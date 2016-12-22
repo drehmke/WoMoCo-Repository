@@ -1,0 +1,16 @@
+﻿body {
+}
+#navBar{
+}
+#logoLetters{
+    width:175px;
+    height:50px;
+    position: relative;
+    bottom:10px;
+}
+#dropdownMenu {
+    color:black
+}
+#Search{
+    color: white;
+}
