@@ -67,11 +67,13 @@ thead {
 
 .adminPanel {
     width: 20%;
+    min-width: 192px;
     border: 1px solid #e4ae6e;
-    box-shadow: 5px 5px 5px #b6d6c0;
+    box-shadow: 5px 5px 5px #eaebef;
     float: left;
     margin: 5px;
 }
+<<<<<<< HEAD
 .adminPanel .panel-default { padding: 5px; }
 .adminPanelGlyph { font-size: 12px; }
 
@@ -149,3 +151,10 @@ thead {
   	width: 16.6%;
 }*/
    /*, .span_2_of_6, .span_3_of_6, .span_4_of_6, .span_5_of_6, .span_6_of_6, .span_7_of_7*/ 
+=======
+.adminPanelGlyph { font-size: 12px; }
+.adminPanel .panel-heading a { color: #000; }
+.adminPanel .panel-heading strong { color: #000; }
+.adminPanel .panel-default { padding: 5px; font-size: 0.75em; }
+.adminPanel .panel-default h4 { border-bottom: 1px solid #b83a07; }
+>>>>>>> origin/AdminStyle

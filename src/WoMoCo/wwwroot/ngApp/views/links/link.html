@@ -5,16 +5,18 @@
     </div>
 
     <div class="panel adminPanel" ng-repeat="link in controller.links | filter: linkFilter">
-        <div class="panel-heading">
+        <div class="panel-heading backgroundGradDarkSeaGreen">
             <strong>{{link.name}}</strong>
         </div>
         <div class="panel-default">
-            <em>URL:</em> <a ng-href="{{link.url}}" target="_blank">{{link.url}}</a> <span class="glyphicon glyphicon-new-window adminPanelGlyph"></span><br />
-            <em>Owner:</em> {{link.ownerName}}<br />
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-new-window adminPanelGlyph"></span> <a ng-href="{{link.url}}" target="_blank">{{link.url}}</a> <br />
+                <span class="glyphicon glyphicon-user adminPanelGlyph"></span> {{link.ownerName}}<br />
+            </div>
         </div>
         <div class="panel-footer">
-            <a ng-href="/editLink/{{link.id}}" class="btn btn-primary"> Edit</a> 
-            <a ng-href="/deleteLink/{{link.id}}" class="btn btn-danger">Delete</a>
+            <a ng-href="/editLink/{{link.id}}" class=""><span class="glyphicon glyphicon-pencil text-info"></span></a> 
+            <a ng-href="/deleteLink/{{link.id}}" class="pull-right"><span class="glyphicon glyphicon-remove text-danger"></span></a>
         </div>
     </div>
 
