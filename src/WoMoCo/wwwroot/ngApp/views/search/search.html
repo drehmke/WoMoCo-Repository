@@ -1,10 +1,25 @@
-﻿<h1>Search and add your Connections here!</h1>
+﻿<h1>Manage Connections</h1>
 
 <label>Search</label>
-<!--<input type="text" placeholder="Search for a connection" ng-model="controller.username" />
-<button type="button" ng-click="controller.userByUsername()">Search</button>-->
 <input type="text" placeholder="Search for a connection" ng-model="searchTerm" />
-<div id="searchable">
+
+<div class="gridGroup" ng-repeat="user in controller.users | filter: searchTerm">
+    <div class="col span_1_of_7">
+      UserName:  {{user.userName}} <br />
+        Name:  {{user.firstName}} {{user.lastName}}<br />
+        Email:  {{user.email}}<br />
+        Location:  {{user.location}}<br />
+        Current Job Title:  {{user.currentJobTitle}}<br />
+        Employer:  {{user.employer}}<br />
+        Make this user an Admin: <input type="checkbox" name="Make Admine" value="true" /> <br />
+        Delete this users profile: <button class="btn-danger btn-sm">Delete</button>
+    </div>
+</div>
+
+
+
+<!--not using-->
+<!--<div id="searchable">
     <table class="table table-striped">
         <thead>
             <tr class="backgroundGradDarkSeaGreen">
@@ -31,4 +46,23 @@
             </tr>
         </tbody>
     </table>
+</div>-->
+<!--<input type="text" placeholder="Search for a connection" ng-model="controller.username" />
+<button type="button" ng-click="controller.userByUsername()">Search</button>-->
+
+
+<!--<div class="col span_2_of_6">
+  Name:  {{user.firstName}} {{user.lastName}}
 </div>
+<div class="col span_3_of_6">
+  Email:  {{user.email}}
+</div>
+<div class="col span_4_of_6">
+  Location:  {{user.location}}
+</div>
+<div class="col span_5_of_6">
+  Current Job Title:  {{user.currentJobTitle}}
+</div>
+<div class="col span_6_of_6">
+  Employer:  {{user.employer}}
+</div>-->

@@ -3,14 +3,6 @@
 
 }
 
-
-#searchable {
-    border-width: 8px;
-    border-style: ridge;
-    border-color: #58795a;
-
-}
-
 /* gradient header - white to darkseagreen */
 .backgroundGradDarkSeaGreen {
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7ba790+0,b6d6c0+53,e1f7e7+100 */
@@ -28,13 +20,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ba790', end
 #adminbox {
     text-align: center;
     vertical-align: middle;
-
 }
 
 input {
     background-color: #f9f9f9
 }
-
 
 thead {
     background-color: #58795a
@@ -42,9 +32,7 @@ thead {
 
 .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: #ffffff;
-
 }
-
 
 .activityFormPage {
     width: 30%;
@@ -55,7 +43,6 @@ thead {
     border:ridge;
     text-align: center;
     vertical-align: middle;
-    
 }
 
 #activityLabel {
@@ -87,3 +74,78 @@ thead {
 }
 .adminPanel .panel-default { padding: 5px; }
 .adminPanelGlyph { font-size: 12px; }
+
+
+
+/*testing grid stuff*/
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 3px;
+	margin: 3px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 3.2%;
+    border:ridge;
+    border-width:5px;
+    padding: 3px;
+    min-width: 200px;
+    text-decoration: underline;
+    background-color: #eaebef;
+}
+.col:first-child { margin-left: 8px; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF SIX  */
+
+
+.span_1_of_7 {
+  	width: 50%;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_1_of_6 { width: 100%; }
+}
+
+/*not using*/
+
+/*#searchable {
+    border-width: 8px;
+    border-style: ridge;
+    border-color: #58795a;
+
+}*/
+/*.span_7_of_7 {
+    width: 100%
+}
+.span_6_of_7 {
+	width: 16.6%;
+}
+
+.span_5_of_7 {
+  	width: 16.6%;
+}
+
+.span_4_of_7 {
+  	width: 16.6%;
+}
+
+.span_3_of_7 {
+  	width: 16.6%;
+}
+
+.span_2_of_7 {
+  	width: 16.6%;
+}*/
+   /*, .span_2_of_6, .span_3_of_6, .span_4_of_6, .span_5_of_6, .span_6_of_6, .span_7_of_7*/ 
