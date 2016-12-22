@@ -77,3 +77,13 @@ thead {
     background-color: #7ba790;
     /*color: #f9f9f9*/
 }
+
+.adminPanel {
+    width: 20%;
+    border: 1px solid #e4ae6e;
+    box-shadow: 5px 5px 5px #b6d6c0;
+    float: left;
+    margin: 5px;
+}
+.adminPanel .panel-default { padding: 5px; }
+.adminPanelGlyph { font-size: 12px; }

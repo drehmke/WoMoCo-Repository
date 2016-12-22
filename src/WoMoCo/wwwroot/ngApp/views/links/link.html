@@ -3,6 +3,23 @@
     <div class="panel-body">
         <input type="text" placeholder="Use this to filter through the links" class="form-control" ng-model="linkFilter" />
     </div>
+
+    <div class="panel adminPanel" ng-repeat="link in controller.links | filter: linkFilter">
+        <div class="panel-heading">
+            <strong>{{link.name}}</strong>
+        </div>
+        <div class="panel-default">
+            <em>URL:</em> <a ng-href="{{link.url}}" target="_blank">{{link.url}}</a> <span class="glyphicon glyphicon-new-window adminPanelGlyph"></span><br />
+            <em>Owner:</em> {{link.ownerName}}<br />
+        </div>
+        <div class="panel-footer">
+            <a ng-href="/editLink/{{link.id}}" class="btn btn-primary"> Edit</a> 
+            <a ng-href="/deleteLink/{{link.id}}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+
+
+    <!--
     <table class="table table-hover">
         <thead>
             <tr class="backgroundGradDarkSeaGreen">
@@ -24,4 +41,5 @@
         </tbody>
 
     </table>
+    -->
 </div>
