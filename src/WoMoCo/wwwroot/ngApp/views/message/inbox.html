@@ -5,23 +5,24 @@
     <a ng-href="/message/modal/messageModal" class="btn btn-danger">Compose New Message</a>
 </div>
 
-<div class="panel inboxPanel" ng-repeat="comm in controller.comms">
-    <div class="glyphicon-envelope"></div>
-    <div class="panel-heading">
-        <em>Subject:</em> {{comm.subject}}<br />
-    </div>
-    <div class="panel-default">
+<div id="panel inboxPanel">
+    <div class="panel inboxPanel" ng-repeat="comm in controller.comms">
+        <div class="glyphicon-envelope"></div><a ng-href="/message/message/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-ok glyphicon text-info"></span></a>
+        <div class="panel-heading">
+            <em>Subject:</em> {{comm.subject}}<br />
+        </div>
+        <div class="panel-default">
             <em>To:</em> {{comm.recId}}<br />
-            <em>From:</em> {{comm.sendingUser}}<br />        
+            <em>From:</em> {{comm.sendingUser}}<br />
             <em>Reciever</em> {{comm.recievingUser}}<br />
             <em>Date</em> {{comm.dateSent}}<br />
             <em>Message</em> {{comm.msg}}<br />
-            
+
+        </div>
+       <div>
+           
+           <a ng-href="/message/deleteMessage/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-remove glyphicon text-danger"></span></a>
+       </div>
+
     </div>
-    <div class="panel-footer">
-        <a ng-href="/message/message/{{comm.id}}"><span class="glyphicon-ok-circle glyphicon text-info"></span></a>
-        <a ng-href="/message/deleteMessage/{{comm.id}}" class="pull-right"><span class="glyphicon-remove glyphicon text-danger"></span></a>
-        
-    </div>
-    
 </div>
