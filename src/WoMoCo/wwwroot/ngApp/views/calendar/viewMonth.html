@@ -1,1 +1,6 @@
 ﻿<h3>Month View</h3>
+<div class="row">
+    <div ng-repeat="day in controller.month track by $index" class="col-md-1" ng-if="day.dayOfWeek == 0">
+        {{day.dayOfMonth}}
+    </div>
+</div>

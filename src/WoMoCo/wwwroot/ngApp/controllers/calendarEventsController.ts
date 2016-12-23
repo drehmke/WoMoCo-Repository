@@ -123,6 +123,7 @@
 
     export class CalendarUserEventsViewMonth {
         private currentDateTime;
+        public month;
         
         public displayMonth() {
             //this.currentDateTime = Date.now();
@@ -130,7 +131,7 @@
         }
 
         constructor(private calendarEventService: WoMoCo.Services.CalendarEventService) {
-            this.displayMonth();
+            this.month = this.displayMonth();
         }
     }
     angular.module(`WoMoCo`).controller(`calendarUserEventsViewMonth`, CalendarUserEventsViewMonth);
