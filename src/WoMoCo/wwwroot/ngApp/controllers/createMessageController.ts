@@ -7,13 +7,10 @@
                 this.$state.go('inbox');
             })
         }
-        public ok() {
-            this.$uibModalInstance.close();
-        }
+      
         constructor(private $resource: angular.resource.IResourceService,
             public $stateParams: ng.ui.IStateParamsService,
-            private $state: ng.ui.IStateService,
-            private $uibModalInstance: angular.ui.bootstrap.IModalServiceInstance) {
+            private $state: ng.ui.IStateService) {
             this.MessageResource = this.$resource('/api/comms');
         }
     }
