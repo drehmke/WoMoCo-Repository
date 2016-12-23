@@ -59,33 +59,6 @@
         </div>
         </nav>
     <div class="container">
-        <h1>WoMoCo</h1>
-        <div>
-          <a href="/">Home</a> /
-           <a href="/about">About</a> /
-            <a href="/search">Search</a> /
-            <a href="/babySitterlink">BabySitterLink</a> /
-
-            <!-- Logged In -->
-            <a href="/activityForum" ng-show="account.isLoggedIn()">(l) Activities /</a>
-            <a href="/post">(l) Post</a>/
-            <a href="/editingPost">(l) EditingPost</a>
-            <a href="/message/inbox">(l) Inbox</a>|
-            <a href="/message/message">(l) Message</a>/
-            <a href="/message/modal/messageModal">(l) Message Modal</a>
-            <a href="/profile" ng-show="account.isLoggedIn()">Profile /</a>
-
-            <!-- Admin -->
-            <a href="/link">(a) Link</a> /
-            <a href="/interest">(a) Interest</a>|
-            <a href="/admin/calendar/allEvents" ng-show="account.isLoggedIn()">(a) Event Admin</a>
-           <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
-           <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
-           <div ng-show="account.isLoggedIn()">
-               [{{account.getUserName()}}]
-           </div>
-        </div>
-        <hr />
 
         <ui-view></ui-view>
     </div>
