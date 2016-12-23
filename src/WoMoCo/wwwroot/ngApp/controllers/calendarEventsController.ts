@@ -122,16 +122,15 @@
     angular.module(`WoMoCo`).controller(`calendarUserEventsController`, CalendarUserEventsController);
 
     export class CalendarUserEventsViewMonth {
-        private currentDateTime;
-        public month;
-        
-        public displayMonth() {
-            //this.currentDateTime = Date.now();
-            return this.calendarEventService.createViewMonthly({month: 12, year: 2016});
-        }
+        public allMonths;
 
-        constructor(private calendarEventService: WoMoCo.Services.CalendarEventService) {
-            this.month = this.displayMonth();
+        public getMonthView() {
+            return this.calendarMonthService.createMonthView();
+        }
+        
+        constructor(private calendarMonthService: WoMoCo.Services.CalendarMonthService) {
+            this.allMonths = this.getMonthView();
+            console.log(this.allMonths);
         }
     }
     angular.module(`WoMoCo`).controller(`calendarUserEventsViewMonth`, CalendarUserEventsViewMonth);

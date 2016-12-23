@@ -1,12 +1,5 @@
 ﻿namespace WoMoCo.Services {
 
-    class DayElement {
-        constructor(public DayName: string, public DayNum: number) {
-            this.DayName = DayName;
-            this.DayNum = DayNum;
-        }
-    }
-
     export class CalendarEventService {
         private getEventsByUserResource;
         private getPullDownResource;
@@ -51,30 +44,6 @@
         public DeleteCalendarEvent(id: number) {
             // I am returning this because the $promise on the controller side needs something returned
             return this.$resource(`/api/calendarEvents/:id`).delete({ id: id });
-        }
-
-        /* ---- Calendar Setup Private Functions ---- */
-        private getDaysInMonth(month, year) {
-            return new Date(year, month, 0).getDate();
-        }
-        
-
-        /* ---- Calendar Setup Public Function ---- */
-        public createViewMonthly(dateToCheck) {
-            //let monMaxDay: number;
-            // create a list for the month 
-            // the list will contain 4-5 arrays holding a weekList
-
-            // Each weekList has 7 day objects
-            //console.log(dateToCheck);
-            let monMaxDay = new Date(dateToCheck.month, dateToCheck.year, 0).getDate();
-            let month = [];
-            for (let i = 1; i < monMaxDay; i++) {
-                let iDateWeekDayNum: number = new Date(dateToCheck.year, (dateToCheck.month - 1), i).getDay();
-                month.push({ dayOfMon: i, dayofWeek: iDateWeekDayNum });
-                //console.log(new Date(dateToCheck.year, (dateToCheck.month - 1), i).getDay());
-            }
-            return month;
         }
         
         constructor(
