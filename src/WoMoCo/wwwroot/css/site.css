@@ -58,7 +58,7 @@ p
 /* -------Panels--------------- */
 
 .panel-body {
-    background-color: white;
+    background-color: black;
     backface-visibility: visible;
     background-repeat: no-repeat;
     background-size: cover;
