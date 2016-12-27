@@ -1,9 +1,8 @@
 namespace WoMoCo {
-    angular.module('WoMoCo', ['ui.router', 'ngResource', 'ui.bootstrap', 'ui.calendar']).config((
+    angular.module('WoMoCo', ['ui.router', 'ngResource', 'ui.bootstrap']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
-        $locationProvider: ng.ILocationProvider,
-        $uiCalendarConfig: ng.ui.IC
+        $locationProvider: ng.ILocationProvider
     ) => {
         // Define routes
         $stateProvider
