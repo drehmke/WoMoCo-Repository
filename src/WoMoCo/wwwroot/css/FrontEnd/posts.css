@@ -27,3 +27,17 @@ h6.panel-title {
 #editpostbutton {
     margin-top: 25px
 }
+div.postcolumn {
+    background-color: #e4ae6e;
+}
+#postpaneltitle {
+    background-color: #7ba790;
+}
+.talkingmoms {
+    background-image: url("../../images/TalkingMoms.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#column1 {
+    background-color: transparent;
+}
