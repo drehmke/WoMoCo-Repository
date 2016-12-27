@@ -10,5 +10,6 @@ namespace WoMoCo.Interfaces
         Comm GetCommById(int id);
         void SaveComm(Comm comm, string uid);             
         void DeleteComm(int id);
+        int GetCountCurrentUserNewMessages(string uid);
     }
 }
