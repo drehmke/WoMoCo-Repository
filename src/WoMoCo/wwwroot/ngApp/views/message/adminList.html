@@ -1,33 +1,37 @@
 ﻿
-    <div class="panel">
+<div class="panel">
     <div class="panel-heading">Admin : Message Management List</div>
     <div class="panel-body">
         <input type="text" placeholder="Use this to filter through the list" class="form-control" ng-model="messageFilter" />
     </div>
     <div class="panel adminPanel" ng-repeat="comm in controller.comms | filter: messageFilter">
-        <div>
-            <div class="panel-heading backgroundGradDarkSeaGreen">
-                <strong>{{comm.recId}}</strong>
-            </div>
-            <div class="panel-heading backgroundGradDarkSeaGreen">
-                <strong>{{comm.sendingUser}}</strong>
-            </div>
-            <div class="panel-heading backgroundGradDarkSeaGreen">
-                <strong>{{comm.subject}}</strong>
-            </div>
-            <div class="panel-heading backgroundGradDarkSeaGreen">
-                <strong>{{comm.dateSent | date : 'short' : timezone}}</strong>
-            </div>
-            <div class="panel-heading backgroundGradDarkSeaGreen">
-                <strong>{{comm.msg}}</strong>
-            </div>
-        </div>
 
+
+        <div class="panel-heading backgroundGradDarkSeaGreen">
+            <strong>{{comm.subject}}</strong>
+        </div>
         <div class="panel-default">
             <div class="list-group-item">
+                <div>
+                    <strong>{{comm.dateSent | date : 'short' : timezone}}</strong>
+                </div>
+                <div>
+                    <strong>{{comm.recId}}</strong>
+                </div>
+                <div>
+                    <strong>{{comm.sendingUser}}</strong>
+                </div>
+                <div>
+                    <strong>{{comm.msg}}</strong>
+                </div>
+            </div>
+
+            <div class="list-group-item">
+
                 <span class="glyphicon glyphicon-new-window adminPanelGlyph"></span> <a ng-href="{{comm.recId}}" target="_blank">{{comm.recId}}</a> <br />
                 <span class="glyphicon glyphicon-user adminPanelGlyph"></span> {{comm.ownerName}}<br />
             </div>
+
         </div>
         <div class="panel-footer">
             <a ng-href="/editLink/{{comm.id}}" class=""><span class="glyphicon glyphicon-pencil text-info"></span></a>
@@ -37,4 +41,3 @@
 </div>
 
 
-       
