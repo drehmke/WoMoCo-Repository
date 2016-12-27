@@ -3,13 +3,14 @@
     export class MessageController {
 
         public MessageResource;
-        public friendRequests;
+        
         public comms;
         public comm;
 
         public getAllComms() {
             return this.MessageService.getAllComms();
         }
+       
 
         public saveComm() {
             this.MessageResource.save(this.comm).$promise.then(() => {
@@ -18,14 +19,11 @@
             });
         }
 
-        /*
-        public msgsByUser() {
-                    this.MessageService.getMsgsByUser().$promise.then((data) => {
-                        this.comms = data.messages;
-
-                    });
-                }
-        */
+        
+        //public getCommsByUserName() {
+        //        return this.MessageService.getCommsByUserName();
+        //        }
+        
         /*
         public deleteMessage(id) {
                     this.MessageService.deleteMessage(id).then(() => {
@@ -38,7 +36,8 @@
                     private MessageService: WoMoCo.Services.MessageService,
                     public $state: ng.ui.IStateService,
                     private accountService: WoMoCo.Services.AccountService) {
-                    this.comms = this.getAllComms();          
+                    this.comms = this.getAllComms();
+                    //this.comms = this.getCommsByUserName();          
                 }    
     }
 }

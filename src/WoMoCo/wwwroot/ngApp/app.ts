@@ -197,7 +197,7 @@ namespace WoMoCo {
             .state(`inbox`, {
                 url: `/message/inbox`,
                 templateUrl: `/ngApp/views/message/inbox.html`,
-                controller: WoMoCo.Controllers.MessageController,
+                controller: WoMoCo.Controllers.InboxController,
                 controllerAs: `controller`
             })
             .state(`message`, {
