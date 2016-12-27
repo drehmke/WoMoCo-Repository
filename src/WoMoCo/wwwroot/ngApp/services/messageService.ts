@@ -4,16 +4,14 @@
         public MessageResource;
         public comm;
         
-        
         //get all Comms
         public getAllComms() {
             return this.$resource(`/api/comms`).query();
         }
+
         //get Comm By Id
         public getCommById(id: number) {
             return this.MessageResource.get({ id: id });
-            
-            
         }
       
         //delete message
@@ -28,18 +26,7 @@
             public $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService) {            
             this.MessageResource = $resource('/api/comms/:id');
-            
-
-
-        }           
-         
-
-        
-        
-        
-       
-
-        
+         }           
     }
     angular.module('WoMoCo').service('MessageService', MessageService);
 }
