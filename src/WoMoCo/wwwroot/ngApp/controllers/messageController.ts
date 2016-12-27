@@ -37,7 +37,6 @@
         constructor(private $resource: angular.resource.IResourceService,
                     private MessageService: WoMoCo.Services.MessageService,
                     public $state: ng.ui.IStateService,
-                    private $uibModal: angular.ui.bootstrap.IModalService,
                     private accountService: WoMoCo.Services.AccountService) {
                     this.comms = this.getAllComms();          
                 }    

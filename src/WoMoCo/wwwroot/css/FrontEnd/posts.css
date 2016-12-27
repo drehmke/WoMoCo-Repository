@@ -1,0 +1,29 @@
+﻿
+
+h1.panel-title {
+    font-size: 36px;
+}
+h2.panel-title {
+    font-size: 30px;
+}
+h3.panel-title {
+    font-size: 24px;
+}
+h4.panel-title {
+    font-size: 18px
+}
+h5.panel-title {
+    font-size: 14px
+}
+h6.panel-title {
+    font-size: 10px;
+}
+#posteditingbutton {
+    margin-bottom: 10px;
+}
+#postdeletebutton {
+    margin-bottom: 10px;
+}
+#editpostbutton {
+    margin-top: 25px
+}

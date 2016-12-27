@@ -16,7 +16,7 @@
                 <th>Message</th>
                 <th>View Message</th>
             <tr>
-            </thread>
+        </thread>
         <thread>
             <tbody>
                 <tr class="info" ng-repeat="comm in controller.comms">
@@ -33,7 +33,36 @@
                 </tr>
             </tbody>
         </thread>
-                    
-                       
+
+
     </table>
+    ﻿<link href="../../../css/AboutStyleSheet.css" rel="stylesheet" />
+
+
+    <div class="panel-body">
+        <a ng-href="/message/modal/messageModal" class="btn btn-danger">Compose New Message</a>
+
+    </div>
+
+    <div id="panel inboxPanel">
+        <div class="panel inboxPanel" ng-repeat="comm in controller.comms">
+            <div class="glyphicon-envelope"></div><a ng-href="/message/message/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-ok glyphicon text-info"></span></a>
+            <div class="panel-heading">
+                <em>Subject:</em> {{comm.subject}}<br />
+            </div>
+            <div class="panel-default">
+                <em>To:</em> {{comm.recId}}<br />
+                <em>From:</em> {{comm.sendingUser}}<br />
+                <em>Reciever</em> {{comm.recievingUser}}<br />
+                <em>Date</em> {{comm.dateSent}}<br />
+                <em>Message</em> {{comm.msg}}<br />
+
+            </div>
+            <div>
+
+                <a ng-href="/message/deleteMessage/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-remove glyphicon text-danger"></span></a>
+            </div>
+
+        </div>
+    </div>
 </div>

@@ -226,7 +226,7 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             .state(`adminMessageList`, {
-                url: `/admin/message/list`,
+                url: `/admin/message/adminList`,
                 templateUrl: `/ngApp/views/message/adminList.html`,
                 controller: WoMoCo.Controllers.MessageController,
                 controllerAs: `controller`

@@ -9,24 +9,26 @@
 
 </fieldset>-->
 
-<fieldset>
-    <legend>Login Locally</legend>
-    <ul>
-        <li ng-repeat="error in controller.validationMessages">
-            {{error}}
-        </li>
-    </ul>
+<div class="col-md-6 col-md-offset-3">
+    <fieldset class="jumbotron">
+        <h3>Login</h3>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-danger" ng-repeat="error in controller.validationMessages">
+                {{error}}
+            </li>
+        </ul>
 
-    <form ng-submit="controller.login()">
-        <div>
-            <label>User Name:</label>
-            <input ng-model="controller.loginUser.userName" />
-        </div>
-        <div>
-            <label>Password:</label>
-            <input type="password" ng-model="controller.loginUser.password" />
-        </div>
-        <input type="submit" value="Login" />
-        <a href="/register">Register</a>
-    </form>
-</fieldset>
+        <form ng-submit="controller.login()">
+            <div class="form-group">
+                <label>User Name</label>
+                <input class="form-control control-label" placeholder="User Name" ng-model="controller.loginUser.userName" />
+            </div>
+            <div>
+                <label>Password</label>
+                <input class="form-control" type="password" placeholder="Password" ng-model="controller.loginUser.password" />
+            </div>
+            <input class="btn btn-primary" type="submit" value="Login" />
+            <a class="btn btn-link" href="/register">Register</a>
+        </form>
+    </fieldset>
+</div>

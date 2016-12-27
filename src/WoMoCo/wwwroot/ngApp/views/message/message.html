@@ -1,5 +1,5 @@
 ﻿
-<div class="container">
+<!--<div class="container">
     <div id="inboxContainer" class="col-lg-8 col-lg-offset-2 img-rounded">
         <div class="row">
             <div id="messagesContainer" class="img-rounded shadowDark">
@@ -38,5 +38,39 @@
         </div>
 
     </div>
-</div>
+</div>-->
 
+
+
+
+
+<div>
+    <div>
+        <div class="col-lg-8 col-lg-offset-2 img-rounded">
+            <div class="row">
+                <div class="w3-card-24" style="width:100%">
+                   
+                    <div class="backgroundSandyBrown">
+                        <header class="w3-container">
+
+                            <h1>Subject: {{controller.comm.subject}}</h1>
+
+
+                        </header>
+                    </div>
+
+                        <div class="w3-container">
+                            <p>{{controller.comm.msg}}</p>
+                        </div>
+                    <div class="backgroundSandyBrown">
+                        <footer class="w3-container">
+
+                            <h5>Date: {{controller.comm.dateSent}} -  </h5>
+
+                        </footer>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
