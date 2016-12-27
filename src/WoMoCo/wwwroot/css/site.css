@@ -273,15 +273,7 @@ p
     width:100%;
 }
 
-#messagesContainer
-{
-    background-color:blueviolet; 
-    margin-top:20px; 
-    padding-left:5px;
-    padding-right:5px; 
-    padding-bottom:5px;
-    width:100%;
-}
+
 #inboxHeader
 {
     font-family:Audiowide; 

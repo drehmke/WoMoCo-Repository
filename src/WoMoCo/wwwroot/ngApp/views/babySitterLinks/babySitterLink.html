@@ -1,23 +1,17 @@
 ﻿<div class="container">
-    <img src="../../images/babysitter_logo.jpg" />
-    <div>
-        <div class="panel-danger">
-            <div class="panel-heading">BabySitter Links</div>
+    <center><img src="../../images/babysitter_logo.jpg" /></center>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel-default">
+            <center class="panel-heading">BabySitter Links</center>
         </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>  
-                    <th>Names</th>
-                    <th>Logo</th>
-                </tr>
-            </thead>
+        <table class="table table-hover">
             <tbody>
                 <tr ng-repeat="link in controller.babySitters">
-                    
+
                     <td><a target="_blank" href="{{link.linkBase}}">{{link.name}}</a></td>
-                    <td><a target="_blank" href="{{link.linkBase}}"><img ng-src="{{link.image}}" width="50" hight="50"/></a></td>
-                    
-                </tr>  
+                    <td><a target="_blank" href="{{link.linkBase}}"><img ng-src="{{link.image}}" width="50" hight="50" /></a></td>
+
+                </tr>
             </tbody>
         </table>
     </div>
