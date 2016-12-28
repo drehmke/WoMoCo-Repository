@@ -1,0 +1,21 @@
+﻿.sitterimg1{
+    background-image: url("../../images/babysitting.jpg");
+    background-size: cover;
+}
+/*#babysitter {
+    background-image: url("../../images/babysitting.jpg");
+    background-size: initial;*/
+}
+#babysittertable {
+    background-color: transparent;
+    position: relative;
+    top: 200px;
+
+}
+#babysittericons {
+    margin-bottom: 20px;
+}
+#iconscontainer {
+    position:relative;
+    top: 200px;
+}
