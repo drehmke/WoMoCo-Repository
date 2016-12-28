@@ -9,7 +9,6 @@
     <link href="~/css/bootswatch.css" rel="stylesheet" />
     <!---google Fonts-->
     <!--CSS Style Sheets-->
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
     <link href="~/css/FrontEnd/navBar.css" rel="stylesheet" />
     <link href="~/css/FrontEnd/posts.css" rel="stylesheet"/>
@@ -27,7 +26,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img  id="logoLetters" src="~/images/womoco.png" /></a>
+                <a class="navbar-brand" href="#"><img  id="logoLetters" src="/images/womoco.png" /></a>
+                <!--<a class="navbar-brand" href="#"><img id="logoLetters" src="/images/logo-brand.png" /></a>-->
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
@@ -42,6 +42,7 @@
                     <li class="dropdown">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/admin/user/list">Users</a></li>
                             <li><a href="/admin/activity/list">Activity Posts</a></li>
                             <li><a href="/admin/interest">Interests</a></li>
                             <li><a href="/admin/links">User Social Links</a></li>
