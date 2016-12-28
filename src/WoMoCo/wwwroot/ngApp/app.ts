@@ -104,8 +104,14 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.LinkController,
                 controllerAs: `controller`
             })
-
             //======= Baby Sitter Links ======================================>
+            .state(`linkAdmin`, {
+                url: `/admin/links`,
+                templateUrl: `/ngApp/views/links/link.html`,
+                controller: WoMoCo.Controllers.AdminLinkController,
+                controllerAs: `controller`
+            })
+            //======= Baby Sitter Links =======>
             .state(`babySitterlink`, {
                 url: `/babySitterlink`,
                 templateUrl: `/ngApp/views/babySitterLinks/babySitterlink.html`,
@@ -235,7 +241,12 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.DeleteMessageController,
                 controllerAs: `controller`
             })
-            //---- end Messaging ----------------------------------------------
+            .state(`adminMessageList`, {
+                url: `/admin/message/adminList`,
+                templateUrl: `/ngApp/views/message/adminList.html`,
+                controller: WoMoCo.Controllers.MessageController,
+                controllerAs: `controller`
+            })
             //=============Search=========================================
             .state('searches', {
                 url: '/search',
@@ -327,7 +338,7 @@ namespace WoMoCo {
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
-            })
+            });
             
 
         // Handle request for non-existent route

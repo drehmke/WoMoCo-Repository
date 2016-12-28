@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using WoMoCo.Models;
-using WoMoCo.ViewModels.Link;
+using WoMoCo.ViewModels.Links;
 
 namespace WoMoCo.Services
 {
@@ -8,6 +8,7 @@ namespace WoMoCo.Services
     {
         void DeleteLink(int id);
         IList<LinkForAdmin> GetAllLinks();
+        IList<AdminLinkList> GetLinks();
         Link GetLinkById(int id);
         void SaveLink(Link link, string uid);
         List<Link> SearchByID(string searchTerm);

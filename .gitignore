@@ -246,3 +246,15 @@ paket-files/
 
 *.orig
 src/WoMoCo/Data/Migrations/*
+src/WoMoCo/wwwroot/_references.js
+src/WoMoCo/wwwroot/css/FrontEnd/posts.css
+src/WoMoCo/wwwroot/css/FrontEnd/posts.css
+src/WoMoCo/wwwroot/css/FrontEnd/posts.css
+src/WoMoCo/wwwroot/css/FrontEnd/register.css
+*.jpg
+*.jpg
+src/WoMoCo/wwwroot/ngApp/views/bios/stephenBoatman.html
+src/WoMoCo/wwwroot/ngApp/views/bios/stephenBoatman.html
+src/WoMoCo/wwwroot/css/FrontEnd/posts.css
+src/WoMoCo/wwwroot/css/FrontEnd/posts.css
+src/WoMoCo/wwwroot/images/parallax/mom-with-girl.jpg
