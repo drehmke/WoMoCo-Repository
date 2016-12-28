@@ -73,10 +73,10 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.InterestController,
                 controllerAs: `controller`
             })
-        //=============  Link ======>
+        //========== Link ====/js added on TemplateURl===>
             .state(`addLink`, {
                 url: `/addLink`,
-                templateUrl: `/ngApp/views/links/addLink.html`,
+                templateUrl: `/js/ngApp/views/links/addLink.html`,
                 controller: WoMoCo.Controllers.AddLinkController,
                 controllerAs: `controller`
             })
