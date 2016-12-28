@@ -61,13 +61,13 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.InterestController,
                 controllerAs: `controller`
             })
-            .state(`interestAdminEdit`, {
+            .state(`interestAdminEdit`, { // admin
                 url: `/admin/interest/edit/:id`,
                 templateUrl: `/ngApp/views/interest/editInterest.html`,
                 controller: WoMoCo.Controllers.EditInterestController,
                 controllerAs: `controller`
             })
-            .state(`deleteInterest`, {
+            .state(`deleteInterest`, { // admin
                 url: `/admin/interest/delete/:id`,
                 templateUrl: `/ngApp/views/interest/deleteInterest.html`,
                 controller: WoMoCo.Controllers.DeleteInterestController,
@@ -75,27 +75,27 @@ namespace WoMoCo {
             })
         //=============  Link ================================================>
             .state(`addLink`, {
-                url: `/addLink`,
+                url: `/link/add`,
                 templateUrl: `/ngApp/views/links/addLink.html`,
                 controller: WoMoCo.Controllers.AddLinkController,
                 controllerAs: `controller`
             })
 
-            .state(`editLink`, {
-                url: `/editLink/:id`,
-                templateUrl: `/ngApp/views/links/editLink.html`,
-                controller: WoMoCo.Controllers.EditLinkController,
+            .state(`editLink`, { // admin
+                url: `/admin/link/edit/:id`,
+                templateUrl: `/ngApp/views/links/editAdmin.html`,
+                controller: WoMoCo.Controllers.EditLinkAdminController,
                 controllerAs: `controller`
             })
 
-            .state(`deleteLink`, {
-                url: `/deleteLink/:id`,
-                templateUrl: `/ngApp/views/links/deleteLink.html`,
-                controller: WoMoCo.Controllers.DeleteLinkController,
+            .state(`deleteLink`, { // admin
+                url: `/admin/link/delete/:id`,
+                templateUrl: `/ngApp/views/links/deleteAdmin.html`,
+                controller: WoMoCo.Controllers.DeleteLinkAdminController,
                 controllerAs: `controller`
             })
-            .state(`link`, {
-                url: `/link`,
+            .state(`linkAdmin`, { // admin
+                url: `/admin/links`,
                 templateUrl: `/ngApp/views/links/link.html`,
                 controller: WoMoCo.Controllers.LinkController,
                 controllerAs: `controller`
