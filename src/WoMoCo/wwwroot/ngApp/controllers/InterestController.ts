@@ -37,19 +37,18 @@
 
     export class EditInterestController {
         public interest;
-        public InterestResource;
+        private InterestGetResource;
+        private InterestSaveResource;
 
         public getInterest(id: number) {
-            this.interest = this.InterestResource.get({ id: id });
+            this.interest = this.InterestGetResource.get({ id: id });
         }
 
         public saveInterest() {
-            this.InterestResource.save(this.interest).$promise.then(() => {
+            this.InterestSaveResource.save(this.interest).$promise.then(() => {
                 this.interest = null;
-                this.$state.go(`interest`);
-
+                this.$state.go(`interestAdmin`);
             });
-
         }
 
         constructor(
@@ -57,11 +56,11 @@
             public $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService) {
 
-            this.InterestResource = this.$resource(`/api/interest/:id`);
+            //this.InterestResource = this.$resource(`/api/interest/:id`);
+            this.InterestSaveResource = $resource(`/api/interest/AdminSave`);
+            this.InterestGetResource = $resource(`/api/interest/Admin/:id`);
             this.getInterest($stateParams[`id`])
-
-
-        }
+       }
     }
  
     export class DeleteInterestController {
@@ -74,7 +73,7 @@
         public deleteInterest() {
             this.InterestResource.delete({ id: this.interest.id }).$promise.then(() => {
                 this.interest = null
-                this.$state.go(`interest`);
+                this.$state.go(`interestAdmin`);
 
             })
 
@@ -85,7 +84,7 @@
             public $stateParams:
                 ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService) {
-            this.InterestResource = this.$resource(`/api/interest/:id`);
+            this.InterestResource = this.$resource(`/api/interest/Admin/:id`);
             this.getInterest($stateParams[`id`]);
 
         }

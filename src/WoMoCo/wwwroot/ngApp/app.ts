@@ -49,28 +49,28 @@ namespace WoMoCo {
 
             // ========== Interest ===========================================>
             .state(`addInterest`, {
-                url: `/addInterest`,
+                url: `/interest/add`,
                 templateUrl: `/ngApp/views/interest/addInterest.html`,
                 controller: WoMoCo.Controllers.AddInterestController,
                 controllerAs: `controller`
             })
-            .state(`editInterest`, {
-                url: `/editInterest/:id`,
+
+            .state(`interestAdmin`, { // admin
+                url: `/admin/interest`,
+                templateUrl: `/ngApp/views/interest/interest.html`,
+                controller: WoMoCo.Controllers.InterestController,
+                controllerAs: `controller`
+            })
+            .state(`interestAdminEdit`, {
+                url: `/admin/interest/edit/:id`,
                 templateUrl: `/ngApp/views/interest/editInterest.html`,
                 controller: WoMoCo.Controllers.EditInterestController,
                 controllerAs: `controller`
             })
-
             .state(`deleteInterest`, {
-                url: `/deleteInterest/:id`,
+                url: `/admin/interest/delete/:id`,
                 templateUrl: `/ngApp/views/interest/deleteInterest.html`,
                 controller: WoMoCo.Controllers.DeleteInterestController,
-                controllerAs: `controller`
-            })
-            .state(`interest`, {
-                url: `/interest`,
-                templateUrl: `/ngApp/views/interest/interest.html`,
-                controller: WoMoCo.Controllers.InterestController,
                 controllerAs: `controller`
             })
         //=============  Link ================================================>
