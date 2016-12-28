@@ -9,16 +9,7 @@
         public getAllComms() {
             return this.$resource(`/api/comms`).query();
         }
-        ////get comms by logged In user
-        //public getCommsByUserName() {
-        //    return this.$resource('/api/comms', null, {
-        //        getCommsByUserName: {
-        //            method: 'GET',
-        //            url: 'api/comms/getCommsByUserName',
-        //            isArray: true
-        //        }
-        //    });
-        //}
+       
 
         //get Comm By Id
         public getCommById(id: number) {
