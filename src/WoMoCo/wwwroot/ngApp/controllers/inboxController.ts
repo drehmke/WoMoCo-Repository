@@ -1,11 +1,8 @@
 ﻿namespace WoMoCo.Controllers {
 
     export class InboxController {
-
-        public MessageResource;
         public CommsResource;
         public comms;
-        public comm;
         
         //get comms by logged In user
         public getCommsByUserName() {
@@ -15,9 +12,8 @@
 
       
         constructor(private $resource: angular.resource.IResourceService,
-            public $state: ng.ui.IStateService,
-            private accountService: WoMoCo.Services.AccountService,
-            private $stateParams: ng.ui.IStateParamsService) {            
+            public $state: ng.ui.IStateService
+        ) {            
             this.CommsResource = this.$resource('api/comms', null, {
                 getCommsByUserName: {
                     method: 'GET',
@@ -28,4 +24,5 @@
             this.comms = this.getCommsByUserName();         
         }
     }
+    angular.module(`WoMoCo`).controller(`InboxController`, InboxController);
 }
