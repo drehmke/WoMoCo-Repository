@@ -2,17 +2,22 @@
 
 
 <a ng-href="/addPost" class="btn">Add Post</a>
-    
+<div class="talkingmoms">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-default" ng-repeat="post in controller.posts">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <center><h3 class="panel-title">{{post.title}}</h3></center>
+        <div id="column1" class="col-md-8 col-md-offset-2 postcolumn">
+            <div class="col-md-8 col-md-offset-2">
+                <br />
+                <div class="panel panel-default" ng-repeat="post in controller.posts">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" id="postpaneltitle">
+                            <center><h3 class="panel-title">{{post.title}}</h3></center>
+                        </div>
+                        <div class="panel-body" id="postpaneldiscription">
+                            <center>{{post.discription}}</center>
+                        </div>
                     </div>
-                <div class="panel-body">
-                    <center>{{post.discription}}</center>
                 </div>
             </div>
         </div>
     </div>
+</div>

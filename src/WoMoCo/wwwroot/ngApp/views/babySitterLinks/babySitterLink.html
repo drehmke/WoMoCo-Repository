@@ -1,24 +1,29 @@
-﻿<div class="container">
-    <img src="../../images/babysitter_logo.jpg" />
-    <div>
-        <div class="panel-danger">
-            <div class="panel-heading">BabySitter Links</div>
+﻿<div class="parallax sitterimg1" >
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="container">
+                <div>
+                    <br />
+                    <div class="col-md-6 col-md-offset-4" id="babysittertable">
+                        <table class="table-hover">
+                            <!--<thead>
+                            <tr>
+                                <!--<th>Names</th>-->
+                            <!--<th>Logo</th>-->
+                            <!--</tr>
+                            </thead>-->
+                            <tbody>
+                                <tr ng-repeat="link in controller.babySitters">
+                                    <td class="img-rounded">
+                                        <center>
+                                            <h2><a target="_blank" href="{{link.linkBase}}">{{link.name}}</a></h2> <br />
+                                            <a target="_blank" href="{{link.linkBase}}"><img ng-src="{{link.image}}" width="50" hight="50" id="babysittericons" /></a>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>  
-                    <th>Names</th>
-                    <th>Logo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="link in controller.babySitters">
-                    
-                    <td><a target="_blank" href="{{link.linkBase}}">{{link.name}}</a></td>
-                    <td><a target="_blank" href="{{link.linkBase}}"><img ng-src="{{link.image}}" width="50" hight="50"/></a></td>
-                    
-                </tr>  
-            </tbody>
-        </table>
-    </div>
 </div>
