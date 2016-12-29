@@ -1,19 +1,19 @@
-﻿<h2>Activities</h2>
-<div  class="activityFormPage">
+﻿<div>
+    <h2>Activities</h2>
     <form ng-submit="controller.saveActivity()">
         <div>
-            <label id="activityLabel">Zip Code</label>
+            <label>Zip Code</label>
             <input placeholder="Zip Code" ng-model="controller.activity.location" />
         </div>
         <div>
-            <label id="activityLabel">Activity</label>
+            <label>Activity</label>
             <input placeholder="Activity" ng-model="controller.activity.activity" />
         </div>
         <div>
-            <label id="activityLabel">Description</label>
+            <label>Description</label>
             <textarea rows="5" cols="20" type="text" ng-model="controller.activity.description" placeholder="Description"></textarea>
         </div>
         <br />
-        <input type="submit" value="Post Activity" />
+        <input type="submit" value="Update Activity" />
     </form>
 </div>

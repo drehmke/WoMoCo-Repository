@@ -1,0 +1,15 @@
+﻿<!--Page is set up to use media function of bootsrap. Can be re-arranged.-->
+<h3>Activities</h3>
+<a href="/addActivity" type="button" class="btn btn-primary">Post</a>
+<div ng-repeat="a in controller.activities">
+    <div>
+        <h4>{{a.location}}</h4>
+        {{a.activity}}
+    </div>
+    <div>
+        <h4>{{a.userName}}</h4>
+        {{a.description}}
+    </div>
+    <a ng-href="/admin/activity/edit/{{a.id}}" class="btn btn-info">Edit</a> 
+    <a ng-href="/admin/activity/delete/{{a.id}}" class="btn btn-danger">Delete</a>
+</div>
