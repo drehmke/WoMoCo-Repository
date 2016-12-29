@@ -34,9 +34,17 @@ namespace WoMoCo.Controllers
         }
 
         //GET by userName
+        [HttpGet("GetUser")]
+        public ApplicationUser GetUser()
+        {
+            var uid = _manager.GetUserId(User);
+            ApplicationUser user = _service.GetUserById(uid);
+            return user;
+        }
+
         [HttpGet("Admin/GetUser/{userName}")]
         [Authorize(Policy = "AdminOnly")]
-        public ApplicationUser GetUser(string userName)
+        public ApplicationUser AdminGetUser(string userName)
         {
             ApplicationUser user = _service.GetByUsername(userName);
             return user;
