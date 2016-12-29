@@ -6,36 +6,67 @@ using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
 using WoMoCo.Repositories;
+using WoMoCo.ViewModels.Interests;
 
 namespace WoMoCo.Services
 {
     public class InterestService :IInterestService
     {
         private IGenericRepository _repo;
-        public IList<Interest> GetAllInterests()
+        public IList<InterestAdminView> GetAllInterests()
         {
-            return _repo.Query<Interest>().ToList();
+            IList<Interest> allInterests = _repo.Query<Interest>().Include(i => i.User).ToList();
+            IList<InterestAdminView> listableInterests = new List<InterestAdminView>();
+            foreach(Interest interest in allInterests )
+            {
+                InterestAdminView listableInterest = new InterestAdminView
+                {
+                    Id = interest.Id,
+                    Name = interest.Name,
+                    BadgeImage = interest.BadgeImage,
+                    UserId = interest.User.Id,
+                    UserName = interest.User.UserName
+                };
+                listableInterests.Add(listableInterest);
+            }
+            return listableInterests;
         }
 
         public Interest GetInterestbyId(int id)
         {
             return _repo.Query<Interest>().Where(i => i.Id == id).FirstOrDefault();
         }
+        public InterestAdminView GetAdminInterestById(int id)
+        {
+            Interest interest = _repo.Query<Interest>().Where(i => i.Id == id).Include(i => i.User).FirstOrDefault();
+            InterestAdminView interestForView = new InterestAdminView
+            {
+                Id = interest.Id,
+                Name = interest.Name,
+                BadgeImage = interest.BadgeImage,
+                UserId = interest.User.Id,
+                UserName = interest.User.UserName
+            };
+            return interestForView;
+        }
 
         public IList<Interest> GetInterestsByUser(string uid)
         {
-            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
+            //ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
             IList<Interest> userInterests = _repo.Query<Interest>().Include(i => i.User).ToList();
             IList<Interest> listableInterests = new List<Interest>();
             foreach(Interest interest in userInterests)
             {
-                Interest listable = new Interest
+                if(interest.User.Id == uid )
                 {
-                    Id = interest.Id,
-                    Name = interest.Name,
-                    BadgeImage = interest.BadgeImage
-                };
-                listableInterests.Add(listable);
+                    Interest listable = new Interest
+                    {
+                        Id = interest.Id,
+                        Name = interest.Name,
+                        BadgeImage = interest.BadgeImage
+                    };
+                    listableInterests.Add(listable);
+                }
             }
             return listableInterests;
         }
@@ -54,6 +85,19 @@ namespace WoMoCo.Services
             ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
             interest.User = user;
             _repo.SaveChanges();
+        }
+
+        public void AdminUpdateInterest(InterestAdminView interest)
+        {
+            // we need to convert this into a normal Interest
+            Interest interestToSave = new Interest{
+                Id = interest.Id,
+                Name = interest.Name,
+                BadgeImage = interest.BadgeImage
+            };
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == interest.UserId).FirstOrDefault();
+            interestToSave.User = user;
+            _repo.Update(interestToSave);
         }
         
         public List<Interest> SearchById(string searchTerm)
