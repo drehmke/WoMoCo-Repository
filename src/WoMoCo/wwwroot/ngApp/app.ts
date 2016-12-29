@@ -228,7 +228,6 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.SearchController,
                 controllerAs: 'controller'
             })
-
             //=============End Search====================================
 
             .state('about', {
