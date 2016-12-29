@@ -2,14 +2,15 @@
 using System.Security.Principal;
 using System.Threading.Tasks;
 using WoMoCo.Models;
+using WoMoCo.ViewModels.ActivityForum;
 
 namespace WoMoCo.Interfaces
 {
     public interface IActivityForumService
     {
         void DeleteActivityForum(int id);
-        ActivityForum GetActivityById(int id);
-        IList<ActivityForum> GetAllActivities();
+        ActivityForumAdminView GetActivityById(int id);
+        IList<ActivityForumAdminView> GetAllActivities();
         IList<ActivityForum> GetByUsername(string username);
         ApplicationUser GetUserByName(string userName);
         void SaveActivity(string user, ActivityForum activityForum);

@@ -7,6 +7,7 @@ using WoMoCo.Models;
 using WoMoCo.Services;
 using Microsoft.AspNetCore.Identity;
 using WoMoCo.ViewModels.Account;
+using Microsoft.AspNetCore.Authorization;
 
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,12 +26,6 @@ namespace WoMoCo.Controllers
             return Ok(_service.GetAllUsers());
         }
 
-        //[HttpGet]
-        //public IEnumerable<UserViewModel> Get()
-        //{
-        //    return _service.GetUsers();
-        //}
-
         // GET api/values/5
         [HttpGet("{id}")]
         public ApplicationUser Get(string username)
@@ -39,11 +34,12 @@ namespace WoMoCo.Controllers
         }
 
         //GET by userName
-        [HttpGet("GetUser/")]
-        public ApplicationUser GetUser()
+        [HttpGet("Admin/GetUser/{userName}")]
+        [Authorize(Policy = "AdminOnly")]
+        public ApplicationUser GetUser(string userName)
         {
-            string uid = _manager.GetUserId(User);
-            return _service.GetByUsername(uid);
+            ApplicationUser user = _service.GetByUsername(userName);
+            return user;
         }
         // move to service
 
@@ -58,11 +54,16 @@ namespace WoMoCo.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]ApplicationUser user)
         {
-            _service.SaveUser(user);
-            
+            _service.SaveUser(user);            
             return Ok(user);
         }
-
+        [HttpPost("AdminUpdate")]
+        [Authorize(Policy = "AdminOnly")]
+        public IActionResult AdminSave([FromBody]ApplicationUser user)
+        {
+            _service.SaveUser(user);
+            return Ok(user);
+        }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
@@ -71,6 +72,14 @@ namespace WoMoCo.Controllers
             _service.DeleteUser(id);
             return Ok();
         }
+        [HttpDelete("Admin/DeleteUser/{userName}")]
+        [Authorize(Policy = "AdminOnly")]
+        public IActionResult AdminDelete(string userName)
+        {
+            _service.DeleteUserByUserName(userName);
+            return Ok();
+        }
+
         public UsersController(IUserService service, UserManager<ApplicationUser> manager)
         {
             this._manager = manager;

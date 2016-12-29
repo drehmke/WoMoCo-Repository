@@ -3,8 +3,9 @@
     <ul>
         <li ng-repeat="a in controller.activities">
             {{a.location}} - 
-            {{a.activity}} - 
+            <a href="/activity/edit/{{a.id}}">{{a.activity}}</a> - 
             {{a.description}}
+
         </li>
     </ul>
 </div>
