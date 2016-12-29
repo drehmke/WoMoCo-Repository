@@ -1,9 +1,10 @@
 ﻿<link href="../../../css/AboutStyleSheet.css" rel="stylesheet" />
 
-
-<div class="panel-body">
-    <a ng-href="/message/modal/messageModal" class="btn btn-danger">Compose New Message</a>
+<form style="margin-top:25px">
+<div>
+    <a ng-href="/message/modal/messageModal" class="btn btn-danger" style="button" >Compose New Message</a>
 </div>
+</form>
 
 <div id="panel inboxPanel">
     <div class="panel inboxPanel" ng-repeat="comm in controller.comms">
