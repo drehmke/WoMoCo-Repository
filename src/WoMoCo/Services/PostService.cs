@@ -18,7 +18,7 @@ namespace WoMoCo.Services
         // Get all Posts
         public IList<Post> GetAllPosts()
         {
-            var posts = _repo.Query<Post>().ToList();
+            var posts = _repo.Query<Post>().OrderByDescending(x => x.Id).ToList();
             return posts;
         }
         // Get single post by Id
