@@ -1,4 +1,5 @@
 ﻿.sitterpage{
+    background: linear-gradient(rgba(255, 255, 255, 0.00), white),
         url("../../images/babysitting.jpg");
     /*background-image: url("../../images/babysitting.jpg");*/
     background-size: cover;
