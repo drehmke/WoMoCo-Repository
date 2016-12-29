@@ -93,10 +93,16 @@ namespace WoMoCo.Services
             ApplicationUser userToDelete = _repo.Query<ApplicationUser>().Where(u => u.Id == id).FirstOrDefault();
             _repo.Delete(userToDelete);
         }
-
-        public ApplicationUser GetByUsername(string uid)
+        // delete a single user from the database - based on username, not ID
+        public void DeleteUserByUserName(string userName)
         {
-            return _repo.Query<ApplicationUser>().Where(m => m.Id == uid).FirstOrDefault();
+            ApplicationUser userToDelete = _repo.Query<ApplicationUser>().Where(u => u.UserName == userName).FirstOrDefault();
+            _repo.Delete(userToDelete);
+        }
+
+        public ApplicationUser GetByUsername(string userName)
+        {
+            return _repo.Query<ApplicationUser>().Where(m => m.UserName == userName).FirstOrDefault();
         }
 
         public UserService(IGenericRepository repo)

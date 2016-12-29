@@ -1,0 +1,8 @@
+﻿<div>
+    <h2>Are you sure you want to delete this user?</h2>
+    {{controller.user.userName}} - {{controller.user.firstName}} {{controller.user.lastName}}
+    
+    <div class="actions">
+        <button ng-click="controller.deleteUser()" class="btn btn-danger">Delete User</button>
+    </div>
+</div>

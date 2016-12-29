@@ -131,21 +131,35 @@
         }
     }
     //get user by username
-    export class GetUserByUsername {
+    //export class GetUserByUsername {
+    export class EditUserAdminController {
         public user;
         public UserResource;
+        public UserUpdateResource;
 
         public getByUsername(username: string) {
-            this.user = this.UserResource.get({ username: username })
+            if (username != null) {
+                return this.UserResource.get({ userName: username });
+            }
         }
+
+        public saveUser() {
+            this.UserUpdateResource.save(this.user).$promise
+                .then(() => {
+                    this.user = null;
+                    this.$state.go(`userAdmin`);
+                });
+        }
+
         constructor(
             public $resource: angular.resource.IResourceService,
-            public $stateParams: ng.ui.IStateParamsService) {
-            this.UserResource = $resource('/api/users');
-            this.getByUsername($stateParams['username']);
+            public $stateParams: ng.ui.IStateParamsService,
+            private $state: ng.ui.IStateService
+        ) {
+            this.UserResource = $resource('/api/users/Admin/GetUser/:userName');
+            this.UserUpdateResource = $resource(`/api/users/AdminUpdate`);
+            this.user = this.getByUsername($stateParams['id']);
         }
-
-
     }
 
     //delete user controller
@@ -158,7 +172,7 @@
         }
 
         public deleteUser() {
-            this.UserResource.delete({ id: this.user.id }).$promise.then(() => {
+            this.UserResource.delete({ userName: this.user.id }).$promise.then(() => {
                 this.user = null;
                 this.$state.go('home');
             })
@@ -168,6 +182,35 @@
             private $state: ng.ui.IStateService) {
             this.UserResource = $resource('/api/users/:id');
             this.getUser($stateParams['id'])
+        }
+    }
+
+    // delete user controller - admin version
+    export class DeleteUserAdminController {
+        public user;
+        public UserGetResource;
+        public UserDeleteResource;
+
+        public getUser(username: string) {
+            return this.UserGetResource.get({ userName: username });
+        }
+
+        public deleteUser() {
+            this.UserDeleteResource.delete(this.user).$promise
+                .then(() => {
+                    this.user = null;
+                    this.$state.go(`userAdmin`);
+                });
+        }
+
+        constructor(
+            private $resource: angular.resource.IResourceService,
+            private $stateParams: ng.ui.IStateParamsService,
+            private $state: ng.ui.IStateService
+        ) {
+            this.UserGetResource = $resource(`/api/users/Admin/GetUser/:userName`);
+            this.UserDeleteResource = $resource(`/api/users/Admin/DeleteUser/:userName`);
+            this.user = this.getUser($stateParams[`id`]);
         }
     }
 }

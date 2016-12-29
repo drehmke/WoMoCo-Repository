@@ -4,10 +4,12 @@
         public MessageResource;
         public comm;
         
+        
         //get all Comms
         public getAllComms() {
             return this.$resource(`/api/comms`).query();
         }
+       
 
         //get Comm By Id
         public getCommById(id: number) {
@@ -24,9 +26,11 @@
 
         constructor(private $resource: angular.resource.IResourceService,
             public $stateParams: ng.ui.IStateParamsService,
-            private $state: ng.ui.IStateService) {            
+            private $state: ng.ui.IStateService,
+            private accountService: WoMoCo.Services.AccountService) {            
             this.MessageResource = $resource('/api/comms/:id');
-         }           
+            
+          }           
     }
     angular.module('WoMoCo').service('MessageService', MessageService);
 }

@@ -41,7 +41,7 @@ namespace WoMoCo.Controllers
         }
 
         
-        private async Task<ApplicationUser> GetUser(string userName)
+        private async Task<UserViewModel> GetUser(string userName)
         {
             var user = await _userManager.FindByNameAsync(userName);
             var claims = await _userManager.GetClaimsAsync(user);
@@ -50,7 +50,7 @@ namespace WoMoCo.Controllers
                 UserName = user.UserName,
                 Claims = claims.ToDictionary(c => c.Type, c => c.Value)
             };
-            return user;
+            return vm;
             
         }
         

@@ -1,6 +1,8 @@
 ﻿body {
 }
 #navBar{
+    background-image: url('/images/navbar-gradient.png');
+    background-repeat: repeat-x;
 }
 #logoLetters{
     width:175px;
