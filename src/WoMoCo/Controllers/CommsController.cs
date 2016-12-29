@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Models;
 using WoMoCo.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using WoMoCo.Services;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -38,6 +39,13 @@ namespace WoMoCo.Controllers
             int count = _service.GetCountCurrentUserNewMessages(uid);
             return count;
         }
+        [HttpGet("GetCommsByUserName")]
+        public IActionResult GetCommsByUserName()
+        {
+            string uid = _manager.GetUserName(User);            
+            return Ok(_service.GetCommsByUserName(uid));
+        }
+
 
         //POST api/values
        [HttpPost]

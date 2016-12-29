@@ -68,6 +68,14 @@ namespace WoMoCo.Services
             }
             return newMessageCount;
         }
+        public IList<Comm> GetCommsByUserName(string uid)
+        {
+
+            //IList<Comm> userComms = _repo.Query<Comm>().Where(c => c.ReceivingUser.Id == uid).ToList();
+            IList<Comm> userComms = _repo.Query<Comm>().Where(c => c.RecId == uid).ToList();
+            return userComms;
+
+        }
 
         public CommService(IGenericRepository repo, UserManager<ApplicationUser> manager)
         {

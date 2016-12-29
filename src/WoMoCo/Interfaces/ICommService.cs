@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Security.Claims;
 using WoMoCo.Models;
 
-namespace WoMoCo.Interfaces
+namespace WoMoCo.Services
 {
     public interface ICommService
     {
+        void DeleteComm(int id);
         IList<Comm> GetAllComms();
         Comm GetCommById(int id);
-        void SaveComm(Comm comm, string uid);             
-        void DeleteComm(int id);
+        IList<Comm> GetCommsByUserName(string uid);
         int GetCountCurrentUserNewMessages(string uid);
+        void SaveComm(Comm comm, string uid);
     }
 }

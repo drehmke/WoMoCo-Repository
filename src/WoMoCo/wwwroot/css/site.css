@@ -105,7 +105,7 @@ select {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.img01 { background-image: url("/images/parallax/woman-using-phone.jpg"); }
+.img01 {background-image: url("../images/parallax/womanfrustrated.jpg");}
 .img02 { background-image: url("/images/parallax/reading-to-baby.jpg"); }
 .img03 { background-image: url("/images/parallax/women-in-group.jpg"); }
 
