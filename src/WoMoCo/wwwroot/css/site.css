@@ -398,6 +398,9 @@ Styles form banners command images
     margin-right: auto;
     width: 100%;
 }
+.img01 {background-image: url("../images/parallax/womanfrustrated.jpg");}
+.img02 { background-image: url("/images/parallax/reading-to-baby.jpg"); }
+.img03 { background-image: url("/images/parallax/women-in-group.jpg"); }
 
 .online-status {
     

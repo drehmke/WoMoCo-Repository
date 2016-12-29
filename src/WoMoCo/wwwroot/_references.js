@@ -20,6 +20,7 @@
 /// <reference path="ngapp/controllers/createmessagecontroller.js" />
 /// <reference path="ngapp/controllers/deletemessagecontroller.js" />
 /// <reference path="ngapp/controllers/eventalarmcontroller.js" />
+/// <reference path="ngapp/controllers/inboxcontroller.js" />
 /// <reference path="ngapp/controllers/infomessagecontroller.js" />
 /// <reference path="ngapp/controllers/interestcontroller.js" />
 /// <reference path="ngapp/controllers/linkcontroller.js" />
