@@ -317,6 +317,13 @@ namespace WoMoCo {
             controllerAs: 'controller'
             })
 
+            .state('hiwotDemssie', {
+                url: '/bios/hiwotDemssie',
+                templateUrl: 'ngApp/views/bios/hiwotDemssie.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+
             // ---- Defaults - About / Not Found ------------------------------
             .state('about', {
                 url: '/about',
