@@ -4,12 +4,8 @@
         public activities;
         public ActivityResource;
 
-        //public getActivities() {
-        //    this.activities = this.ActivityResource.GetActivities();
-        //}
-        // TODO: This needs to get the user's activities only - not all
         public getActivities() {
-            this.activities = this.ActivityResource.get();
+            this.activities = this.ActivityResource.getMyActivities();
         }
 
         constructor(private $resource: angular.resource.IResourceService) {

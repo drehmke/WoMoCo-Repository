@@ -171,7 +171,7 @@ namespace WoMoCo {
             // ---- end Event Alarms ------------------------------------------
             // --- activity Forums --------------------------------------------
             .state(`activityForum`, {
-                url: `/activity/`,
+                url: `/activity`,
                 templateUrl: `/ngApp/views/activityForum/activitiesForum.html`,
                 controller: WoMoCo.Controllers.ActivitiesController,
                 controllerAs: `controller`
