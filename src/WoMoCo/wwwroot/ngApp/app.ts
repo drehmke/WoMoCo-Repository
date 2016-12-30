@@ -350,6 +350,40 @@ namespace WoMoCo {
             controllerAs: 'controller'
             })
 
+            .state('hiwotDemssie', {
+                url: '/bios/hiwotDemssie',
+                templateUrl: 'ngApp/views/bios/hiwotDemssie.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+
+            .state('dorthyLee', {
+                url: '/bios/dorthyLee',
+                templateUrl: 'ngApp/views/bios/dorthyLee.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+
+            .state('donnaRyan', {
+                url: '/bios/donnaRyan',
+                templateUrl: 'ngApp/views/bios/donnaRyan.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+            .state('chanceMyer', {
+                url: '/bios/chanceMyer',
+                templateUrl: 'ngApp/views/bios/chanceMyer.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+
+            .state('joshSchmuck', {
+                url: '/bios/joshSchmuck',
+                templateUrl: 'ngApp/views/bios/joshSchmuck.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+
             // ---- Defaults - About / Not Found ------------------------------
             .state('about', {
                 url: '/about',
