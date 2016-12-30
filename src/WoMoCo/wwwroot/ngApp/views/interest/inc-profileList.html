@@ -1,13 +1,13 @@
 ﻿<div class="profileInterestList">
     <h3>My Interests</h3>
     <ul>
-        <li ng-repeat="interest in controller.interests">{{interest.name}} <a href="#" ng-click="controller.removeInterest(interest.id)">x</a></li>
+        <li ng-repeat="interest in controller.interests"><h5>{{interest.name}}&nbsp;<a class="glyphicon glyphicon-trash" href="#" ng-click="controller.removeInterest(interest.id)"></a></h5></li>
     </ul>
 
     <div class="interestAddForm">
         <form ng-submit="controller.addInterest()">
             <div>
-                <input placeholder="name" ng-model="controller.interest.name" />
+                <input type="text" placeholder="name" ng-model="controller.interest.name" />
             </div>
 
             <input type="submit" class="btn btn-info" value="Add A New Interest" />
