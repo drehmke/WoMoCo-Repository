@@ -1,10 +1,12 @@
-﻿<div class="adminConnectionsList">
-    <h3>My Admins<small><a href="/search">Add</a></small></h3>
-    <ul>
-        <li ng-repeat="co in controller.connections">
-            {{co.userName}} -
-            {{co.firstName}} -
-            {{co.lastName}}
-        </li>
-    </ul>
+﻿<div class="list-group">
+    <div class="adminConnectionsList">
+        <div class="list-group-item-success"><h3>Admins<small><a href="/search">Add</a></small></h3></div>
+        <ul>
+            <li class="list-group-item" ng-repeat="co in controller.connections">
+                {{co.userName}} -
+                {{co.firstName}} -
+                {{co.lastName}}
+            </li>
+        </ul>
+    </div>
 </div>

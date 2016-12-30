@@ -1,5 +1,5 @@
 ﻿<h2>Interest</h2>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Owner</th>
@@ -12,7 +12,7 @@
         <tr ng-repeat="interest in controller.interest">
             <td>{{interest.userName}}</td>
             <td>{{interest.name}}</td>
-            <td><a ng-href="/admin/interest/edit/{{interest.id}}" class="btn btn-primary"> Edit</a></td>
+            <td><a ng-href="/admin/interest/edit/{{interest.id}}" class="btn btn-success"> Edit</a></td>
             <td><a ng-href="/admin/interest/delete/{{interest.id}}" class="btn btn-danger">Delete</a></td>
         </tr>
     </tbody>
