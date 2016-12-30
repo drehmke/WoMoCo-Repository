@@ -233,6 +233,24 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.DeleteMessageController,
                 controllerAs: `controller`
             })
+            .state(`messageAdmin`, { // admin
+                url: `/admin/messages`,
+                templateUrl: `/ngApp/views/message/adminList.html`,
+                controller: WoMoCo.Controllers.MessageAdminController,
+                controllerAs: `controller`
+            })
+            .state(`messageEditAdmin`, { // admin 
+                url: `/admin/messages/edit/:id`,
+                templateUrl: `/ngApp/views/message/adminEdit.html`,
+                controller: WoMoCo.Controllers.InforMessageAdminController,
+                controllerAs: `controller`
+            })
+            .state(`messageDeleteAdmin`, { // admin 
+                url: `/admin/messages/delete/:id`,
+                templateUrl: `/ngApp/views/message/adminDelete.html`,
+                controller: WoMoCo.Controllers.DeleteMessageAdminController,
+                controllerAs: `controller`
+            })
             //---- end Messaging ----------------------------------------------
             //=============Search=========================================
             .state('searches', {
@@ -276,7 +294,6 @@ namespace WoMoCo {
             })
             // ---- end User Profile ------------------------------------------
             // ---- Posting or bloging stuffs----------------------------------
-            // TODO: Admin
             .state('post', {
                 url: '/post',
                 templateUrl: '/ngApp/views/posts/post.html',

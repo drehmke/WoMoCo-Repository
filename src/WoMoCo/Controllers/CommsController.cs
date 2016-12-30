@@ -7,6 +7,7 @@ using WoMoCo.Models;
 using WoMoCo.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using WoMoCo.Services;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,6 +21,7 @@ namespace WoMoCo.Controllers
 
         // GET: api/values
         [HttpGet]
+        [Authorize(Policy = "AdminOnly")]
         public IEnumerable<Comm> Get()
         {
             return _service.GetAllComms();
@@ -28,6 +30,12 @@ namespace WoMoCo.Controllers
         // GET a comm by ID
         [HttpGet("{id}")]
         public IActionResult Get(int id)
+        {
+            return Ok(_service.GetCommById(id));
+        }
+        [HttpGet("AdminGet/{id}")]
+        [Authorize(Policy = "AdminOnly")]
+        public IActionResult AdminGet(int id)
         {
             return Ok(_service.GetCommById(id));
         }
@@ -65,6 +73,13 @@ namespace WoMoCo.Controllers
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
+        {
+            _service.DeleteComm(id);
+            return Ok();
+        }
+        [HttpDelete("AdminGet/{id}")]
+        [Authorize(Policy = "AdminOnly")]
+        public IActionResult AdminDelete(int id)
         {
             _service.DeleteComm(id);
             return Ok();
