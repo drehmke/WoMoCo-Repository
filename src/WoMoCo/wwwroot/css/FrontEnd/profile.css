@@ -5,7 +5,7 @@
     margin-top: 25px;
 }
 .leftProfileBar {
-    background-color: #97a89e;;
+    background-color: lightgray;
     height: 600px;
 }
 .profileName {
@@ -24,10 +24,53 @@
 .profileDeleteBtn {
     margin-top: 20px;
 }
-#profileIntrests {
-
+.profileInterest {
+    background-color: lightgray;
+    padding:8px
 }
 .glyphicon.glyphicon-trash {
     font-size: 13px;
     color:red;
+}
+.addInterestForm {
+    background-color: lightcyan;
+    height:118px;
+}
+#interestInput {
+    margin-top: 12px;
+}
+#interestSubmit {
+    margin-top: 13px;
+}
+.interestList {
+    position: relative;
+    bottom: 18px
+}
+.profileLink {
+    background-color: lightgray;
+    padding:8px
+}
+.linksList {
+    position: relative;
+    bottom: 16px
+}
+.addLinkForm {
+    background-color: lightcyan;
+    height:150px;
+}
+#linkInput {
+    margin-top: 12px;
+}
+#linkSubmit {
+    margin-top: 13px;
+}
+#socialName {
+    margin-top: 6px;
+}
+.connectionsHeader {
+    position: relative;
+    bottom: 20px;
+}
+#connectionsPannel {
+    background-color: lightgray;
 }
