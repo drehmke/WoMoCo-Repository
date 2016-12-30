@@ -60,15 +60,15 @@
 
         //get all Activities for the currently logged in user
         public getMyActivities() {
-            let temp = this.activitiesService.getAllUsersActivities();
-            return temp;
+            let activities = this.activitiesService.getAllUsersActivities();
+            return activities;
         }
         // TODO: Remove an activity
 
         // get all the Connections for the currently logged in user
         public getMyConnections() {
-            let temp = this.connectionService.getAllMyConnections();
-            return temp;
+            let connections = this.connectionService.getAllMyConnections();
+            return connections;
         }
         public removeConnection(id: string) {
             this.connectionService.removeConnection(id).$promise

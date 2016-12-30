@@ -47,14 +47,24 @@ namespace WoMoCo.Services
             if(user.ConnectedUserId != null)
             {
                 _repo.Add(user);
+                // Now make the same statement, only in reverse, so that the two users will see each other on their connections list
+                UserConnection reversed = new UserConnection
+                {
+                    ConnectedUserId = user.CurrentUserId,
+                    CurrentUserId = user.ConnectedUserId
+                };
+                _repo.Add(reversed);
             }
 
         }
 
-        public void DeletingFriends(string fId)
+        public void DeletingFriends(string uid, string cid)
         {
-            _repo.Query<UserConnection>().Where(f => f.CurrentUserId == fId).FirstOrDefault();
-            _repo.Delete(fId);
+            UserConnection connectionToDelete = _repo.Query<UserConnection>().Where(c => c.CurrentUserId == uid && c.ConnectedUserId == cid).FirstOrDefault();
+            _repo.Delete(connectionToDelete);
+            // delete the reverse statement as well
+            UserConnection reverseToDelete = _repo.Query<UserConnection>().Where(c => c.ConnectedUserId == uid && c.CurrentUserId == cid).FirstOrDefault();
+            _repo.Delete(connectionToDelete);
         }
 
         public ConnectionService(IGenericRepository repo)

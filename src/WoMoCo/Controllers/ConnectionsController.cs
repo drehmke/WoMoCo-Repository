@@ -53,7 +53,8 @@ namespace WoMoCo.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            _service.DeletingFriends(id);
+            string uid = _manager.GetUserId(User);
+            _service.DeletingFriends(uid, id);
             return Ok();
         }
 
