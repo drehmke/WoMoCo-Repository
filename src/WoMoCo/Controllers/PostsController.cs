@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Services;
 using WoMoCo.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,9 +25,23 @@ namespace WoMoCo.Controllers
             return _service.GetAllPosts();
         }
 
+        [HttpGet("AdminGet/")]
+        [Authorize(Policy = "AdminOnly")]
+        public IEnumerable<Post> AdminGet()
+        {
+            return _service.GetAllPosts();
+        }
+
         // GET api/values/
         [HttpGet("{id}")]
         public Post Get(int id)
+        {
+            return _service.GetPostById(id);
+        }
+
+        [HttpGet("AdminGetPost/{id}")]
+        [Authorize(Policy = "AdminOnly")]
+        public Post AdminGet(int id)
         {
             return _service.GetPostById(id);
         }
@@ -36,6 +51,13 @@ namespace WoMoCo.Controllers
         {
             string uid = _manager.GetUserId(User);
             _service.SavePost(uid, post);
+            return Ok(post);
+        }
+        [HttpPost("AdminPost/")]
+        [Authorize(Policy = "AdminOnly")]
+        public IActionResult AdminPost([FromBody] Post post)
+        {
+            _service.SavePostAdmin(post);
             return Ok(post);
         }
 
@@ -57,6 +79,13 @@ namespace WoMoCo.Controllers
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
+        {
+            _service.DeletePost(id);
+            return Ok();
+        }
+        [HttpDelete("AdminGetPost/{id}")]
+        [Authorize(Policy = "AdminOnly")]
+        public IActionResult AdminDelete(int id)
         {
             _service.DeletePost(id);
             return Ok();
