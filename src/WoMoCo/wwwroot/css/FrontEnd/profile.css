@@ -1,0 +1,76 @@
+﻿#gravatarImg {
+    height: 175px;
+    width:175px;
+    /*margin-left: 50px;*/
+    margin-top: 25px;
+}
+.leftProfileBar {
+    background-color: lightgray;
+    height: 600px;
+}
+.profileName {
+    /*margin-left: 30px;*/
+}
+#profileEditBtn {
+    background-color: blue;
+    color: white;
+}
+#profileDeleteBtn {
+    color: rgb(207, 22, 22)
+}
+.profileEditBtn {
+    margin-top: 30px;
+}
+.profileDeleteBtn {
+    margin-top: 20px;
+}
+.profileInterest {
+    background-color: lightgray;
+    padding:8px
+}
+.glyphicon.glyphicon-trash {
+    font-size: 13px;
+    color:red;
+}
+.addInterestForm {
+    background-color: lightcyan;
+    height:118px;
+}
+#interestInput {
+    margin-top: 12px;
+}
+#interestSubmit {
+    margin-top: 13px;
+}
+.interestList {
+    position: relative;
+    bottom: 18px
+}
+.profileLink {
+    background-color: lightgray;
+    padding:8px
+}
+.linksList {
+    position: relative;
+    bottom: 16px
+}
+.addLinkForm {
+    background-color: lightcyan;
+    height:150px;
+}
+#linkInput {
+    margin-top: 12px;
+}
+#linkSubmit {
+    margin-top: 13px;
+}
+#socialName {
+    margin-top: 6px;
+}
+.connectionsHeader {
+    position: relative;
+    bottom: 20px;
+}
+#connectionsPannel {
+    background-color: lightgray;
+}
