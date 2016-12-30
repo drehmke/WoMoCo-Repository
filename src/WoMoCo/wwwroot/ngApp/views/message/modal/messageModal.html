@@ -1,3 +1,6 @@
+
+﻿
+
 ﻿<link href="../../../css/AboutStyleSheet.css" rel="stylesheet" />
 
 <form ng-submit="controller.saveComm()">
@@ -5,35 +8,39 @@
     <div class="col-lg-8 col-lg-offset-2 img-rounded">
         <div class="w3-card-4">
 
-            <div class="backgroundSandyBrown">
-                <header class="w3-container">
-                    <h1>Send Message</h1>
-                </header>
-            </div>
+<center>
+    <form ng-submit="controller.saveComm()">
 
-            <div class="w3-container">
-                <div class="col-sm-12">
+        <div class="col-xs-6 col-sm-offset-3">
+            <div class="w3-card">
 
-                    <div class="w3-container">
-                        <div class="form-group">
-                            <label>To</label>
-                            <input type="text" class="form-control" ng-model="controller.comm.recId" placeholder="User Name" />
-                            <label>Subject</label>
-                            <input type="text" class="form-control" ng-model="controller.comm.subject" placeholder="Subject" />
-                            <label>Message</label>
-                            <textarea cols="12" rows="6" class="form-control" ng-model="controller.comm.msg" placeholder="Enter Message..."></textarea></div>
+                <div class="backgroundSandyBrown">
+                    <header class="w3-container">
+                        <h1>Send Message</h1>
+                    </header>
+                </div>
+                <br />
+                <div class="w3-container">
+                    <div class="col-sm-12">
+
+                        <div>
+                            <div class="form-group">
+                                <label>To</label>
+                                <input type="text" class="form-control" ng-model="controller.comm.recId" placeholder="User Name" />
+                                <label>Subject</label>
+                                <input type="text" class="form-control" ng-model="controller.comm.subject" placeholder="Subject" />
+                                <label>Message</label>
+                                <textarea cols="12" rows="6" class="form-control" ng-model="controller.comm.msg" placeholder="Enter Message..."></textarea>
+                            </div>
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" value="Send" />
+                        <button type="button" class="btn btn-default" ng-click="controller.exit()">Cancel</button>
+                        <br />
                     </div>
-                    
-                    <input type="submit" class="btn btn-primary" value="Send" />
-                    <button type="button" class="btn btn-default" ng-click="controller.exit()">Cancel</button>
-
                 </div>
             </div>
-
-            <footer class="w3-container"></footer>
-
         </div>
-    </div>
-
-</form>
+    </form>
+</center>
 

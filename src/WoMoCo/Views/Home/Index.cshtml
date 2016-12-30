@@ -35,11 +35,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
                     <li><a id="Search" href="/about">About <span class="sr-only"></span></a></li>
-                    <li><a id="Search" href="/search">Search</a></li>
+                    <li ng-show="account.isLoggedIn()"><a id="Search" href="/search">Search</a></li>
                     <li><a id="Search" href="/babySitterlink">BabySitterLink</a></li>
                     <li><a id="Search" href="/activityForum" ng-show="account.isLoggedIn()">Activities</a></li>
-                    <li><a id="Search" href="/post">Post</a></li>
-                    <li><a id="Search" href="/editingPost">EditingPost</a></li>                    
+                    <li><a id="Search" href="/post">View Public Posts</a></li>
                     <li class="dropdown">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -49,17 +48,17 @@
                             <li><a href="/admin/links">User Social Links</a></li>
                         </ul>
                     </li>
-                    <li><a id="Search" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
+                    <li><a id="login" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="Search" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span><span class="badge ">{{counter.newMessageCount}}</span></a></li>
+                    <li ng-show="account.isLoggedIn()"><a id="inbox" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span><span class="badge ">{{counter.newMessageCount}}</span></a></li>
                     <li class="dropdown">
                         <a id="Search" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
                             <li><a href="/profile" ng-show="account.isLoggedIn()">Profile </a></li>
-                            <li><a href="/message/inbox">Inbox</a></li>
-                            <li><a href="/message/message">Message</a></li>
+                            <li><a href="/message/inbox" ng-show="account.isLoggedIn()">Inbox</a></li>
+                            <li><a id="login" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
                             <li class="divider"></li>
                             <li><a href="/login" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
                         </ul>
