@@ -1,6 +1,7 @@
 ﻿namespace WoMoCo.Services {
     export class PostService {
         public PostResource;
+        public PostingResource;
         
         constructor(
             private $resource: ng.resource.IResourceService
@@ -12,14 +13,15 @@
                     isArray: true
                 }
             });
+            //this.PostingResource = $resource('api/posts');
+            //this.getPostings();
         }
         public getPostByUsername() {
             return this.PostResource.getPosts();
         }
-        public getPostings() {
-            let posting = this.PostResource.getPosts();
-            return posting;
-        }
+        //public getPostings() {
+        //    let postings = this.
+        //}
     }
     angular.module("WoMoCo").service("PostService", PostService);
 }

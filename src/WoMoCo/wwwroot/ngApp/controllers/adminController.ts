@@ -15,10 +15,10 @@
             return con;
         }
 
-        public getPosts() {
-            let pos = this.PostService.getPostings();
-            return pos;
-        }
+        //public getPosts() {
+        //    this.posts = this.PostService.getPostings();
+        //    return this.posts();
+        //}
 
         constructor(private $resource: angular.resource.IResourceService,
             private accountService: WoMoCo.Services.AccountService,
