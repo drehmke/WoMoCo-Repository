@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using WoMoCo.Models;
+using WoMoCo.ViewModels;
 
 namespace WoMoCo.Data
 {
@@ -26,6 +27,7 @@ namespace WoMoCo.Data
         public DbSet<Comm> Comms { get; set; }        
         public DbSet<SharedCalendarEvent> SharedCalenderEvents { get; set; }
         public DbSet<UserConnection> UserConnections { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<SharedCalendarEvent>().HasKey(x => new { x.UserId, x.CalendarEventId });

@@ -4,17 +4,20 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
+            <th>Owner</th>
             <th>Name</th>
             <th>URL</th>
+            <th colspan="2">Actions</th>
         </tr>
     </thead>
     <tbody>
 
         <tr ng-repeat="link in controller.links">
+            <td>{{link.userName}}</td>
             <td>{{link.name}}</td>
             <td>{{link.url}}</td>
-            <td><a ng-href="/editLink/{{link.id}}" class="btn btn-primary"> Edit</a></td>
-            <td><a ng-href="/deleteLink/{{link.id}}" class="btn btn-danger">Delete</a></td>
+            <td><a ng-href="/admin/link/edit/{{link.id}}" class="btn btn-primary"> Edit</a></td>
+            <td><a ng-href="/admin/link/delete/{{link.id}}" class="btn btn-danger">Delete</a></td>
         </tr>
     </tbody>
 

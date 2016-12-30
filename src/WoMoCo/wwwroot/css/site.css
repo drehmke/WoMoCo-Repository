@@ -1,3 +1,8 @@
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 body, html {
     height: 100%;
 }
@@ -58,7 +63,7 @@ p
 /* -------Panels--------------- */
 
 .panel-body {
-    background-color: black;
+    background-color: white;
     backface-visibility: visible;
     background-repeat: no-repeat;
     background-size: cover;

@@ -23,4 +23,19 @@
         }
 
     }
+
+    export class InforMessageAdminController {
+        public comm;
+
+        public getCommAdmin(id) {
+            return this.MessageService.getCommById(id);
+        }
+
+        constructor(
+            private MessageService: WoMoCo.Services.MessageService,
+            private $stateParams: ng.ui.IStateParamsService
+        ) {
+            this.comm = this.getCommAdmin($stateParams[`id`]);
+        }
+    }
 }

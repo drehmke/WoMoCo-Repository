@@ -26,4 +26,18 @@
                              
                 }    
     }
+
+    export class MessageAdminController {
+        public comms;
+
+        public getAllComms() {
+            return this.MessageService.getAllCommsAdmin();
+        }
+
+        constructor(
+            private MessageService: WoMoCo.Services.MessageService
+        ) {
+            this.comms = this.getAllComms();
+        }
+    }
 }

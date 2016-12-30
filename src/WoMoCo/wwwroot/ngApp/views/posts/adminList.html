@@ -1,0 +1,22 @@
+﻿<h1>Posts</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default" ng-repeat="post in controller.posts">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{post.title}}</h3>
+                </div>
+                <div class="panel-body">
+                    {{post.discription}}
+                </div>
+                <div class="panel-footer">
+                    <div class="pull-right">
+                        <a ng-href="/admin/post/edit/{{post.id}}"><span class="glyphicon glyphicon-pencil text-info"></span></a> 
+                        <a ng-href="/admin/post/delete/{{post.id}}"><span class="glyphicon glyphicon-trash text-danger"></span></a>
+                    </div>
+                    Post authored by: {{post.userName}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
