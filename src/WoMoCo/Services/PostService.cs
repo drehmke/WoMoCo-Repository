@@ -18,7 +18,7 @@ namespace WoMoCo.Services
         // Get all Posts
         public IList<Post> GetAllPosts()
         {
-            var posts = _repo.Query<Post>().ToList();
+            var posts = _repo.Query<Post>().OrderByDescending(x => x.Id).ToList();
             return posts;
         }
         // Get single post by Id
@@ -32,19 +32,6 @@ namespace WoMoCo.Services
             var getpostbyuser = _repo.Query<Post>().Where(m => m.UserName == username).ToList();
             return getpostbyuser;
         }
-
-        ////save a single post to the database
-        //public void SavePost(Post post)
-        //{
-        //    if(post.Id == 0)
-        //    {
-        //        _repo.Add(post);
-        //    }
-        //    else
-        //    {
-        //        _repo.Update(post);
-        //    }
-        //}
 
         //Delete single post from the database
         public void DeletePost(int id)
@@ -70,6 +57,13 @@ namespace WoMoCo.Services
             }
             //post.User.Add(AppUser);
             //_repo.SaveChanges();
+        }
+
+        public void SavePostAdmin(Post post)
+        { // because this should come in with the userName in the post object
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.UserName == post.UserName).FirstOrDefault();
+            //post.User = user;
+            _repo.Update(post);
         }
 
         public PostService(IGenericRepository repo, UserManager<ApplicationUser> manager)

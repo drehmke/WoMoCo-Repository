@@ -37,7 +37,7 @@
                     <li><a id="Search" href="/about">About <span class="sr-only"></span></a></li>
                     <li ng-show="account.isLoggedIn()"><a id="Search" href="/search">Search</a></li>
                     <li><a id="Search" href="/babySitterlink">BabySitterLink</a></li>
-                    <li><a id="Search" href="/activityForum" ng-show="account.isLoggedIn()">Activities</a></li>
+                    <li><a id="Search" href="/activity" ng-show="account.isLoggedIn()">Activities</a></li>
                     <li><a id="Search" href="/post">View Public Posts</a></li>
                     <li class="dropdown">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
@@ -46,6 +46,8 @@
                             <li><a href="/admin/activity/list">Activity Posts</a></li>
                             <li><a href="/admin/interest">Interests</a></li>
                             <li><a href="/admin/links">User Social Links</a></li>
+                            <li><a href="/admin/post">Posts</a></li>
+                            <li><a href="/admin/messages">Messages</a></li>
                         </ul>
                     </li>
                     <li><a id="login" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
@@ -68,7 +70,7 @@
             </div>
         </div>
         </nav>
-    <div class="container">
+    <div class="container admin">
 
         <ui-view></ui-view>
     </div>
