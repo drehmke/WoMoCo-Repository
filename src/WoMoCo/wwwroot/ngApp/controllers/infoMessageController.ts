@@ -35,7 +35,7 @@
             private MessageService: WoMoCo.Services.MessageService,
             private $stateParams: ng.ui.IStateParamsService
         ) {
-            this.comm = this.getComm($stateParams[`id`]);
+            this.comm = this.getCommAdmin($stateParams[`id`]);
         }
     }
 }
