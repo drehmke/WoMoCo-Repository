@@ -133,8 +133,8 @@
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService
         ) {
-            this.PostGetResource(`/api/posts/AdminGetPost/:id`);
-            this.PostSaveResource(`/api/posts/AdminPost/`);
+            this.PostGetResource = $resource(`/api/posts/AdminGetPost/:id`);
+            this.PostSaveResource = $resource(`/api/posts/AdminPost/`);
             this.post = this.getPostById($stateParams[`id`]);
         }
     }
@@ -184,7 +184,7 @@
             private $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService
         ) {
-            this.PostResource(`/api/posts/AdminGetPost/:id`);
+            this.PostResource = $resource(`/api/posts/AdminGetPost/:id`);
             this.post = this.getPost($stateParams[`id`]);
         }
     }

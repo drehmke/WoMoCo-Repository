@@ -313,13 +313,13 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.PostAdminController,
                 controllerAs: `controller`
             })
-            .state(`editPostAdmin`, {
+            .state(`postEditAdmin`, { // admin
                 url: `/admin/post/edit/:id`,
                 templateUrl: `/ngApp/views/posts/editAdmin.html`,
                 controller: WoMoCo.Controllers.EditPostAdminController,
                 controllerAs: `controller`
             })
-            .state(`deletePostAdmin`, {
+            .state(`postDeleteAdmin`, { // admin
                 url: `/admin/post/delete/:id`,
                 templateUrl: `/ngApp/views/posts/deleteAdmin.html`,
                 controller: WoMoCo.Controllers.DeletePostAdminController,
