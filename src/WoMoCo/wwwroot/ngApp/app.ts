@@ -36,6 +36,13 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
             })
+            .state('adminProPage', {
+                url: '/adminProPage',
+                templateUrl: '/ngApp/views/user/adminProPage.html',
+                controller: WoMoCo.Controllers.AdminController,
+                controllerAs: 'controller'
+
+            })
             //=======home-login ==============================================>
             // ---- Delete this when we have a logged in home page
             .state(`home-login`, {
@@ -102,13 +109,6 @@ namespace WoMoCo {
                 url: `/admin/links`,
                 templateUrl: `/ngApp/views/links/link.html`,
                 controller: WoMoCo.Controllers.LinkController,
-                controllerAs: `controller`
-            })
-            //======= Baby Sitter Links ======================================>
-            .state(`linkAdmin`, {
-                url: `/admin/links`,
-                templateUrl: `/ngApp/views/links/link.html`,
-                controller: WoMoCo.Controllers.AdminLinkController,
                 controllerAs: `controller`
             })
             //======= Baby Sitter Links =======>

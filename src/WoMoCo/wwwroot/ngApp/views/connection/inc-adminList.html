@@ -1,0 +1,10 @@
+﻿<div class="adminConnectionsList">
+    <h3>My Admins<small><a href="/search">Add</a></small></h3>
+    <ul>
+        <li ng-repeat="co in controller.connections">
+            {{co.userName}} -
+            {{co.firstName}} -
+            {{co.lastName}}
+        </li>
+    </ul>
+</div>
