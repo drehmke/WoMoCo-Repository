@@ -1,8 +1,12 @@
-﻿<link href="/css/AboutStyleSheet.css" rel="stylesheet" />
 
-<div class="panel-body">
-    <a ng-href="/message/modal/messageModal" class="btn btn-danger">Compose New Message</a>
-</div>
+﻿<link href="../../../css/AboutStyleSheet.css" rel="stylesheet" />
+
+<form style="margin-top:25px">
+    <div>
+        <a ng-href="/message/modal/messageModal" class="btn btn-primary" style:"button">Compose New Message</a>
+    </div>
+</form>
+
 
 <div id="panel inboxPanel">
     <div class="panel inboxPanel" ng-repeat="comm in controller.comms">
@@ -10,13 +14,14 @@
         <div class="panel-heading">
             <em>Subject:</em> {{comm.subject}}<br />
         </div>
-        <div class="panel-default">
-            <em>To:</em> {{comm.recId}}<br />
-            <em>From:</em> {{comm.sendingUser}}<br />
-            <em>Reciever</em> {{comm.recievingUser}}<br />
-            <em>Date</em> {{comm.dateSent}}<br />
-            <em>Message</em> {{comm.msg}}<br />
+        <div style="padding-left:2em">
+            <div class="panel-default">
+                <em>To:</em> {{comm.recId}}<br />
+                <em>From:</em> {{comm.sendingUser.userName}}<br />                
+                <em>Date:</em> {{comm.dateSent|date}}<br />
+                <em>Message:</em> {{comm.msg}}<br />
 
+            </div>
         </div>
        <div>
            
