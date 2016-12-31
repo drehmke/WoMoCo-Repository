@@ -94,7 +94,7 @@ select {
 }
 
 .toppadding20 { padding-top: 20px; }
-.topmargin05 { margin-top: 5px; }
+.topmargin05 { margin-top: 5px; text-align:center; vertical-align:middle; }
 
 /* ---- Homepage ---- */
 .parallax {
@@ -121,5 +121,6 @@ select {
 @media (min-width:961px)  {  /*tablet, landscape iPad, lo-res laptops ands desktops */ }
 @media (min-width:1025px) {  /*big landscape tablets, laptops, and desktops*/  }
 @media (min-width:1281px) {  /*-res laptops and desktops */ }
+
 
 
