@@ -8,6 +8,7 @@ using WoMoCo.Models;
 using WoMoCo.Repositories;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
+using WoMoCo.ViewModels;
 
 namespace WoMoCo.Services
 {
@@ -20,6 +21,7 @@ namespace WoMoCo.Services
         public IList<Comm> GetAllComms()
         {
             return _repo.Query<Comm>().ToList();
+            
             
         }
         public Comm GetCommById(int id)
@@ -34,10 +36,10 @@ namespace WoMoCo.Services
             // get currently logged in user by uid to assign as SendingUser
             ApplicationUser currUser = _repo.Query<ApplicationUser>().Where(a => a.Id == uid).FirstOrDefault();
             //get the RecievingUser
-            ApplicationUser recUser = _repo.Query<ApplicationUser>().Where(u => u.UserName == comm.RecId).FirstOrDefault();
+            ApplicationUser recUser = _repo.Query<ApplicationUser>().Where(u => u.UserName == comm.RecId).FirstOrDefault();           
             comm.SendingUser = currUser;
             comm.RecId = recUser.UserName;
-            comm.ReceivingUser = recUser;
+            comm.ReceivingUser = recUser;           
             comm.DateSent = DateTime.Now;
             if(comm.Id == 0)
             {
@@ -67,6 +69,33 @@ namespace WoMoCo.Services
                 if(comm.HasBeenViewed != true) { newMessageCount++; }
             }
             return newMessageCount;
+        }
+        public IList<CommViewModel> GetCommsByUserName(string uid)
+        {
+
+           
+            IList<Comm> userComms = _repo.Query<Comm>().Where(c => c.RecId == uid).Include(c => c.SendingUser).ToList();
+            IList<CommViewModel> commView = new List<CommViewModel>();
+            foreach(Comm comm in userComms)
+            {
+                CommViewModel commViews = new CommViewModel
+                {
+                    Id = comm.Id,
+                    RecId = comm.RecId,
+                    SendingUser = comm.SendingUser,
+                    Subject = comm.Subject,
+                    HasBeenViewed = comm.HasBeenViewed,
+                    DateSent = comm.DateSent,
+                    Msg = comm.Msg,
+                    Status = comm.Status,
+                    CommType = comm.CommType
+                };
+                commView.Add(commViews);
+            }
+            return commView;
+            
+           
+
         }
 
         public CommService(IGenericRepository repo, UserManager<ApplicationUser> manager)

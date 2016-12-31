@@ -120,46 +120,49 @@ namespace WoMoCo {
             })
             //================================================================>
             // ---- calendar Events -------------------------------------------
+            // TODO: Admin
             .state(`calendar`, {
                 url: `/calendar`,
                 templateUrl: `/ngApp/views/calendar/userEventsList.html`,
                 controller: WoMoCo.Controllers.CalendarUserEventsController,
                 controllerAs: `controller`
             })
-            .state('calendarEvents', {
+            .state('calendarEvents', { // admin
                 url: `/admin/calendar/allEvents`,
                 templateUrl: `/ngApp/views/calendar/eventsList.html`,
                 controller: WoMoCo.Controllers.CalendarEventsController,
                 controllerAs: `controller`
             })
             .state(`calendarAddEvent`, {
-                url: `/admin/calendar/addEvent`,
+                url: `/calendar/addEvent`,
                 templateUrl: `/ngApp/views/calendar/addEvent.html`,
                 controller: WoMoCo.Controllers.CalendarAddEventController,
                 controllerAs: `controller`
             })
+            // TODO: create admin view
             .state(`calendarViewEvent`, {
                 url: `/calendar/viewEvent/:id`,
                 templateUrl: `/ngApp/views/calendar/viewEvent.html`,
                 controller: WoMoCo.Controllers.CalendarViewEventController,
                 controllerAs: `controller`
             })
-            // TODO: can I have a similar state for non-admin edit
+            // TODO: create admin view
             .state(`calendarEditEvent`, {
-                url: `/admin/calendar/editEvent/:id`,
+                url: `/calendar/editEvent/:id`,
                 templateUrl: `/ngApp/views/calendar/editEvent.html`,
                 controller: WoMoCo.Controllers.CalendarEditEventController,
                 controllerAs: `controller`,
             })
-            //TODO: can I have a similar state for non-admin delete
+            // TODO: create admin view
             .state(`calendarDeleteEvent`, {
-                url: `/admin/calendar/deleteEvent/:id`,
+                url: `/calendar/deleteEvent/:id`,
                 templateUrl: `/ngApp/views/calendar/deleteEvent.html`,
                 controller: WoMoCo.Controllers.CalendarDeleteEventController,
                 controllerAs: `controller`
             })
             // ---- end calendar Events ---------------------------------------
             // ---- Events Alarms ---------------------------------------------
+            // Not going to implement for demo
             .state(`eventAlarms`, {
                 url: `/admin/alarms/allAlarms`,
                 templateUrl: `/ngApp/views/alarms/list.html`,
@@ -180,7 +183,7 @@ namespace WoMoCo {
             // ---- end Event Alarms ------------------------------------------
             // --- activity Forums --------------------------------------------
             .state(`activityForum`, {
-                url: `/activity/`,
+                url: `/activity`,
                 templateUrl: `/ngApp/views/activityForum/activitiesForum.html`,
                 controller: WoMoCo.Controllers.ActivitiesController,
                 controllerAs: `controller`
@@ -217,10 +220,11 @@ namespace WoMoCo {
             })
             // ---- end activity Forums ---------------------------------------
             // ---- Messaging -------------------------------------------------
+            // TODO: Admin
             .state(`inbox`, {
                 url: `/message/inbox`,
                 templateUrl: `/ngApp/views/message/inbox.html`,
-                controller: WoMoCo.Controllers.MessageController,
+                controller: WoMoCo.Controllers.InboxController,
                 controllerAs: `controller`
             })
             .state(`message`, {
@@ -247,6 +251,25 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.MessageController,
                 controllerAs: `controller`
             })
+            .state(`messageAdmin`, { // admin
+                url: `/admin/messages`,
+                templateUrl: `/ngApp/views/message/adminList.html`,
+                controller: WoMoCo.Controllers.MessageAdminController,
+                controllerAs: `controller`
+            })
+            .state(`messageEditAdmin`, { // admin 
+                url: `/admin/messages/edit/:id`,
+                templateUrl: `/ngApp/views/message/adminEdit.html`,
+                controller: WoMoCo.Controllers.InforMessageAdminController,
+                controllerAs: `controller`
+            })
+            .state(`messageDeleteAdmin`, { // admin 
+                url: `/admin/messages/delete/:id`,
+                templateUrl: `/ngApp/views/message/adminDelete.html`,
+                controller: WoMoCo.Controllers.DeleteMessageAdminController,
+                controllerAs: `controller`
+            })
+            //---- end Messaging ----------------------------------------------
             //=============Search=========================================
             .state('searches', {
                 url: '/search',
@@ -254,7 +277,6 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.SearchController,
                 controllerAs: 'controller'
             })
-
             //=============End Search====================================
             // ---- User Profile ----------------------------------------------
             .state('profile', {
@@ -281,7 +303,7 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.EditUserAdminController,
                 controllerAs:`controller`
             })
-            .state(`userAdminDelete`, {
+            .state(`userAdminDelete`, { // admin
                 url: `/admin/user/delete/:id`,
                 templateUrl: `/ngApp/views/user/deleteAdmin.html`,
                 controller: WoMoCo.Controllers.DeleteUserAdminController,
@@ -291,33 +313,51 @@ namespace WoMoCo {
             // ---- Posting or bloging stuffs----------------------------------
             .state('post', {
                 url: '/post',
-                templateUrl: 'ngApp/views/posts/post.html',
+                templateUrl: '/ngApp/views/posts/post.html',
                 controller: WoMoCo.Controllers.PostController,
                 controllerAs: 'controller'
             })
             .state('addPost', {
-                url: '/addPost',
-                templateUrl: 'ngApp/views/posts/addPost.html',
+                url: '/post/add',
+                templateUrl: '/ngApp/views/posts/addPost.html',
                 controller: WoMoCo.Controllers.AddPostController,
                 controllerAs: 'controller'
             })
             .state('editPost', {
-                url: '/editPost/:id',
-                templateUrl: 'ngApp/views/posts/editPost.html',
+                url: '/post/edit/:id',
+                templateUrl: '/ngApp/views/posts/editPost.html',
                 controller: WoMoCo.Controllers.EditPostController,
                 controllerAs: 'controller'
             })
             .state('deletePost', {
-                url: '/deletePost/:id',
-                templateUrl: 'ngApp/views/posts/deletePost.html',
+                url: '/post/delete/:id',
+                templateUrl: '/ngApp/views/posts/deletePost.html',
                 controller: WoMoCo.Controllers.DeletePostController,
                 controllerAs: 'controller'
             })
-            .state('editingPost', {
-                url: '/editingPost',
-                templateUrl: 'ngApp/views/posts/editingPost.html',
+            .state('userPost', {
+                url: '/posts/my',
+                templateUrl: '/ngApp/views/posts/userPost.html',
                 controller: WoMoCo.Controllers.GetByUsernameController,
                 controllerAs: 'controller'
+            })
+            .state(`postAdmin`, { // admin
+                url: `/admin/post`,
+                templateUrl: `/ngApp/views/posts/adminList.html`,
+                controller: WoMoCo.Controllers.PostAdminController,
+                controllerAs: `controller`
+            })
+            .state(`postEditAdmin`, { // admin
+                url: `/admin/post/edit/:id`,
+                templateUrl: `/ngApp/views/posts/editAdmin.html`,
+                controller: WoMoCo.Controllers.EditPostAdminController,
+                controllerAs: `controller`
+            })
+            .state(`postDeleteAdmin`, { // admin
+                url: `/admin/post/delete/:id`,
+                templateUrl: `/ngApp/views/posts/deleteAdmin.html`,
+                controller: WoMoCo.Controllers.DeletePostAdminController,
+                controllerAs: `controller`
             })
             //---- end Posting/blogging stuffs --------------------------------
             //===================Bios==========================================
@@ -326,6 +366,40 @@ namespace WoMoCo {
             templateUrl: 'ngApp/views/bios/stephenBoatman.html',
             controller: WoMoCo.Controllers.AboutController,
             controllerAs: 'controller'
+            })
+
+            .state('hiwotDemssie', {
+                url: '/bios/hiwotDemssie',
+                templateUrl: 'ngApp/views/bios/hiwotDemssie.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+
+            .state('dorothyLee', {
+                url: '/bios/dorothyLee',
+                templateUrl: 'ngApp/views/bios/dorthyLee.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+
+            .state('donnaRyan', {
+                url: '/bios/donnaRyan',
+                templateUrl: 'ngApp/views/bios/donnaRyan.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+            .state('chanceMyer', {
+                url: '/bios/chanceMyer',
+                templateUrl: 'ngApp/views/bios/chanceMyer.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+
+            .state('joshSchmuck', {
+                url: '/bios/joshSchmuck',
+                templateUrl: 'ngApp/views/bios/joshSchmuck.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
             })
 
             // ---- Defaults - About / Not Found ------------------------------

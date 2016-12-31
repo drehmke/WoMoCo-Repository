@@ -1,18 +1,35 @@
 ﻿<!--Page is set up to use media function of bootsrap. Can be re-arranged.-->
 <h3>Activities</h3>
+<br />
+<br />
 
-<a href="/addActivity" type="button" class="btn btn-primary">Create an activity</a>
-<br />
-<br />
+<!--<a href="/addActivity" type="button" class="btn btn-primary">Create an activity</a>
+
 
 <input type="text" placeholder="Find an activity" ng-model="searchTerms" />
 <div id="activityList" ng-repeat="a in controller.activities | filter: searchTerms">
+=======-->
+﻿<div class="col-md-8 col-md-offset-2">
     <div>
-        <h4>{{a.location}}</h4>
-        {{a.activity}}
+        <a href="/activity/add" class="btn btn-primary">Post</a>
     </div>
-    <div>
-        <h4>{{a.userName}}</h4>
-        {{a.description}}
+    <br />
+     <input type="text" placeholder="Find an activity" ng-model="searchTerms" />
+    <br />
+    <div class="jumbotron" ng-repeat="a in controller.activities | filter: searchTerms">
+        <div class="media-left">
+            <img class="media-object" src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" height="125">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{a.userName}}</h4>
+            <div>{{a.activity}}</div>
+            <div>{{a.location}}</div>
+        </div>
+        <div class="media-body">
+            <div class="media-right">
+                {{a.description}}
+                {{a.address}}
+            </div>
+        </div>
     </div>
 </div>

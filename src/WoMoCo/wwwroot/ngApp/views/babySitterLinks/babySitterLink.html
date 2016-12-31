@@ -1,9 +1,10 @@
-﻿<div class="parallax sitterimg1">
+﻿
+<div class="parallax sitterpage">
     <div class="col-lg-8 col-lg-offset-2">
-        <div id="iconscontainer" class="container">
+        <div class="container">
             <div>
                 <br />
-                <div class="col-md-6 col-md-offset-4" id="babysittertable">
+                <div class="col-md-6 col-md-offset-3" id="babysittertable">
                     <table class="table-hover">
                         <!--<thead>
                         <tr>
@@ -12,10 +13,10 @@
                         <!--</tr>
                         </thead>-->
                         <tbody>
-                            <tr ng-repeat="link in controller.babySitters">S
+                            <tr ng-repeat="link in controller.babySitters">
                                 <td class="img-rounded">
                                     <center>
-                                        <h2><a target="_blank" href="{{link.linkBase}}"><b>{{link.name}}</b></a></h2> <br />
+                                        <h2><a id="babysitterlinks" target="_blank" href="{{link.linkBase}}">{{link.name}}</a></h2> <br />
                                         <a target="_blank" href="{{link.linkBase}}"><img ng-src="{{link.image}}" width="50" hight="50" id="babysittericons" /></a>
                                     </center>
                                 </td>

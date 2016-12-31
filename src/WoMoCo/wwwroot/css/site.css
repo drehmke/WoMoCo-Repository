@@ -8,6 +8,13 @@ body {
 {
    margin-left:2%;
    margin-bottom:4%;
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+body, html {
+    height: 100%;
 }
 
 h1
@@ -302,7 +309,7 @@ p
 {
     cursor:pointer; margin-right:15%;
 }
- Set some basic padding to keep content from hitting the edges 
+ /*Set some basic padding to keep content from hitting the edges*/ 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -327,7 +334,7 @@ strong
 /*-------Panels---------------*/
 
 .panel-body {
-    background-color: black;
+    background-color: white;
     backface-visibility: visible;
     background-repeat: no-repeat;
     background-size: cover;
@@ -368,7 +375,7 @@ table
    
 }
 
- Set widths on the form inputs since otherwise they're 100% wide 
+ /*Set widths on the form inputs since otherwise they're 100% wide*/ 
 input,
 textarea,
 select {
@@ -378,7 +385,7 @@ select {
 {
     background-color:mediumpurple
 }
-Styles form banners command images
+/*Styles form banners command images*/
 #headImg {
     background-image: url('../images/game squad.png');
     background-repeat: no-repeat;
@@ -398,6 +405,9 @@ Styles form banners command images
     margin-right: auto;
     width: 100%;
 }
+.img01 {background-image: url("../images/parallax/womanfrustrated.jpg");}
+.img02 { background-image: url("/images/parallax/reading-to-baby.jpg"); }
+.img03 { background-image: url("/images/parallax/women-in-group.jpg"); }
 
 .online-status {
     
@@ -411,7 +421,7 @@ Styles form banners command images
     
 }
 
-styles form different formats
+/*styles form different formats*/
 
 @media (min-width:320px)  {  smartphones, iPhone, portrait 480x320 phones  }
 @media (min-width:481px)  {  portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.  }

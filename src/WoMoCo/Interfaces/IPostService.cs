@@ -10,5 +10,6 @@ namespace WoMoCo.Services
         IList<Post> GetByUsername(string username);
         Post GetPostById(int id);
         void SavePost(string user, Post post);
+        void SavePostAdmin(Post post);
     }
 }
