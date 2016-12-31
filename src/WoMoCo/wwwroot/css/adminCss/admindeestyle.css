@@ -112,4 +112,10 @@ thead {
 .span_1_of_7 .list-group-item { background-color: transparent; z-index: 2; border: none; border-bottom: 1px solid #b83a07; }
 .panelGlyph { z-index: -1;}
 
-
+/*Admin Post Styling*/
+.adminPosts {
+    border-color: #ffffff;
+}
+.adminPostsItem {
+    color:black;
+}
