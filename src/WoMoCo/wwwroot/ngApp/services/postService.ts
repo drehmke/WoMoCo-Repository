@@ -1,10 +1,12 @@
 ﻿namespace WoMoCo.Services {
     export class PostService {
         public PostResource;
-        public PostingResource;
+        public AdminPostResource;
+        public posts;
         
         constructor(
-            private $resource: ng.resource.IResourceService
+            private $resource: ng.resource.IResourceService,
+            private $state: ng.ui.IStateService
         ) {
             this.PostResource = $resource('api/posts', null, {
                 getPosts: {
@@ -13,15 +15,25 @@
                     isArray: true
                 }
             });
-            //this.PostingResource = $resource('api/posts');
-            //this.getPostings();
+            this.AdminPostResource = $resource(`/api/posts`, null, {
+                getAdmin: {
+                    method: `GET`,
+                    url: `/api/posts/AdminGet/`,
+                    isArray: true
+                }
+            });
+            this.posts = this.getPost();
         }
         public getPostByUsername() {
             return this.PostResource.getPosts();
         }
-        //public getPostings() {
-        //    let postings = this.
-        //}
+
+        public getPost() {
+            return this.AdminPostResource.query();
+        }
+        public deletePost(id: number) {
+            return this.AdminPostResource.delete({ id: id });
+        }
     }
     angular.module("WoMoCo").service("PostService", PostService);
 }

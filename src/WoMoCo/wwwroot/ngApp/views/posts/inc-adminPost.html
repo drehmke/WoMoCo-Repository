@@ -1,9 +1,7 @@
 ﻿<h3>Monitor Posts</h3>
 <a id="addpostbtn" ng-href="/addPost" class="btn">Add Post</a>
 <div class="adminPosts" ng-repeat="post in controller.posts">
-    <div class="col span_1_of_7">
         {{post.title}}<br />
         {{post.discription}}
-        <button ng-click="/deletePost/{{post.id}}" class="btn">Delete Post</button>
-    </div>
+        <button ng-click="controller.deletePost(post.id)" class="btn">Delete Post</button>
 </div>
