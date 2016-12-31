@@ -5,8 +5,10 @@
 
 body, html {
     height: 100%;
+    padding-top: 20px;
 }
 
+.spirax { font-family: 'Spirax', cursive; }
 h1
 {
 }
@@ -61,7 +63,11 @@ p
 }
 
 /* -------Panels--------------- */
-
+.panel-default .panel-heading {
+    border: none; 
+    border-bottom: 1px solid #b70100;
+    background-color: #fff;
+}
 .panel-body {
     background-color: white;
     backface-visibility: visible;
@@ -88,6 +94,7 @@ p
 }
 
 
+
 /*  Wrapping element 
  Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -100,6 +107,12 @@ textarea,
 select {
     max-width: 280px;
 }
+wideinput 
+{
+    max-width: 100%;
+}
+
+.topmargin10 { padding-top: 20px; }
 
 /* ---- Homepage ---- */
 .parallax {

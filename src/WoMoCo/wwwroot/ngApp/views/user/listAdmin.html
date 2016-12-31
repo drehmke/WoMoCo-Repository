@@ -1,12 +1,18 @@
 ﻿<div id="searchPanel" class="panel panel-default col-md-10 col-md-offset-1">
     <!-- Default panel contents -->
-    <div class="panel-heading"><h3>UserAdmin</h3></div>
+    <div class="panel-heading row">
+        <h3 class="spirax colorDarkRed col-md-6">UserAdmin</h3>
+        <div class="col-md-6 form-inline topmargin10">
+            <div class="form-group">
+                <label for="search" class="control-label">Search</label> <input id="search" name="search" class="form-control wideinput" type="text" placeholder="Search for a user" ng-model="searchTerm" />
+            </div>
+        </div>
+    </div>
     <div class="panel-body">
         <p>
-            <label>Search</label>
             <!--<input type="text" placeholder="Search for a connection" ng-model="controller.username" />
     <button type="button" ng-click="controller.userByUsername()">Search</button>-->
-            <input class="form-control control-label" type="text" placeholder="Search for a user" ng-model="searchTerm" />
+            
         </p>
     </div>
     <!-- Table -->
