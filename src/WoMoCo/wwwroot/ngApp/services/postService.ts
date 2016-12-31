@@ -15,10 +15,10 @@
                     isArray: true
                 }
             });
-            this.AdminPostResource = $resource(`/api/posts`, null, {
+            this.AdminPostResource = $resource(`/api/posts/:id`, null, {
                 getAdmin: {
                     method: `GET`,
-                    url: `/api/posts/AdminGet/`,
+                    url: `/api/posts/AdminGet/:id`,
                     isArray: true
                 }
             });
