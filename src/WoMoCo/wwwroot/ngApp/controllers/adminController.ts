@@ -8,26 +8,36 @@
             let act = this.activitiesService.getAllUsersActivities();
             return act;
         }
-
         public getConnections() {
             let con =
                 this.connectionService.getAllMyConnections();
             return con;
         }
+        public getPost() {
+            return this.PostService.getPost();
+        }
+        public deletePost(id:number) {
+            for (let i = 0; i < this.posts.length; i++) {
+                if (this.posts[i].id == id) {
+                    this.PostService.deletePost(this.posts[i].id).$promise
+                        .then(() => {
+                            //post = null;
+                            //this.$state.go(`postAdmin`);
+                        });
 
-        //public getPosts() {
-        //    this.posts = this.PostService.getPostings();
-        //    return this.posts();
-        //}
+                }
+            }
+        }
 
         constructor(private $resource: angular.resource.IResourceService,
             private accountService: WoMoCo.Services.AccountService,
             private activitiesService: WoMoCo.Services.ActivitiesService,
             private connectionService: WoMoCo.Services.ConnectionService,
-            private PostService: WoMoCo.Services.PostService) {
+            private PostService: WoMoCo.Services.PostService,
+            ) {
             this.activities = this.getActivities();
             this.connections = this.getConnections();
-            //this.posts = this.getPosts();
+            this.posts = this.getPost();
         }
     }
 

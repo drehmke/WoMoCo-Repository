@@ -28,14 +28,14 @@
         constructor(
             private $resource: angular.resource.IResourceService
         ) {
-            this.PostResource = $resource(`/api/posts`, null, {
-                getAdmin: {
-                    method: `GET`,
-                    url: `/api/posts/AdminGet/`,
-                    isArray: true
-                }
-            });
-            this.posts = this.getPost();
+            //this.PostResource = $resource(`/api/posts`, null, {
+            //    getAdmin: {
+            //        method: `GET`,
+            //        url: `/api/posts/AdminGet/`,
+            //        isArray: true
+            //    }
+            //});
+            //this.posts = this.getPost();
         }
     }
 
@@ -172,17 +172,19 @@
             return this.PostResource.get({ id: id });
         }
         public deletePost() {
-            this.PostResource.delete({ id: this.post.id }).$promise
+            this.postService.deletePost(this.post).$promise
                 .then(() => {
                     this.post = null;
                     this.$state.go(`postAdmin`);
                 });
+            
         }
 
         constructor(
             private $resource: ng.resource.IResourceService,
             private $stateParams: ng.ui.IStateParamsService,
-            private $state: ng.ui.IStateService
+            private $state: ng.ui.IStateService, 
+            private postService: WoMoCo.Services.PostService
         ) {
             this.PostResource = $resource(`/api/posts/AdminGetPost/:id`);
             this.post = this.getPost($stateParams[`id`]);
