@@ -1,0 +1,23 @@
+﻿/* -------Panels--------------- */
+.panel-default .panel-heading {
+    border: none; 
+    border-bottom: 1px solid #b70100;
+    background-color: #fff;
+}
+.panel-body {
+    background-color: white;
+    backface-visibility: visible;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#profilepanel {
+    padding:30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#postpanel {
+    backface-visibility: visible;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

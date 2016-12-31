@@ -1,3 +1,6 @@
+@import url(colorSchemeReference.css);
+@import url(panels.css);
+@import url(gradients.css);
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -62,29 +65,6 @@ p
   
 }
 
-/* -------Panels--------------- */
-.panel-default .panel-heading {
-    border: none; 
-    border-bottom: 1px solid #b70100;
-    background-color: #fff;
-}
-.panel-body {
-    background-color: white;
-    backface-visibility: visible;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#profilepanel {
-    padding:30px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#postpanel {
-    backface-visibility: visible;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 /* --------navbar-------------- */
 .navbar
@@ -123,7 +103,7 @@ wideinput
     background-repeat: no-repeat;
     background-size: cover;
 }
-.img01 {background-image: url("../images/parallax/womanfrustrated.jpg");}
+.img01 {background-image: url("/images/parallax/womanfrustrated.jpg");}
 .img02 { background-image: url("/images/parallax/reading-to-baby.jpg"); }
 .img03 { background-image: url("/images/parallax/women-in-group.jpg"); }
 
