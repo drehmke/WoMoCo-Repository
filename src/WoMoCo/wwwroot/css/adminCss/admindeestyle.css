@@ -85,12 +85,10 @@ thead {
 	display: block;
 	float:left;
 	margin: 1% 0 1% 3.2%;
-    border:ridge;
-    border-width:5px;
     padding: 3px;
     min-width: 200px;
-    text-decoration: underline;
-    background-color: #eaebef;
+    border: 1px dashed #7ba790;
+    background-color: #fdfdfd;
 }
 .col:first-child { margin-left: 8px; }
 

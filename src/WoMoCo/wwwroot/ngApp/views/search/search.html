@@ -7,49 +7,20 @@
 
     <div class="col span_1_of_7">
         <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
-        UserName:  {{user.userName}} <br />
-        Name:  {{user.firstName}} {{user.lastName}}<br />
-        Email:  {{user.email}}<br />
-        Location:  {{user.location}}<br />
-        Current Job Title:  {{user.currentJobTitle}}<br />
-        Employer:  {{user.employer}}<br />
-        Connect to this user: <button ng-click="controller.reqConnect(user.userName)">Connect</button> <br />
-        <!--Make this user an Admin: <input type="checkbox" name="Make Admin" value="true" /> <br />-->
-        <!--Delete this users profile: <button class="btn-danger btn-sm">Delete</button>-->
+        <div class="list-group">
+            <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle" /></div>
+            UserName:  {{user.userName}} <br />
+            Name:  {{user.firstName}} {{user.lastName}}<br />
+            Email:  {{user.email}}<br />
+        </div>
+        <div class="list-group">
+            Location:  {{user.location}}<br />
+            Current Job Title:  {{user.currentJobTitle}}<br />
+            Employer:  {{user.employer}}<br />
+        </div>
+        <div class="list-group row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 text-right"><button ng-click="controller.reqConnect(user.userName)">Connect</button></div>
+        </div>
     </div>
 </div>
-
-
-<!--From Master-->
-﻿
-<!--<div id="searchPanel" class="panel panel-default col-md-10 col-md-offset-1">
-    Default panel contents
-   <div class="panel-heading searchPanel"><center><h3>Connections</h3></center></div>
-   <div class="panel-body">
-       <p>
-           <label>Search</label>
-
-           <input class="form-control control-label" type="text" placeholder="Search for connection" ng-model="searchTerm" />
-       </p>-->
-<!--not using-->
-<!--<div class="panel testPanel" ng-repeat="user in controller.users | filter: searchTerm">
-    <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
-    <div class="panel-heading">
-        {{user.userName}} <input type="checkbox" name="Make Admin" value="true" />
-    </div>
-    <div class="panel-default">
-        <div class="list-group-item">
-            {{user.firstName}} {{user.lastName}}<br />
-            {{user.email}}<br />
-            {{user.location}}
-        </div>
-        <div class="list-group-item">
-            {{user.employer}}<br />
-            {{user.currentJobTitle}}
-        </div>
-    </div>
-    <div class="panel-footing">
-        <button ng-click="controller.reqConnect(user.userName)">Connect</button>
-
-    </div>
-</div>-->

@@ -64,5 +64,4 @@ input:checked + .slider:before {
     font-weight: bold;
     display: inline-block;
     margin-right: 10px;
-    border: 1px solid #000;
 }

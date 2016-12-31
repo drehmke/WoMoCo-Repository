@@ -293,7 +293,7 @@ namespace WoMoCo {
             })
             .state(`userAdmin`, { // admin
                 url: `/admin/user/list`,
-                templateUrl: `/ngApp/views/user/listAdmin.html`,
+                templateUrl: `/ngApp/views/user/adminList.html`,
                 controller: WoMoCo.Controllers.SearchAdminController,
                 controllerAs: `controller`
             })
