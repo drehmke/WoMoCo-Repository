@@ -2,45 +2,38 @@
     <!-- Default panel contents -->
     <div class="panel-heading row">
         <h3 class="spirax colorDarkRed col-md-6">UserAdmin</h3>
-        <div class="col-md-6 form-inline topmargin10">
+        <div class="col-md-6 form-inline toppadding20">
             <div class="form-group">
                 <label for="search" class="control-label">Search</label> <input id="search" name="search" class="form-control wideinput" type="text" placeholder="Search for a user" ng-model="searchTerm" />
             </div>
         </div>
     </div>
     <div class="panel-body">
-        <p>
-            <!--<input type="text" placeholder="Search for a connection" ng-model="controller.username" />
-    <button type="button" ng-click="controller.userByUsername()">Search</button>-->
-            
-        </p>
+        <div class="gridGroup" ng-repeat="user in controller.users | filter: searchTerm">
+
+            <div class="col span_1_of_7">
+                <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
+                <div class="list-group">
+                    UserName:  {{user.userName}} <br />
+                    Name:  {{user.firstName}} {{user.lastName}}<br />
+                    Email:  {{user.email}}<br />
+                </div>
+                <div class="list-group">
+                    Location:  {{user.location}}<br />
+                    Current Job Title:  {{user.currentJobTitle}}<br />
+                    Employer:  {{user.employer}}<br />
+                </div>
+                <div class="list-group row">
+                    <div class="col-md-8" style="border: 1px solid #f00;">
+                       <label class="sliderLabel">Admin:</label> <label class="switch topmargin05"><input type="checkbox" name="Make Admin" value="true" /><div class="slider round"></div></label>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="text-danger glyphicon glyphicon-trash"></span>
+                    </div>
+                </div>
+                 <br />
+            </div>
+        </div>
+
     </div>
-    <!-- Table -->
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Location</th>
-                <th>Job Title</th>
-                <th>Employer</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="user in controller.users | filter: searchTerm">
-                <td>{{user.userName}}</td>
-                <td>{{user.firstName}} {{user.lastName}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.location}}</td>
-                <td>{{user.currentJobTitle}}</td>
-                <td>{{user.employer}}</td>
-                <td>
-                    <a class="btn btn-primary" ng-href="/admin/user/edit/{{user.userName}}">Edit</a>
-                    <a class="btn btn-danger" ng-href="/admin/user/delete/{{user.userName}}">Delete</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>

@@ -1,6 +1,7 @@
 @import url(colorSchemeReference.css);
 @import url(panels.css);
 @import url(gradients.css);
+@import url(toggleSwitch.css);
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -87,12 +88,13 @@ textarea,
 select {
     max-width: 280px;
 }
-wideinput 
+.wideinput 
 {
-    max-width: 100%;
+    max-width: none;
 }
 
-.topmargin10 { padding-top: 20px; }
+.toppadding20 { padding-top: 20px; }
+.topmargin05 { margin-top: 5px; }
 
 /* ---- Homepage ---- */
 .parallax {
