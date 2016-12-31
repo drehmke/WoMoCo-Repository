@@ -377,7 +377,7 @@ namespace WoMoCo {
 
             .state('dorothyLee', {
                 url: '/bios/dorothyLee',
-                templateUrl: 'ngApp/views/bios/dorthyLee.html',
+                templateUrl: 'ngApp/views/bios/dorothyLee.html',
                 controller: WoMoCo.Controllers.AboutController,
                 controllerAs: 'controller'
             })
