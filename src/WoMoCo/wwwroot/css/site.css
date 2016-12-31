@@ -1,13 +1,3 @@
-body {
-    font-size:2em;
-    font-family: 'Josefin Sans', sans-serif;
- 
-}
-/*---------Body-------------*/
-#subBtn
-{
-   margin-left:2%;
-   margin-bottom:4%;
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -20,28 +10,10 @@ body, html {
 h1
 {
 }
-.glyphicon glyphicon-pencil
-{
-    color:orange;
-    font-size:1.0em;
-}
+
 .shadow 
 {
     box-shadow: 10px 10px 5px grey;
-}
-.shadowDark
-{
-    box-shadow: 10px 10px 5px #212121;
-}
-#namebox
-{
-    background-color:darkgray; padding:3px;
-}
-#EditGliphicon
-{
-    color:orange;
-    font-size:1.0em;
-    margin-top:1%;
 }
 
 h2
@@ -56,245 +28,14 @@ ul
     list-style:none;
 }
 
-.textblock
-{
-     border:solid;
-     padding:15px;
-     width:auto;
-     margin:auto;
-     background-color:#505454;
-    
-}
-
-#textblockLg
-{
-    border:solid;
-     padding:15px;
-     background-color:#505454;
-     margin-bottom:140px;
-}
 
 p
 {
     color:black;
 }
 
-#innerText
-{
-    color:black;
-    padding:2%;
-}
-
-#walkthroughLink
-{
-    font-family:Orbitron; 
-    color:orange;
-}
-/*----Player Feed styles---*/
-#feedBanner
-{
-   margin:5%;
-   margin-left: auto;
-   margin-right: auto;
-
-}
-
-#feedBlock {
-    border: solid;
-    background-color: #505454;
-    background-image: url('../images/owlogolight.jpg');
-    background-repeat:repeat-y;
-    background-size:100%;
-}
-
-#innerFeedBlock
-{
-    margin:20px;
-}
-
-#postGlyphicon
-{
-    display:inline; 
-    font-size:1.5em; 
-    color:orange;
-    margin-left:10px;
-}
-
-#posts
-{
-    margin-top:20px;
-}
-
-#postUser
-{
-    background-color:darkgray;
-    padding:4px;
-    margin-top:5%;
-}
-
-#postUserText
-{
-    padding-left:10px;
-    font-family : 'Orbitron'; 
-    color:black;
-}
-#postImage
-{
-   
-    padding-top:10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 
-
-/*------Team Search Styles-------*/
-#teamBannerImg
-{
-    margin-top:4%;
-    margin-bottom:4%;
-    margin-left: auto;
-   margin-right: auto;
-   width:750px;
- 
-}
-/*--------User Search Styles---------------*/
-#userSearchBannerImg
-{
-     margin-top:4%;
-    margin-bottom:4%;
-    margin-left:5%;
-    margin-left: auto;
-   margin-right: auto;
-}
-.userSearchInput
-{
-    width:75px; 
-    display:inline;
-}
-/*----Table Pager---*/
-#previous
-{
-    font-size:2em;
-}
-
-#next
-{
-    font-size:2em;
-}
-/*----Dashboard Styles---*/
-#dashboardBannerImg 
-{
-    margin-top:3%;
-    margin-left: auto;
-    margin-right: auto;
-}
-#dashBoardPost
-{
-    border:solid; background-color:#505454;
-    margin-bottom:50px;
-}
-#profileHead
-{
-    display:inline-block;
-    margin-top:5%;
-    margin-bottom:2%;
-}
-
-#profileImg
-{
-    display:inline;
-        width:80px; 
-        height:80px;
-    
-    margin-left: auto;
-    margin-right: auto;
-        
-}
-
-#bioContainer
-{
-    border:solid; 
-    background-color:#505454; 
-    margin-top:20px; 
-    padding:20px;
-}
-
-.innerBioContainer
-{
-    background-color:darkgray;
-    padding:15px;
-    margin-top:10px;
-}
-
-#postBlock
-{
-    margin:20px;
-}
-
-/*---Friends Page-----*/
-#friendsBanner
-{
-    margin-left:auto;
-    margin-right:auto;
-}
-#friendsContainer
-{
-    background-color:#505454; 
-    border:solid; 
-    padding:20px;
-}
-#friendsTableContainer
-{
-    background-color:grey; 
-    padding-left:10px;
-     padding-right:10px;
-      padding-bottom:10px;
-}
-/*---------My teams------------*/
-#myTeamsBanner
-{
-    margin-left:auto;
-    margin-right:auto;
-}
-#myTeamContainer
-{
-    padding:20px; 
-    background-color:#505454; 
-    border:solid;
-}
-
-#myTeamTableContainer
-{
-    font-family:Audiowide; background-color:gray;
-}
-/*--------Inbox-------*/
-#inboxContainer {
-    border: 22px;
-    background-color: #46c81a;
-    margin-top: 40px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 20px;
-    width:100%;
-}
-
-#messagesContainer
-{
-    background-color:blueviolet; 
-    margin-top:20px; 
-    padding-left:5px;
-    padding-right:5px; 
-    padding-bottom:5px;
-    width:100%;
-}
-#inboxHeader
-{
-    font-family:Audiowide; 
-    color:black; 
-    display:inline;
-}
 #glyphButton
 {
    cursor:pointer;
@@ -305,18 +46,11 @@ p
     display:inline;
         
 }
-#glyphicon1
-{
-    cursor:pointer; margin-right:15%;
-}
- /*Set some basic padding to keep content from hitting the edges*/ 
+
+/*  Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-input
-{
-    background-color: lightyellow;
 }
 
 .container
@@ -326,12 +60,7 @@ input
   
 }
 
-strong
-{
-    color:#f89406;
-}
-
-/*-------Panels---------------*/
+/* -------Panels--------------- */
 
 .panel-body {
     background-color: white;
@@ -351,84 +80,51 @@ strong
     background-size: cover;
 }
 
-/*--------navbar--------------*/
+/* --------navbar-------------- */
 .navbar
 {
     padding:0;
     margin:0;
 }
 
-/*--------tables--------------*/
-table
-{
-    /*font-size:1em;*/
-}
 
-#teamInfoContainer
-{
-    padding:20px; background-color:#505454; border:solid;
-}
-
- Wrapping element 
- Set some basic padding to keep content from hitting the edges 
+/*  Wrapping element 
+ Set some basic padding to keep content from hitting the edges */
 .body-content {
    
 }
 
- /*Set widths on the form inputs since otherwise they're 100% wide*/ 
+/* Set widths on the form inputs since otherwise they're 100% wide  */
 input,
 textarea,
 select {
     max-width: 280px;
 }
-#modalForm
-{
-    background-color:mediumpurple
-}
-/*Styles form banners command images*/
-#headImg {
-    background-image: url('../images/game squad.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 475px;
-    z-index: -1;
-    
-}
 
-#landingImg {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+/* ---- Homepage ---- */
+.parallax {
+    height: 100%;
+    /* parallax affect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .img01 {background-image: url("../images/parallax/womanfrustrated.jpg");}
 .img02 { background-image: url("/images/parallax/reading-to-baby.jpg"); }
 .img03 { background-image: url("/images/parallax/women-in-group.jpg"); }
 
-.online-status {
-    
-    color: green;
-    
-}
+.slider01 { background-color: #eaebef; padding: 20px 10px; text-align: center; }
+.slider02 { background-color: #b83a07; padding: 30px 15px; text-align: center; color: #fff; }
+.slider02 h2 { color: #fff; }
 
-.offline-status {
-    
-    color: red;
-    
-}
+/* styles form different formats */
 
-/*styles form different formats*/
-
-@media (min-width:320px)  {  smartphones, iPhone, portrait 480x320 phones  }
-@media (min-width:481px)  {  portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.  }
-@media (min-width:641px)  {  portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones  }
-@media (min-width:961px)  {  tablet, landscape iPad, lo-res laptops ands desktops  }
-@media (min-width:1025px) {  big landscape tablets, laptops, and desktops  }
-@media (min-width:1281px) {  hi-res laptops and desktops  }
-
+@media (min-width:320px)  {  /*smartphones, iPhone, portrait 480x320 phones*/  }
+@media (min-width:481px)  {  /*portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide*/  }
+@media (min-width:641px)  {  /* tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px)  {  /*tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) {  /*big landscape tablets, laptops, and desktops*/  }
+@media (min-width:1281px) {  /*-res laptops and desktops */ }
 
 
