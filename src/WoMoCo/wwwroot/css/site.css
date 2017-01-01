@@ -109,23 +109,54 @@ select {
 }
 
 /* ---- Homepage ---- */
+@media only screen and (min-device-width: 961px){
 .parallax {
-    height: 100%;
     /* parallax affect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    }
 }
-.img01 {background-image: url("../images/parallax/womanfrustrated.jpg");}
+.parallax100 { height: 100%; }
+.parallax50 {height: 50%; }
+
+.img01 {background-image: url("/images/parallax/womanfrustrated.jpg");}
 .img02 { background-image: url("/images/parallax/reading-to-baby.jpg"); }
 .img03 { background-image: url("/images/parallax/women-in-group.jpg"); }
-
 .slider01 { background-color: #eaebef; padding: 20px 10px; text-align: center; }
 .slider02 { background-color: #b83a07; padding: 30px 15px; text-align: center; color: #fff; }
 .slider02 h2 { color: #fff; }
 
 
+.callout { 
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.callout span {
+    padding: 20px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+.callout .darkGrey {
+    background-color: #a9a9a9;
+    color: #fff;
+}
+
+.footer{ 
+    background-color: #3c3c3c;
+    padding: 20px;
+    color: #aaa;
+}
+.footer a { color: #aaa; }
+.footer .actions { text-align: center; }
+.footer .disclaimer { text-align: right; }
+.footer .copyright { text-align: center; }
+/* About Page */
 .backgroundWhite { background-color: #fff; }
 .top-border-red {
     border-top: 1px solid #b70100;
