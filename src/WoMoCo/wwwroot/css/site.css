@@ -7,6 +7,13 @@ body, html {
     height: 100%;
 }
 
+.spirax { font-family: 'Spirax', cursive; }
+
+/* Logos */
+.aboutLogo {
+    width: 400px;
+    min-width: 300px;
+}
 h1
 {
 }
@@ -118,14 +125,94 @@ select {
 .slider02 { background-color: #b83a07; padding: 30px 15px; text-align: center; color: #fff; }
 .slider02 h2 { color: #fff; }
 
+
+.backgroundWhite { background-color: #fff; }
+.top-border-red {
+    border-top: 1px solid #b70100;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.top-border-brown {
+    border-top: 1px solid #e4ae6e;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.top-padding { /* to account for the navbar on some pages */
+    height: 64px;
+    clear: both;
+}
+.logoContainer {
+    margin: 10px auto;
+    width: 50%;
+    min-width: 320px;
+    text-align: center;
+}
+.missionContainer {
+    width: 50%;
+    min-width: 275px;
+    line-height: 18px;
+    font-size: 1.3em;
+    margin: 0 auto;
+    border-bottom: 1px solid #e4ae6e;
+}
+.missionContainer div { 
+    padding: 10px;
+}
+.teamContainer {
+    width: 75%;
+    min-width: 275px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e4ae6e;
+}
+.teamContainer .list-group-item {
+    background-color: #f9faf5;
+    border: 1px dashed #d1cec7;
+    width: 45%;
+    min-width: 270px;
+    display: inline-block;
+    margin: 8px;
+    font-weight: bold;
+}
+.teamContainer .list-group-item:hover {
+    background-color: #e7e4df;
+}
+.teamContainer .list-group-item .teamMember { display: inline-block; position: relative; }
+.teamContainer .list-group-item .teamMemberImage { display: inline-block; margin-right: 10px; position: relative; vertical-align: top; }
+.teamContainer .list-group-item .teamMemberImage img { 
+    height: 50px;
+    width: 50px;
+}
+.teamContainer .list-group-item .teamMemberContacts {
+    width: 40px;
+    padding: 2px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.teamContainer .list-group-item .teamMemberContacts img {
+    height: 30px;
+    width: 30px; 
+    display: block;
+    margin: 5px;
+    color: #bab6b5;
+}
+.teamContainer .list-group-item .teamMemberContacts svg {
+    fill: #bab6b5;
+    display: block;
+}
+.greyscaleImage {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
 /* styles form different formats */
 
-@media (min-width:320px)  {  smartphones, iPhone, portrait 480x320 phones  }
-@media (min-width:481px)  {  portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.  }
-@media (min-width:641px)  {  portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones  }
-@media (min-width:961px)  {  tablet, landscape iPad, lo-res laptops ands desktops  }
-@media (min-width:1025px) {  big landscape tablets, laptops, and desktops  }
-@media (min-width:1281px) {  hi-res laptops and desktops  }
+@media (min-width:320px)  {  /*smartphones, iPhone, portrait 480x320 phones*/  }
+@media (min-width:481px)  {  /*portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.*/  }
+@media (min-width:641px)  {  /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/  }
+@media (min-width:961px)  {  /*tablet, landscape iPad, lo-res laptops ands desktops*/  }
+@media (min-width:1025px) {  /*big landscape tablets, laptops, and desktops*/  }
+@media (min-width:1281px) {  /*hi-res laptops and desktops*/  }
 
 
 
