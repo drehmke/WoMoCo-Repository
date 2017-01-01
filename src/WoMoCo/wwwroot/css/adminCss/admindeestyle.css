@@ -8,6 +8,9 @@
 #messageList .table-striped>tbody>tr:nth-of-type(odd) { background-color: transparent; }
 #messageList .table>tbody>tr.info>td { background-color: transparent; }
 
+/* This is for the admin edit icons ... hiding the ones that we need to unless necessary */
+.admin-edit { display: none; }
+
 #adminbox {
     text-align: center;
     vertical-align: middle;
@@ -108,3 +111,9 @@ thead {
 .panelGlyph { z-index: -1;}
 
 
+.admin_filter_container {
+    padding-top: 25px;
+    width: 100%;
+}
+.admin-filter-icon { font-size: 1.2em; }
+.admin-filter-icon-width { width: 45px; }

@@ -113,7 +113,14 @@ select {
     height: 50px;
 }
 
-
+.activity-cards {
+    border: 1px dashed #7ba790;
+    background-color: #fdfdfd;
+    margin: 5px;
+    width: 300px;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;
+}
 
 /* styles form different formats */
 
