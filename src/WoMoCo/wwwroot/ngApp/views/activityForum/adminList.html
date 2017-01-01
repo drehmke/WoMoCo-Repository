@@ -7,19 +7,18 @@
         <div class="col-md-6 form-inline">
             <div class="input-group  admin_filter_container">
                 <input id="search" class="form-control" name="search" type="text" placeholder="Search for an activity" ng-model="searchTerm" />
-                <span class="input-group-addon admin-filter-icon-width"><span class="glyphicon glyphicon-search admin-filter-icon"></span></span>
             </div>          
         </div>
     </div>
     <div class="panel-body">
             <div class="activity-cards" ng-repeat="a in controller.activities | filter: searchTerm">
                 <div class="panel">
-                    <div class="panel-heading"><strong>{{a.location}} - {{a.activity}}</strong></div>
+                    <div class="panel-heading"><span class="glyphicon glyphicon-map-marker"></span>  <strong>{{a.location}} - {{a.activity}}</strong></div>
                     <div class="panel-body">
                         {{a.description}}
                     </div>
                     <div class="panel-footer clearfix">
-                        <em>User: {{a.userName}}</em>
+                        <em><span class="glyphicon glyphicon-user"></span> {{a.userName}}</em>
                         <div class="pull-right">
                             <a ng-href="/admin/activity/edit/{{a.id}}" class="admin-edit"><span class="glyphicon glyphicon-pencil text-info"></span></a>
                             <a ng-href="/admin/activity/delete/{{a.id}}" ><span class="glyphicon glyphicon-trash text-danger"></span></a>

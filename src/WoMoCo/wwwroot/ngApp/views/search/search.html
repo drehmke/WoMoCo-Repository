@@ -18,14 +18,14 @@
             <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
             <div class="list-group-item" role="tab" id="headingOne">
                 <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle connectGravatar" /></div>
-                Username:  {{user.userName}} <br />
-                Name:  {{user.firstName}} {{user.lastName}}<br />
-                Email:  {{user.email}}<br />
+                <span class="glyphicon glyphicon-user"></span> User: {{user.userName}} <br />
+                <span class="glyphicon glyphicon-info-sign"></span> Name: {{user.firstName}} {{user.lastName}}<br />
+                <span class="glyphicon glyphicon-envelope"></span> Email:  {{user.email}}<br />
             </div>
             <div class="list-group-item">
-                Location:  {{user.location}}<br />
-                Current Job Title:  {{user.currentJobTitle}}<br />
-                Employer:  {{user.employer}}<br />
+                <span class="glyphicon glyphicon-map-marker"></span> Location:  {{user.location}}<br />
+                <span class="glyphicon glyphicon-info-sign"></span> Current Job Title:  {{user.currentJobTitle}}<br />
+                <span class="glyphicon glyphicon-info-sign"></span> Employer:  {{user.employer}}<br />
             </div>
             <div class="list-group-item text-right">
                 <button ng-click="controller.reqConnect(user.userName)" class="btn btn-primary">Connect</button>

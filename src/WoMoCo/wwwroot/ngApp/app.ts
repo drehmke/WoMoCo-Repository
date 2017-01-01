@@ -68,13 +68,13 @@ namespace WoMoCo {
             })
             .state(`interestAdminEdit`, { // admin
                 url: `/admin/interest/edit/:id`,
-                templateUrl: `/ngApp/views/interest/editInterest.html`,
+                templateUrl: `/ngApp/views/interest/editAdmin.html`,
                 controller: WoMoCo.Controllers.EditInterestController,
                 controllerAs: `controller`
             })
             .state(`deleteInterest`, { // admin
                 url: `/admin/interest/delete/:id`,
-                templateUrl: `/ngApp/views/interest/deleteInterest.html`,
+                templateUrl: `/ngApp/views/interest/deleteAdmin.html`,
                 controller: WoMoCo.Controllers.DeleteInterestController,
                 controllerAs: `controller`
             })

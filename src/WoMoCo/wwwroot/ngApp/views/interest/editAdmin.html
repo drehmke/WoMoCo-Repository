@@ -1,9 +1,14 @@
-﻿<h2>Edit a Interest</h2>
-<form ng-submit="controller.saveInterest()">
-    <div>
-        <label>Name</label>
-        <input placeholder="name" ng-model="controller.interest.name" />
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading row">
+        <h2 class="spirax colorDarkRed">Edit An Interest</h2>
     </div>
-
-    <input type="submit" class="btn btn-warning" value="Edit Name" />
-</form>
+    <div class="panel-body">
+        <form ng-submit="controller.saveInterest()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" class="form-control" placeholder="Interest" ng-model="controller.interest.name" />
+            </div>
+            <input type="submit" class="btn btn-primary" value="Edit Interest" />
+        </form>
+    </div>
+</div>
