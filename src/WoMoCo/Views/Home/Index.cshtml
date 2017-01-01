@@ -6,11 +6,11 @@
     <!-- Latest compiled and minified CSS -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <!--  theme -->
     <link href="~/css/bootswatch.css" rel="stylesheet" />
     <!---google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
     <!--CSS Style Sheets-->
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
     <link href="~/css/FrontEnd/navBar.css" rel="stylesheet" />
@@ -38,11 +38,11 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
-                    <li><a id="Search" href="/about">About <span class="sr-only"></span></a></li>
-                    <li ng-show="account.isLoggedIn()"><a id="Search" href="/search">Search</a></li>
-                    <li><a id="Search" href="/babySitterlink">BabySitterLink</a></li>
-                    <li><a id="Search" href="/activity" ng-show="account.isLoggedIn()">Activities</a></li>
-                    <li><a id="Search" href="/post">View Public Posts</a></li>
+                    <li><a href="/about">About <span class="sr-only"></span></a></li>
+                    <li ng-show="account.isLoggedIn()"><a href="/search">Search</a></li>
+                    <li><a href="/babySitterlink">BabySitterLink</a></li>
+                    <li><a href="/activity" ng-show="account.isLoggedIn()">Activities</a></li>
+                    <li><a href="/post">View Public Posts</a></li>
                     <li class="dropdown">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -60,7 +60,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-show="account.isLoggedIn()"><a id="inbox" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span><span class="badge ">{{counter.newMessageCount}}</span></a></li>
                     <li class="dropdown">
-                        <a id="Search" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
                             <li><a href="/profile" ng-show="account.isLoggedIn()">Profile </a></li>
@@ -75,7 +75,7 @@
             </div>
         </div>
         </nav>
-    <div class="container admin">
+    <div class="container">
 
         <ui-view></ui-view>
     </div>

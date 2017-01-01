@@ -1,8 +1,7 @@
 ﻿body {
 }
-#navBar{
-    background-image: url('/images/navbar-gradient.png');
-    background-repeat: repeat-x;
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
 }
 #logoLetters{
     width:175px;
@@ -13,6 +12,4 @@
 #dropdownMenu {
     color:black
 }
-#Search{
-    color: white;
-}
+.

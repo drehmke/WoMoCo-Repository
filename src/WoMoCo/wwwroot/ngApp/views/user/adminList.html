@@ -1,11 +1,10 @@
-﻿<div id="searchPanel" class="panel panel-default col-md-10 col-md-offset-1">
+﻿<div id="searchPanel" class="panel panel-default col-md-10 col-md-offset-1 admin">
     <!-- Default panel contents -->
     <div class="panel-heading row">
-        <h3 class="spirax colorDarkRed col-md-6">UserAdmin</h3>
+        <h2 class="spirax colorDarkRed col-md-6">UserAdmin</h2>
         <div class="col-md-6 form-inline toppadding20">
-            <div class="form-group">
-                <label for="search" class="control-label">Search</label> <input id="search" name="search" class="form-control wideinput" type="text" placeholder="Search for a user" ng-model="searchTerm" />
-            </div>
+            <!-- use the bootstrap thing for adding a thing to the left or right of the input field -->
+            <input id="search" class="form-control" name="search" style="width: 82%" type="text" placeholder="Search for a user" ng-model="searchTerm" />
         </div>
     </div>
     <div class="panel-body">
@@ -13,9 +12,9 @@
 
             <div class="col span_1_of_7">
                 <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
-                <div class="list-group clearfix">
-                    <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle" /></div>
-                    UserName:  {{user.userName}} <br />
+                <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle" /></div>
+                <div class="list-group">
+                    Username:  {{user.userName}} <br />
                     Name:  {{user.firstName}} {{user.lastName}}<br />
                     Email:  {{user.email}}<br />
                 </div>
@@ -24,12 +23,14 @@
                     Current Job Title:  {{user.currentJobTitle}}<br />
                     Employer:  {{user.employer}}<br />
                 </div>
-                <div class="list-group row">
-                    <div class="col-md-8">
-                       <label class="sliderLabel">Admin:</label> <label class="switch topmargin05"><input type="checkbox" name="Make Admin" value="true" /><div class="slider round"></div></label>
-                    </div>
-                    <div class="col-md-4 text-right">
-                        <span class="text-danger glyphicon glyphicon-trash"></span>
+                <div class="list-group">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label class="sliderLabel">Admin:</label> <label class="switch topmargin05"><input type="checkbox" name="Make Admin" value="true" /><div class="slider round"></div></label>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            <span class="text-danger glyphicon glyphicon-trash"></span>
+                        </div>
                     </div>
                 </div>
                  <br />

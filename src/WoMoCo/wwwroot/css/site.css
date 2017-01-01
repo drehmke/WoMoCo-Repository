@@ -13,22 +13,12 @@ body, html {
 }
 
 .spirax { font-family: 'Spirax', cursive; }
-h1
-{
-}
 
 .shadow 
 {
     box-shadow: 10px 10px 5px grey;
 }
 
-h2
-{
-}
-
-h3
-{
-}
 ul
 {
     list-style:none;
@@ -86,11 +76,7 @@ p
 input,
 textarea,
 select {
-    max-width: 280px;
-}
-.wideinput 
-{
-    max-width: none;
+    width: auto;
 }
 
 .toppadding20 { padding-top: 20px; }
@@ -99,6 +85,7 @@ select {
 /* ---- Homepage ---- */
 .parallax {
     height: 100%;
+    width: 100%;
     /* parallax affect */
     background-attachment: fixed;
     background-position: center;

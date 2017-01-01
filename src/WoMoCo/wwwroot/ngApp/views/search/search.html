@@ -1,26 +1,35 @@
-﻿﻿<h1>Manage Connections</h1>
+﻿<div class="toppadding20">
 
-<label>Search</label>
-<input type="text" placeholder="Search for a connection" ng-model="searchTerm" />
-
-<div class="gridGroup" ng-repeat="user in controller.users | filter: searchTerm">
-
-    <div class="col span_1_of_7">
-        <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
-        <div class="list-group">
-            <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle" /></div>
-            UserName:  {{user.userName}} <br />
-            Name:  {{user.firstName}} {{user.lastName}}<br />
-            Email:  {{user.email}}<br />
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="spirax colorDarkRed">Manage Connections</h2>
         </div>
-        <div class="list-group">
-            Location:  {{user.location}}<br />
-            Current Job Title:  {{user.currentJobTitle}}<br />
-            Employer:  {{user.employer}}<br />
+        <div class="col-md-6 form-inline">
+            <div class="toppadding20">
+                <!-- use the bootstrap thing for adding a thing to the left or right of the input field -->
+                <input class="form-control control-label" style="width: 82%;" id="filter" name="filter" placeholder="Search for a connection" ng-model="searchTerm" />
+            </div>
         </div>
-        <div class="list-group row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6 text-right"><button ng-click="controller.reqConnect(user.userName)">Connect</button></div>
+    </div>﻿
+
+    <div class="gridGroup" ng-repeat="user in controller.users | filter: searchTerm">
+
+        <div class="col span_1_of_7 list-group">
+            <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
+            <div class="list-group-item">
+                <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle" /></div>
+                Username:  {{user.userName}} <br />
+                Name:  {{user.firstName}} {{user.lastName}}<br />
+                Email:  {{user.email}}<br />
+            </div>
+            <div class="list-group-item">
+                Location:  {{user.location}}<br />
+                Current Job Title:  {{user.currentJobTitle}}<br />
+                Employer:  {{user.employer}}<br />
+            </div>
+            <div class="list-group-item text-right">
+                <button ng-click="controller.reqConnect(user.userName)">Connect</button>
+            </div>
         </div>
     </div>
 </div>
