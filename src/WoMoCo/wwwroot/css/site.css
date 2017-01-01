@@ -111,6 +111,7 @@ select {
 /* ---- Homepage ---- */
 @media only screen and (min-device-width: 961px){
 .parallax {
+    position: relative;
     /* parallax affect */
     background-attachment: fixed;
     background-position: center;
@@ -119,14 +120,17 @@ select {
     }
 }
 .parallax100 { height: 100%; }
+.parallax75 { height: 75%; }
 .parallax50 {height: 50%; }
 
+.backgroundGray75 { background-color: #a9a9a9; }
+.backgroundGray444 { background-color: #444; }
+.backgroundGray555 { background-color: #555; color: #bab6b5; }
 .img01 {background-image: url("/images/parallax/womanfrustrated.jpg");}
 .img02 { background-image: url("/images/parallax/reading-to-baby.jpg"); }
 .img03 { background-image: url("/images/parallax/women-in-group.jpg"); }
-.slider01 { background-color: #eaebef; padding: 20px 10px; text-align: center; }
-.slider02 { background-color: #b83a07; padding: 30px 15px; text-align: center; color: #fff; }
-.slider02 h2 { color: #fff; }
+.slider01 { background-color: #444; padding: 20px 10px; text-align: center; color: #fff; position: relative; }
+.slider02 { background-color: #eaebef; padding: 30px 15px; text-align: center; color: #555; position: relative; }
 
 
 .callout { 
@@ -135,6 +139,15 @@ select {
     left: 0;
     width: 100%;
     text-align: center;
+}
+.scrolldown {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: darkgray;
+    font-size: 50px;
 }
 .callout span {
     padding: 20px;
