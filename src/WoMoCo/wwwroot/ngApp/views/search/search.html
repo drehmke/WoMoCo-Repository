@@ -16,8 +16,8 @@
 
         <div class="col span_1_of_7 list-group">
             <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
-            <div class="list-group-item">
-                <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle" /></div>
+            <div class="list-group-item" role="tab" id="headingOne">
+                <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle connectGravatar" /></div>
                 Username:  {{user.userName}} <br />
                 Name:  {{user.firstName}} {{user.lastName}}<br />
                 Email:  {{user.email}}<br />
@@ -28,7 +28,7 @@
                 Employer:  {{user.employer}}<br />
             </div>
             <div class="list-group-item text-right">
-                <button ng-click="controller.reqConnect(user.userName)">Connect</button>
+                <button ng-click="controller.reqConnect(user.userName)" class="btn btn-primary">Connect</button>
             </div>
         </div>
     </div>

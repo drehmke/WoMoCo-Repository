@@ -100,6 +100,21 @@ select {
 .slider02 { background-color: #b83a07; padding: 30px 15px; text-align: center; color: #fff; }
 .slider02 h2 { color: #fff; }
 
+
+.adminSlide {
+    margin-top: 5px;
+    text-align:left;
+    vertical-align:top;
+}
+
+/* gravatar image */
+.connectGravatar { 
+    width: 50px;
+    height: 50px;
+}
+
+
+
 /* styles form different formats */
 
 @media (min-width:320px)  {  /*smartphones, iPhone, portrait 480x320 phones*/  }
@@ -109,9 +124,4 @@ select {
 @media (min-width:1025px) {  /*big landscape tablets, laptops, and desktops*/  }
 @media (min-width:1281px) {  /*-res laptops and desktops */ }
 
-.adminSlide {
-    margin-top: 5px;
-    text-align:center;
-    vertical-align:middle;
-}
 

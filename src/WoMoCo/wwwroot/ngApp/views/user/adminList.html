@@ -12,7 +12,7 @@
 
             <div class="col span_1_of_7">
                 <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
-                <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle" /></div>
+                <div class="profileImage pull-right"><img class="img-circle connectGravatar" id="gravatarImg" ng-src="https://www.gravatar.com/avatar/{{user.userImage}}?r=g&d=identicon" /></div>
                 <div class="list-group">
                     Username:  {{user.userName}} <br />
                     Name:  {{user.firstName}} {{user.lastName}}<br />
@@ -25,10 +25,10 @@
                 </div>
                 <div class="list-group">
                     <div class="row">
-                        <div class="col-md-8">
-                            <label class="sliderLabel">Admin:</label> <label class="switch topmargin05"><input type="checkbox" name="Make Admin" value="true" /><div class="slider round"></div></label>
+                        <div class="col-md-8 adminSlide">
+                            <label class="sliderLabel">Admin:</label> <label class="switch adminSlide"><input type="checkbox" name="Make Admin" value="true" /><div class="slider round"></div></label>
                         </div>
-                        <div class="col-md-4 text-right">
+                        <div class="col-md-4 adminSlide text-right">
                             <span class="text-danger glyphicon glyphicon-trash"></span>
                         </div>
                     </div>
