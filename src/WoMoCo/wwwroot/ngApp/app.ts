@@ -37,7 +37,7 @@ namespace WoMoCo {
                 controllerAs: 'controller'
             })
             .state('adminProPage', {
-                url: '/adminProPage',
+                url: '/admin',
                 templateUrl: '/ngApp/views/user/adminProPage.html',
                 controller: WoMoCo.Controllers.AdminController,
                 controllerAs: 'controller'
