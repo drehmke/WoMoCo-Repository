@@ -83,7 +83,7 @@ namespace WoMoCo.Controllers
             _service.DeletePost(id);
             return Ok();
         }
-        [HttpDelete("AdminGet/{id}")]
+        [HttpDelete("AdminGetPost/{id}")]
         [Authorize(Policy = "AdminOnly")]
         public IActionResult AdminDelete(int id)
         { // TODO: Make sure admin deletes are going through here. Looks like the delete from the AdminPage is goign through the non-admin delete

@@ -357,7 +357,7 @@ namespace WoMoCo {
             .state(`postDeleteAdmin`, { // admin
                 url: `/admin/post/delete/:id`,
                 templateUrl: `/ngApp/views/posts/deleteAdmin.html`,
-                controller: WoMoCo.Controllers.DeletePostAdminController,
+                controller: WoMoCo.Controllers.AdminPostDeleteController,
                 controllerAs: `controller`
             })
             //---- end Posting/blogging stuffs --------------------------------
