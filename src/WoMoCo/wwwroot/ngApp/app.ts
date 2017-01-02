@@ -220,7 +220,6 @@ namespace WoMoCo {
             })
             // ---- end activity Forums ---------------------------------------
             // ---- Messaging -------------------------------------------------
-            // TODO: Admin
             .state(`inbox`, {
                 url: `/message/inbox`,
                 templateUrl: `/ngApp/views/message/inbox.html`,
@@ -355,7 +354,7 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.EditPostAdminController,
                 controllerAs: `controller`
             })
-            .state(`postDeleteAdmin`, { // admin
+            .state(`postAdmin`, { // admin
                 url: `/admin/post/delete/:id`,
                 templateUrl: `/ngApp/views/posts/deleteAdmin.html`,
                 controller: WoMoCo.Controllers.DeletePostAdminController,

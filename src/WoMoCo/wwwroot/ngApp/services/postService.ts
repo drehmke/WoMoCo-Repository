@@ -2,6 +2,7 @@
     export class PostService {
         public PostResource;
         public AdminPostResource;
+        public AdminGetResource;
         public posts;
         
         constructor(
@@ -22,7 +23,7 @@
                     isArray: true
                 }
             });
-            this.posts = this.getPost();
+            //this.posts = this.getPost();
         }
         public getPostByUsername() {
             return this.PostResource.getPosts();
@@ -33,6 +34,10 @@
         }
         public deletePost(id: number) {
             return this.AdminPostResource.delete({ id: id });
+        }
+
+        public getAllPostsAdmin() {
+            return this.AdminPostResource.getAdmin();
         }
     }
     angular.module("WoMoCo").service("PostService", PostService);
