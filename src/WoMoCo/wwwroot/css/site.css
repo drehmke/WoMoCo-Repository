@@ -14,6 +14,15 @@ body, html {
 
 .spirax { font-family: 'Spirax', cursive; }
 
+/* Logos */
+.aboutLogo {
+    width: 400px;
+    min-width: 300px;
+}
+h1
+{
+}
+
 .shadow 
 {
     box-shadow: 10px 10px 5px grey;
@@ -83,22 +92,158 @@ select {
 .topmargin05 { margin-top: 5px; }
 
 /* ---- Homepage ---- */
+@media only screen and (min-device-width: 961px){
 .parallax {
-    height: 100%;
-    width: 100%;
+    position: relative;
     /* parallax affect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    }
 }
+.parallax100 { height: 100%; }
+.parallax75 { height: 75%; }
+.parallax50 {height: 50%; }
+
+.backgroundGray75 { background-color: #a9a9a9; }
+.backgroundGray444 { background-color: #444; }
+.backgroundGray555 { background-color: #555; color: #bab6b5; }
 .img01 {background-image: url("/images/parallax/womanfrustrated.jpg");}
 .img02 { background-image: url("/images/parallax/reading-to-baby.jpg"); }
 .img03 { background-image: url("/images/parallax/women-in-group.jpg"); }
+.slider01 { background-color: #444; padding: 20px 10px; text-align: center; color: #fff; position: relative; }
+.slider02 { background-color: #eaebef; padding: 30px 15px; text-align: center; color: #555; position: relative; }
 
-.slider01 { background-color: #eaebef; padding: 20px 10px; text-align: center; }
-.slider02 { background-color: #b83a07; padding: 30px 15px; text-align: center; color: #fff; }
-.slider02 h2 { color: #fff; }
+
+.callout { 
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.scrolldown {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: darkgray;
+    font-size: 50px;
+    text-shadow: 0px 1px #eaebef;
+}
+.callout span {
+    padding: 20px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+.callout .darkGrey {
+    background-color: #a9a9a9;
+    color: #fff;
+}
+.debug { border: 1px solid black; }
+.centerFeatures { 
+    margin: 0 auto; 
+    max-width: 90%;
+    min-width: 200px;
+    margin-top: 30px;
+}
+.centerFeatures h3 { margin: 5px; }
+.featureGlyphy { font-size: 6em; text-align: center; }
+.centerFeatures .panel-body, .centerFeatures .panel-footer  {
+    border-top: 1px solid #58795a;
+}
+.centerFeatures .panel-footer a { color: #58795a; }
+.footer{ 
+    background-color: #3c3c3c;
+    padding: 20px;
+    color: #aaa;
+}
+.footer a { color: #aaa; }
+.footer .actions { text-align: center; }
+.footer .disclaimer { text-align: right; }
+.footer .copyright { text-align: center; }
+/* About Page */
+.backgroundWhite { background-color: #fff; }
+.top-border-red {
+    border-top: 1px solid #b70100;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.top-border-brown {
+    border-top: 1px solid #e4ae6e;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.top-padding { /* to account for the navbar on some pages */
+    height: 64px;
+    clear: both;
+}
+.logoContainer {
+    margin: 10px auto;
+    width: 50%;
+    min-width: 320px;
+    text-align: center;
+}
+.missionContainer {
+    width: 50%;
+    min-width: 275px;
+    line-height: 18px;
+    font-size: 1.3em;
+    margin: 0 auto;
+    border-bottom: 1px solid #e4ae6e;
+}
+.missionContainer div { 
+    padding: 10px;
+}
+.teamContainer {
+    width: 75%;
+    min-width: 275px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e4ae6e;
+}
+.teamContainer .list-group-item {
+    background-color: #f9faf5;
+    border: 1px dashed #d1cec7;
+    width: 45%;
+    min-width: 270px;
+    display: inline-block;
+    margin: 8px;
+    font-weight: bold;
+}
+.teamContainer .list-group-item:hover {
+    background-color: #e7e4df;
+}
+.teamContainer .list-group-item .teamMember { display: inline-block; position: relative; }
+.teamContainer .list-group-item .teamMemberImage { display: inline-block; margin-right: 10px; position: relative; vertical-align: top; }
+.teamContainer .list-group-item .teamMemberImage img { 
+    height: 50px;
+    width: 50px;
+}
+.teamContainer .list-group-item .teamMemberContacts {
+    width: 40px;
+    padding: 2px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.teamContainer .list-group-item .teamMemberContacts img {
+    height: 30px;
+    width: 30px; 
+    display: block;
+    margin: 5px;
+    color: #bab6b5;
+}
+.teamContainer .list-group-item .teamMemberContacts svg {
+    fill: #bab6b5;
+    display: block;
+}
+.greyscaleImage {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
 
 
 .adminSlide {
@@ -123,7 +268,6 @@ select {
 }
 
 /* styles form different formats */
-
 @media (min-width:320px)  {  /*smartphones, iPhone, portrait 480x320 phones*/  }
 @media (min-width:481px)  {  /*portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide*/  }
 @media (min-width:641px)  {  /* tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }

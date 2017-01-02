@@ -410,6 +410,12 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.AboutController,
                 controllerAs: 'controller'
             })
+            .state('aboutBackup', {
+                url: '/aboutBackup',
+                templateUrl: '/ngApp/views/aboutBackup.html',
+                controller: WoMoCo.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
