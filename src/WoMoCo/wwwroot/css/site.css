@@ -113,7 +113,7 @@ select {
     height: 50px;
 }
 
-.activity-cards, .interest-cards, .social-cards, .message-cards {
+.activity-cards, .interest-cards, .social-cards, .message-cards, .post-cards {
     border: 1px dashed #7ba790;
     background-color: #fdfdfd;
     margin: 5px;

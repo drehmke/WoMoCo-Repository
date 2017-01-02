@@ -11,9 +11,9 @@
     </div>
     <div class="panel-body">
         <!--admin doesn't need to add right now <a href="/interest/add" class="btn btn-success"> Add Inerest </a>-->
-        <div class="panel interest-cards" ng-repeat="post in controller.posts | filter: searchTerm">
+        <div class="panel post-cards" ng-repeat="post in controller.posts | filter: searchTerm">
             <div class="panel-heading">
-                <strong></strong>{{post.title}}
+                <strong>{{post.title}}</strong>
             </div>
             <div class="panel-body">
                 {{post.discription}}
