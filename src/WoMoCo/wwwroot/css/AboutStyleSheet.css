@@ -58,3 +58,30 @@ img {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #7ba790;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition:.5s ease;
+}
+.bioPic:hover .overlay {
+  width: 100%;
+  opacity: 0.75;
+}
+
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}

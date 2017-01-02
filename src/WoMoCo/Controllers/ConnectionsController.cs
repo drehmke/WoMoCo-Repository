@@ -51,10 +51,11 @@ namespace WoMoCo.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void DeletingFriends(string id)
+        public IActionResult Delete(string id)
         {
-            _service.DeletingFriends(id);
-         
+            string uid = _manager.GetUserId(User);
+            _service.DeletingFriends(uid, id);
+            return Ok();
         }
 
         public ConnectionsController(IConnectionService service, UserManager<ApplicationUser> manager)
@@ -64,10 +65,3 @@ namespace WoMoCo.Controllers
         }
     }
 }
-
-
-//// PUT api/values/5
-//[HttpPut("{id}")]
-//public void Put(int id, [FromBody]string value)
-//{
-//}

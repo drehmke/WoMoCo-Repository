@@ -8,6 +8,11 @@
             return this.GetConnectionsResource.getMyConnections();
         }
 
+        public removeConnection(id: string) {
+            // I am returning this so that the $promise/then is handled by the controller
+            return this.$resource(`/api/connections/:id`).delete({ id: id });
+        }
+
         constructor(
             private $resource: angular.resource.IResourceService
         ) {
