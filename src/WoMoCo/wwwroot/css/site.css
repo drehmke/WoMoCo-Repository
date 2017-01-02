@@ -3,9 +3,7 @@
 @import url(gradients.css);
 @import url(toggleSwitch.css);
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
+
 
 body, html {
     height: 100%;

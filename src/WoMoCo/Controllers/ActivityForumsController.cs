@@ -23,7 +23,6 @@ namespace WoMoCo.Controllers
         // GET: api/values
         // this is the get activities for admin
         [HttpGet]
-        [Authorize(Policy = "AdminOnly")]
         public IEnumerable<ActivityForumAdminView> Get()
         {
             return _service.GetAllActivities();
