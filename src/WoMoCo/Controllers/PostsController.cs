@@ -20,6 +20,7 @@ namespace WoMoCo.Controllers
         
         // GET: api/values
         [HttpGet]
+        [Authorize]
         public IEnumerable<Post> Get()
         {
             return _service.GetAllPosts();
@@ -34,6 +35,7 @@ namespace WoMoCo.Controllers
 
         // GET api/values/
         [HttpGet("{id}")]
+        [Authorize]
         public Post Get(int id)
         {
             return _service.GetPostById(id);
@@ -47,6 +49,7 @@ namespace WoMoCo.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]Post post)
         {
             string uid = _manager.GetUserId(User);
@@ -62,6 +65,7 @@ namespace WoMoCo.Controllers
         }
 
         [HttpGet("GetPostByUser")]
+        [Authorize]
         public IList<Post> GetPost()
         {
             /*var user = this.User*/;
@@ -72,12 +76,14 @@ namespace WoMoCo.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
+        [Authorize]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _service.DeletePost(id);

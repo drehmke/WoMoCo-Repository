@@ -30,6 +30,7 @@ namespace WoMoCo.Controllers
 
         // GET a comm by ID
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
         {
             return Ok(_service.GetCommById(id));
@@ -49,6 +50,7 @@ namespace WoMoCo.Controllers
             return count;
         }
         [HttpGet("GetCommsByUserName")]
+        [Authorize]
         public IEnumerable<CommViewModel> GetCommsByUserName()
         {
             string uid = _manager.GetUserName(User);
@@ -56,7 +58,8 @@ namespace WoMoCo.Controllers
             return commView;
         }
         //POST api/values
-       [HttpPost]
+        [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]Comm comm)
         {
             string uid = _manager.GetUserId(User);
@@ -66,6 +69,7 @@ namespace WoMoCo.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _service.DeleteComm(id);

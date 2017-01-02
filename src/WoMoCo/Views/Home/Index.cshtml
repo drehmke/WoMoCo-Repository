@@ -44,10 +44,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
                     <li><a href="/about">About <span class="sr-only"></span></a></li>
-                    <li ng-show="account.isLoggedIn()"><a href="/search">Search</a></li>
                     <li><a href="/babySitterlink">BabySitterLink</a></li>
-                    <li><a href="/activity" ng-show="account.isLoggedIn()">Activities</a></li>
-                    <li><a href="/post">View Public Posts</a></li>
+                    <li ng-show="account.isLoggedIn()"><a href="/search">Search</a></li>
+                    <li ng-show="account.isLoggedIn()"><a href="/activity">Activities</a></li>
+                    <li ng-show="account.isLoggedIn()"><a href="/post">View Public Posts</a></li>
                     <li class="dropdown">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">

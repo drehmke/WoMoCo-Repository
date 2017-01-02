@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Models;
 using WoMoCo.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,6 +21,7 @@ namespace WoMoCo.Controllers
 
         // GET: api/values
         [HttpGet]
+        [Authorize]
         public IEnumerable<UserConnection> Get()
         {
             return _service.GetAllFriends();
@@ -27,12 +29,14 @@ namespace WoMoCo.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult GetFriendsId(string id)
         {
             return Ok(_service.GetFriendsId(id));
         }
 
         [HttpGet("GetConnections/")]
+        [Authorize]
         public IActionResult GetConnections()
         {
             string uid = _manager.GetUserId(User);
@@ -41,6 +45,7 @@ namespace WoMoCo.Controllers
 
         // POST api/values
         [HttpPost]
+        [Authorize]
         public void SavingFriends([FromBody]UserConnection user)
         {
             string currentUser = _manager.GetUserId(User);
@@ -51,6 +56,7 @@ namespace WoMoCo.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(string id)
         {
             string uid = _manager.GetUserId(User);

@@ -23,6 +23,7 @@ namespace WoMoCo.Controllers
         // GET: api/values
         // this is the get activities for admin
         [HttpGet]
+        [Authorize]
         public IEnumerable<ActivityForumAdminView> Get()
         {
             return _service.GetAllActivities();
@@ -30,6 +31,7 @@ namespace WoMoCo.Controllers
         // GET: api/getActivity
         // this is the get activities for currently logged in user
         [HttpGet("GetActivityForum/")]
+        [Authorize]
         public IList<ActivityForum> GetActivity()
         {
             var uid = _manager.GetUserId(User);
@@ -48,6 +50,7 @@ namespace WoMoCo.Controllers
         // GET: api/activityForum/:id
         // this is for getting the post by ID for the activity
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
         {
             return Ok(_service.GetActivityById(id));
@@ -57,6 +60,7 @@ namespace WoMoCo.Controllers
         // this is the user's save method
         // POST: api/activityForum
         [HttpPost]
+        [Authorize]
         public IActionResult ActivityForum([FromBody]ActivityForum activityForum)
         {
             string uid = _manager.GetUserId(User);
@@ -86,6 +90,7 @@ namespace WoMoCo.Controllers
         // this is the user's delete
         // DELETE: api/activityForum/:id
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _service.DeleteActivityForum(id);

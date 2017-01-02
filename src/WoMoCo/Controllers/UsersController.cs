@@ -21,6 +21,7 @@ namespace WoMoCo.Controllers
         private UserManager<ApplicationUser> _manager;
         // GET: api/values
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
             return Ok(_service.GetAllUsers());
@@ -28,6 +29,7 @@ namespace WoMoCo.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
+        [Authorize]
         public ApplicationUser Get(string username)
         {
             return _service.GetUserById(username);
@@ -35,6 +37,7 @@ namespace WoMoCo.Controllers
 
         //GET by userName
         [HttpGet("GetUser")]
+        [Authorize]
         public ApplicationUser GetUser()
         {
             var uid = _manager.GetUserId(User);
@@ -53,6 +56,7 @@ namespace WoMoCo.Controllers
 
         //GET usersForPullDown
         [HttpGet("GetUsersForPullDown/")]
+        [Authorize]
         public IEnumerable<UserForPullDown> GetUsersForPullDown()
         {
             return _service.GetAllUsersForPullDown();
@@ -60,6 +64,7 @@ namespace WoMoCo.Controllers
 
         // POST api/values
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]ApplicationUser user)
         {
             _service.SaveUser(user);            
@@ -75,6 +80,7 @@ namespace WoMoCo.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(string id)
         {
             _service.DeleteUser(id);

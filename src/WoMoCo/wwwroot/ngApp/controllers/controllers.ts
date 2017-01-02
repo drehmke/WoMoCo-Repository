@@ -1,19 +1,19 @@
 namespace WoMoCo.Controllers {
 
     export class HomeController {
-        public posts;
+        //public posts;
         public newMessageCount;
 
         constructor(
-            private PostService: WoMoCo.Services.PostService,
+            //private PostService: WoMoCo.Services.PostService,
             private $http: ng.IHttpService
         ) {
-            this.posts = this.getPostByUsername();
+            //this.posts = this.getPostByUsername();
             this.getNewMessageCount();
         }
-        public getPostByUsername() {
-            return this.PostService.getPostByUsername()
-        }
+        //public getPostByUsername() {
+        //    return this.PostService.getPostByUsername()
+        //}
         public getNewMessageCount() {
             this.$http.get(`/api/comms/GetUserNewMessageCount/`).then((results) => {
                 this.newMessageCount = results.data;
