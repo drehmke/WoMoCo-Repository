@@ -1,0 +1,27 @@
+﻿<div class="clearfix"></div>
+<div class="footer">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="contact">
+                <strong>Contact Us:</strong><br />
+                <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:wocomo2017@gmail.com"> womoco.at.gmail.dot.com</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="actions">
+                <span ng-show="account.isLoggedIn()"> &middot; <a href="/login" ng-click="account.logout()">Logout</a> &middot;</span>
+                <span ng-show="!account.isLoggedIn()">&middot; <a href="/login">Login</a> &middot;</span>
+                <span ng-show="!account.isLoggedIn()"><a href="/register">Register</a> &middot;</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="disclaimer">
+                Working Mothers Connection<br />a group project brought to you by the <br />Oct172016 FullStack ASP.Net Troop,<br /> CoderCamps Scottsdale, AZ
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <!-- TODO: year needs to be dynamic -->
+        &copy; 2017 Working Mothers Connection
+    </div>
+</div>
