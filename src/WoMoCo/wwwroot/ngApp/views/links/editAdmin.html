@@ -1,15 +1,27 @@
-﻿<h2>Edit a Link</h2>
-<form ng-submit="controller.saveLink()">
-    <div>
-        <label>Name</label>
-        <input placeholder="name" ng-model="controller.link.name" />
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading">
+        <h2 class="spirax colorDarkRed">Edit a Link</h2>
     </div>
+    <div class="panel-body">
+        <form ng-submit="controller.saveLink()">
+            <div class="form-group">
+                <label for="name">User:</label>
+                <input id="name" name="name" class="form-control" placeholder="name" ng-model="controller.link.userName" disabled />
+            </div>
 
-    <div>
-        <label>URL</label>
-        <input placeholder="url" ng-model="controller.link.url" />
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" class="form-control" placeholder="name" ng-model="controller.link.name" />
+            </div>
+
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input id="url" name="url" class="form-control" placeholder="url" ng-model="controller.link.url" />
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Edit Link" />
+
+        </form>
     </div>
+</div>
 
-    <input type="submit" class="btn btn-warning" value="Edit Link" />
-    
-</form>

@@ -19,23 +19,15 @@
     // admin getAll
     export class PostAdminController {
         public posts;
-        public PostResource;
 
         public getPost() {
-            return this.PostResource.getAdmin();
+            return this.PostService.getAllPostsAdmin();
         }
 
         constructor(
-            private $resource: angular.resource.IResourceService
+            private PostService: WoMoCo.Services.PostService
         ) {
-            //this.PostResource = $resource(`/api/posts`, null, {
-            //    getAdmin: {
-            //        method: `GET`,
-            //        url: `/api/posts/AdminGet/`,
-            //        isArray: true
-            //    }
-            //});
-            //this.posts = this.getPost();
+            this.posts = this.getPost();
         }
     }
 
@@ -177,7 +169,6 @@
                     this.post = null;
                     this.$state.go(`postAdmin`);
                 });
-            
         }
 
         constructor(

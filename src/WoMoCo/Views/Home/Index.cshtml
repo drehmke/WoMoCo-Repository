@@ -4,13 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/" />
     <!-- Latest compiled and minified CSS -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <!--  theme -->
     <link href="~/css/bootswatch.css" rel="stylesheet" />
     <!---google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
     <!--CSS Style Sheets-->
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
     <link href="~/css/FrontEnd/navBar.css" rel="stylesheet" />
@@ -23,7 +22,7 @@
 
 </head>
 <body ng-controller="AccountController as account">
-    <nav class="navbar navbar-fixed-top navbar-default backgroundFireBrick" id="navBar" ng-controller="CounterController as counter">
+    <nav class="navbar navbar-fixed-top navbar-default backgroundDarkRed gradientTransToWhite" id="navBar" ng-controller="CounterController as counter">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -33,24 +32,23 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/"><img  id="logoLetters" src="/images/womoco.png" /></a>
-                <!--<a class="navbar-brand" href="#"><img id="logoLetters" src="/images/logo-brand.png" /></a>-->
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
-                    <li><a id="Search" href="/about">About <span class="sr-only"></span></a></li>
-                    <li ng-show="account.isLoggedIn()"><a id="Search" href="/search">Search</a></li>
-                    <li><a id="Search" href="/babySitterlink">BabySitterLink</a></li>
-                    <li><a id="Search" href="/activity" ng-show="account.isLoggedIn()">Activities</a></li>
-                    <li><a id="Search" href="/post">View Public Posts</a></li>
+                    <li><a href="/about">About <span class="sr-only"></span></a></li>
+                    <li ng-show="account.isLoggedIn()"><a href="/search">Search</a></li>
+                    <li><a href="/babySitterlink">BabySitterLink</a></li>
+                    <li><a href="/activity" ng-show="account.isLoggedIn()">Activities</a></li>
+                    <li><a href="/post">View Public Posts</a></li>
                     <li class="dropdown">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/admin">AdminPage</a></li>
                             <li><a href="/admin/user/list">Users</a></li>
                             <li><a href="/admin/activity/list">Activity Posts</a></li>
                             <li><a href="/admin/interest">Interests</a></li>
                             <li><a href="/admin/links">User Social Links</a></li>
-                            <li><a href="/adminProPage">AdminPage</a></li>
                             <li><a href="/admin/post">Posts</a></li>
                             <li><a href="/admin/messages">Messages</a></li>
                         </ul>
@@ -60,7 +58,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-show="account.isLoggedIn()"><a id="inbox" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span><span class="badge ">{{counter.newMessageCount}}</span></a></li>
                     <li class="dropdown">
-                        <a id="Search" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
                             <li><a href="/profile" ng-show="account.isLoggedIn()">Profile </a></li>
@@ -75,7 +73,7 @@
             </div>
         </div>
         </nav>
-    <div class="container admin">
+    <div class="container">
 
         <ui-view></ui-view>
     </div>

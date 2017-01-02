@@ -18,11 +18,28 @@ namespace WoMoCo.Services
         private UserManager<ApplicationUser> _manager;
 
         //Get all Comms
-        public IList<Comm> GetAllComms()
+        public IList<CommViewModel> GetAllComms()
         {
-            return _repo.Query<Comm>().ToList();
-            
-            
+            IList<Comm> allComms = _repo.Query<Comm>().Include(c => c.SendingUser).ToList();
+            IList<CommViewModel> listableComms = new List<CommViewModel>();
+            foreach( Comm comm in allComms )
+            {
+                CommViewModel listable = new CommViewModel
+                {
+                    Id = comm.Id,
+                    RecId = comm.RecId,
+                    SendingUser = comm.SendingUser.UserName,
+                    Subject = comm.Subject,
+                    HasBeenViewed = comm.HasBeenViewed,
+                    DateSent = comm.DateSent,
+                    Msg = comm.Msg,
+                    Status = comm.Status,
+                    CommType = comm.CommType
+                };
+                listableComms.Add(listable);
+            }
+
+            return listableComms;
         }
         public Comm GetCommById(int id)
         {
@@ -82,7 +99,7 @@ namespace WoMoCo.Services
                 {
                     Id = comm.Id,
                     RecId = comm.RecId,
-                    SendingUser = comm.SendingUser,
+                    SendingUser = comm.SendingUser.UserName,
                     Subject = comm.Subject,
                     HasBeenViewed = comm.HasBeenViewed,
                     DateSent = comm.DateSent,

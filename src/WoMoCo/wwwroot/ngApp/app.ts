@@ -37,7 +37,7 @@ namespace WoMoCo {
                 controllerAs: 'controller'
             })
             .state('adminProPage', {
-                url: '/adminProPage',
+                url: '/admin',
                 templateUrl: '/ngApp/views/user/adminProPage.html',
                 controller: WoMoCo.Controllers.AdminController,
                 controllerAs: 'controller'
@@ -68,13 +68,13 @@ namespace WoMoCo {
             })
             .state(`interestAdminEdit`, { // admin
                 url: `/admin/interest/edit/:id`,
-                templateUrl: `/ngApp/views/interest/editInterest.html`,
+                templateUrl: `/ngApp/views/interest/editAdmin.html`,
                 controller: WoMoCo.Controllers.EditInterestController,
                 controllerAs: `controller`
             })
             .state(`deleteInterest`, { // admin
                 url: `/admin/interest/delete/:id`,
-                templateUrl: `/ngApp/views/interest/deleteInterest.html`,
+                templateUrl: `/ngApp/views/interest/deleteAdmin.html`,
                 controller: WoMoCo.Controllers.DeleteInterestController,
                 controllerAs: `controller`
             })
@@ -220,7 +220,6 @@ namespace WoMoCo {
             })
             // ---- end activity Forums ---------------------------------------
             // ---- Messaging -------------------------------------------------
-            // TODO: Admin
             .state(`inbox`, {
                 url: `/message/inbox`,
                 templateUrl: `/ngApp/views/message/inbox.html`,
@@ -245,12 +244,14 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.DeleteMessageController,
                 controllerAs: `controller`
             })
+            /*
             .state(`adminMessageList`, {
                 url: `/admin/message/adminList`,
                 templateUrl: `/ngApp/views/message/adminList.html`,
                 controller: WoMoCo.Controllers.MessageController,
                 controllerAs: `controller`
             })
+            */
             .state(`messageAdmin`, { // admin
                 url: `/admin/messages`,
                 templateUrl: `/ngApp/views/message/adminList.html`,
@@ -293,7 +294,7 @@ namespace WoMoCo {
             })
             .state(`userAdmin`, { // admin
                 url: `/admin/user/list`,
-                templateUrl: `/ngApp/views/user/listAdmin.html`,
+                templateUrl: `/ngApp/views/user/adminList.html`,
                 controller: WoMoCo.Controllers.SearchAdminController,
                 controllerAs: `controller`
             })

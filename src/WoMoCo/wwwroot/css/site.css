@@ -13,22 +13,12 @@ body, html {
 }
 
 .spirax { font-family: 'Spirax', cursive; }
-h1
-{
-}
 
 .shadow 
 {
     box-shadow: 10px 10px 5px grey;
 }
 
-h2
-{
-}
-
-h3
-{
-}
 ul
 {
     list-style:none;
@@ -40,7 +30,7 @@ p
     color:black;
 }
 
-
+.navbar-default .navbar-nav > li > a { color: #fff; }
 
 #glyphButton
 {
@@ -86,11 +76,7 @@ p
 input,
 textarea,
 select {
-    max-width: 280px;
-}
-.wideinput 
-{
-    max-width: none;
+    width: auto;
 }
 
 .toppadding20 { padding-top: 20px; }
@@ -99,6 +85,7 @@ select {
 /* ---- Homepage ---- */
 .parallax {
     height: 100%;
+    width: 100%;
     /* parallax affect */
     background-attachment: fixed;
     background-position: center;
@@ -113,6 +100,28 @@ select {
 .slider02 { background-color: #b83a07; padding: 30px 15px; text-align: center; color: #fff; }
 .slider02 h2 { color: #fff; }
 
+
+.adminSlide {
+    margin-top: 5px;
+    text-align:left;
+    vertical-align:top;
+}
+
+/* gravatar image */
+.connectGravatar { 
+    width: 50px;
+    height: 50px;
+}
+
+.activity-cards, .interest-cards, .social-cards, .message-cards, .post-cards {
+    border: 1px dashed #7ba790;
+    background-color: #fdfdfd;
+    margin: 5px;
+    width: 300px;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;
+}
+
 /* styles form different formats */
 
 @media (min-width:320px)  {  /*smartphones, iPhone, portrait 480x320 phones*/  }
@@ -122,9 +131,4 @@ select {
 @media (min-width:1025px) {  /*big landscape tablets, laptops, and desktops*/  }
 @media (min-width:1281px) {  /*-res laptops and desktops */ }
 
-.adminSlide {
-    margin-top: 5px;
-    text-align:center;
-    vertical-align:middle;
-}
 
