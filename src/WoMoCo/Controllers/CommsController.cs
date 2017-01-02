@@ -23,7 +23,7 @@ namespace WoMoCo.Controllers
         // GET: api/values
         [HttpGet]
         [Authorize(Policy = "AdminOnly")]
-        public IEnumerable<Comm> Get()
+        public IEnumerable<CommViewModel> Get()
         {
             return _service.GetAllComms();
         }

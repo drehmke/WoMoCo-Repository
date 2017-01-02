@@ -1,24 +1,11 @@
-﻿<link href="/css/AboutStyleSheet.css" rel="stylesheet" />
-
-
-<form>
-    <div style="border-">
-        <div class="col-lg-8 col-lg-offset-2 img-rounded">
-            <div lass="w3-card-4">
-                <div class="w3-card-24" style="width:100%">
-                    <div class="backgroundSandyBrown">
-                        <header class="w3-container">
-                            <h1>Delete Message</h1>
-                        </header>
-                    </div>
-                    <p>Are you sure you want to Delete Message: Subject:{{controller.comm.subject}}?</p>
-                    <div class="w3-container">
-                        <footer class="w3-container">
-                            <button ng-click="controller.deleteCommById()" class="btn btn-danger" value="Delete Message">Yes</button>
-                        </footer>
-                    </div>
-                </div>
-            </div>
-        </div>
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading row">
+        <h2 class="spirax colorDarkRed">Verify Deletion</h2>
     </div>
-</form>
+    <div class="panel-body">
+        Are you sure you wish to <span class="text-danger"><strong>delete</strong></span> {{controller.comm.recId}}'s message <em>{{controller.comm.subject}}</em>, sent on {{controller.comm.dateSent | date : 'short' : timezone}} ?
+    </div>
+    <div class="panel-footer">
+        <button class="btn btn-danger" ng-click="controller.deleteCommById()">Yes-Delete</button>
+    </div>
+</div>

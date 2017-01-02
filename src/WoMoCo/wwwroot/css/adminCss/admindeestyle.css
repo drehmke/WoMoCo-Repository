@@ -117,3 +117,5 @@ thead {
 }
 .admin-filter-icon { font-size: 1.2em; }
 .admin-filter-icon-width { width: 45px; }
+
+.admin .message-cards .panel-footer a { margin-left: 10px; }

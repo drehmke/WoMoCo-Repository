@@ -245,12 +245,14 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.DeleteMessageController,
                 controllerAs: `controller`
             })
+            /*
             .state(`adminMessageList`, {
                 url: `/admin/message/adminList`,
                 templateUrl: `/ngApp/views/message/adminList.html`,
                 controller: WoMoCo.Controllers.MessageController,
                 controllerAs: `controller`
             })
+            */
             .state(`messageAdmin`, { // admin
                 url: `/admin/messages`,
                 templateUrl: `/ngApp/views/message/adminList.html`,
