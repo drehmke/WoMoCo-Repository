@@ -48,7 +48,10 @@
                     <li ng-show="account.isLoggedIn()"><a href="/search">Search</a></li>
                     <li ng-show="account.isLoggedIn()"><a href="/activity">Activities</a></li>
                     <li ng-show="account.isLoggedIn()"><a href="/post">View Public Posts</a></li>
-                    <li class="dropdown">
+                    <li><a id="login" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" ng-show="!account.getClaim('isAdmin')">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/admin">AdminPage</a></li>
@@ -60,9 +63,6 @@
                             <li><a href="/admin/messages">Messages</a></li>
                         </ul>
                     </li>
-                    <li><a id="login" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
                     <li ng-show="account.isLoggedIn()"><a id="inbox" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span><span class="badge" ng-if="counter.newMessageCount < 0">{{counter.newMessageCount}}</span></a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
