@@ -1,7 +1,7 @@
 <link href="/css/AboutStyleSheet.css" rel="stylesheet" />
-<div class="messages inbox">
-    <div class="row">
-        <div class="col-md-2"><a ng-href="/message/modal/messageModal" class="btn btn-primary" style:"button">Compose New Message</a></div>
+<div class="messages">
+    <div class="row inboxHeader">
+        <div class="col-md-2"><a ng-href="/message/new" class="btn btn-primary" style:"button">Compose New Message</a></div>
         <div class="col-md-2"><h3>Inbox</h3></div>
         <div class="col-md-8 form-inline">
                 <input class="form-control control-label" style="width: 100%" id="filter" name="filter" placeholder="Search through your messages" ng-model="searchTerm"/>
@@ -21,7 +21,7 @@
                             <span class="glyphicon-eye-open glyphicon text-info" ng-show="!comm.hasBeenViewed"></span>
                             <span class="glyphicon-eye-close glyphicon text-info" ng-show="comm.hasBeenViewed"></span>
                         </a>
-                        <a ng-href="/message/deleteMessage/{{comm.id}}"><span class="glyphicon-remove glyphicon text-danger"></span></a>
+                        <a ng-href="/message/deleteMessage/{{comm.id}}"><span class="glyphicon-trash glyphicon text-danger"></span></a>
                     </div>
                 </div>
             </div>

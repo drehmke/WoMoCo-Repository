@@ -1,6 +1,7 @@
 ﻿.messages { padding: 70px 10px 0 10px; }
 .messages h3 { margin: 0; }
 .messages .borderSeaGreen { border-bottom: 1px solid #7ba790; }
+.messages .inboxHeader { margin-bottom: 20px; }
 
 #textBody{
 
@@ -31,7 +32,8 @@
     z-index: 1;
 }
 .messages .inboxPanel .inboxPanelContents { z-index: 2; }
-.messages .inboxPanelContents .actions a { display: block; }
+.messages .inboxPanelContents .actions a { display: block; margin-top: 5px; }
+.messages .deleting { background-color: rgba(183,1,0,0.2); }
 
  .inboxPanel .panel-heading a { color: #000; }
  .inboxPanel .panel-heading strong { color: #000; }
