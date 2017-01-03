@@ -1,78 +1,26 @@
-﻿
-<!--<div class="container">
-    <div id="inboxContainer" class="col-lg-8 col-lg-offset-2 img-rounded">
-        <div class="row">
-            <div id="messagesContainer" class="img-rounded shadowDark">
-                <h2 id="inboxHeader"> Message</h2>
-
-                <br />
-                <table class="table table-hover table-striped img-rounded">
-                    <thread>
-                        <tr class="alert-info">
-                            <th>To</th>
-                            <th>From</th>
-                            <th>Subject</th>
-                            
-                            <th>Date</th>
-                            <th>Message</th>
-                            
-                        <tr>
-                    </thread>
-                    <thread>
-                        <tbody>
-                            <tr class="info" ng-model="controller.comm">
-                                <td>{{controller.comm.recID}}</td>
-                                <td>{{controller.comm.sendingUser}}</td>
-                                <td>{{controller.comm.subject}}</td>
-                                
-                                <td>{{controller.comm.dateSent}}</td>
-                                <td>{{controller.comm.msg}}</td>
-                                
-                            </tr>
-                        </tbody>
-                    </thread>
-
-
-                </table>
-            </div>
+﻿<link href="/css/AboutStyleSheet.css" rel="stylesheet" />
+<div class="messages">
+    <div class="panel">
+        <div class="panel-heading borderSeaGreen">
+            <ul class="headerInfo ">
+                <li class="subject"><strong>Subject:</strong> {{controller.comm.subject}}</li>
+                <li><strong>Date:</strong> {{controller.comm.dateSent|date}}</li>
+                <li><strong>From:</strong> {{controller.comm.sendingUser.userName}}</li>
+            </ul>
         </div>
-
-    </div>
-</div>-->
-
-
-
-
-
-<form>
-    <div>
-        <div>
-            <div class="col-lg-8 col-lg-offset-2 img-rounded">
-                <div class="row">
-                    <div class="w3-card-24" style="width:100%">
-
-                        <div class="backgroundSandyBrown">
-                            <header class="w3-container">
-
-                                <h1>Subject: {{controller.comm.subject}}</h1>
-
-
-                            </header>
-                        </div>
-
-                        <div class="w3-container">
-                            <p>{{controller.comm.msg}}</p>
-                        </div>
-                        <div class="backgroundSandyBrown">
-                            <footer class="w3-container">
-
-                                <h5>Date: {{controller.comm.dateSent|date}}</h5>
-
-                            </footer>
-                        </div>
-                    </div>
+        <div class="panel-body borderSeaGreen">
+            {{controller.comm.msg}}
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-2 text-left">
+                    <a href="/message/inbox"><span class="glyphicon glyphicon-menu-left"></span> Inbox</a>
+                </div>
+                <div class="col-md-8"></div>
+                <div class="col-md-2 text-right">
+                    <a ng-href="/message/deleteMessage/{{controller.comm.id}}"><span class="glyphicon-trash glyphicon text-danger"></span></a>
                 </div>
             </div>
         </div>
     </div>
-</form>
+</div>
