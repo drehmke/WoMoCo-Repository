@@ -1,5 +1,12 @@
 ﻿<h1>Posts</h1>
-<a id="addpostbtn" ng-href="/post/add" class="btn">Add Post</a>
+
+<div>
+    <span ng-show="account.isLoggedIn()"><a id="addpostbtn" ng-href="/post/add" class="btn">Add Post</a></span>
+
+    <span ng-hide="!account.isLoggedIn()"><a id="login" href="/login"> </a></span>
+</div>
+
+
 <div class="talkingmoms">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -10,6 +17,10 @@
                     </div>
                     <div class="panel-body">
                         <center>{{post.discription}}</center>
+                        <div ng-if="account.getUserName()==post.userName">
+                            <span> <a class="btn">Edit Post</a></span>
+                            <span> <a class="btn">Delete Post</a></span>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -233,7 +233,7 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             .state(`messageModal`, {
-                url: `/message/modal/messageModal`,
+                url: `/message/new`,
                 templateUrl: `/ngApp/views/message/modal/messageModal.html`,
                 controller: WoMoCo.Controllers.CreateMessageController,
                 controllerAs: `controller`

@@ -16,11 +16,11 @@
             </div>
             <div class="panel-body">
                 <div class="list-group-item">
-                    <span class="glyphicon glyphicon-user"></span> <strong>Sent To: </strong> <br />{{comm.recId}}
+                    <span class="glyphicon glyphicon-user"></span> <strong>Sent To: </strong> {{comm.recId}}
                 </div>
                 <div class="list-group-item">
                     <span class="glyphicon glyphicon-calendar"></span> <strong>Sent: </strong> {{comm.dateSent | date : 'short' : timezone}}<br />
-                    <span class="glyphicon glyphicon-user"></span> <strong>Sent From: </strong> <br />{{comm.sendingUser}}
+                    <span class="glyphicon glyphicon-user"></span> <strong>Sent From: </strong> {{comm.sendingUser}}
                 </div>
             </div>
             <div class="panel-footer text-right">

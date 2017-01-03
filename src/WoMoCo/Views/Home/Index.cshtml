@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="/" />
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <!--  theme -->
     <link href="~/css/bootswatch.css" rel="stylesheet" />
@@ -13,6 +13,7 @@
     <!--CSS Style Sheets-->
     <link href="~/css/site.css" rel="stylesheet" type="text/css" />
     <link href="~/css/FrontEnd/navBar.css" rel="stylesheet" />
+    <link href="~/css/FrontEnd/posts.css" rel="stylesheet" />
     <link href="~/css/colorSchemeReference.css" rel="stylesheet" />
     <link href="~/css/FrontEnd/search.css" rel="stylesheet" />
     <link href="~/css/FrontEnd/babySitter.css" rel="stylesheet" />
@@ -75,14 +76,13 @@
                             <li><a href="/login" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
                         </ul>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
-        </nav>
-    <div class="container bodyHeight">
-
-		<ui-view></ui-view>
+    </nav>
+    <div class="container">
+        <ui-view></ui-view>
 
     </div>
     <div ng-include="'/ngApp/views/footer.html'"></div>
@@ -98,7 +98,7 @@
     <script src="/bower_components/angular-touch/angular-touch.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-   
+
     <!-- App Files-->
     <script src="/ngApp/app.js"></script>
     <script src="/ngApp/controllers/controllers.js"></script>

@@ -1,23 +1,24 @@
-﻿namespace WoMoCo.Controllers {
+﻿﻿namespace WoMoCo.Controllers {
     //Activity Forum Controller
     export class ActivitiesController {
         public activities;
         public ActivityResource;
 
         public getActivities() {
-            this.activities = this.ActivityResource.getMyActivities();
+            this.activities = this.ActivityResource.query();
         }
 
         constructor(private $resource: angular.resource.IResourceService) {
-            this.ActivityResource = this.$resource(`/api/activityForums`, null, {
-                getMyActivities: {
-                    method: `GET`,
-                    url: `/api/activityForums/GetActivityForum`,
-                    isArray: true
-                }
-            });
-            
+            //this.ActivityResource = this.$resource(`/api/activityForums`, null, {
+            //    getMyActivities: {
+            //        method: `GET`,
+            //        url: `/api/activityForums/GetActivityForum`,
+            //        isArray: true
+            //    }
+            //});
+            this.ActivityResource = $resource("/api/activityForums");
             this.getActivities();
+            console.log(this.activities);
         }
     }
 
@@ -58,7 +59,7 @@
         public ActivityResource;
 
         public getActivity(id: number) {
-            return this.ActivityResource.get({id: id});
+            return this.ActivityResource.get({ id: id });
         }
 
         constructor(
