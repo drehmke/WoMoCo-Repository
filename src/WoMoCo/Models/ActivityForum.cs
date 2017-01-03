@@ -8,7 +8,7 @@ namespace WoMoCo.Models
     public class ActivityForum
     {
         public int Id { get; set; }
-        public ICollection<ApplicationUser> Users { get; set; }
+        public ApplicationUser User { get; set; }
         public string Location { get; set; }
         public string Activity { get; set; }
         public string Description { get; set; }

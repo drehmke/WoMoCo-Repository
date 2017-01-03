@@ -5,19 +5,20 @@
         public ActivityResource;
 
         public getActivities() {
-            this.activities = this.ActivityResource.getMyActivities();
+            this.activities = this.ActivityResource.query();
         }
 
         constructor(private $resource: angular.resource.IResourceService) {
-            this.ActivityResource = this.$resource(`/api/activityForums`, null, {
-                getMyActivities: {
-                    method: `GET`,
-                    url: `/api/activityForums/GetActivityForum`,
-                    isArray: true
-                }
-            });
-            
+            //this.ActivityResource = this.$resource(`/api/activityForums`, null, {
+            //    getMyActivities: {
+            //        method: `GET`,
+            //        url: `/api/activityForums/GetActivityForum`,
+            //        isArray: true
+            //    }
+            //});
+            this.ActivityResource = $resource("/api/activityForums");
             this.getActivities();
+            console.log(this.activities);
         }
     }
 
