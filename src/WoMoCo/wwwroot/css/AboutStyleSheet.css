@@ -1,24 +1,23 @@
-﻿body{
-  
-}
+﻿.messages { padding: 70px 10px 0 10px; }
+.messages h3 { margin: 0; }
+.messages .borderSeaGreen { border-bottom: 1px solid #7ba790; }
+
 #textBody{
 
     color:#b83a07;
     background-color:#e4ae6e;
 }
 
-.inboxPanel {
-
-   border-radius: 15px 50px;
-   border-width:5px;  
+.messages .inboxPanel {
+    border-radius: 15px 50px;
+    border-width:5px;  
     border-style:outset;
     font-size: 1.25em;
-     width: 25%;
-     border: 1px solid #e4ae6e;
-     box-shadow: 5px 5px 5px #b6d6c0;
-     float: left;
+    width: 25%;
+    border: 1px solid #e4ae6e;
+    box-shadow: 5px 5px 5px #dedede;
+    float: left;
     margin: 5px;
-    
  }
  
  .inboxPanelGlyph { font-size: 20px; } 

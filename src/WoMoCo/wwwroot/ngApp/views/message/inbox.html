@@ -1,32 +1,29 @@
-
-﻿<link href="../../../css/AboutStyleSheet.css" rel="stylesheet" />
-
-<form style="margin-top:25px">
-    <div>
-        <a ng-href="/message/modal/messageModal" class="btn btn-primary" style:"button">Compose New Message</a>
+<link href="/css/AboutStyleSheet.css" rel="stylesheet" />
+<div class="messages inbox">
+    <div class="row borderSeaGreen">
+        <div class="col-md-2"><a ng-href="/message/modal/messageModal" class="btn btn-primary" style:"button">Compose New Message</a></div>
+        <div class="col-md-10"><h3>Inbox</h3></div>
     </div>
-</form>
 
-
-<div id="panel inboxPanel">
-    <div class="panel inboxPanel" ng-repeat="comm in controller.comms">
-        <div class="glyphicon-envelope"></div><a ng-href="/message/message/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-ok glyphicon text-info"></span></a>
-        <div class="panel-heading">
-            <em>Subject:</em> {{comm.subject}}<br />
-        </div>
-        <div style="padding-left:2em">
-            <div class="panel-default">
-                <em>To:</em> {{comm.recId}}<br />
-                <em>From:</em> {{comm.sendingUser.userName}}<br />                
-                <em>Date:</em> {{comm.dateSent|date}}<br />
-                <em>Message:</em> {{comm.msg}}<br />
-
+    <div id="panel inboxPanel">
+        <div class="panel inboxPanel" ng-repeat="comm in controller.comms">
+            <div class="divBG"><span class="glyphicon glyphicon-envelope"></span></div>
+            <a ng-href="/message/message/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-ok glyphicon text-info"></span></a>
+            <div class="panel-heading">
+                <em>Subject:</em> {{comm.subject}}<br />
             </div>
-        </div>
-       <div>
-           
-           <a ng-href="/message/deleteMessage/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-remove glyphicon text-danger"></span></a>
-       </div>
+            <div style="padding-left:2em">
+                <div class="panel-default">
+                    <em>To:</em> {{comm.recId}}<br />
+                    <em>From:</em> {{comm.sendingUser.userName}}<br />
+                    <em>Date:</em> {{comm.dateSent|date}}<br />
+                </div>
+            </div>
+            <div>
 
+                <a ng-href="/message/deleteMessage/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-remove glyphicon text-danger"></span></a>
+            </div>
+
+        </div>
     </div>
 </div>
