@@ -1,6 +1,6 @@
 ﻿<div class="calender profileList">
     <ul>
-        <li class="addEvent"><a href="#">Add An Event</a></li>
+        <li class="addEvent"><a href="/calendar/addEvent">Add An Event</a></li>
         <li ng-repeat="event in controller.calendarEvents">
             <a ng-href="/calendar/viewEvent/{{event.id}}">{{event.name}}</a>
         </li>
