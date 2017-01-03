@@ -1,50 +1,53 @@
-﻿<h1>Profile</h1>
-<h3>Information</h3>
-<div class="row">
-    <div class="col-md-3">
-        <!-- left sidebar -->
-        
-        <div class="leftProfileBar img-rounded">
-            <center><img class="img-circle" id="gravatarImg" ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" /></center>
-            <center><h2 class="profileName">{{controller.user.firstName}} {{controller.user.lastName}}</h2></center>
-            <br />
-            <div>
-                <div class="profileinfo">
-                    <ul>
-                        <!--<h2>{{controller.user.firstName}} {{controller.user.lastName}}</h2>-->
-                        <li><h5>Email: {{controller.user.email}}</h5></li>
-                        <li><h5>Location: {{controller.user.location}}</h5></li>
-                        <li><h5>Bio: {{controller.user.about}}</h5></li>
-                        <li><h5>Job Title: {{controller.user.currentJobTitle}}</h5></li>
-                        <li><h5>Employer: {{controller.user.employer}}</h5></li>
-                    </ul>
-                </div>
-                <div class="profileEditBtn">
-                    <center><a id="profileEditBtn" class="btn" href="/editProfile">Edit Profile</a></center>
-                </div>
-                <div class="profileDeleteBtn">
-                    <center><a id="profileDeleteBtn" href="/deleteProfile">Delete Account</a></center>
+﻿<div class="profilePage">
+    <h1>Profile</h1>
+    <h3>Information</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <!-- left sidebar -->
+
+            <div class="leftProfileBar img-rounded">
+                <center><img class="img-circle" id="gravatarImg" ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" /></center>
+                <center><h2 class="profileName">{{controller.user.firstName}} {{controller.user.lastName}}</h2></center>
+                <br />
+                <div>
+                    <div class="profileinfo">
+                        <ul>
+                            <!--<h2>{{controller.user.firstName}} {{controller.user.lastName}}</h2>-->
+                            <li><h5>Email: {{controller.user.email}}</h5></li>
+                            <li><h5>Location: {{controller.user.location}}</h5></li>
+                            <li><h5>Bio: {{controller.user.about}}</h5></li>
+                            <li><h5>Job Title: {{controller.user.currentJobTitle}}</h5></li>
+                            <li><h5>Employer: {{controller.user.employer}}</h5></li>
+                        </ul>
+                    </div>
+                    <div class="profileEditBtn">
+                        <center><a id="profileEditBtn" class="btn" href="/editProfile">Edit Profile</a></center>
+                    </div>
+                    <div class="profileDeleteBtn">
+                        <center><a id="profileDeleteBtn" href="/deleteProfile">Delete Account</a></center>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="col-md-2">
+            <div id="profileIntrests" ng-include="'/ngApp/views/interest/inc-profileList.html'"></div>
+        </div>
+        <div class="col-md-2">
+            <div ng-include="'/ngApp/views/links/inc-profileList.html'"></div>
+        </div>
+        <div class="col-md-2">
+            <div ng-include="'/ngApp/views/connection/inc-profileList.html'"></div>
+        </div>
+        <div class="col-md-2">
+            <div ng-include="'/ngApp/views/message/inbox.html'"></div>
+        </div>
+        <div class="col-md-4">
+            <!-- right sidebar -->
+            <div ng-include="'/ngApp/views/activityForum/inc-profileList.html'"></div>
+            <!-- connected users list will go here -->
+        </div>
     </div>
-    <div class="col-md-2">
-        <div id="profileIntrests" ng-include="'/ngApp/views/interest/inc-profileList.html'"></div>
-    </div>
-    <div class="col-md-2">
-        <div ng-include="'/ngApp/views/links/inc-profileList.html'"></div>
-    </div>
-    <div class="col-md-2">
-        <div ng-include="'/ngApp/views/connection/inc-profileList.html'"></div>
-    </div>
-    <div class="col-md-2">
-        <div ng-include="'/ngApp/views/message/inbox.html'"></div>
-    </div>
-    <div class="col-md-4">
-        <!-- right sidebar -->
-        <div ng-include="'/ngApp/views/activityForum/inc-profileList.html'"></div>
-        <!-- connected users list will go here -->
-    </div>
+
 </div>
 
 

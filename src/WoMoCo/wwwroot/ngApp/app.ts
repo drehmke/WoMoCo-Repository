@@ -36,15 +36,6 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
             })
-            //=======home-login ==============================================>
-            // ---- Delete this when we have a logged in home page
-            .state(`home-login`, {
-
-                url: `/home-login`,
-                templateUrl: `/ngApp/views/home-login.html`,
-                controller: WoMoCo.Controllers.HomeController,
-                controllerAs: 'controller'
-            })
             // ========== Interest ===========================================>
             .state(`addInterest`, {
                 url: `/interest/add`,
