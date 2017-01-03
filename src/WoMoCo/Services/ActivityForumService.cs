@@ -27,7 +27,7 @@ namespace WoMoCo.Services
             IList<ActivityForumAdminView> listableActivities = new List<ActivityForumAdminView>();
             IList<ApplicationUser> allUsers = _repo.Query<ApplicationUser>().ToList();
 
-            foreach (ActivityForum activity in allActivities)
+            foreach ( ActivityForum activity in allActivities)
             {
                 ActivityForumAdminView listable = new ActivityForumAdminView();
                 listable.Id = activity.Id;
@@ -35,13 +35,11 @@ namespace WoMoCo.Services
                 listable.Activity = activity.Activity;
                 listable.Description = activity.Description;
                 listable.UserName = activity.UserName;
-                listable.Address = activity.Address;
-                foreach (ApplicationUser user in allUsers)
+                foreach(ApplicationUser user in allUsers)
                 {
-                    if (user.UserName == activity.UserName)
+                    if(user.UserName == activity.UserName)
                     {
                         listable.UserId = user.Id;
-                        listable.UserImage = user.UserImage;
                     }
                 }
                 listableActivities.Add(listable);
@@ -115,7 +113,7 @@ namespace WoMoCo.Services
                     where a.Location == searchTerm
                     select new ActivityForum
                     {
-                        User = a.User,
+                        Users = a.Users,
                         Location = a.Location,
                         Activity = a.Activity,
                         Description = a.Description

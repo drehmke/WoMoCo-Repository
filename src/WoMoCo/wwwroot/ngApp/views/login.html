@@ -9,28 +9,26 @@
 
 </fieldset>-->
 
-<div class="top-padding70">
-    <div class="col-md-4 col-md-offset-4">
-        <fieldset class="jumbotron">
-            <h3>Login</h3>
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-danger" ng-repeat="error in controller.validationMessages">
-                    {{error}}
-                </li>
-            </ul>
+<div class="col-md-4 col-md-offset-4">
+    <fieldset class="jumbotron">
+        <h3>Login</h3>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-danger" ng-repeat="error in controller.validationMessages">
+                {{error}}
+            </li>
+        </ul>
 
-            <form ng-submit="controller.login()">
-                <div class="form-group">
-                    <label>User Name</label>
-                    <input class="form-control control-label container" placeholder="User Name" ng-model="controller.loginUser.userName" />
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input class="form-control control-label container" type="password" placeholder="Password" ng-model="controller.loginUser.password" />
-                </div>
-                <input class="btn btn-primary" type="submit" value="Login" />
-                <a class="btn btn-link" href="/register">Register</a>
-            </form>
-        </fieldset>
-    </div>
+        <form ng-submit="controller.login()">
+            <div class="form-group">
+                <label>User Name</label>
+                <input class="form-control control-label container" placeholder="User Name" ng-model="controller.loginUser.userName" />
+            </div>
+            <div>
+                <label>Password</label>
+                <input class="form-control control-label container" type="password" placeholder="Password" ng-model="controller.loginUser.password" />
+            </div>
+            <input class="btn btn-primary" type="submit" value="Login" />
+            <a class="btn btn-link" href="/register">Register</a>
+        </form>
+    </fieldset>
 </div>

@@ -1,30 +1,22 @@
-﻿<div class="top-padding70">
-    <div class="col-md-8 col-md-offset-2">
-        <div>
-            <a href="/activity/add" class="btn btn-primary">Post</a>
-        </div>
-        <br />
+﻿<div class="col-md-8 col-md-offset-2">
+    <div>
+        <a href="/activity/add" class="btn btn-primary">Post</a>
+    </div>
+    <br />
         <div class="jumbotron" ng-repeat="a in controller.activities">
             <div class="media-left">
-                <img class="img-circle" id="gravatarImg" ng-src="https://www.gravatar.com/avatar/{{a.userImage}}?r=g&d=identicon" height="10" width="10"/>
-                <center><h5>{{a.userName}}</h5></center>
+                <img class="media-object" src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" height="125">
             </div>
-            <div class="media-body mediaBodyCenter">
-                <center>
-                    <h4 class="media-heading">{{a.activity}}</h4>
-                    <div>{{a.description}}</div>
-                    <div>{{a.address}}</div>
-                    <div>{{a.location}}</div>
-                </center>
+            <div class="media-body">
+                <h4 class="media-heading">{{a.userName}}</h4>
+                <div>{{a.activity}}</div>
+                <div>{{a.location}}</div>
             </div>
             <div class="media-body">
                 <div class="media-right">
-                    <a href="/editActivity"><span class="glyphicon glyphicon-pencil"></span></a>
-                </div>
-                <div class="media-right">
-                    <a href="/deleteActivity"><span class="glyphicon glyphicon-trash"></span></a>
+                    {{a.description}}
+                    {{a.address}}
                 </div>
             </div>
         </div>
-    </div>
 </div>
