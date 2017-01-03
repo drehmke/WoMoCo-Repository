@@ -1,6 +1,4 @@
 ﻿<div class="profilePage">
-    <h1>Profile</h1>
-    <h3>Information</h3>
     <div class="row">
         <div class="col-md-3">
             <!-- left sidebar -->
@@ -36,12 +34,12 @@
             <div ng-include="'/ngApp/views/links/inc-profileList.html'"></div>
         </div>
         <div class="col-md-2">
+            <a class="btn btn-primary" href="/message/modal/messageModal">Compose New Message</a>
+        </div>
+        <div class="col-md-2 pull-right">
             <div ng-include="'/ngApp/views/connection/inc-profileList.html'"></div>
         </div>
-        <div class="col-md-2">
-            <div ng-include="'/ngApp/views/message/inbox.html'"></div>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <!-- right sidebar -->
             <div ng-include="'/ngApp/views/activityForum/inc-profileList.html'"></div>
             <!-- connected users list will go here -->
