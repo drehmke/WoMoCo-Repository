@@ -1,29 +1,43 @@
 <link href="/css/AboutStyleSheet.css" rel="stylesheet" />
 <div class="messages inbox">
-    <div class="row borderSeaGreen">
+    <div class="row">
         <div class="col-md-2"><a ng-href="/message/modal/messageModal" class="btn btn-primary" style:"button">Compose New Message</a></div>
-        <div class="col-md-10"><h3>Inbox</h3></div>
+        <div class="col-md-2"><h3>Inbox</h3></div>
+        <div class="col-md-8 form-inline">
+                <input class="form-control control-label" style="width: 100%" id="filter" name="filter" placeholder="Search through your messages" ng-model="searchTerm"/>
+        </div>
     </div>
 
-    <div id="panel inboxPanel">
-        <div class="panel inboxPanel" ng-repeat="comm in controller.comms">
-            <div class="divBG"><span class="glyphicon glyphicon-envelope"></span></div>
-            <a ng-href="/message/message/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-ok glyphicon text-info"></span></a>
-            <div class="panel-heading">
-                <em>Subject:</em> {{comm.subject}}<br />
-            </div>
-            <div style="padding-left:2em">
-                <div class="panel-default">
-                    <em>To:</em> {{comm.recId}}<br />
-                    <em>From:</em> {{comm.sendingUser.userName}}<br />
-                    <em>Date:</em> {{comm.dateSent|date}}<br />
+    <div class="panel inboxPanel" ng-repeat="comm in controller.comms | filter: searchTerm">
+        <!--div class="inboxPanelGlyph"><span class="glyphicon glyphicon-envelope"></span></div-->
+        <div class="inboxPanelContents">
+            <div class="panel-heading borderSeaGreen">
+                <div class="row">
+                    <div class="col-md-10">
+                        <em>Subject:</em> {{comm.subject}}
+                    </div>
+                    <div class="col-md-2 text-center actions">
+                        <a ng-href="/message/message/{{comm.id}}">
+                            <span class="glyphicon-eye-open glyphicon text-info" ng-show="!comm.hasBeenViewed"></span>
+                            <span class="glyphicon-eye-close glyphicon text-info" ng-show="comm.hasBeenViewed"></span>
+                        </a>
+                        <a ng-href="/message/deleteMessage/{{comm.id}}"><span class="glyphicon-remove glyphicon text-danger"></span></a>
+                    </div>
                 </div>
             </div>
-            <div>
-
-                <a ng-href="/message/deleteMessage/{{comm.id}}" class="col-lg-offset-11"><span class="glyphicon-remove glyphicon text-danger"></span></a>
+            <div class="panel-default">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <span class="glyphicon glyphicon-calendar"></span> <em>Date:</em> {{comm.dateSent|date}}<br />
+                        <span class="glyphicon glyphicon-user"></span> <em>From:</em> {{comm.sendingUser.userName}}<br />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
             </div>
-
         </div>
+        <div>
+            
+        </div>
+
     </div>
 </div>

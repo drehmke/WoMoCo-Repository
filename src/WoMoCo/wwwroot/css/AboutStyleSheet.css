@@ -18,9 +18,21 @@
     box-shadow: 5px 5px 5px #dedede;
     float: left;
     margin: 5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
  }
- 
- .inboxPanelGlyph { font-size: 20px; } 
+.messages .inboxPanelGlyph { 
+    font-size: 15em;
+    position: absolute;
+    color: #eee;
+    top: -18px;
+    right: 25%;
+    z-index: 1;
+}
+.messages .inboxPanel .inboxPanelContents { z-index: 2; }
+.messages .inboxPanelContents .actions a { display: block; }
+
  .inboxPanel .panel-heading a { color: #000; }
  .inboxPanel .panel-heading strong { color: #000; }
  .inboxPanel .panel-default { padding: 5px; font-size: 0.75em; }
