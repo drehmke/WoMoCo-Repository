@@ -7,7 +7,7 @@
         <li ng-repeat="event in controller.calenderEvents" class="list-group-item">
             <div class="pull-right">
                 <a ng-href="/calendar/viewEvent/{{event.id}}"><span class="glyphicon glyphicon-eye-open text-info"></span></a> 
-                <a ng-href="controller.removeCalenderEvent(event.id)"><span class="glyphicon glyphicon-trash text-danger"></span></a>
+                <a ng-href="#" ng-click="controller.removeCalenderEvent({{event.id}})"><span class="glyphicon glyphicon-trash text-danger"></span></a>
             </div>
             <a ng-href="/calendar/viewEvent/{{event.id}}">{{event.name}}</a>
         </li>

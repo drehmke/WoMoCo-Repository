@@ -83,6 +83,12 @@
         public getCalenderEvents() {
             return this.calendarEventService.GetCalendarEventsByUser();
         }
+        public removeremoveCalenderEvent(id: number) {
+            this.calendarEventService.DeleteCalendarEvent(id).$promise
+                .then(() => {
+                    this.calenderEvents = this.getCalenderEvents();
+                });
+        }
 
         constructor(
             private accountService: WoMoCo.Services.AccountService,
