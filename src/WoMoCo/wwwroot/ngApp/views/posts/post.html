@@ -18,19 +18,13 @@
                     <div class="panel-body">
                         <center>{{post.discription}}</center>
 
+                        <div ng-if="account.getUserName()==post.userName">
 
-                        <div>
-                            <span ng-show="account.isLoggedIn()"><a id="addpostbtn" ng-href="/editPost/{{post.id}}" class="btn">Edit Post</a></span>
+                            <span> <a class="btn">Edit Post</a></span>
+                            <span> <a class="btn">Delete Post</a></span>
 
-                            <span ng-hide="!account.isLoggedIn()"><a id="login" href="/login"> </a></span>
-                            
-                            <span ng-show="account.isLoggedIn()"><a id="addpostbtn" ng-href="/DeletePost/{{post.id}}" class="btn">Delete Post</a></span>
-
-                            <span ng-hide="!account.isLoggedIn()"><a id="login" href="/login"> </a></span>
                         </div>
 
-                      
-                        <div ng-if="post.userName"> </div>
 
                     </div>
                 </div>
