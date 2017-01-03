@@ -83,7 +83,7 @@
         public getCalenderEvents() {
             return this.calendarEventService.GetCalendarEventsByUser();
         }
-        public removeremoveCalenderEvent(id: number) {
+        public removeCalenderEvent(id: number) {
             this.calendarEventService.DeleteCalendarEvent(id).$promise
                 .then(() => {
                     this.calenderEvents = this.getCalenderEvents();
@@ -106,7 +106,6 @@
             this.activities = this.getMyActivities();
             this.connections = this.getMyConnections();
             this.calenderEvents = this.getCalenderEvents();
-            console.log(this.calenderEvents);
         }
     }
     angular.module(`WoMoCo`).controller(`UserController`, UserController);
