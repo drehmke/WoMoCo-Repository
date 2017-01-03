@@ -1,11 +1,13 @@
-﻿<div>
-    <h3>My Activities<small><a href="/activity/add">Add</a></small></h3>
-    <div ng-repeat="a in controller.activities">
-        <ul class="list-group profileActivity">
-            <li class="list-group-item">
-                <a href="/activity/edit/{{a.id}}"><h5>{{a.activity}} - {{a.location}}</h5></a>
-                <p>{{a.description}}</p>
-            </li>
-        </ul>
+﻿<div class="activitiesList img-rounded">
+    <div id="activityList">
+        <center><h3>My Activities&nbsp;<small><a href="/activity/add"><span id="activitiesPlus" class="glyphicon glyphicon-plus"></span></a></small></h3></center>
+        <div>
+            <ul class="list-group profileActivity">
+                <li class="list-group-item" ng-repeat="a in controller.activities">
+                    <h5 href="/activity/edit/{{a.id}}">{{a.activity}} - {{a.location}}</h5>
+                    <p>{{a.description}}</p>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
