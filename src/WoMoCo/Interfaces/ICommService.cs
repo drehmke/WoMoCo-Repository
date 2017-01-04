@@ -12,5 +12,6 @@ namespace WoMoCo.Services
         IList<CommViewModel> GetCommsByUserName(string uid);
         int GetCountCurrentUserNewMessages(string uid);
         void SaveComm(Comm comm, string uid);
+        IEnumerable<CommViewModel> GetAdminFirstFive();
     }
 }

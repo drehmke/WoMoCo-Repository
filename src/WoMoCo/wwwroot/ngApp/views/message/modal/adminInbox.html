@@ -1,7 +1,43 @@
-﻿<link href="../../../../css/adminCss/adminInbox.css" rel="stylesheet" />
+﻿<link href="/css/adminCss/adminInbox.css" rel="stylesheet" />
+<div class="admin messageList">
+    <h3>Messages</h3>
+
+    <div class="panel inboxPanel" ng-repeat="comm in controller.messages">
+        <div class="inboxPanelContents">
+            <div class="panel-heading borderSeaGreen">
+                <div class="row">
+                    <div class="col-md-10">
+                        <em>Subject:</em> {{comm.subject}}
+                    </div>
+                    <div class="col-md-2 text-center actions">
+                        <a ng-href="/message/message/{{comm.id}}">
+                            <span class="glyphicon-eye-open glyphicon text-info" ng-show="!comm.hasBeenViewed"></span>
+                            <span class="glyphicon-eye-close glyphicon text-info" ng-show="comm.hasBeenViewed"></span>
+                        </a>
+                        <a ng-href="/message/deleteMessage/{{comm.id}}"><span class="glyphicon-trash glyphicon text-danger"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-default">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <span class="glyphicon glyphicon-calendar"></span> <em>Date:</em> {{comm.dateSent|date}}<br />
+                        <span class="glyphicon glyphicon-user"></span> <em>From:</em> {{comm.sendingUser.userName}}<br />
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--
 <div id="messagesContainer" class="img-rounded shadowDark">
     <h2 id="inboxHeader"> Messages</h2>
-    <!--Create a new Message-->
     <div class="container">
         <a ng-href="/message/modal/messageModal" class="btn">Compose New Message</a>
     </div>
@@ -66,3 +102,4 @@
         </div>
     </div>
 </div>
+-->

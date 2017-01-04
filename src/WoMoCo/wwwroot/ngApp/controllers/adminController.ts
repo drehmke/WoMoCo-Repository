@@ -3,6 +3,7 @@
         public posts;
         public activities;
         public connections;
+        public messages;
 
         public getActivities() {
             let act = this.activitiesService.getAllUsersActivities();
@@ -24,9 +25,13 @@
                             //post = null;
                             //this.$state.go(`postAdmin`);
                         });
-
                 }
             }
+        }
+
+        public getMessages() {
+            let fiveMessages = this.commService.getFirstMessagesFiveForAdminPage();
+            return fiveMessages;
         }
 
         constructor(private $resource: angular.resource.IResourceService,
@@ -34,10 +39,12 @@
             private activitiesService: WoMoCo.Services.ActivitiesService,
             private connectionService: WoMoCo.Services.ConnectionService,
             private PostService: WoMoCo.Services.PostService,
+            private commService: WoMoCo.Services.CommService
             ) {
             this.activities = this.getActivities();
             this.connections = this.getConnections();
             this.posts = this.getPost();
+            this.messages = this.getMessages();
         }
     }
 

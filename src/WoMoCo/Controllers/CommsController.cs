@@ -41,6 +41,12 @@ namespace WoMoCo.Controllers
         {
             return Ok(_service.GetCommById(id));
         }
+        [HttpGet("GetAdminFirstFive")]
+        [Authorize(Policy = "AdminOnly")]
+        public IEnumerable<CommViewModel> GetAdminFirstFive()
+        {
+            return _service.GetAdminFirstFive();
+        }
 
         [HttpGet("GetUserNewMessageCount/")]
         public int GetUserNewMessageCount()
