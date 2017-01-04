@@ -1,27 +1,62 @@
-﻿.sitterpage{
+﻿.babysitter .sitterpage{
     background: linear-gradient(rgba(255, 255, 255, 0.00), white),
-        url("../../images/babysitting.jpg");
-    /*background-image: url("../../images/babysitting.jpg");*/
+        url("/images/babysitting.jpg");
+    /*background-image: url("/images/babysitting.jpg");*/
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 /*#babysitter {
-    background-image: url("../../images/babysitting.jpg");
+    background-image: url("/images/babysitting.jpg");
     background-size: initial;*/
-#babysittertable {
+.babysitter .babysittertable {
     background-color: transparent;
     position: relative;
     top: 175px;
 
 }
-#babysittericons {
+.babysitter .babysittericons {
     margin-bottom: 20px;
 }
-#iconscontainer {
+.babysitter .iconscontainer {
     position:relative;
     top: 450px;
 }
-#babysitterlinks {
+.babysitter .babysitterlinks {
     color:black;
+}
+
+.babysitter .links {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.babysitter .linkList {
+    border: 10px solid #555;
+    background-color: rgba(102, 102, 102, 0.6);
+    color: #fff;
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    letter-spacing: 2px;
+}
+.babysitter .linkList h3 { 
+    text-transform: uppercase; 
+    color: #fff;     
+    letter-spacing: 10px;
+    margin-top: 0;
+ }
+.babysitter .linkList p { color: #fff; }
+.babysitter .linkList a { color: #fff; }
+.babysitter .links img {height: 25px; width: 25px; }
+.babysitter .links li { 
+    margin: 10px; 
+    padding-bottom: 5px;
+    border-bottom: 1px solid #808080;
+    display: inline-block;
+    width: 40%;
+    min-width: 150px; 
 }

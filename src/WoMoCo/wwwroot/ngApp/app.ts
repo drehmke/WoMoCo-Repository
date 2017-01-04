@@ -41,7 +41,6 @@ namespace WoMoCo {
                 templateUrl: '/ngApp/views/user/adminProPage.html',
                 controller: WoMoCo.Controllers.AdminController,
                 controllerAs: 'controller'
-
             })
             //=======home-login ==============================================>
             // ---- Delete this when we have a logged in home page
@@ -52,6 +51,7 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.HomeController,
                 controllerAs: 'controller'
             })
+
             // ========== Interest ===========================================>
             .state(`addInterest`, {
                 url: `/interest/add`,
@@ -196,6 +196,12 @@ namespace WoMoCo {
                 url: `/activity/edit/:id`,
                 templateUrl: `/ngApp/views/activityForum/edit.html`,
                 controller: WoMoCo.Controllers.ActivitiesControllerEdit,
+                controllerAs: `controller`
+            })
+            .state(`deleteActivity`, {
+                url: `/activity/delete/:id`,
+                templateUrl: `ngApp/views/activityForum/delete.html`,
+                controller: WoMoCo.Controllers.ActivitiesControllerDelete,
                 controllerAs: `controller`
             })
             .state(`activityForumAdminList`, { // admin

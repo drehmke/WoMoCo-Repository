@@ -140,7 +140,7 @@
             this.calendarEventService.SaveCalendarEvent(this.calendarEvent)
                 .then(() => {
                     this.calendarEvent = null;
-                    this.$state.go(`calendarEvents`);
+                    this.$state.go(`profile`);
                 });
         }
 
@@ -172,7 +172,7 @@
             this.ShareResource.save(eventToShare).$promise
                 .then(() => {
                     eventToShare = null;
-                    this.$state.go(`calendar`);
+                    this.$state.go(`profile`);
                 });
         }
 
@@ -209,7 +209,7 @@
             this.calendarEvent.setEventDateTime();
             this.calendarEventService.SaveCalendarEvent(this.calendarEvent).then(() => {
                     this.calendarEvent = null;
-                    this.$state.go(`calendarEvents`);
+                    this.$state.go(`profile`);
                 });
             
         }
@@ -251,7 +251,7 @@
             this.calendarEventService.DeleteCalendarEvent(this.currentCalenderEvent.id).$promise
                 .then(() => {
                     this.currentCalenderEvent = null;
-                    this.$state.go(`calendarEvents`);
+                    this.$state.go(`profile`);
                 });
         }
 
