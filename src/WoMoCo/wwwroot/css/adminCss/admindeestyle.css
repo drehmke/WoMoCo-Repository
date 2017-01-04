@@ -128,3 +128,7 @@ thead {
 .admin-filter-icon-width { width: 45px; }
 
 .admin .message-cards .panel-footer a { margin-left: 10px; }
+
+.glyphicon-trash{
+    padding-right: 10px;
+}

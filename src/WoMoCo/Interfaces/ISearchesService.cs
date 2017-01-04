@@ -9,6 +9,9 @@ namespace WoMoCo.Interfaces
         List<ApplicationUser> GetAllUsersSearch();
         ApplicationUser GetByUsernames(string uid);
         ApplicationUser GetUserByIds(string id);
+
+        //To Do on Second Iteration
+        //List<ApplicationUser> MakeAdminUpdate(string uid);
      
     }
 }

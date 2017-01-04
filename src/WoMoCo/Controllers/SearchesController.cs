@@ -48,6 +48,17 @@ namespace WoMoCo.Controllers
             return _service.GetByUsernames(uid);
         }
 
+
+        //To Do on Second Iteration
+        ////Making a user an admin
+        //[HttpPost]
+        //public IActionResult MakeAdminUpdate()
+        //{
+        //    var uid = _manager.GetUserId(User);
+        //    _service.MakeAdminUpdate(uid);
+        //    return Ok(uid);
+        //}
+
     }
 
 }
