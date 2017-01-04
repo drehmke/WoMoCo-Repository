@@ -5,7 +5,7 @@
             <h5><span class="glyphicon glyphicon-calendar"></span> {{controller.calendarEvent.name}}<small> on {{controller.calendarEvent.eventDate}}</small></h5>
             <h5><span class="glyphicon glyphicon-map-marker"></span><strong>Location:</strong> {{controller.calendarEvent.location}}</h5>
             <div class="actions">
-                <a ng-href="/calendar/editEvent/{{controller.calendarEvent.id}}" class="btn btn-info">Edit Event</a>
+                <a ng-href="/calendar/editEvent/{{controller.calendarEvent.id}}" class="btn btn-info" ng-if="account.getUserName()==post.userName">Edit Event</a>
                 <div class="shareEvents" ng-if="controller.calendarEvent.ownerName == account.getUserName()">
                     <form class="form form-inline">
                         <fieldset>
