@@ -11,9 +11,9 @@
                     <div class="profileinfo">
                         <ul>
                             <!--<h2>{{controller.user.firstName}} {{controller.user.lastName}}</h2>-->
+                            <li><h5>Bio: {{controller.user.about}}</h5></li>
                             <li><h5>Email: {{controller.user.email}}</h5></li>
                             <li><h5>Location: {{controller.user.location}}</h5></li>
-                            <li><h5>Bio: {{controller.user.about}}</h5></li>
                             <li><h5>Job Title: {{controller.user.currentJobTitle}}</h5></li>
                             <li><h5>Employer: {{controller.user.employer}}</h5></li>
                         </ul>
@@ -27,28 +27,25 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
-            <div id="profileIntrests" ng-include="'/ngApp/views/interest/inc-profileList.html'"></div>
-        </div>
-        <div class="col-md-2">
-            <div ng-include="'/ngApp/views/links/inc-profileList.html'"></div>
-        </div>
-        <div class="col-md-2">
-            <a class="btn btn-primary" href="/message/modal/messageModal">Compose New Message</a>
-        </div>
-        <div class="col-md-2 pull-right">
-            <div ng-include="'/ngApp/views/connection/inc-profileList.html'"></div>
-        </div>
-        <div class="col-md-6">
-            <!-- right sidebar -->
-            <div ng-include="'/ngApp/views/activityForum/inc-profileList.html'"></div>
-            <!-- connected users list will go here -->
-        </div>
-        <div class="col-md-4">
-            <div ng-include="'/ngApp/views/calendar/inc-profileList.html'"></div>
+        <div class="col-md-7 col-md-offset-3 panel" id="littleBack">
+            <div class="panel-body">
+                <div class="col-md-3 interestLinks">
+                    <div id="profileIntrests" ng-include="'/ngApp/views/interest/inc-profileList.html'"></div>
+                    <div ng-include="'/ngApp/views/links/inc-profileList.html'"></div>
+                </div>
+                <div class="col-md-5 activitiesList">
+                    <div ng-include="'/ngApp/views/activityForum/inc-profileList.html'"></div>
+                </div>
+                <div class="col-md-3 pull-right connectionsEvents">
+                    <div ng-include="'/ngApp/views/calendar/inc-profileList.html'"></div>
+                    <div ng-include="'/ngApp/views/connection/inc-profileList.html'"></div>
+                </div>
+                <!--<div class="col-md-2">
+                    <div ng-include="'/ngApp/views/calendar/inc-profileList.html'"></div>
+                </div>-->
+            </div>
         </div>
     </div>
-
 </div>
 
 
