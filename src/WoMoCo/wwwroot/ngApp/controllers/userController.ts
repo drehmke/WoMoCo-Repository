@@ -12,6 +12,8 @@
         public activities; // this is for the list
         // connections
         public connections; // this is for the list
+        // calender events
+        public calenderEvents;
 
         public getUser() {
           return this.UserResource.get();
@@ -76,14 +78,26 @@
                     this.connections = this.getMyConnections();
                 });
         }
-        
+
+        // calender event list
+        public getCalenderEvents() {
+            return this.calendarEventService.GetCalendarEventsByUser();
+        }
+        public removeCalenderEvent(id: number) {
+            this.calendarEventService.DeleteCalendarEvent(id).$promise
+                .then(() => {
+                    this.calenderEvents = this.getCalenderEvents();
+                });
+        }
+
         constructor(
             private accountService: WoMoCo.Services.AccountService,
             private $resource: angular.resource.IResourceService,
             private interestService: WoMoCo.Services.InterestService,
             private activitiesService: WoMoCo.Services.ActivitiesService,
             private linkService: WoMoCo.Services.LinkService,
-            private connectionService: WoMoCo.Services.ConnectionService
+            private connectionService: WoMoCo.Services.ConnectionService,
+            private calendarEventService: WoMoCo.Services.CalendarEventService
             ) {
             this.UserResource = $resource('/api/users/getUser');
             this.user = this.getUser();
@@ -91,7 +105,7 @@
             this.links = this.getMyLinks();
             this.activities = this.getMyActivities();
             this.connections = this.getMyConnections();
-            console.log(this.connections);
+            this.calenderEvents = this.getCalenderEvents();
         }
     }
     angular.module(`WoMoCo`).controller(`UserController`, UserController);

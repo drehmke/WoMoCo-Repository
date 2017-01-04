@@ -265,6 +265,11 @@ p
     filter: grayscale(100%);
 }
 
+
+.profilePage {
+    padding-top: 70px;
+}
+
 /* styles form different formats */
 
 @media (min-width:320px)  {  /*smartphones, iPhone, portrait 480x320 phones*/  }
