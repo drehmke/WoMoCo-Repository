@@ -21,6 +21,12 @@ h1
 {
 }
 
+.jumbotron {
+    border-style: ridge;
+    border-width: 2px;
+    border-color: #e4ae6e;
+}
+
 .shadow 
 {
     box-shadow: 10px 10px 5px grey;
@@ -71,15 +77,6 @@ p
     padding:0;
     margin:0;
 }
-
-
-
-/*  Wrapping element 
- Set some basic padding to keep content from hitting the edges */
-.body-content {
-   
-}
-
 .toppadding20 { padding-top: 20px; }
 .topmargin05 { margin-top: 5px; }
 
@@ -236,6 +233,13 @@ p
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
+
+
+.profilePage {
+    padding-top: 70px;
+}
+
+/* styles form different formats */
 
 
 .adminSlide {

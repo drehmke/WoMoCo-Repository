@@ -58,6 +58,7 @@ namespace WoMoCo.Services
             viewableActivity.Activity = activity.Activity;
             viewableActivity.Description = activity.Description;
             viewableActivity.UserName = activity.UserName;
+            viewableActivity.Address = activity.Address;
             foreach (ApplicationUser user in allUsers)
             {
                 if (user.UserName == activity.UserName)

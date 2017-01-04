@@ -1,10 +1,7 @@
 ﻿<div class="profileConnectionsList">
-    <!--<h3>Connections<small><a href="/search">Add</a></small></h3>-->
-    <div class="panel panel-default">
-        <div class="panel-heading" id="connectionsPannel">
-            <div class="connectionsHeader">
-                <center><h3>Connections</h3></center>
-                <center><small><a class="btn btn-success" href="/search">Add</a></small></center>
+        <div id="connectionsPannel">
+            <div class="heading">
+            <center><h4>Connections&nbsp;<small><a href="/activity/add"><span class="glyphicon glyphicon-plus text-success"></span></a></small></h4></center>
             </div>
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="c in controller.connections">
@@ -14,6 +11,5 @@
                 </li>
             </ul>
         </div>
-    </div>
-<a href="#" ng-click="controller.removeConnection(c.id)">x</a>
+<a href="#" ng-click="controller.removeConnection(c.id)"></a>
 </div>

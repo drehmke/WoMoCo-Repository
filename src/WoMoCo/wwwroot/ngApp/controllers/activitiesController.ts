@@ -62,6 +62,13 @@
             return this.ActivityResource.get({ id: id });
         }
 
+        public saveActivity() {
+            this.ActivityResource.save(this.activity).$promise.then(() => {
+                this.activity = null;
+                this.$state.go(`activityForum`);
+            });
+        }
+
         constructor(
             private $resource: angular.resource.IResourceService,
             private $state: ng.ui.IStateService,
@@ -99,7 +106,27 @@
             this.activity = this.GetActivity($stateParams[`id`]);
         }
     }
+     //User delete activity
+    export class ActivitiesControllerDelete {
+        public activity;
+        public ActivityResource;
 
+        public getActivity(id: number) {
+            this.activity = this.ActivityResource.get({ id: id });
+        }
+
+        public deleteActivity() {
+            this.ActivityResource.delete({ id: this.activity.id }).$promise.then(() => {
+                this.activity = null;
+                this.$state.go(`activityForum`);
+            });
+        }
+        constructor(private $resource: angular.resource.IResourceService, private $stateParams: ng.ui.IStateParamsService, private $state: ng.ui.IStateService) {
+            this.ActivityResource = $resource(`/api/activityForums/:id`);
+            this.getActivity($stateParams[`id`]);
+        }
+    }
+     //Admin delete activity
     export class ActivitiesControllerAdminDelete {
         public activity;
         public ActivityResource;

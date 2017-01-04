@@ -33,6 +33,7 @@
 /// <reference path="ngapp/services/accountservice.js" />
 /// <reference path="ngapp/services/activitiesservice.js" />
 /// <reference path="ngapp/services/calendareventsservice.js" />
+/// <reference path="ngapp/services/commservice.js" />
 /// <reference path="ngapp/services/connectionservice.js" />
 /// <reference path="ngapp/services/eventalarmservice.js" />
 /// <reference path="ngapp/services/interestservice.js" />
