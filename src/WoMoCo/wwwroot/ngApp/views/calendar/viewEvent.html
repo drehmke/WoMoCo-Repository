@@ -1,19 +1,23 @@
-﻿<div class="event">
-    <h2>{{controller.calendarEvent.name}}<small> on {{controller.calendarEvent.eventDate}}</small></h2>
-    <div><strong>Location:</strong> {{controller.calendarEvent.location}}</div>
-    <div class="actions">
-        <a ng-href="/admin/calendar/editEvent/{{controller.calendarEvent.id}}" class="btn btn-info">Edit Event</a>
-        <div class="shareEvents" ng-if="controller.calendarEvent.ownerName == account.getUserName()" >
-            <form>
-                <fieldset>
-                    <legend>Share This Event</legend>
-                    <select name="shareWithUserName" id="shareWithUserName" ng-model="controller.shareWithUserName">
-                        <option ng-repeat="user in controller.pulldownUsers" value="{{user.userName}}">{{user.userName}}</option>
-                    </select>
-                    <button class="btn btn-success" ng-click="controller.shareThisEvent()">Share!</button>
-                </fieldset>
-            </form>
-        </div>
+﻿﻿<div class="top-padding70">
+    <div class="col-md-6 col-md-offset-3">
+        <fieldset class="jumbotron">
+            <h3>Appointment Details</h3>
+            <h5><span class="glyphicon glyphicon-calendar"></span> {{controller.calendarEvent.name}}<small> on {{controller.calendarEvent.eventDate}}</small></h5>
+            <h5><span class="glyphicon glyphicon-map-marker"></span><strong>Location:</strong> {{controller.calendarEvent.location}}</h5>
+            <div class="actions">
+                <a ng-href="/calendar/editEvent/{{controller.calendarEvent.id}}" class="btn btn-info" ng-if="account.getUserName()==post.userName">Edit Event</a>
+                <div class="shareEvents" ng-if="controller.calendarEvent.ownerName == account.getUserName()">
+                    <form class="form form-inline">
+                        <fieldset>
+                            <legend>Share This Event</legend>
+                            <select name="shareWithUserName" class="form-control" id="shareWithUserName" ng-model="controller.shareWithUserName">
+                                <option ng-repeat="user in controller.pulldownUsers" value="{{user.userName}}">{{user.userName}}</option>
+                            </select>
+                            <button class="btn btn-success" ng-click="controller.shareThisEvent()">Share!</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </fieldset>
     </div>
-
 </div>

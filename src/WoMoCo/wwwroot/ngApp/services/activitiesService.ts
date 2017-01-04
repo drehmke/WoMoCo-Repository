@@ -5,7 +5,7 @@
 
         public getAllUsersActivities() {
             let temp = this.GetUserActivitiesResource.getMyActivities();
-            console.log(temp);
+            //console.log(temp);
             return temp;
         }
 

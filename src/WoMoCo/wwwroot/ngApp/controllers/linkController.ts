@@ -144,7 +144,7 @@
 
         public getLinks() {
             this.links = this.LinkResource.getAdminList();
-            console.log(this.links);
+            //console.log(this.links);
         }
         constructor(private $resource: angular.resource.IResourceService) {
             this.LinkResource = this.$resource(`/api/link`, null, {

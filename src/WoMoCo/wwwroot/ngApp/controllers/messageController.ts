@@ -38,7 +38,7 @@
             private MessageService: WoMoCo.Services.MessageService
         ) {
             this.comms = this.getAllComms();
-            console.log(this.comms);
+            //console.log(this.comms);
         }
     }
 }

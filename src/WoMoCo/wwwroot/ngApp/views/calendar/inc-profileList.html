@@ -1,0 +1,17 @@
+﻿<div class="calender profileList">
+    <div class="heading">
+        <center><h4>Appointments&nbsp;<small><a href="/calendar/addEvent"><span class="glyphicon glyphicon-plus text-success"></span></a></small></h4></center>
+    </div>
+    <ul class="list-group">
+        <li ng-repeat="event in controller.calenderEvents" class="list-group-item">
+            <div class="pull-right">
+                <a ng-href="/calendar/editEvent/{{event.id}}"><span class="glyphicon glyphicon-pencil text-info"></span></a>
+                <a href="#" ng-click="controller.removeCalenderEvent(event.id)"><span class="glyphicon glyphicon-trash text-danger"></span></a>
+            </div>
+            <a ng-href="/calendar/viewEvent/{{event.id}}">{{event.eventDateTime|date:'medium'}} <br />{{event.name}}</a>
+        </li>
+        <li ng-repeat="shared in controller.calenderEventsShared" class="list-group-item">
+            <a ng-href="/calendar/viewEvent/{{shared.id}}"><span class="glyphicon glyphicon-share"></span> {{shared.eventDateTime|date:'medium'}} <br />{{shared.name}}</a>
+        </li>
+    </ul>
+</div>

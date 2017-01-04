@@ -41,7 +41,6 @@ namespace WoMoCo {
                 templateUrl: '/ngApp/views/user/adminProPage.html',
                 controller: WoMoCo.Controllers.AdminController,
                 controllerAs: 'controller'
-
             })
             //=======home-login ==============================================>
             // ---- Delete this when we have a logged in home page
@@ -52,6 +51,7 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.HomeController,
                 controllerAs: 'controller'
             })
+
             // ========== Interest ===========================================>
             .state(`addInterest`, {
                 url: `/interest/add`,
@@ -128,8 +128,8 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             .state('calendarEvents', { // admin
-                url: `/admin/calendar/allEvents`,
-                templateUrl: `/ngApp/views/calendar/eventsList.html`,
+                url: `/admin/calendar/`,
+                templateUrl: `/ngApp/views/calendar/adminList.html`,
                 controller: WoMoCo.Controllers.CalendarEventsController,
                 controllerAs: `controller`
             })
@@ -139,21 +139,19 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.CalendarAddEventController,
                 controllerAs: `controller`
             })
-            // TODO: create admin view
+            // TODO: create admin view - v2
             .state(`calendarViewEvent`, {
                 url: `/calendar/viewEvent/:id`,
                 templateUrl: `/ngApp/views/calendar/viewEvent.html`,
                 controller: WoMoCo.Controllers.CalendarViewEventController,
                 controllerAs: `controller`
             })
-            // TODO: create admin view
             .state(`calendarEditEvent`, {
                 url: `/calendar/editEvent/:id`,
                 templateUrl: `/ngApp/views/calendar/editEvent.html`,
                 controller: WoMoCo.Controllers.CalendarEditEventController,
                 controllerAs: `controller`,
             })
-            // TODO: create admin view
             .state(`calendarDeleteEvent`, {
                 url: `/calendar/deleteEvent/:id`,
                 templateUrl: `/ngApp/views/calendar/deleteEvent.html`,
@@ -198,6 +196,12 @@ namespace WoMoCo {
                 url: `/activity/edit/:id`,
                 templateUrl: `/ngApp/views/activityForum/edit.html`,
                 controller: WoMoCo.Controllers.ActivitiesControllerEdit,
+                controllerAs: `controller`
+            })
+            .state(`deleteActivity`, {
+                url: `/activity/delete/:id`,
+                templateUrl: `ngApp/views/activityForum/delete.html`,
+                controller: WoMoCo.Controllers.ActivitiesControllerDelete,
                 controllerAs: `controller`
             })
             .state(`activityForumAdminList`, { // admin
@@ -246,7 +250,7 @@ namespace WoMoCo {
             })
             /*
             .state(`adminMessageList`, {
-                url: `/admin/message/adminList`,
+                url: `/message/adminList`,
                 templateUrl: `/ngApp/views/message/adminList.html`,
                 controller: WoMoCo.Controllers.MessageController,
                 controllerAs: `controller`

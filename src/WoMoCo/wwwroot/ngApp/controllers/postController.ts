@@ -53,7 +53,7 @@
                 }
             });
             this.posts = this.getPostByUsername();
-            console.log(this.posts);
+            //console.log(this.posts);
         }
     }
 
