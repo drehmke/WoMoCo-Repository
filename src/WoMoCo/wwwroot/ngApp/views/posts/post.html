@@ -1,31 +1,32 @@
-﻿<h1>Posts</h1>
-
+﻿<div class="postPage">
+    <h1>Posts</h1>
 <div>
     <span ng-show="account.isLoggedIn()"><a id="addpostbtn" ng-href="/post/add" class="btn btn-primary">Add Post</a></span>
 
-    <span ng-hide="!account.isLoggedIn()"><a id="login" href="/login"> </a></span>
-</div>
+
+        <span ng-hide="!account.isLoggedIn()"><a id="login" href="/login"> </a></span>
+    </div>
 
 
-<div class="talkingmoms">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-default" ng-repeat="post in controller.posts">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <center><h3 class="panel-title">{{post.title}}</h3></center>
-                    </div>
-                    <div class="panel-body">
-                        <center>{{post.discription}}</center>
+    <div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-default" ng-repeat="post in controller.posts">
+                    <div class="panel panel-default" id="publicPosts">
+                        <div class="panel-heading" id="publicPostsHeader">
+                            <center><h3 class="panel-title">{{post.title}}</h3></center>
+                        </div>
+                        <div class="panel-body">
+                            <center>{{post.discription}}</center>
 
-                        <div ng-if="account.getUserName()==post.userName">
-
+                            <div ng-if="account.getUserName()==post.userName">
                             <span> <a class="btn btn-info">Edit Post</a></span>
                             <span> <a class="btn btn-danger">Delete Post</a></span>
 
+                            </div>
+
+
                         </div>
-
-
                     </div>
                 </div>
             </div>
