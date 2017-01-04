@@ -85,6 +85,10 @@ p
 }
 .toppadding20 { padding-top: 20px; }
 .topmargin05 { margin-top: 5px; }
+.sidePadding15 {
+    padding-right: 15px;
+    padding-left: 15px;
+}
 
 /* ---- Homepage ---- */
 @media only screen and (min-device-width: 961px){
