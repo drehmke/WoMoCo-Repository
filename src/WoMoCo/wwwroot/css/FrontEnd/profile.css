@@ -1,12 +1,21 @@
-﻿#gravatarImg {
+﻿.profilePage {
+    background-color: #e4ae6e;
+}
+#gravatarImg {
     height: 175px;
     width:175px;
     /*margin-left: 50px;*/
     margin-top: 25px;
 }
 .leftProfileBar {
-    background-color: lightgray;
-    height: 600px;
+    background-color: white;
+    height: 750px;
+    margin: 2%;
+    margin-left:16%;
+    margin-top: 4%;
+    border-style: solid;
+    border-width: 4px;
+    border-color:#97a89e;
 }
 .profileName {
     /*margin-left: 30px;*/
@@ -19,22 +28,28 @@
     color: rgb(207, 22, 22)
 }
 .profileEditBtn {
-    margin-top: 30px;
+    margin-top: 150px;
 }
 .profileDeleteBtn {
     margin-top: 20px;
 }
-.profileInterest {
-    background-color: lightgray;
-    padding:8px;
+#profileInterest {
+    background-color: transparent;
     margin-bottom: 15px;
+    margin-top: 5%
+    /*background-color: white;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #97a89e;
+    padding:8px;
+    margin-bottom: 15px;*/
 }
 .glyphicon.glyphicon-trash {
     font-size: 13px;
     color:red;
 }
 .addInterestForm {
-    background-color: lightcyan;
+    background-color: transparent;
     height:118px;
 }
 #interestInput {
@@ -45,10 +60,11 @@
 }
 .interestList {
     position: relative;
-    bottom: 18px
+    bottom: 18px;
+    background-color: transparent;
 }
 .profileLink {
-    background-color: lightgray;
+    background-color: transparent;
     padding:8px
 }
 .linksList {
@@ -56,7 +72,7 @@
     bottom: 16px
 }
 .addLinkForm {
-    background-color: lightcyan;
+    background-color: transparent;
     height:150px;
 }
 #linkInput {
@@ -73,20 +89,40 @@
     bottom: 20px;
 }
 #connectionsPannel {
-    background-color: lightgray;
+    background-color: transparent;
     padding: 8px;
 }
 .profileActivity {
     word-wrap: break-word;
+
 }
 .messageenvelope {
     font-size: 200px;
-    color:lightgrey;
+    color:white;
 }
 #activitiesPlus {
     color: green;
 }
 .activitiesList {
-    background-color: lightgray;
+    background-color: transparent;
     padding: 8px;
+    margin-left: 4%;
+}
+#profileListItem {
+    background-color: transparent;
+}
+#littleBack {
+    background-color: white;
+    margin: 1%;
+    position: relative;
+    left: 8%;
+    border-style:solid;
+    border-width: 4px;
+    border-color: #97a89e;
+}
+.interestLinks {
+    margin-top: 3%;
+}
+.connectionsEvents {
+    margin-top: 3%
 }

@@ -1,7 +1,14 @@
 ﻿<div class="calender profileList">
-    <ul>
-        <li class="addEvent"><a href="/calendar/addEvent">Add An Event</a></li>
-        <li ng-repeat="event in controller.calendarEvents">
+    <div class="heading">
+        <center><h4>Calender Events&nbsp;<small><a href="/calendar/addEvent"><span class="glyphicon glyphicon-plus text-success"></span></a></small></h4></center>
+        <!--<h4>Calender Events</h4>-->
+    </div>
+    <ul class="list-group">
+        <li ng-repeat="event in controller.calenderEvents" class="list-group-item">
+            <div class="pull-right">
+                <a ng-href="/calendar/editEvent/{{event.id}}"><span class="glyphicon glyphicon-pencil text-info"></span></a>
+                <a href="#" ng-click="controller.removeCalenderEvent(event.id)"><span class="glyphicon glyphicon-trash text-danger"></span></a>
+            </div>
             <a ng-href="/calendar/viewEvent/{{event.id}}">{{event.name}}</a>
         </li>
     </ul>
