@@ -8,6 +8,7 @@
 body, html {
     height: 100%;
     padding-top: 20px;
+    margin-bottom: 175px;
 }
 
 .spirax { font-family: 'Spirax', cursive; }
@@ -44,6 +45,11 @@ p
 }
 
 .navbar-default .navbar-nav > li > a { color: #fff; }
+
+.container ui-view {
+    padding-right: 15px;
+    padding-left: 15px;
+}
 
 #glyphButton
 {
@@ -238,6 +244,8 @@ p
 .profilePage {
     padding-top: 70px;
 }
+
+.shareEvents { padding-top: 25px; }
 
 /* styles form different formats */
 

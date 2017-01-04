@@ -1,6 +1,8 @@
 
 ﻿.profilePage {
     background-color: #e4ae6e;
+    width: 100%;
+    margin: 0;
 }
 
 #gravatarImg {
