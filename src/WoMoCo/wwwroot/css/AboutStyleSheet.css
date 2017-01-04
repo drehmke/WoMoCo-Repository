@@ -1,8 +1,83 @@
-﻿body {background-color: #7ba790; 
-}
 #textBody{
 
     color:#b83a07;
     background-color:#e4ae6e;
 }
+.inboxPanel {
 
+   border-radius: 15px 50px;
+   border-width:5px;  
+    border-style:outset;
+    font-size: 1.25em;
+     width: 25%;
+     border: 1px solid #e4ae6e;
+     box-shadow: 5px 5px 5px #b6d6c0;
+     float: left;
+    margin: 5px;
+    
+ }
+ 
+ .inboxPanelGlyph { font-size: 20px; } 
+ .inboxPanel .panel-heading a { color: #000; }
+ .inboxPanel .panel-heading strong { color: #000; }
+ .inboxPanel .panel-default { padding: 5px; font-size: 0.75em; }
+ .inboxPanel .panel-default h4 { border-bottom: 1px solid #b83a07; }
+
+ .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #7ba790;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition:.5s ease;
+}
+.bioPic:hover .overlay {
+  width: 100%;
+  opacity: 0.75;
+}
+
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}

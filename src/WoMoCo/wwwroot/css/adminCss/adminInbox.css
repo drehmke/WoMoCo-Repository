@@ -1,0 +1,13 @@
+﻿
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background: #7ba790 0%;
+}
+
+.alert-info {
+        color: #f9f9f9;
+}
+
+.btn {
+    background-color: #e4ae6e;
+    color:black;
+}

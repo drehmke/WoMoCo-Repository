@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Security.Principal;
 using System.Threading.Tasks;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
+using WoMoCo.ViewModels.ActivityForum;
 
 namespace WoMoCo.Services
 {
@@ -19,14 +21,51 @@ namespace WoMoCo.Services
             _manager = manager;
         }
 
-        public IList<ActivityForum> GetAllActivities()
+        public IList<ActivityForumAdminView> GetAllActivities()
         {
-            return _repo.Query<ActivityForum>().ToList();
+            IList<ActivityForum> allActivities = _repo.Query<ActivityForum>().ToList();
+            IList<ActivityForumAdminView> listableActivities = new List<ActivityForumAdminView>();
+            IList<ApplicationUser> allUsers = _repo.Query<ApplicationUser>().ToList();
+
+            foreach ( ActivityForum activity in allActivities)
+            {
+                ActivityForumAdminView listable = new ActivityForumAdminView();
+                listable.Id = activity.Id;
+                listable.Location = activity.Location;
+                listable.Activity = activity.Activity;
+                listable.Description = activity.Description;
+                listable.UserName = activity.UserName;
+                foreach(ApplicationUser user in allUsers)
+                {
+                    if(user.UserName == activity.UserName)
+                    {
+                        listable.UserId = user.Id;
+                    }
+                }
+                listableActivities.Add(listable);
+            }
+            return listableActivities;
         }
-        public ActivityForum GetActivityById(int id)
+        public ActivityForumAdminView GetActivityById(int id)
         {
-            return _repo.Query<ActivityForum>().Where(a => a.Id == id).FirstOrDefault();
+            IList<ApplicationUser> allUsers = _repo.Query<ApplicationUser>().ToList();
+            ActivityForum activity = _repo.Query<ActivityForum>().Where(a => a.Id == id).FirstOrDefault();
+            ActivityForumAdminView viewableActivity = new ActivityForumAdminView();
+            viewableActivity.Id = activity.Id;
+            viewableActivity.Location = activity.Location;
+            viewableActivity.Activity = activity.Activity;
+            viewableActivity.Description = activity.Description;
+            viewableActivity.UserName = activity.UserName;
+            foreach(ApplicationUser user in allUsers)
+            {
+                if(user.UserName == activity.UserName)
+                {
+                    viewableActivity.UserId = user.Id;
+                }
+            }
+            return viewableActivity;
         }
+
         public IList<ActivityForum> GetByUsername(string uid)
         {
             ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.Id == uid).FirstOrDefault();
@@ -80,6 +119,7 @@ namespace WoMoCo.Services
                         Description = a.Description
                     }).ToList();
         }
+
         public ActivityForumService(IGenericRepository repo)
         {
             this._repo = repo;
@@ -89,7 +129,5 @@ namespace WoMoCo.Services
             var data = _repo.Query<ApplicationUser>().Where(u => u.UserName == userName).FirstOrDefault();
             return data;
         }
-
-        
     }
 }

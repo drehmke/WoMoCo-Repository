@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Models;
 using WoMoCo.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using WoMoCo.Services;
+using Microsoft.AspNetCore.Authorization;
+using WoMoCo.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,14 +22,22 @@ namespace WoMoCo.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Comm> Get()
+        [Authorize(Policy = "AdminOnly")]
+        public IEnumerable<CommViewModel> Get()
         {
             return _service.GetAllComms();
         }
 
         // GET a comm by ID
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
+        {
+            return Ok(_service.GetCommById(id));
+        }
+        [HttpGet("AdminGet/{id}")]
+        [Authorize(Policy = "AdminOnly")]
+        public IActionResult AdminGet(int id)
         {
             return Ok(_service.GetCommById(id));
         }
@@ -38,25 +49,35 @@ namespace WoMoCo.Controllers
             int count = _service.GetCountCurrentUserNewMessages(uid);
             return count;
         }
-
+        [HttpGet("GetCommsByUserName")]
+        [Authorize]
+        public IEnumerable<CommViewModel> GetCommsByUserName()
+        {
+            string uid = _manager.GetUserName(User);
+            IList<CommViewModel> commView = _service.GetCommsByUserName(uid);          
+            return commView;
+        }
         //POST api/values
-       [HttpPost]
+        [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]Comm comm)
         {
             string uid = _manager.GetUserId(User);
             _service.SaveComm(comm, uid);
             return Ok(comm);
-        }
-
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public IActionResult Put(int id, [FromBody]string value)
-        //{
-        //}
+        }      
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
+        {
+            _service.DeleteComm(id);
+            return Ok();
+        }
+        [HttpDelete("AdminGet/{id}")]
+        [Authorize(Policy = "AdminOnly")]
+        public IActionResult AdminDelete(int id)
         {
             _service.DeleteComm(id);
             return Ok();

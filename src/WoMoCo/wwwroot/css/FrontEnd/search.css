@@ -1,1 +1,9 @@
-﻿
+
+﻿body {
+}
+#searchPanel {
+    margin-top: 25px;
+}
+.searchPanel {
+    margin-top: 10px;
+}

@@ -1,0 +1,14 @@
+﻿
+    <div class="list-group">
+        <div class="profileActivityList">
+            <div class="list-group-item-success"><h3>Monitor Activities<small><a href="/activity/add">Add</a></small></h3></div>
+            <ul>
+                <li class="list-group-item" ng-repeat="a in controller.activities">
+                    {{a.location}} -
+                    <a class="list-group-item" href="/activity/edit/{{a.id}}">{{a.activity}}</a> -
+                    {{a.description}}
+
+                </li>
+            </ul>
+        </div>
+    </div>

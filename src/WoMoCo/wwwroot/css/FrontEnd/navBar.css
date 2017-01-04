@@ -1,6 +1,7 @@
 ﻿body {
 }
-#navBar{
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
 }
 #logoLetters{
     width:175px;
@@ -11,6 +12,4 @@
 #dropdownMenu {
     color:black
 }
-#Search{
-    color: white;
-}
+.

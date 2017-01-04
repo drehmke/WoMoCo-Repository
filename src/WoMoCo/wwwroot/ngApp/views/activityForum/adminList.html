@@ -1,0 +1,30 @@
+﻿<div id="actvitiesPanel" class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading row">
+        <div class="col-md-6">
+            <h2 class="spirax colorDarkRed">Activities Admin</h2>
+            <!--<a href="/activity/add" type="button" class="btn btn-primary">Post</a>-->
+        </div>
+        <div class="col-md-6 form-inline">
+            <div class="input-group  admin_filter_container">
+                <input id="search" class="form-control" name="search" type="text" placeholder="Search for an activity" ng-model="searchTerm" />
+            </div>          
+        </div>
+    </div>
+    <div class="panel-body">
+            <div class="activity-cards" ng-repeat="a in controller.activities | filter: searchTerm">
+                <div class="panel">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-map-marker"></span>  <strong>{{a.location}} - {{a.activity}}</strong></div>
+                    <div class="panel-body">
+                        {{a.description}}
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <em><span class="glyphicon glyphicon-user"></span> {{a.userName}}</em>
+                        <div class="pull-right">
+                            <a ng-href="/admin/activity/edit/{{a.id}}" class="admin-edit"><span class="glyphicon glyphicon-pencil text-info"></span></a>
+                            <a ng-href="/admin/activity/delete/{{a.id}}" ><span class="glyphicon glyphicon-trash text-danger"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

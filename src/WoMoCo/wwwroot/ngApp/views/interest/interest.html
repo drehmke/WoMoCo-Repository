@@ -1,18 +1,29 @@
-﻿<h2>Interest</h2>
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>   
-        </tr>
-    </thead>
-    <tbody>
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading row">
+        <div class="col-md-6">
+            <h2 class="spirax colorDarkRed">Interest Admin</h2>
+        </div>
+        <div class="col-md-6 form-inline">
+            <div class="input-group  admin_filter_container">
+                <input id="search" class="form-control" name="search" type="text" placeholder="Search for a user's interest'" ng-model="searchTerm" />
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <!--admin doesn't need to add right now <a href="/interest/add" class="btn btn-success"> Add Inerest </a>-->
+        <div class="panel interest-cards" ng-repeat="interest in controller.interest | filter: searchTerm">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-user"></span> {{interest.userName}}
+            </div>
+            <div class="panel-body">
+                {{interest.name}}
+            </div>
+            <div class="panel-footer text-right">
+                <a ng-href="/admin/interest/edit/{{interest.id}}" class="admin-edit"><span class="text-info glyphicon glyphicon-pencil"></span></a> 
+                <a ng-href="/admin/interest/delete/{{interest.id}}"><span class="text-danger glyphicon glyphicon-trash"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <tr ng-repeat="interest in controller.interest">
-            <td>{{interest.name}}</td>
-            <td><a ng-href="/editInterest/{{interest.id}}" class="btn btn-primary"> Edit</a></td>
-            <td><a ng-href="/deleteInterest/{{interest.id}}" class="btn btn-danger">Delete</a></td>
-        </tr>
-    </tbody>
 
-</table>
-<a href="/addInterest" class="btn btn-success"> Add Inerest </a>

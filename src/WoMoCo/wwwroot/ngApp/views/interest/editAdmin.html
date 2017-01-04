@@ -1,0 +1,14 @@
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading row">
+        <h2 class="spirax colorDarkRed">Edit An Interest</h2>
+    </div>
+    <div class="panel-body">
+        <form ng-submit="controller.saveInterest()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" class="form-control" placeholder="Interest" ng-model="controller.interest.name" />
+            </div>
+            <input type="submit" class="btn btn-primary" value="Edit Interest" />
+        </form>
+    </div>
+</div>

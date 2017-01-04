@@ -1,0 +1,23 @@
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading">
+        <h2 class="spirax colorDarkRed">Update Activity</h2>
+    </div>
+    <div class="panel-body">
+        <form ng-submit="controller.saveActivity()">
+            <div class="form-group">
+                <label for="location">Zip Code</label>
+                <input id="location" name="location" class="form-control" placeholder="Zip Code" ng-model="controller.activity.location" />
+            </div>
+            <div class="form-group">
+                <label for="activity">Activity</label>
+                <input id="activity" name="activity" class="form-control" placeholder="Activity" ng-model="controller.activity.activity" />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="5" class="form-control" ng-model="controller.activity.description" placeholder="Description"></textarea>
+            </div>
+            <br />
+            <input type="submit" value="Update Activity" class="btn btn-primary" />
+        </form>
+    </div>
+</div>

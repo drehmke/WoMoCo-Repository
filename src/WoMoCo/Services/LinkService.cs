@@ -1,12 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using WoMoCo.Data.Migrations;
 using WoMoCo.Interfaces;
 using WoMoCo.Models;
-using WoMoCo.Services;
 using WoMoCo.ViewModels.Links;
 
 namespace WoMoCo.Services
@@ -14,9 +10,23 @@ namespace WoMoCo.Services
     public class LinkService : ILinkService
     {
         private IGenericRepository _repo;
-        public IList<Link>GetAllLinks()
+        public IList<LinkForAdmin>GetAllLinks()
         {
-            return _repo.Query<Link>().ToList();
+            IList<Link> allLinks = _repo.Query<Link>().Include( l => l.User ).ToList();
+            IList<LinkForAdmin> listableLinks = new List<LinkForAdmin>();
+            foreach(Link link in allLinks)
+            {
+                LinkForAdmin listable = new LinkForAdmin
+                {
+                    Id = link.Id,
+                    Name = link.Name,
+                    Url = link.Url,
+                    LinkType = link.LinkType,
+                    UserName = link.User.UserName
+                };
+                listableLinks.Add(listable);
+            }
+            return listableLinks;
         }
 
         public IList<AdminLinkList> GetLinks()
@@ -42,6 +52,19 @@ namespace WoMoCo.Services
         {
           return _repo.Query<Link>().Where(l => l.Id == id).FirstOrDefault();
         }
+        public LinkForAdmin GetAdminLinkById(int id)
+        {
+            Link link = _repo.Query<Link>().Where(l => l.Id == id).Include( l => l.User).FirstOrDefault();
+            LinkForAdmin listable = new LinkForAdmin
+            {
+                Id = link.Id,
+                Name = link.Name,
+                Url = link.Url,
+                LinkType = link.LinkType,
+                UserName = link.User.UserName
+            };
+            return listable;
+        }
 
         public IList<Link> GetLinksByUser(string uid)
         {
@@ -50,14 +73,17 @@ namespace WoMoCo.Services
             IList<Link> listableLinks = new List<Link>();
             foreach(Link link in userLinks)
             {
-                Link listable = new Link
+                if( link.User.Id == uid)
                 {
-                    Id = link.Id,
-                    Name = link.Name,
-                    Url = link.Url,
-                    LinkType = link.LinkType
-                };
-                listableLinks.Add(listable);
+                    Link listable = new Link
+                    {
+                        Id = link.Id,
+                        Name = link.Name,
+                        Url = link.Url,
+                        LinkType = link.LinkType
+                    };
+                    listableLinks.Add(listable);
+                }
             }
             return listableLinks;
         }
@@ -76,6 +102,21 @@ namespace WoMoCo.Services
             link.User = user;
             _repo.SaveChanges();
         }
+        public void AdminUpdate(LinkForAdmin link)
+        {
+            // Convert this back to a normal Link object for saving ...
+            Link linkToSave = new Link
+            {
+                Id = link.Id,
+                Name = link.Name,
+                Url = link.Url,
+                LinkType = link.LinkType
+            };
+            // pull the user info to keep that relationship
+            ApplicationUser user = _repo.Query<ApplicationUser>().Where(u => u.UserName == link.UserName).FirstOrDefault();
+            linkToSave.User = user;
+            _repo.Update(linkToSave);
+        }
 
         public List<Link>  SearchByID(string searchTerm)
         {
@@ -88,7 +129,7 @@ namespace WoMoCo.Services
                         User = l.User,
                     }).ToList();
         }
-        public void DeleteList(int id)
+        public void DeleteLink(int id)
         {
             Link linkTODelete = _repo.Query<Link>().Where(l => l.Id == id).FirstOrDefault();
             _repo.Delete(linkTODelete);

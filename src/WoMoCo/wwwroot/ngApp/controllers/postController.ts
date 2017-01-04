@@ -16,6 +16,21 @@
         }
     }
 
+    // admin getAll
+    export class PostAdminController {
+        public posts;
+
+        public getPost() {
+            return this.PostService.getAllPostsAdmin();
+        }
+
+        constructor(
+            private PostService: WoMoCo.Services.PostService
+        ) {
+            this.posts = this.getPost();
+        }
+    }
+
     //get post by username
     export class GetByUsernameController {
         public posts;
@@ -38,7 +53,7 @@
                 }
             });
             this.posts = this.getPostByUsername();
-            console.log(this.posts);
+            //console.log(this.posts);
         }
     }
 
@@ -83,8 +98,36 @@
             public $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService) {
 
-            this.PostResource = this.$resource('/api/posts/:id')
-            this.getPostById($stateParams['id'])
+            this.PostResource = this.$resource('/api/posts/:id');
+            this.getPostById($stateParams['id']);
+        }
+    }
+
+    // admin edit post controller
+    export class EditPostAdminController {
+        public post;
+        public PostGetResource;
+        public PostSaveResource;
+
+        public getPostById(id: number) {
+            return this.PostGetResource.get({ id: id });
+        }
+        public savePost() {
+            this.PostSaveResource.save(this.post).$promise
+                .then(() => {
+                    this.post = null;
+                    this.$state.go(`postAdmin`);
+                });
+        }
+
+        constructor(
+            private $resource: angular.resource.IResourceService,
+            private $stateParams: ng.ui.IStateParamsService,
+            private $state: ng.ui.IStateService
+        ) {
+            this.PostGetResource = $resource(`/api/posts/AdminGetPost/:id`);
+            this.PostSaveResource = $resource(`/api/posts/AdminPost/`);
+            this.post = this.getPostById($stateParams[`id`]);
         }
     }
 
@@ -112,4 +155,7 @@
             this.getPost($stateParams['id'])
         }
     }
+
+    // admin delete in in the AdminPostDeleteController.ts file because it
+    // didn't work in here for some reason.
 }

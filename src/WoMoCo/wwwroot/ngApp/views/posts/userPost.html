@@ -1,0 +1,26 @@
+﻿<br />
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default" ng-repeat="post in controller.posts">
+                <div class="panel panel-default editingpost">
+                    <div class="panel-heading" id="postpaneltitle">
+                        <center><h3 class="panel-title">{{post.title}}</h3></center>
+                    </div>
+                    <div class="panel-body editbody">
+                        <center>{{post.discription}}</center>
+                        <br />
+                        <center>
+                            <a id="posteditingbutton" ng-href="/editPost/{{post.id}}" class="btn">Edit Post</a> &nbsp;
+                            <a id="postdeletebutton" ng-href="/deletePost/{{post.id}}" class="btn">Delete Post</a>
+                        </center>
+                    </div>
+                </div>
+                <!--<center>
+                <a id="posteditingbutton" ng-href="/editPost/{{post.id}}" class="btn">Edit Post</a> &nbsp;
+                <a id="postdeletebutton" ng-href="/deletePost/{{post.id}}" class="btn">Delete Post</a>
+            </center>-->
+            </div>
+        </div>
+    </div>
+</div>

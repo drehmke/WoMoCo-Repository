@@ -1,19 +1,25 @@
-﻿<h2>Activities</h2>
-<div  class="activityFormPage">
-    <form ng-submit="controller.saveActivity()">
-        <div>
-            <label id="activityLabel">Zip Code</label>
-            <input placeholder="Zip Code" ng-model="controller.activity.location" />
-        </div>
-        <div>
-            <label id="activityLabel">Activity</label>
-            <input placeholder="Activity" ng-model="controller.activity.activity" />
-        </div>
-        <div>
-            <label id="activityLabel">Description</label>
-            <textarea rows="5" cols="20" type="text" ng-model="controller.activity.description" placeholder="Description"></textarea>
-        </div>
-        <br />
-        <input type="submit" value="Post Activity" />
-    </form>
+<div class="col-md-6 col-md-offset-3">
+    <fieldset class="jumbotron">
+        <h2>Activities</h2>
+        <form ng-submit="controller.saveActivity()">
+            <div>
+                <label>Zip Code</label>
+                <input class="control-label form-control container" placeholder="Zip Code" ng-model="controller.activity.location" />
+                <br />
+                <label>Street Address</label>
+                <textarea class="control-label form-control container" placeholder="Street Address" rows="5" cols="20" type="text" ng-model="controller.activity.address"></textarea>
+            </div>
+            <div>
+                <label>Activity</label>
+                <input class="contorl-label form-control container" placeholder="Activity" ng-model="controller.activity.activity" />
+            </div>
+            <div>
+                <label>Description</label>
+                <textarea class="control-label form-control container" rows="5" cols="20" type="text" ng-model="controller.activity.description" placeholder="Description"></textarea>
+            </div>
+            <br />
+            <input class="btn btn-default" type="submit" value="Post Activity" />
+        </form>
+    </fieldset>
+>>>>>>> master
 </div>

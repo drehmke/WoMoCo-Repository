@@ -6,7 +6,7 @@
         public getBabySitters() {
 
             this.babySitters = this.BabySitterResource.query();
-            console.log(this.babySitters);
+           // console.log(this.babySitters);
         }
         constructor(private $resource:
             angular.resource.IResourceService) {
