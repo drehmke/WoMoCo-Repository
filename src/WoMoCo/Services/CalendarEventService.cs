@@ -137,7 +137,33 @@ namespace WoMoCo.Services
 
             return editablecalendarEvent;
         }
-        
+
+        public IList<FullListCalendarEvents> GetAdminFirstFive()
+        {
+            IEnumerable<CalendarEvent> firstFive = _repo.Query<CalendarEvent>().Include(c => c.EventOwner).ToList().Take(5);
+            IList<FullListCalendarEvents> listableFive = new List<FullListCalendarEvents>();
+            foreach(CalendarEvent calEvent in firstFive )
+            {
+                FullListCalendarEvents listable = new FullListCalendarEvents();
+                listable.Id = calEvent.Id;
+                listable.Name = calEvent.Name;
+                listable.EventDateTime = calEvent.EventDateTime;
+                listable.CreatedDate = calEvent.CreatedDate;
+                listable.Location = calEvent.Location;
+                listable.EventType = calEvent.EventType;
+                listable.isActive = calEvent.isActive;
+                listable.OwnerName = calEvent.EventOwner.UserName;
+                if( calEvent.EventAlarms != null)
+                {
+                    listable.AlarmCount = calEvent.EventAlarms.Count();
+                }
+                
+                listableFive.Add(listable);
+            }
+            return listableFive;
+        }
+
+
         public void SaveCalendarEvent(CalendarEvent calendarEventToSave, string uid)
         {
             calendarEventToSave.isActive = true;
