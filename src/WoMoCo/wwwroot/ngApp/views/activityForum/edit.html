@@ -1,19 +1,25 @@
-﻿<div>
-    <h2>Activities</h2>
-    <form ng-submit="controller.saveActivity()">
-        <div>
-            <label>Zip Code</label>
-            <input placeholder="Zip Code" ng-model="controller.activity.location" />
+﻿<div class="top-padding70">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="jumbotron">
+            <h2>Edit Activity</h2>
+            <form ng-submit="controller.saveActivity()">
+                <div class="form-group">
+                    <label>Zip Code</label>
+                    <input class="control-label form-control container" placeholder="Zip Code" ng-model="controller.activity.location" />
+                    <label>Street Address</label>
+                    <textarea class="control-label form-control container" placeholder="Street Address" rows="5" cols="20" type="text" ng-model="controller.activity.address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Activity</label>
+                    <input class="control-label form-control container" placeholder="Activity" ng-model="controller.activity.activity" />
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="control-label form-control container" rows="5" cols="20" type="text" ng-model="controller.activity.description" placeholder="Description"></textarea>
+                </div>
+                <br />
+                <input class="btn btn-default" type="submit" value="Update Activity" />
+            </form>
         </div>
-        <div>
-            <label>Activity</label>
-            <input placeholder="Activity" ng-model="controller.activity.activity" />
-        </div>
-        <div>
-            <label>Description</label>
-            <textarea rows="5" cols="20" type="text" ng-model="controller.activity.description" placeholder="Description"></textarea>
-        </div>
-        <br />
-        <input type="submit" value="Update Activity" />
-    </form>
+    </div>
 </div>

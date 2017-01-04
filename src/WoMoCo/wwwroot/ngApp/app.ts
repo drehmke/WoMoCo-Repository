@@ -179,6 +179,12 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.ActivitiesControllerEdit,
                 controllerAs: `controller`
             })
+            .state(`deleteActivity`, {
+                url: `/activity/delete/:id`,
+                templateUrl: `ngApp/views/activityForum/delete.html`,
+                controller: WoMoCo.Controllers.ActivitiesControllerDelete,
+                controllerAs: `controller`
+            })
             .state(`activityForumAdminList`, { // admin
                 url: `/admin/activity/list`,
                 templateUrl: `/ngApp/views/activityForum/adminList.html`,

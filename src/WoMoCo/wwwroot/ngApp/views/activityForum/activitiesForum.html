@@ -1,29 +1,28 @@
 ﻿﻿<div class="top-padding70">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-6 col-md-offset-3">
         <div>
             <a href="/activity/add" class="btn btn-primary">Post</a>
         </div>
         <br />
         <div class="jumbotron" ng-repeat="a in controller.activities">
             <div class="media-left">
-                <img class="img-circle" id="gravatarImg" ng-src="https://www.gravatar.com/avatar/{{a.userImage}}?r=g&d=identicon" height="10" width="10" />
-                <center><h5>{{a.userName}}</h5></center>
+                <center>
+                    <img class="img-circle media-object activityProfileImg" ng-src="https://www.gravatar.com/avatar/{{a.userImage}}?r=g&d=identicon" />
+                    <h5>{{a.userName}}</h5>
+                </center>
             </div>
             <div class="media-body mediaBodyCenter">
                 <center>
                     <h4 class="media-heading">{{a.activity}}</h4>
-                    <div>{{a.description}}</div>
-                    <div>{{a.address}}</div>
-                    <div>{{a.location}}</div>
+                    {{a.description}}
+                    <br />
+                    {{a.address}}
+                    {{a.location}}
                 </center>
             </div>
-            <div class="media-body">
-                <div class="media-right">
-                    <a href="/editActivity"><span class="glyphicon glyphicon-pencil"></span></a>
-                </div>
-                <div class="media-right">
-                    <a href="/deleteActivity"><span class="glyphicon glyphicon-trash"></span></a>
-                </div>
+            <div ng-show="account.getUserName()==a.userName" class="media-bottom">
+                <a href="/activity/edit/{{a.id}}"><span class="glyphicon glyphicon-pencil media-right"></span></a>
+                <a href="/activity/delete/{{a.id}}"><span class="glyphicon glyphicon-trash media-right"></span></a>
             </div>
         </div>
     </div>
