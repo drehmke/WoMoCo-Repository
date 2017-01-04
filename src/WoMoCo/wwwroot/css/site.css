@@ -18,6 +18,12 @@ h1
 {
 }
 
+.jumbotron {
+    border-style: ridge;
+    border-width: 2px;
+    border-color: #e4ae6e;
+}
+
 .shadow 
 {
     box-shadow: 10px 10px 5px grey;
