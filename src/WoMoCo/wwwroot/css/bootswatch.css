@@ -33,6 +33,7 @@ nav,
 section,
 summary {
   display: block;
+
 }
 audio,
 canvas,
@@ -5484,6 +5485,7 @@ button.list-group-item-danger.active:focus {
   color: inherit;
 }
 .panel-footer {
+    
   padding: 10px 15px;
   background-color: #f5f5f5;
   border-top: 1px solid #dddddd;
