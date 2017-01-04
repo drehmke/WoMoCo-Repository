@@ -250,7 +250,7 @@ p
     height: 50px;
 }
 
-.activity-cards, .interest-cards, .social-cards, .message-cards, .post-cards {
+.activity-cards, .interest-cards, .social-cards, .message-cards, .post-cards, .appointment-cards {
     border: 1px dashed #7ba790;
     background-color: #fdfdfd;
     margin: 5px;

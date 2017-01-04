@@ -132,3 +132,24 @@ thead {
 .glyphicon-trash{
     padding-right: 10px;
 }
+
+toppadding70 { padding-top: 70px; }
+
+.admin .activity-cards, 
+.admin .interest-cards, 
+.admin .social-cards, 
+.admin .message-cards, 
+.admin .post-cards, 
+.admin .appointment-cards {
+    border: 1px dashed #b70100;
+    background-color: #fdfdfd;
+    margin: 5px;
+    width: 300px;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.admin .appointment-cards {
+    width: 350px;
+    min-width: 200px;
+}
