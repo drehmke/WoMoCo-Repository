@@ -1,0 +1,21 @@
+﻿<div class="calender adminDash">
+    <h3>User Appointments</h3>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="event in controller.calendarEvents">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <span class="glyphicon glyphicon-calendar"></span> {{event.name}} on {{event.eventDateTime | date: 'medium'}} <br />
+                    <span class="glyphicon glyphicon-map-marker"></span> <strong>Location: </strong> {{event.location}}<br />
+                    <span class="glyphicon glyphicon-user"></span> <strong>Created By: </strong> {{event.ownerName}}
+                </div>
+                <div class="col-sm-1">
+                    <a href="#" ng-click="controller.removeEvent(event.id)"><span class="glyphicon glyphicon-trash text-danger"></span></a>
+                </div>
+            </div>
+            
+        </li>
+    </ul>
+    <div class="text-right">
+        <a href="/admin/calendar/">See more <span class="glyphicon glyphicon-menu-right"></span></a>
+    </div>
+</div>

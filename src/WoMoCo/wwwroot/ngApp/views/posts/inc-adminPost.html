@@ -1,24 +1,12 @@
-﻿<!--<div class="list-group-item-success adminPostHead">
-    <h3>Monitor Posts</h3>
-    <a id="addpostbtn" ng-href="/post/add" class="btn">Add Post</a>
-    <div class="list-group adminPosts" ng-repeat="post in controller.posts">
-        <div class="list-group-item adminPostsItem">
-            {{post.title}}<br />
-            {{post.discription}}
-            <button ng-click="controller.deletePost(post.id)" class="glyphicon glyphicon-trash"></button>
-        </div>
-    </div>
-</div>-->
-
 ﻿<div class="adminDash posts">
     <h3>Post Management</h3>
     <div class="panel-group " id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default" ng-repeat="post in controller.posts">
             <div class="panel-heading" role="tab" id="post{{post.id}}">
                 <h4 class="panel-title">
-                    {{post.title}} <span class="small">by <em>{{post.userName}}</em></span>
-                    <a class="collapsed pull-right" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePost{{post.id}}" aria-expanded="false" aria-controls="collapsePost{{post.id}}">
-                        <span class="glyphicon glyphicon-menu-down"></span>
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePost{{post.id}}" aria-expanded="false" aria-controls="collapsePost{{post.id}}">
+                        {{post.title}} <span class="small">by <em>{{post.userNamespanem></span>
+                        <span class="glyphicon glyphicon-menu-down pull-right"></span>
                     </a>
                 </h4>
             </div>

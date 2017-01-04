@@ -80,13 +80,6 @@ p
    
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide  */
-input,
-textarea,
-select {
-    width: auto;
-}
-
 .toppadding20 { padding-top: 20px; }
 .topmargin05 { margin-top: 5px; }
 
@@ -257,7 +250,7 @@ select {
     height: 50px;
 }
 
-.activity-cards, .interest-cards, .social-cards, .message-cards, .post-cards {
+.activity-cards, .interest-cards, .social-cards, .message-cards, .post-cards, .appointment-cards {
     border: 1px dashed #7ba790;
     background-color: #fdfdfd;
     margin: 5px;

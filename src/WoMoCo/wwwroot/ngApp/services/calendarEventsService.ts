@@ -4,6 +4,7 @@
         private getEventsByUserResource;
         private getPullDownResource;
         private getSharedEventsResource;
+        private getCalendarAdminFiveResource;
 
         public GetAllCalendarEvents() {
             return this.$resource('/api/calendarEvents').query();
@@ -36,6 +37,11 @@
             return tempResults;
         }
 
+        public GetFirstFiveForAdminPage() {
+            let tempResults = this.getCalendarAdminFiveResource.getAdminFive();
+            return tempResults;
+        }
+
         public ShareThisEvent(shareCalenderEvent) {
             // Currently not used - the Controller has the API point
             return this.$resource(`/api/calenderEvents/ShareEvent`).save(shareCalenderEvent);
@@ -49,7 +55,7 @@
             // I am returning this because the $promise on the controller side needs something returned
             return this.$resource(`/api/calendarEvents/:id`).delete({ id: id });
         }
-        
+
         constructor(
             private $resource: angular.resource.IResourceService
         ) {
@@ -71,6 +77,13 @@
                 getUsersForPulldown: {
                     method: `GET`,
                     url: `/api/users/GetUsersForPulldown`,
+                    isArray: true
+                }
+            });
+            this.getCalendarAdminFiveResource = $resource(`/api/calenderEvents,`, null, {
+                getAdminFive: {
+                    method: `GET`,
+                    url: `/api/calendarEvents/GetAdminFirstFive`,
                     isArray: true
                 }
             });

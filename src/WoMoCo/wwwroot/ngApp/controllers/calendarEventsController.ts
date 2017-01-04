@@ -96,6 +96,13 @@
             return this.calendarEventService.GetAllCalendarEvents();
         }
 
+        public removeEvent(id: number) {
+            this.calendarEventService.DeleteCalendarEvent(id).$promise
+                .then(() => {
+                    this.calendarEvents = this.getAllCalendarEvents();
+                });
+        }
+
         constructor(private calendarEventService: WoMoCo.Services.CalendarEventService) {
             this.calendarEvents = this.getAllCalendarEvents();
         }

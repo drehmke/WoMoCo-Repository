@@ -41,6 +41,30 @@ namespace WoMoCo.Services
 
             return listableComms;
         }
+
+        public IEnumerable<CommViewModel> GetAdminFirstFive()
+        {
+            IEnumerable<Comm> firstFive = _repo.Query<Comm>().Include(c => c.SendingUser).ToList().Take(5);
+            IList<CommViewModel> listableFive = new List<CommViewModel>();
+            foreach(Comm comm in firstFive)
+            {
+                CommViewModel listable = new CommViewModel
+                {
+                    Id = comm.Id,
+                    RecId = comm.RecId,
+                    SendingUser = comm.SendingUser.UserName,
+                    Subject = comm.Subject,
+                    DateSent = comm.DateSent,
+                    Msg = comm.Msg,
+                    Status = comm.Status,
+                    CommType = comm.CommType
+                };
+                listableFive.Add(listable);
+            }
+
+            return listableFive;
+        }
+
         public Comm GetCommById(int id)
         {
 

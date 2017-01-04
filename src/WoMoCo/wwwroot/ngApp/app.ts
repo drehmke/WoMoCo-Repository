@@ -128,8 +128,8 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             .state('calendarEvents', { // admin
-                url: `/admin/calendar/allEvents`,
-                templateUrl: `/ngApp/views/calendar/eventsList.html`,
+                url: `/admin/calendar/`,
+                templateUrl: `/ngApp/views/calendar/adminList.html`,
                 controller: WoMoCo.Controllers.CalendarEventsController,
                 controllerAs: `controller`
             })
@@ -139,21 +139,19 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.CalendarAddEventController,
                 controllerAs: `controller`
             })
-            // TODO: create admin view
+            // TODO: create admin view - v2
             .state(`calendarViewEvent`, {
                 url: `/calendar/viewEvent/:id`,
                 templateUrl: `/ngApp/views/calendar/viewEvent.html`,
                 controller: WoMoCo.Controllers.CalendarViewEventController,
                 controllerAs: `controller`
             })
-            // TODO: create admin view
             .state(`calendarEditEvent`, {
                 url: `/calendar/editEvent/:id`,
                 templateUrl: `/ngApp/views/calendar/editEvent.html`,
                 controller: WoMoCo.Controllers.CalendarEditEventController,
                 controllerAs: `controller`,
             })
-            // TODO: create admin view
             .state(`calendarDeleteEvent`, {
                 url: `/calendar/deleteEvent/:id`,
                 templateUrl: `/ngApp/views/calendar/deleteEvent.html`,
@@ -233,7 +231,7 @@ namespace WoMoCo {
                 controllerAs: `controller`
             })
             .state(`messageModal`, {
-                url: `/message/modal/messageModal`,
+                url: `/message/new`,
                 templateUrl: `/ngApp/views/message/modal/messageModal.html`,
                 controller: WoMoCo.Controllers.CreateMessageController,
                 controllerAs: `controller`

@@ -27,7 +27,7 @@ namespace WoMoCo.Services
             IList<ActivityForumAdminView> listableActivities = new List<ActivityForumAdminView>();
             IList<ApplicationUser> allUsers = _repo.Query<ApplicationUser>().ToList();
 
-            foreach ( ActivityForum activity in allActivities)
+            foreach (ActivityForum activity in allActivities)
             {
                 ActivityForumAdminView listable = new ActivityForumAdminView();
                 listable.Id = activity.Id;
@@ -35,11 +35,13 @@ namespace WoMoCo.Services
                 listable.Activity = activity.Activity;
                 listable.Description = activity.Description;
                 listable.UserName = activity.UserName;
-                foreach(ApplicationUser user in allUsers)
+                listable.Address = activity.Address;
+                foreach (ApplicationUser user in allUsers)
                 {
-                    if(user.UserName == activity.UserName)
+                    if (user.UserName == activity.UserName)
                     {
                         listable.UserId = user.Id;
+                        listable.UserImage = user.UserImage;
                     }
                 }
                 listableActivities.Add(listable);
@@ -56,9 +58,9 @@ namespace WoMoCo.Services
             viewableActivity.Activity = activity.Activity;
             viewableActivity.Description = activity.Description;
             viewableActivity.UserName = activity.UserName;
-            foreach(ApplicationUser user in allUsers)
+            foreach (ApplicationUser user in allUsers)
             {
-                if(user.UserName == activity.UserName)
+                if (user.UserName == activity.UserName)
                 {
                     viewableActivity.UserId = user.Id;
                 }
@@ -113,7 +115,7 @@ namespace WoMoCo.Services
                     where a.Location == searchTerm
                     select new ActivityForum
                     {
-                        Users = a.Users,
+                        User = a.User,
                         Location = a.Location,
                         Activity = a.Activity,
                         Description = a.Description
@@ -129,5 +131,10 @@ namespace WoMoCo.Services
             var data = _repo.Query<ApplicationUser>().Where(u => u.UserName == userName).FirstOrDefault();
             return data;
         }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/AdminStyle
     }
 }

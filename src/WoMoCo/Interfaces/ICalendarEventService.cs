@@ -16,5 +16,6 @@ namespace WoMoCo.Interfaces
         void SaveCalendarEvent(CalendarEvent calendarEventToSave, string uid);
         void ShareCalenderEvent(SharedCalendarEvent calenderEventToShare);
         void SoftDeleteCalendarEvent(int id);
+        IList<FullListCalendarEvents> GetAdminFirstFive();
     }
 }
