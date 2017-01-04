@@ -11,5 +11,7 @@ namespace WoMoCo.Services
         Post GetPostById(int id);
         void SavePost(string user, Post post);
         void SavePostAdmin(Post post);
+        //for iteration 2
+        //IEnumerable<Post> GetAdPostFirstFive();
     }
 }

@@ -89,6 +89,29 @@ namespace WoMoCo.Services
                 _repo.Update(activityForum);
             }
         }
+
+        //Iteration 2
+        //getting the first five activities
+        //public IEnumerable<ActivityForum> GetAdFiveActivity()
+        //{
+        //    var fiveActivities = _repo.Query<ActivityForum>().Include(a => a.UserName).Take(5).ToList();
+        //    IList<ActivityForum> listFiveAct = new List<ActivityForum>();
+        //    foreach(ActivityForum activity in fiveActivities)
+        //    {
+        //        ActivityForum lists = new ActivityForum
+        //        {
+        //            Id = activity.Id,
+        //            UserName = activity.UserName,
+        //            Location = activity.Location,
+        //            Address = activity.Address,
+        //            Activity = activity.Activity,
+        //            Description = activity.Description
+        //        };
+        //        listFiveAct.Add(lists);
+        //    }
+        //    return listFiveAct;
+        //}
+
         public async Task SaveActivityForum(IPrincipal user, ActivityForum activityForum)
         {
             var appUser = await _manager.FindByNameAsync(user.Identity.Name);

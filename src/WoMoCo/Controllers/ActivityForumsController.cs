@@ -38,6 +38,15 @@ namespace WoMoCo.Controllers
             return _service.GetByUsername(uid);
         }
 
+        //Iteration 2
+        //Getting the first five activities
+        //[HttpGet("GetAdFiveActivity")]
+        //[Authorize(Policy = "AdminOnly")]
+        //public IEnumerable<ActivityForum> GetAdFiveActivity()
+        //{
+        //    return _service.GetAdFiveActivity();
+        //}
+
 
         // this is the admin version of getting the post by ID
         // GET: api/activityForums/AdminGet/:id

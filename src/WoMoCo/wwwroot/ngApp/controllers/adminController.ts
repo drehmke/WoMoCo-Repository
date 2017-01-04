@@ -4,11 +4,13 @@
         public activities;
         public connections;
         public messages;
+        
 
         public getActivities() {
             let act = this.activitiesService.getAllUsersActivities();
             return act;
         }
+
         public getConnections() {
             let con =
                 this.connectionService.getAllMyConnections();
@@ -34,17 +36,24 @@
             return fiveMessages;
         }
 
+        //for iteration 2
+        //public getFiveActivities() {
+        //    var fiveActivities = this.activitiesService.getFiveAtivity();
+        //    return fiveActivities;
+        //}
+
         constructor(private $resource: angular.resource.IResourceService,
             private accountService: WoMoCo.Services.AccountService,
             private activitiesService: WoMoCo.Services.ActivitiesService,
             private connectionService: WoMoCo.Services.ConnectionService,
             private PostService: WoMoCo.Services.PostService,
-            private commService: WoMoCo.Services.CommService
+            private commService: WoMoCo.Services.CommService,
             ) {
             this.activities = this.getActivities();
             this.connections = this.getConnections();
             this.posts = this.getPost();
             this.messages = this.getMessages();
+            
         }
     }
 

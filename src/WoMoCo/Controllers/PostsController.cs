@@ -48,6 +48,15 @@ namespace WoMoCo.Controllers
             return _service.GetPostById(id);
         }
 
+        //for iteration 2
+        //get first five posts
+        //[HttpGet("GetAdPostFirstFive")]
+        //[Authorize(Policy = "AdminOnly")]
+        //public IEnumerable<Post> GetAdPostFirstFive()
+        //{
+        //    return _service.GetAdPostFirstFive();
+        //}
+
         [HttpPost]
         [Authorize]
         public IActionResult Post([FromBody]Post post)
