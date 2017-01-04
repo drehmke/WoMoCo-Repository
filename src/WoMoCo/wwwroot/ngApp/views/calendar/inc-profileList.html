@@ -11,5 +11,8 @@
             </div>
             <a ng-href="/calendar/viewEvent/{{event.id}}">{{event.name}}</a>
         </li>
+        <li ng-repeat="shared in controller.calenderEventsShared" class="list-group-item">
+            <a ng-href="/calendar/viewEvent/{{event.id}}"><span class="glyphicon glyphicon-share"></span>{{event.name}}</a>
+        </li>
     </ul>
 </div>

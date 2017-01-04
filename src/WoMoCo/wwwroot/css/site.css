@@ -270,6 +270,8 @@ p
     padding-top: 70px;
 }
 
+.shareEvents { padding-top: 25px; }
+
 /* styles form different formats */
 
 @media (min-width:320px)  {  /*smartphones, iPhone, portrait 480x320 phones*/  }

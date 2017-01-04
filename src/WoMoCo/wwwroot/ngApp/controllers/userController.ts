@@ -65,7 +65,11 @@
             let activities = this.activitiesService.getAllUsersActivities();
             return activities;
         }
-        // TODO: Remove an activity
+        public getMySharedActivities() {
+            let shared = this.calendarEventService.GetSharedEventsForUser();
+            console.log(shared);
+            return shared;
+        }
 
         // get all the Connections for the currently logged in user
         public getMyConnections() {
