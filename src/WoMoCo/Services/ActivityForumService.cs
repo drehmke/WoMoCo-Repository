@@ -131,10 +131,5 @@ namespace WoMoCo.Services
             var data = _repo.Query<ApplicationUser>().Where(u => u.UserName == userName).FirstOrDefault();
             return data;
         }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/AdminStyle
     }
 }
