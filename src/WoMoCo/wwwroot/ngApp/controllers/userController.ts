@@ -14,6 +14,7 @@
         public connections; // this is for the list
         // calender events
         public calenderEvents;
+        public calenderEventsShared;
 
         public getUser() {
           return this.UserResource.get();
@@ -65,11 +66,6 @@
             let activities = this.activitiesService.getAllUsersActivities();
             return activities;
         }
-        public getMySharedActivities() {
-            let shared = this.calendarEventService.GetSharedEventsForUser();
-            console.log(shared);
-            return shared;
-        }
 
         // get all the Connections for the currently logged in user
         public getMyConnections() {
@@ -86,6 +82,10 @@
         // calender event list
         public getCalenderEvents() {
             return this.calendarEventService.GetCalendarEventsByUser();
+        }
+        public getMySharedCalenderEvents() {
+            let shared = this.calendarEventService.GetSharedEventsForUser();
+            return shared;
         }
         public removeCalenderEvent(id: number) {
             this.calendarEventService.DeleteCalendarEvent(id).$promise
@@ -110,6 +110,7 @@
             this.activities = this.getMyActivities();
             this.connections = this.getMyConnections();
             this.calenderEvents = this.getCalenderEvents();
+            this.calenderEventsShared = this.getMySharedCalenderEvents();
         }
     }
     angular.module(`WoMoCo`).controller(`UserController`, UserController);
