@@ -18,6 +18,7 @@
                 <h4 class="panel-title">
                     {{post.title}} <span class="small">by <em>{{post.userName}}</em></span>
                     <a class="collapsed pull-right" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePost{{post.id}}" aria-expanded="false" aria-controls="collapsePost{{post.id}}">
+                        <span ng-click="controller.deletePost(post.id)" class="glyphicon glyphicon-trash"></span>
                         <span class="glyphicon glyphicon-menu-down"></span>
                     </a>
                 </h4>

@@ -13,6 +13,7 @@
 /// <reference path="ngapp/controllers/accountcontroller.js" />
 /// <reference path="ngapp/controllers/activitiescontroller.js" />
 /// <reference path="ngapp/controllers/admincontroller.js" />
+/// <reference path="ngapp/controllers/adminpostdeletecontroller.js" />
 /// <reference path="ngapp/controllers/babysittercontroller.js" />
 /// <reference path="ngapp/controllers/calendareventscontroller.js" />
 /// <reference path="ngapp/controllers/chatcontroller.js" />
