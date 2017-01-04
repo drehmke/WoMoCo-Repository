@@ -18,6 +18,7 @@
     <link href="~/css/FrontEnd/search.css" rel="stylesheet" />
     <link href="~/css/FrontEnd/babySitter.css" rel="stylesheet" />
     <link href="~/css/FrontEnd/profile.css" rel="stylesheet" />
+    <link href="~/css/FrontEnd/snackbar.css" rel="stylesheet" />
     <base href="/" />
 </head>
 <body ng-controller="AccountController as account">
@@ -76,7 +77,11 @@
         <ui-view></ui-view>
 
     </div>
-    <div ng-include="'/ngApp/views/footer.html'"></div>
+    <div ng-include="'/ngApp/views/footer.html'" class="navbar-fixed-bottom" @*id="removeClass"*@></div>
+
+    
+    
+
 
     @*/ <a href="/secret">Secret</a>*@
 

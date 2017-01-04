@@ -1,37 +1,36 @@
-﻿<div id="searchPanel" class="panel panel-default col-md-10 col-md-offset-1">
-    <!-- Default panel contents -->
-    <div class="panel-heading searchPanel"><center><h3>Connections</h3></center></div>
-    <div class="panel-body">
-        <p>
-            <label>Search</label>
-            <!--<input type="text" placeholder="Search for a connection" ng-model="controller.username" />
-    <button type="button" ng-click="controller.userByUsername()">Search</button>-->
-            <input class="form-control control-label" type="text" placeholder="Search for connection" ng-model="searchTerm" />
-        </p>
+﻿<div class="top-padding70 search">
+    <div class="panel panel-default col-md-10 col-md-offset-1 backgroundSandyBrown">
+        <!-- Default panel contents -->
+        <div class="backgroundSandyBrown">
+            <center>
+                <h1>Connections</h1>
+            </center>
+        </div>
+        <div class="panel-body">
+            <div>
+                <input class="form-control control-label container searchFilter" name="search" type="text" placeholder="Search for a user" ng-model="searchTerm" />
+            </div>
+            <div class="gridGroup" ng-repeat="user in controller.users | filter: searchTerm">
+                    <div class="col span_1_of_7">
+                        <div class="text-center"><img height="20" class="img-circle connectGravatar" id="gravatarImg" ng-src="https://www.gravatar.com/avatar/{{user.userImage}}?r=g&d=identicon" /></div>
+                        <br />
+                        <div class="text-center">
+                            <button class="btn btn-primary" ng-click="controller.reqConnect(user.userName)">Connect</button>
+                        </div>
+                        <div class="row">
+                            <div class="list-group col-md-10 col-md-offset-1">
+                                <span class="glyphicon glyphicon-user"></span> {{user.userName}} <br />
+                                <span class="glyphicon glyphicon-info-sign"></span> {{user.firstName}} {{user.lastName}}<br />
+                                <span class="glyphicon glyphicon-envelope"></span> {{user.email}}<br />
+                            </div>
+                            <div class="list-group col-md-1" ng-hide="true">
+                                <span class="glyphicon glyphicon-map-marker"></span> {{user.location}}<br />
+                                <span class="glyphicon glyphicon-info-sign"></span> {{user.currentJobTitle}}<br />
+                                <span class="glyphicon glyphicon-info-sign"></span> {{user.employer}}<br />
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
     </div>
-    <!-- Table -->
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Location</th>
-                <th>Job Title</th>
-                <th>Employer</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="user in controller.users | filter: searchTerm">
-                <td>{{user.userName}}</td>
-                <td>{{user.firstName}} {{user.lastName}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.location}}</td>
-                <td>{{user.currentJobTitle}}</td>
-                <td>{{user.employer}}</td>
-                <td><button class="btn btn-primary" ng-click="controller.reqConnect(user.userName)">Connect</button></td>
-            </tr>
-        </tbody>
-    </table>
 </div>

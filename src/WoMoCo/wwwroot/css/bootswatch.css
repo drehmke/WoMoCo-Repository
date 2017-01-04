@@ -33,6 +33,7 @@ nav,
 section,
 summary {
   display: block;
+
 }
 audio,
 canvas,
@@ -1587,8 +1588,8 @@ pre code {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
 }
 @media (min-width: 768px) {
   .container {
@@ -1608,8 +1609,8 @@ pre code {
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 0;
+  padding-left: 0;
 }
 .row {
   margin-left: -15px;
@@ -5484,6 +5485,7 @@ button.list-group-item-danger.active:focus {
   color: inherit;
 }
 .panel-footer {
+    
   padding: 10px 15px;
   background-color: #f5f5f5;
   border-top: 1px solid #dddddd;

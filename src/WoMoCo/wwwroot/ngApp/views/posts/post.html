@@ -1,8 +1,8 @@
 ﻿<div class="postPage">
     <h1>Posts</h1>
+<div>
+    <span ng-show="account.isLoggedIn()"><a id="addpostbtn" ng-href="/post/add" class="btn btn-primary">Add Post</a></span>
 
-    <div>
-        <span ng-show="account.isLoggedIn()"><a id="addpostbtn" ng-href="/post/add" class="btn">Add Post</a></span>
 
         <span ng-hide="!account.isLoggedIn()"><a id="login" href="/login"> </a></span>
     </div>
@@ -20,9 +20,8 @@
                             <center>{{post.discription}}</center>
 
                             <div ng-if="account.getUserName()==post.userName">
-
-                                <span> <a class="btn">Edit Post</a></span>
-                                <span> <a class="btn">Delete Post</a></span>
+                            <span> <a class="btn btn-info">Edit Post</a></span>
+                            <span> <a class="btn btn-danger">Delete Post</a></span>
 
                             </div>
 
