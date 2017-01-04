@@ -57,4 +57,18 @@ div.editingpost {
 #addpostbtn {
     background-color: Highlight;
 }
+#publicPostsHeader {
+    background-color: #e4ae6e;
+}
+#publicPosts {
+    border-style:solid;
+    border-width: 3px;
+    border-color: #e4ae6e;
+}
+.postPage {
+    padding-top: 70px;
+}
+.addPostPage {
+    padding-top: 70px;
+}
 

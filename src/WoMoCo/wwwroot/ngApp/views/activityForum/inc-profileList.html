@@ -3,7 +3,7 @@
         <center><h3>My Activities&nbsp;<small><a href="/activity/add"><span class="glyphicon glyphicon-plus text-success"></span></a></small></h3></center>
         <div>
             <ul class="list-group profileActivity">
-                <li id="profileListItem" class="list-group-item" ng-repeat="a in controller.activities">
+                <li id="connectionsList" class="list-group-item" ng-repeat="a in controller.activities">
                     <h5 href="/activity/edit/{{a.id}}">{{a.activity}} - {{a.location}}</h5>
                     <p>{{a.description}}</p>
                 </li>

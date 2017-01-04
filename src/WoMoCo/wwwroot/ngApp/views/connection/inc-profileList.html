@@ -4,7 +4,7 @@
             <center><h4>Connections&nbsp;<small><a href="/activity/add"><span class="glyphicon glyphicon-plus text-success"></span></a></small></h4></center>
             </div>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="c in controller.connections">
+                <li class="list-group-item"  id="connectionsList" ng-repeat="c in controller.connections">
                     <!--{{c.userName}} --->
                     {{c.firstName}}&nbsp;
                     {{c.lastName}}
