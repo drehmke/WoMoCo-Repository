@@ -7,6 +7,7 @@ using WoMoCo.Interfaces;
 using WoMoCo.Models;
 using Microsoft.AspNetCore.Identity;
 using WoMoCo.ViewModels.calendarEvents;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,29 +21,41 @@ namespace WoMoCo.Controllers
         private UserManager<ApplicationUser> _manager;
 
         [HttpGet]
+        [Authorize]
         public IEnumerable<FullListCalendarEvents> Get()
         {
             return _service.GetAllEvents();
         }
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
         {
             EditCalendarEvent calendarEvent = _service.GetCalendarEventById(id);
             return Ok(calendarEvent);
         }
         [HttpGet("getMy/")]
+        [Authorize]
         public IEnumerable<FullListCalendarEvents> GetMy()
         {
             string uid = _manager.GetUserId(User);
             return _service.GetCalendarEventsByUser(uid);
         }
         [HttpGet("getMyShared/")]
+        [Authorize]
         public IEnumerable<FullListCalendarEvents> GetMyShared()
         {
             string uid = _manager.GetUserId(User);
             return _service.GetSharedCalendarEventsForUser(uid);
         }
+        [HttpGet("GetAdminFirstFive/")]
+        [Authorize(Policy = "AdminOnly")]
+        public IEnumerable<FullListCalendarEvents> GetAdminFirstFive()
+        {
+            return _service.GetAdminFirstFive();
+        }
+
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]CalendarEvent calendarEvent)
         {
             string uid = _manager.GetUserId(User);
@@ -51,6 +64,7 @@ namespace WoMoCo.Controllers
         }
 
         [HttpPost("ShareEvent")]
+        [Authorize]
         //public IActionResult ShareEvent([FromBody]SharedCalendarEvent shareEvent)
         public IActionResult ShareEvent([FromBody] SharedCalendarEvent shareEvent)
         {
@@ -58,6 +72,7 @@ namespace WoMoCo.Controllers
             return Ok(shareEvent);
         }
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _service.DeleteCalendarEvent(id);

@@ -1,0 +1,28 @@
+﻿<link href="/css/adminCss/adminInbox.css" rel="stylesheet" />
+<div class="adminDash messageList">
+    <h3>Messages</h3>
+
+    <div class="panel inboxPanel" ng-repeat="comm in controller.messages">
+        <div class="inboxPanelContents">
+            <div class="panel-heading">
+                <div class="row panel-title">
+                    <div class="col-md-5">
+                        <span class="glyphicon glyphicon-envelope"></span> <strong>Subject:</strong> {{comm.subject}} <br />
+                        <span class="glyphicon glyphicon-user"></span> <strong>To: </strong> {{comm.recId}}<br />
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
+                        <span class="glyphicon glyphicon-calendar"></span> <strong>Date:</strong> {{comm.dateSent|date}}<br />
+                        <span class="glyphicon glyphicon-user"></span> <strong>From:</strong> {{comm.sendingUser}}<br />
+                    </div>
+                    <div class="col-md-1 text-center actions">
+                        <a ng-href="/admin/messages/delete/{{comm.id}}"><span class="glyphicon-trash glyphicon text-danger"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-right">
+        <a href="/admin/messages"><em>See more messages</em> <span class="glyphicon glyphicon-menu-right"></span></a>
+    </div>
+</div>

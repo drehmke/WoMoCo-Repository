@@ -1,4 +1,4 @@
-﻿.messages { padding: 70px 10px 0 10px; }
+.messages { padding: 70px 10px 0 10px; }
 .messages h3 { margin: 0; }
 .messages .borderSeaGreen { border-bottom: 1px solid #7ba790; }
 .messages .inboxHeader { margin-bottom: 20px; }
@@ -8,7 +8,6 @@
     color:#b83a07;
     background-color:#e4ae6e;
 }
-
 .messages .inboxPanel {
     border-radius: 15px 50px;
     border-width:5px;  

@@ -29,7 +29,7 @@
         }
 
         public deleteCommById() {
-            console.log(this.comm);
+            //console.log(this.comm);
             this.MessageService.deleteCommByIdAdmin(this.comm.id);
         }
 

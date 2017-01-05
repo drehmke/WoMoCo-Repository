@@ -10,7 +10,9 @@ namespace WoMoCo.ViewModels
     {
         public int Id { get; set; }
         public string RecId { get; set; }
-        public ApplicationUser SendingUser { get; set; }
+        public string SendingUser { get; set; }
+        // The point of this is to NOT sent all of the user's info
+        //public ApplicationUser SendingUser { get; set; }
         public string Subject { get; set; }                
         public bool HasBeenViewed { get; set; }
         public DateTime DateSent { get; set; }

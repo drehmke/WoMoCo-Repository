@@ -16,5 +16,7 @@ namespace WoMoCo.Interfaces
         void SaveActivity(string user, ActivityForum activityForum);
         Task SaveActivityForum(IPrincipal user, ActivityForum activityForum);
         IList<ActivityForum> SearchByLocation(string searchTerm);
+        //Iteration 2
+        //IEnumerable<ActivityForum> GetAdFiveActivity();
     }
 }

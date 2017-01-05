@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,27 @@ namespace WoMoCo.Services
         {
             return _repo.Query<Post>().Where(m => m.Id == id).FirstOrDefault();
         }
+
+        //for iteration 2
+        //Pulling the first five posts
+        //public IEnumerable<Post> GetAdPostFirstFive()
+        //{
+        //    var firstFive = _repo.Query<Post>().Include(p => p.UserName).ToList().Take(5);
+        //    IList<Post> listingFive = new List<Post>();
+        //    foreach(Post postings in firstFive)
+        //    {
+        //        Post listing = new Post
+        //        {
+        //            Id = postings.Id,
+        //            UserName = postings.UserName,
+        //            Title = postings.Title,
+        //            Discription = postings.Discription
+        //        };
+        //        listingFive.Add(listing);
+        //    }
+        //    return listingFive;
+        //}
+
         //Get a post by username
         public IList<Post> GetByUsername(string username)
         {
