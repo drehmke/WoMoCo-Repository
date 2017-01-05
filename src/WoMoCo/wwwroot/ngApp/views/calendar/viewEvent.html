@@ -7,7 +7,7 @@
             <div class="actions">
                 <a ng-href="/calendar/editEvent/{{controller.calendarEvent.id}}" class="btn btn-info" ng-if="account.getUserName()==post.userName">Edit Event</a>
                 <div class="shareEvents" ng-if="controller.calendarEvent.ownerName == account.getUserName()">
-                    <form class="form form-inline">
+                    <form class="form form-horizontal">
                         <fieldset>
                             <legend>Share This Event</legend>
                             <select name="shareWithUserName" class="form-control" id="shareWithUserName" ng-model="controller.shareWithUserName">

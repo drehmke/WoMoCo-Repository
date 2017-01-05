@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using WoMoCo.Models;
+using WoMoCo.ViewModels.Account;
 
 namespace WoMoCo.Interfaces
 {
@@ -10,5 +11,6 @@ namespace WoMoCo.Interfaces
         IEnumerable<UserConnection> GetAllFriends();
         IList<ApplicationUser> GetFriendsId(string id);
         void SavingFriends(UserConnection user);
+        IList<UserForPullDown> GetConnectedUsersForPullDown(string uid);
     }
 }

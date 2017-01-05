@@ -7,6 +7,7 @@ using WoMoCo.Models;
 using WoMoCo.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using WoMoCo.ViewModels.Account;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -41,6 +42,13 @@ namespace WoMoCo.Controllers
         {
             string uid = _manager.GetUserId(User);
             return Ok(_service.GetFriendsId(uid));
+        }
+        [HttpGet("GetConnectionsForPullDown/")]
+        [Authorize]
+        public IEnumerable<UserForPullDown> GetConnectionsForPullDown()
+        {
+            string uid = _manager.GetUserId(User);
+            return _service.GetConnectedUsersForPullDown(uid);
         }
 
         // POST api/values
