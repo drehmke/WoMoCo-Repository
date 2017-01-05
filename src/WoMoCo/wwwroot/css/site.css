@@ -8,7 +8,6 @@
 body, html {
     height: 100%;
     padding-top: 20px;
-    margin-bottom: 175px;
 }
 
 .spirax { font-family: 'Spirax', cursive; }
@@ -46,7 +45,7 @@ p
 
 .navbar-default .navbar-nav > li > a { color: #fff; }
 
-.container ui-view {
+.container div:first-child {
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -72,7 +71,6 @@ p
 {
     width:100%;
     display:block;
-  
 }
 
 .bodyHeight { min-height: 82%; }
