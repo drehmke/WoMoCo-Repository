@@ -20,6 +20,7 @@ namespace WoMoCo.Controllers
         
         // GET: api/values
         [HttpGet]
+        [Authorize]
         public IEnumerable<Post> Get()
         {
             return _service.GetAllPosts();
@@ -34,6 +35,7 @@ namespace WoMoCo.Controllers
 
         // GET api/values/
         [HttpGet("{id}")]
+        [Authorize]
         public Post Get(int id)
         {
             return _service.GetPostById(id);
@@ -46,7 +48,17 @@ namespace WoMoCo.Controllers
             return _service.GetPostById(id);
         }
 
+        //for iteration 2
+        //get first five posts
+        //[HttpGet("GetAdPostFirstFive")]
+        //[Authorize(Policy = "AdminOnly")]
+        //public IEnumerable<Post> GetAdPostFirstFive()
+        //{
+        //    return _service.GetAdPostFirstFive();
+        //}
+
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]Post post)
         {
             string uid = _manager.GetUserId(User);
@@ -62,6 +74,7 @@ namespace WoMoCo.Controllers
         }
 
         [HttpGet("GetPostByUser")]
+        [Authorize]
         public IList<Post> GetPost()
         {
             /*var user = this.User*/;
@@ -72,12 +85,14 @@ namespace WoMoCo.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
+        [Authorize]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _service.DeletePost(id);
@@ -86,7 +101,7 @@ namespace WoMoCo.Controllers
         [HttpDelete("AdminGetPost/{id}")]
         [Authorize(Policy = "AdminOnly")]
         public IActionResult AdminDelete(int id)
-        {
+        { // TODO: Make sure admin deletes are going through here. Looks like the delete from the AdminPage is goign through the non-admin delete
             _service.DeletePost(id);
             return Ok();
         }

@@ -1,7 +1,11 @@
-﻿<h1>Delete Post</h1>
-<div>
-    Delete Post?
-</div>
-<div>
-    <button class="btn" ng-click="controller.deletePost()">Yes</button>
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading row">
+        <h2 class="spirax colorDarkRed">Verify Deletion</h2>
+    </div>
+    <div class="panel-body">
+        Are you sure you wish to <span class="text-danger"><strong>delete</strong></span> {{controller.post.userName}}'s post titled <em>{{controller.post.title}}</em>
+    </div>
+    <div class="panel-footer">
+        <button class="btn btn-danger" ng-click="controller.deletePost()">Yes-Delete</button>
+    </div>
 </div>

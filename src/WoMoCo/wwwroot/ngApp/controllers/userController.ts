@@ -109,6 +109,8 @@
             this.links = this.getMyLinks();
             this.activities = this.getMyActivities();
             this.connections = this.getMyConnections();
+
+            //console.log(this.connections);
             this.calenderEvents = this.getCalenderEvents();
             this.calenderEventsShared = this.getMySharedCalenderEvents();
         }
@@ -126,7 +128,6 @@
                 this.$state.go('home')
             });
         }
-
         constructor(private $resource: angular.resource.IResourceService, private $state: ng.ui.IStateService) {
             this.UserResource = this.$resource('/api/users');
         }
@@ -168,7 +169,6 @@
                 return this.UserResource.get({ userName: username });
             }
         }
-
         public saveUser() {
             this.UserUpdateResource.save(this.user).$promise
                 .then(() => {
@@ -176,7 +176,6 @@
                     this.$state.go(`userAdmin`);
                 });
         }
-
         constructor(
             public $resource: angular.resource.IResourceService,
             public $stateParams: ng.ui.IStateParamsService,
@@ -187,7 +186,6 @@
             this.user = this.getByUsername($stateParams['id']);
         }
     }
-
     //delete user controller
     export class DeleteUserController {
         public user;
@@ -210,8 +208,7 @@
             this.getUser($stateParams['id'])
         }
     }
-
-    // delete user controller - admin version
+     // delete user controller - admin version
     export class DeleteUserAdminController {
         public user;
         public UserGetResource;

@@ -62,7 +62,7 @@
         public eventAlarm: EventAlarm;
 
         public SaveNewAlarm() {
-            console.log(this.eventAlarm);
+            //console.log(this.eventAlarm);
             this.eventAlarmService.saveEventAlarm(this.eventAlarm)
                 .then(() => {
                     this.eventAlarm = null;

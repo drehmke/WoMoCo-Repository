@@ -23,13 +23,14 @@ namespace WoMoCo.Controllers
         // GET: api/values
         [HttpGet]
         [Authorize(Policy = "AdminOnly")]
-        public IEnumerable<Comm> Get()
+        public IEnumerable<CommViewModel> Get()
         {
             return _service.GetAllComms();
         }
 
         // GET a comm by ID
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
         {
             return Ok(_service.GetCommById(id));
@@ -40,6 +41,12 @@ namespace WoMoCo.Controllers
         {
             return Ok(_service.GetCommById(id));
         }
+        [HttpGet("GetAdminFirstFive")]
+        [Authorize(Policy = "AdminOnly")]
+        public IEnumerable<CommViewModel> GetAdminFirstFive()
+        {
+            return _service.GetAdminFirstFive();
+        }
 
         [HttpGet("GetUserNewMessageCount/")]
         public int GetUserNewMessageCount()
@@ -49,6 +56,7 @@ namespace WoMoCo.Controllers
             return count;
         }
         [HttpGet("GetCommsByUserName")]
+        [Authorize]
         public IEnumerable<CommViewModel> GetCommsByUserName()
         {
             string uid = _manager.GetUserName(User);
@@ -56,7 +64,8 @@ namespace WoMoCo.Controllers
             return commView;
         }
         //POST api/values
-       [HttpPost]
+        [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]Comm comm)
         {
             string uid = _manager.GetUserId(User);
@@ -66,6 +75,7 @@ namespace WoMoCo.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _service.DeleteComm(id);

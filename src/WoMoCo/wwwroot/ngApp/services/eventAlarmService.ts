@@ -16,7 +16,7 @@
         public setEventAlarm(eventAlarm, calendarEvent) {
             // get the date and time from the calendar Event
             let eventDateTime = calendarEvent.eventDate;
-            console.log(eventDateTime);
+            //console.log(eventDateTime);
         }
 
         public getEventAlarm(id: number) {

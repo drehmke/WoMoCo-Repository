@@ -7548,14 +7548,14 @@ function $TemplateCacheProvider() {
  * ```js
  * function linkingFn(scope, elm, attrs, ctrl) {
  *   // get the attribute value
- *   console.log(attrs.ngModel);
+ *   //console.log(attrs.ngModel);
  *
  *   // change the attribute
  *   attrs.$set('ngModel', 'new value');
  *
  *   // observe changes to interpolated attribute
  *   attrs.$observe('ngModel', function(value) {
- *     console.log('ngModel has changed value to ' + value);
+ *    //console.log('ngModel has changed value to ' + value);
  *   });
  * }
  * ```
