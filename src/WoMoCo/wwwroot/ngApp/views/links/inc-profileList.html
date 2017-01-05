@@ -2,7 +2,7 @@
     <div class="linksList">
         <center><h4>Social Links</h4></center>
         <ul>
-            <li ng-repeat="link in controller.links"><a ng-href="{{link.url}}" target="_blank">{{link.name}} &nbsp;</a><a class="glyphicon glyphicon-trash pull-right" href="#" ng-click="controller.removeLink(link.id)"></a></li>
+            <li ng-repeat="link in controller.links"><a ng-href="{{link.url}}" target="_blank">{{link.name}} &nbsp;</a><a class="glyphicon glyphicon-trash pull-right text-danger" href="#" ng-click="controller.removeLink(link.id)"></a></li>
         </ul>
     </div>
 

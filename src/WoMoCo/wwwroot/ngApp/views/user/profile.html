@@ -1,4 +1,4 @@
-﻿<div class="profilePage">
+﻿<div class="profilePage profile">
     <div class="row">
         <div class="col-md-3">
             <!-- left sidebar -->
@@ -18,10 +18,10 @@
                         </ul>
                     </div>
                     <div class="profileEditBtn">
-                        <center><a id="profileEditBtn" class="btn" href="/editProfile">Edit Profile</a></center>
+                        <center><a id="profileEditBtn" class="btn btn-primary" href="/editProfile">Edit Profile</a></center>
                     </div>
                     <div class="profileDeleteBtn">
-                        <center><a id="profileDeleteBtn" href="/deleteProfile">Delete Account</a></center>
+                        <center><a id="profileDeleteBtn" class="text-danger" href="/deleteProfile">Delete Account</a></center>
                     </div>
                 </div>
             </div>
@@ -39,9 +39,6 @@
                     <div ng-include="'/ngApp/views/calendar/inc-profileList.html'"></div>
                     <div ng-include="'/ngApp/views/connection/inc-profileList.html'"></div>
                 </div>
-                <!--<div class="col-md-2">
-                    <div ng-include="'/ngApp/views/calendar/inc-profileList.html'"></div>
-                </div>-->
             </div>
         </div>
     </div>
