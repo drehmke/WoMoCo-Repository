@@ -73,10 +73,10 @@
                     isArray: true
                 }
             });
-            this.getPullDownResource = $resource(`/api/users`, null, {
+            this.getPullDownResource = $resource(`/api/connections`, null, {
                 getUsersForPulldown: {
                     method: `GET`,
-                    url: `/api/users/GetUsersForPulldown`,
+                    url: `/api/connections/GetConnectionsForPullDown`,
                     isArray: true
                 }
             });

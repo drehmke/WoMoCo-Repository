@@ -38,7 +38,38 @@ namespace WoMoCo.Services
             }
             return connectedUsers;
         }
-
+        public IList<UserForPullDown> GetConnectedUsersForPullDown(string uid)
+        {
+            IList<UserConnection> connectedUsersForCurrent = _repo.Query<UserConnection>().Where(u => u.CurrentUserId == uid).ToList();
+            IList<UserForPullDown> connectedUsers = new List<UserForPullDown>();
+            foreach (UserConnection userConn in connectedUsersForCurrent)
+            {
+                ApplicationUser tempUser = _repo.Query<ApplicationUser>().Where(u => u.Id == userConn.ConnectedUserId).FirstOrDefault();
+                UserForPullDown listable = new UserForPullDown
+                {
+                    UserId = tempUser.Id,
+                    UserName = tempUser.UserName,
+                    FirstName = tempUser.FirstName,
+                    LastName = tempUser.LastName
+                };
+                connectedUsers.Add(listable);
+            }
+            return connectedUsers;
+            //IList<ApplicationUser> allUsers = _repo.Query<ApplicationUser>().ToList();
+            //IList<UserForPullDown> allPullDownUsers = new List<UserForPullDown>();
+            //foreach (ApplicationUser user in allUsers)
+            //{
+            //    UserForPullDown addUser = new UserForPullDown
+            //    {
+            //        UserId = user.Id,
+            //        UserName = user.UserName,
+            //        FirstName = user.FirstName,
+            //        LastName = user.LastName
+            //    };
+            //    allPullDownUsers.Add(addUser);
+            //}
+            //return allPullDownUsers;
+        }
         public void SavingFriends(UserConnection user)
         {
             ApplicationUser connectedUser = _repo.Query<ApplicationUser>().Where(u => u.UserName == user.ConnectedUserId).FirstOrDefault();
