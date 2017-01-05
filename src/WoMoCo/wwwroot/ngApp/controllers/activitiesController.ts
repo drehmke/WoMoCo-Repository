@@ -8,7 +8,15 @@
             this.activities = this.ActivityResource.query();
         }
 
-        constructor(private $resource: angular.resource.IResourceService) {
+        public urlEncodeAddress(address: string) {
+            let test = this.activitiesService.googleMapEncode(address);
+            return test;
+        }
+
+        constructor(
+            private $resource: angular.resource.IResourceService,
+            private activitiesService: WoMoCo.Services.ActivitiesService
+        ) {
             //this.ActivityResource = this.$resource(`/api/activityForums`, null, {
             //    getMyActivities: {
             //        method: `GET`,
