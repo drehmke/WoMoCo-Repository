@@ -1,10 +1,10 @@
 ﻿
     <div class="list-group">
         <div class="profileActivityList">
-            <div class="list-group-item-success"><h3>Monitor Activities<small><a href="/activity/add">Add</a></small></h3></div>
+            <div class="row panel-title"><h3>Monitor Activities   <small><a href="/activity/add" class="glyphicon glyphicon-edit"></a></small></h3></div>
             <ul>
                 <li class="list-group-item" ng-repeat="a in controller.activities">
-                    {{a.location}} -
+                    <div class="glyphicon glyphicon-map-marker actLocation">{{a.location}}</div>
                     <a class="list-group-item" href="/activity/edit/{{a.id}}">{{a.activity}}</a> -
                     {{a.description}}
 
