@@ -1,10 +1,14 @@
 ﻿﻿<div class="top-padding70">
     <div class="col-md-6 col-md-offset-3">
         <div>
-            <a href="/activity/add" class="btn btn-primary">Post</a>
+            <input class="form-control control-label container searchFilter" name="search" type="text" placeholder="Search for activity" ng-model="searchTerm" />
         </div>
         <br />
-        <div class="jumbotron" ng-repeat="a in controller.activities">
+        <div>
+            <a href="/activity/add" class="btn btn-primary">Post Activity</a>
+        </div>
+        <br />
+        <div class="jumbotron" ng-repeat="a in controller.activities | filter: searchTerm">
             <div class="media-left">
                 <center>
                     <img class="img-circle media-object activityProfileImg" ng-src="https://www.gravatar.com/avatar/{{a.userImage}}?r=g&d=identicon" />
@@ -16,6 +20,7 @@
                     <h4 class="media-heading">{{a.activity}}</h4>
                     {{a.description}}
                     <br />
+                    <span class="glyphicon glyphicon-map-marker"></span>
                     {{a.address}}
                     {{a.location}}
                 </center>

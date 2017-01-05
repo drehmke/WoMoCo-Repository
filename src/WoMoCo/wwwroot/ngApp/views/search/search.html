@@ -1,34 +1,35 @@
-﻿<div class="toppadding20">
-
-    <div class="row">
-        <div class="col-md-6">
-            <h2 class="spirax colorDarkRed">Manage Connections</h2>
+﻿<div class="top-padding70 search">
+    <div class="panel panel-default col-md-10 col-md-offset-1 backgroundSandyBrown">
+        <!-- Default panel contents -->
+        <div class="backgroundSandyBrown">
+            <center>
+                <h1>Connections</h1>
+            </center>
         </div>
-        <div class="col-md-6 form-inline">
-            <div class="toppadding20">
-                <!-- use the bootstrap thing for adding a thing to the left or right of the input field -->
-                <input class="form-control control-label" style="width: 82%;" id="filter" name="filter" placeholder="Search for a connection" ng-model="searchTerm" />
+        <div class="panel-body">
+            <div>
+                <input class="form-control control-label container searchFilter" name="search" type="text" placeholder="Search for a user" ng-model="searchTerm" />
             </div>
-        </div>
-    </div>﻿
-
-    <div class="gridGroup" ng-repeat="user in controller.users | filter: searchTerm">
-
-        <div class="col span_1_of_7 list-group">
-            <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
-            <div class="list-group-item" role="tab" id="headingOne">
-                <div class="profileImage pull-right"><img ng-src="https://www.gravatar.com/avatar/{{user.userImage}}?r=g&d=identicon" id="gravatarImg" class="img-circle connectGravatar" /></div>
-                <span class="glyphicon glyphicon-user"></span> User: {{user.userName}} <br />
-                <span class="glyphicon glyphicon-info-sign"></span> Name: {{user.firstName}} {{user.lastName}}<br />
-                <span class="glyphicon glyphicon-envelope"></span> Email:  {{user.email}}<br />
-            </div>
-            <div class="list-group-item">
-                <span class="glyphicon glyphicon-map-marker"></span> Location:  {{user.location}}<br />
-                <span class="glyphicon glyphicon-info-sign"></span> Current Job Title:  {{user.currentJobTitle}}<br />
-                <span class="glyphicon glyphicon-info-sign"></span> Employer:  {{user.employer}}<br />
-            </div>
-            <div class="list-group-item text-right">
-                <button ng-click="controller.reqConnect(user.userName)" class="btn btn-primary">Connect</button>
+            <div class="gridGroup" ng-repeat="user in controller.users | filter: searchTerm">
+                    <div class="col span_1_of_7">
+                        <div class="text-center"><img height="20" class="img-circle connectGravatar" id="gravatarImg" ng-src="https://www.gravatar.com/avatar/{{user.userImage}}?r=g&d=identicon" /></div>
+                        <br />
+                        <div class="text-center">
+                            <button class="btn btn-primary" ng-click="controller.reqConnect(user.userName)">Connect</button>
+                        </div>
+                        <div class="row">
+                            <div class="list-group col-md-10 col-md-offset-1">
+                                <span class="glyphicon glyphicon-user"></span> {{user.userName}} <br />
+                                <span class="glyphicon glyphicon-info-sign"></span> {{user.firstName}} {{user.lastName}}<br />
+                                <span class="glyphicon glyphicon-envelope"></span> {{user.email}}<br />
+                            </div>
+                            <div class="list-group col-md-1" ng-hide="true">
+                                <span class="glyphicon glyphicon-map-marker"></span> {{user.location}}<br />
+                                <span class="glyphicon glyphicon-info-sign"></span> {{user.currentJobTitle}}<br />
+                                <span class="glyphicon glyphicon-info-sign"></span> {{user.employer}}<br />
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
