@@ -9,6 +9,12 @@
             return temp;
         }
 
+        public googleMapEncode(textToEncode: string) {
+            //let test =  encodeURIComponent(textToEncode);
+            let test = textToEncode.replace(/\s/g, '+'); // any white space
+            return test;
+        }
+
         //for iteration 2
         //public getFiveAtivity() {
         //    let things = this.fiveResource.fiveThings();

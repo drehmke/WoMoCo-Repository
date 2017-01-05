@@ -25,7 +25,7 @@
                     <h4 class="media-heading">{{a.activity}}</h4>
                     {{a.description}}
                     <br />
-                    <span class="glyphicon glyphicon-map-marker"></span>
+                    <a ng-href="http://maps.google.com/maps/place/{{controller.urlEncodeAddress(a.address)}}/" target="_blank"><span class="glyphicon glyphicon-map-marker"></span></a>
                     {{a.address}}
                     {{a.location}}
                 </center>
