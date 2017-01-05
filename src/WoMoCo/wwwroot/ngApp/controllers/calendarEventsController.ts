@@ -194,6 +194,8 @@
         public GetResource;
         public AlarmResource;
         public calendarEvent: CalendarEvent;
+        public eventDate;
+        public eventTime;
         public eventAlarm: EventAlarm;
         public eventAlarms;
 
@@ -201,7 +203,9 @@
             this.GetResource.get({ id: id }).$promise
                 .then((tmpResult) => {
                     this.calendarEvent = new CalendarEvent(tmpResult);
-                    //console.log(this.calendarEvent);
+                    // split the date and time out
+                    this.eventDate = this.calendarEvent.eventDateObject;
+                    this.eventTime = this.calendarEvent.eventDateObject;
                 });
         }
 
