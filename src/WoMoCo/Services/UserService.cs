@@ -48,7 +48,7 @@ namespace WoMoCo.Services
         }
 
         public IList<UserForPullDown> GetAllUsersForPullDown()
-        { // we will need to modify or make another version to get friends only
+        {
             IList<ApplicationUser> allUsers = _repo.Query<ApplicationUser>().ToList();
             IList<UserForPullDown> allPullDownUsers = new List<UserForPullDown>();
             foreach(ApplicationUser user in allUsers )
