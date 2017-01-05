@@ -210,7 +210,8 @@
         }
 
         public SaveCalendarEvent() {
-            this.calendarEvent.setEventDateTime();
+            //this.calendarEvent.setEventDateTime();
+            this.calendarEvent.eventDateTime = this.utilitiesService.combineEventDateTime(this.eventDate, this.eventTime);
             this.calendarEventService.SaveCalendarEvent(this.calendarEvent).then(() => {
                     this.calendarEvent = null;
                     this.$state.go(`profile`);
@@ -235,6 +236,7 @@
             private $stateParams: ng.ui.IStateParamsService,
             private $resource: angular.resource.IResourceService,
             private calendarEventService: WoMoCo.Services.CalendarEventService,
+            private utilitiesService: WoMoCo.Services.UtilitiesService,
             private eventAlarmService: WoMoCo.Services.EventAlarmService
         ) {
             this.GetResource = $resource(`/api/calendarEvents/:id`);
