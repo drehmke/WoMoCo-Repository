@@ -163,3 +163,10 @@ toppadding70 { padding-top: 70px; }
 /*.actInformation {
     padding-bottom: 5px;
 }*/
+
+.text-left {
+    padding-top: 1%;
+    letter-spacing: 0px;
+    
+}
+
