@@ -12,12 +12,6 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.HomeController,
                 controllerAs: 'controller'
             })
-            .state('secret', {
-                url: '/secret',
-                templateUrl: '/ngApp/views/notUsing/secret.html',
-                controller: WoMoCo.Controllers.SecretController,
-                controllerAs: 'controller'
-            })
             .state('login', {
                 url: '/login',
                 templateUrl: '/ngApp/views/login.html',
@@ -30,28 +24,18 @@ namespace WoMoCo {
                 controller: WoMoCo.Controllers.RegisterController,
                 controllerAs: 'controller'
             })
-            .state('externalRegister', {
-                url: '/externalRegister',
-                templateUrl: '/ngApp/views/notUsing/externalRegister.html',
-                controller: WoMoCo.Controllers.ExternalRegisterController,
-                controllerAs: 'controller'
-            })
+            //.state('externalRegister', {
+            //    url: '/externalRegister',
+            //    templateUrl: '/ngApp/views/notUsing/externalRegister.html',
+            //    controller: WoMoCo.Controllers.ExternalRegisterController,
+            //    controllerAs: 'controller'
+            //})
             .state('adminProPage', {
                 url: '/admin',
                 templateUrl: '/ngApp/views/user/adminProPage.html',
                 controller: WoMoCo.Controllers.AdminController,
                 controllerAs: 'controller'
             })
-            //=======home-login ==============================================>
-            // ---- Delete this when we have a logged in home page
-            .state(`home-login`, {
-
-                url: `/home-login`,
-                templateUrl: `/ngApp/views/home-login.html`,
-                controller: WoMoCo.Controllers.HomeController,
-                controllerAs: 'controller'
-            })
-
             // ========== Interest ===========================================>
             .state(`addInterest`, {
                 url: `/interest/add`,
@@ -120,7 +104,6 @@ namespace WoMoCo {
             })
             //================================================================>
             // ---- calendar Events -------------------------------------------
-            // TODO: Admin
             .state(`calendar`, {
                 url: `/calendar`,
                 templateUrl: `/ngApp/views/calendar/userEventsList.html`,
