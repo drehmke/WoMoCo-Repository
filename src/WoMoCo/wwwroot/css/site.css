@@ -159,6 +159,19 @@ p
     padding: 20px;
     color: #aaa;
 }
+.whyWomoco {
+    font-size: 1.3em;
+    text-align: justify;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+.whyWomoco em {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 0px 1px #eaebef;
+    line-height: 15px;
+}
+
 .footer a { color: #aaa; }
 .footer .actions { text-align: center; }
 .footer .disclaimer { text-align: right; }
