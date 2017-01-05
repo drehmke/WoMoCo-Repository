@@ -100,6 +100,7 @@ p
     }
 }
 .parallax100 { height: 100%; }
+.parallax82 { height: 82%; } /* matches the min-height set on bodyHeight to push the footer down */
 .parallax75 { height: 75%; }
 .parallax50 {height: 50%; }
 
