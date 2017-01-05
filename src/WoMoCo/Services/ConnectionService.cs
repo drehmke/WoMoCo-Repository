@@ -82,7 +82,8 @@ namespace WoMoCo.Services
                 UserConnection reversed = new UserConnection
                 {
                     ConnectedUserId = user.CurrentUserId,
-                    CurrentUserId = user.ConnectedUserId
+                    CurrentUserId = user.ConnectedUserId,
+                    DateConnected = DateTime.Now
                 };
                 _repo.Add(reversed);
             }
@@ -95,7 +96,7 @@ namespace WoMoCo.Services
             _repo.Delete(connectionToDelete);
             // delete the reverse statement as well
             UserConnection reverseToDelete = _repo.Query<UserConnection>().Where(c => c.ConnectedUserId == uid && c.CurrentUserId == cid).FirstOrDefault();
-            _repo.Delete(connectionToDelete);
+            _repo.Delete(reverseToDelete);
         }
 
         public ConnectionService(IGenericRepository repo)
