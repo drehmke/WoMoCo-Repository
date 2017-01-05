@@ -52,8 +52,8 @@
                     <li><a id="login" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <p class="navbar-text">Signed in as {{account.getUserName()}}</p>
-                    <li class="dropdown" ng-show="account.getClaim('isAdmin')">
+                    <p class="navbar-text" ng-show="account.isLoggedIn()">Signed in as {{account.getUserName()}}</p>
+                    <li class="dropdown" ng-if="account.getUserName() == 'Stephen.Walther@CoderCamps.com'">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/admin">AdminPage</a></li>
