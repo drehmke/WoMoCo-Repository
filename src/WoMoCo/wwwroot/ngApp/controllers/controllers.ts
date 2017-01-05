@@ -12,14 +12,14 @@ namespace WoMoCo.Controllers {
         ) {
             //this.posts = this.getPostByUsername();
             this.getNewMessageCount();
-            document.getElementById("removeClass").removeAttribute("class")
-            {
-                if (this.$state.is('home') == false)
-                {
-                    document.getElementById("removeClass").setAttribute("class", "navbar-fixed-bottom");
-                }
+            //document.getElementById("removeClass").removeAttribute("class")
+            //{
+            //    if (this.$state.is('home') == false)
+            //    {
+            //        document.getElementById("removeClass").setAttribute("class", "navbar-fixed-bottom");
+            //    }
                 
-            };
+            //};
         }
         //public getPostByUsername() {
         //    return this.PostService.getPostByUsername()
