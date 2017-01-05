@@ -29,7 +29,7 @@
     <base href="/" />
 
 </head>
-<body ng-controller="AccountController as account">
+<body ng-controller="AccountController as account" class="">
     <nav class="navbar navbar-fixed-top navbar-default backgroundDarkRed gradientTransToWhite" id="navBar" ng-controller="CounterController as counter">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -52,7 +52,8 @@
                     <li><a id="login" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown" ng-show="!account.getClaim('isAdmin')">
+                    <p class="navbar-text" ng-show="account.isLoggedIn()">Signed in as {{account.getUserName()}}</p>
+                    <li class="dropdown" ng-if="account.getUserName() == 'Stephen.Walther@CoderCamps.com'">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/admin">AdminPage</a></li>
@@ -65,7 +66,7 @@
                         </ul>
                     </li>
                     <li ng-show="account.isLoggedIn()"><a id="inbox" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span><span class="badge" ng-if="counter.newMessageCount < 0">{{counter.newMessageCount}}</span></a></li>
-                    <li class="dropdown">
+                    <li class="dropdown marginRight15">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
@@ -76,19 +77,15 @@
                             <li><a href="/login" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
                         </ul>
                     </li>
-
+                    
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container bodyHeight">
         <ui-view></ui-view>
-
     </div>
-    <div ng-include="'/ngApp/views/footer.html'" class="navbar-fixed-bottom" @*id="removeClass"*@></div>
-
-    
-    
+    <div ng-include="'/ngApp/views/footer.html'"></div>
 
 
     @*/ <a href="/secret">Secret</a>*@

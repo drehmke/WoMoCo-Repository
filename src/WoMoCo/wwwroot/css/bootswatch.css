@@ -4521,7 +4521,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: transparent;
 }
 .navbar-default .navbar-text {
-  color: #bbbbbb;
+  color: #fff;
 }
 .navbar-default .navbar-nav > li > a {
   color: #666666;
@@ -4617,7 +4617,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: transparent;
 }
 .navbar-inverse .navbar-text {
-  color: #bbbbbb;
+  color: #fff;
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #b2dbfb;

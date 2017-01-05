@@ -48,7 +48,34 @@
                             <div>
                                 <input class="btn btn-success" type="submit" value="Edit" />
                             </div>
+
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input class="form-control control-label container" placeholder="Last Name" ng-model="controller.user.location" />
+                                <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label>About</label>
+                                <input class="form-control control-label container" placeholder="About Me" ng-model="controller.user.about" />
+                                <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Job Title</label>
+                                <input class="form-control control-label container" placeholder="Last Name" ng-model="controller.user.currentJobTitle" />
+                                <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Employer</label>
+                                <input class="form-control control-label container" placeholder="Last Name" ng-model="controller.user.employer" />
+                                <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        <input class="btn btn-default" type="submit" value="Edit" />
+
                         </form>
+
                     </div>
                 </div>
             </div>

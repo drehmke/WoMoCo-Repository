@@ -2,17 +2,17 @@
     <div class="jumbotron col-md-4 col-md-offset-4">
         <form ng-submit="controller.save()">
             <div class="form-group">
-                <label>Title:</label>
-                <input class="form-control control-label container" placeholder="Title" ng-model="controller.post.title" />
+                <label>Post Title:</label>
+                <input class="form-control control-label container" placeholder="Post Title" ng-model="controller.post.title" />
             </div>
             <div class="form-group">
-                <label>Description:</label>
-                <input class="form-control control-label container" placeholder="Description" ng-model="controller.post.discription" />
+                <label>Post:</label>
+                <textarea class="form-control control-label container" placeholder="Type your post here" rows="5" ng-model="controller.post.discription" ></textarea>
             </div>
             <div>
                 {{post.userName}}
             </div>
-            <center><input type="submit" class="btn btn-success" value="Add Post" /></center>
+            <center><input type="submit" class="btn btn-default" value="Add Post" /></center>
         </form>
     </div>
 </div>

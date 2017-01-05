@@ -8,7 +8,6 @@
 body, html {
     height: 100%;
     padding-top: 20px;
-    margin-bottom: 175px;
 }
 
 .spirax { font-family: 'Spirax', cursive; }
@@ -46,9 +45,7 @@ p
 
 .navbar-default .navbar-nav > li > a { color: #fff; }
 
-.container ui-view {
-    padding-right: 15px;
-    padding-left: 15px;
+.container {
 }
 
 #glyphButton
@@ -72,7 +69,6 @@ p
 {
     width:100%;
     display:block;
-  
 }
 
 .bodyHeight { min-height: 82%; }
@@ -89,7 +85,9 @@ p
     padding-right: 15px;
     padding-left: 15px;
 }
-
+.marginRight15 {
+    margin-right: 15px;
+}
 /* ---- Homepage ---- */
 @media only screen and (min-device-width: 961px){
 .parallax {
@@ -102,6 +100,7 @@ p
     }
 }
 .parallax100 { height: 100%; }
+.parallax82 { height: 82%; } /* matches the min-height set on bodyHeight to push the footer down */
 .parallax75 { height: 75%; }
 .parallax50 {height: 50%; }
 

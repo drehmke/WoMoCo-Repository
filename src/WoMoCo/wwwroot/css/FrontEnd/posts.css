@@ -18,19 +18,7 @@ h5.panel-title {
 h6.panel-title {
     font-size: 10px;
 }
-#posteditingbutton {
-    margin-top: 13px;
-    background-color: #e4ae6e;
-    color: white;
-}
-#postdeletebutton {
-    margin-top: 13px;
-    background-color: #b70100;
-    color: white;
-}
-#editpostbutton {
-    margin-top: 25px
-}
+
 div.postcolumn {
     background-color: #e4ae6e;
 }
@@ -54,9 +42,6 @@ div.editingpost {
     background-color: #97a89e;
     
 }
-#addpostbtn {
-    background-color: Highlight;
-}
 #publicPostsHeader {
     background-color: #e4ae6e;
 }
@@ -66,7 +51,7 @@ div.editingpost {
     border-color: #e4ae6e;
 }
 .postPage {
-    padding-top: 70px;
+    padding-top: 20px;
 }
 .addPostPage {
     padding-top: 70px;

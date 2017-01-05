@@ -16,7 +16,7 @@
     vertical-align: middle;
 }
 
-
+.dashPage { padding: 0 15px 15px 15px; }
 thead {
     background-color: #58795a
 }
@@ -42,7 +42,7 @@ thead {
     display:inherit;
 }
 
-#activityList {
+.admin #activityList {
     margin-top: 10px;
     border: double;
     border-color: #58795a;
@@ -154,9 +154,19 @@ toppadding70 { padding-top: 70px; }
     width: 350px;
     min-width: 200px;
 }
+.admin .post-cards {
+    width: 45%;
+    min-width: 200px;
+    max-height: 300px;
+    overflow: auto;
+}
+/*.actInformation {
+    padding-bottom: 5px;
+}*/
 
 .text-left {
     padding-top: 1%;
     letter-spacing: 0px;
     
 }
+
