@@ -15,7 +15,7 @@
                         <div class="text-center"><img height="20" class="img-circle connectGravatar" id="gravatarImg" ng-src="https://www.gravatar.com/avatar/{{user.userImage}}?r=g&d=identicon" /></div>
                         <br />
                         <div class="text-center">
-                            <button class="btn btn-primary" ng-click="controller.reqConnect(user.userName)">Connect</button>
+                            <button class="btn btn-primary" ng-click="controller.reqConnect(user.userName)" onclick="myFunction()">Connect</button>
                         </div>
                         <div class="row">
                             <div class="list-group col-md-10 col-md-offset-1">
@@ -34,3 +34,4 @@
         </div>
     </div>
 </div>
+<div id="snackbar">Connection has been made!</div>
