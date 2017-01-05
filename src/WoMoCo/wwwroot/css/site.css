@@ -45,9 +45,7 @@ p
 
 .navbar-default .navbar-nav > li > a { color: #fff; }
 
-.container div:first-child {
-    padding-right: 15px;
-    padding-left: 15px;
+.container {
 }
 
 #glyphButton

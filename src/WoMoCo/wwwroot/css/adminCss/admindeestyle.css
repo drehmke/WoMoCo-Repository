@@ -16,7 +16,7 @@
     vertical-align: middle;
 }
 
-
+.dashPage { padding: 0 15px 15px 15px; }
 thead {
     background-color: #58795a
 }
