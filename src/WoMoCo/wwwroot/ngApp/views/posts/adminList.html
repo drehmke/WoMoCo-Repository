@@ -1,21 +1,29 @@
-﻿<h1>Posts</h1>
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-default" ng-repeat="post in controller.posts">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{post.title}}</h3>
-                </div>
-                <div class="panel-body">
-                    {{post.discription}}
-                </div>
-                <div class="panel-footer">
-                    <div class="pull-right">
-                        <a ng-href="/admin/post/edit/{{post.id}}"><span class="glyphicon glyphicon-pencil text-info"></span></a> 
-                        <a ng-href="/admin/post/delete/{{post.id}}"><span class="glyphicon glyphicon-trash text-danger"></span></a>
-                    </div>
-                    Post authored by: {{post.userName}}
-                </div>
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading row">
+        <div class="col-md-6">
+            <h2 class="spirax colorDarkRed">Posts Admin</h2>
+        </div>
+        <div class="col-md-6 form-inline">
+            <div class="input-group  admin_filter_container">
+                <input id="search" class="form-control" name="search" type="text" placeholder="Search for a post'" ng-model="searchTerm" />
+            </div>
+        </div>
+    </div>
+    <div class="text-left">
+        <span class="glyphicon glyphicon-menu-left"></span><a href="/admin"><em> Back to Admin Page</em></a>
+    </div>
+    <div class="panel-body">
+        <!--admin doesn't need to add right now <a href="/interest/add" class="btn btn-success"> Add Inerest </a>-->
+        <div class="panel post-cards" ng-repeat="post in controller.posts | filter: searchTerm">
+            <div class="panel-heading">
+                <strong>{{post.title}}</strong>
+            </div>
+            <div class="panel-body">
+                {{post.discription}}
+            </div>
+            <div class="panel-footer text-right">
+                <div class="pull-left">By <em>{{post.userName}}</em></div>
+                <a ng-href="/admin/post/delete/{{post.id}}"><span class="text-danger glyphicon glyphicon-trash"></span></a>
             </div>
         </div>
     </div>

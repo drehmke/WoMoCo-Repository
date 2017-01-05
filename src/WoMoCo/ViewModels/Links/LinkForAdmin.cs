@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WoMoCo.ViewModels.Link
+namespace WoMoCo.ViewModels.Links
 {
     public class LinkForAdmin
     {

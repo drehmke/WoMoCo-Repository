@@ -26,6 +26,7 @@ namespace WoMoCo.Controllers
             return _service.GetAllInterests();
         }
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
         {
             return Ok(_service.GetInterestbyId(id));
@@ -37,6 +38,7 @@ namespace WoMoCo.Controllers
             return Ok(_service.GetAdminInterestById(id));
         }
         [HttpGet("GetMy/")]
+        [Authorize]
         public IEnumerable<Interest> GetMy()
         {
             string uid = _manager.GetUserId(User);
@@ -45,6 +47,7 @@ namespace WoMoCo.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]Interest interest)
         {
             string uid = _manager.GetUserId(User);
@@ -60,12 +63,14 @@ namespace WoMoCo.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _service.DeleteInterest(id);
             return Ok();
         }
         [HttpDelete("Admin/{id}")]
+        [Authorize(Policy = "AdminOnly")]
         public IActionResult AdminDelete(int id)
         {
             _service.DeleteInterest(id);

@@ -8,7 +8,15 @@
             this.activities = this.ActivityResource.query();
         }
 
-        constructor(private $resource: angular.resource.IResourceService) {
+        public urlEncodeAddress(address: string) {
+            let test = this.activitiesService.googleMapEncode(address);
+            return test;
+        }
+
+        constructor(
+            private $resource: angular.resource.IResourceService,
+            private activitiesService: WoMoCo.Services.ActivitiesService
+        ) {
             //this.ActivityResource = this.$resource(`/api/activityForums`, null, {
             //    getMyActivities: {
             //        method: `GET`,
@@ -26,14 +34,24 @@
     export class ActivitiesControllerAdminList {
         public activities;
         public ActivityResource;
+        //Iteration 2
+        //public fiveActivities;
+        //public ActivitiesResource;
 
         public getActivities() {
             return this.ActivityResource.query();
         }
 
-        constructor(private $resource: angular.resource.IResourceService) {
+        //Iteraation 2
+        //public getFiveActivities() {
+        //    return this.activitiesService.getFiveAtivity();
+        //}
+
+        constructor(private $resource: angular.resource.IResourceService,
+            private activitiesService: WoMoCo.Services.ActivitiesService) {
             this.ActivityResource = this.$resource(`/api/activityForums`);
             this.activities = this.getActivities();
+            //this.fiveActivities = this.getFiveActivities();  for iteration 2
         }
     }
 

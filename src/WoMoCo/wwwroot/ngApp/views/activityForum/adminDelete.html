@@ -1,9 +1,9 @@
-﻿<div class="verify panel">
-    <div class="panel-heading">
-        Verify Deletion of {{controller.activity.activity}}
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading row">
+        <h3 class="spirax colorDarkRed">Verify Deletion</em></h3>
     </div>
-    <div class="panel-default">
-        Are you sure you wish to delete {{controller.activity.userName}}'s activity ?
+    <div class="panel-default toppadding20">
+        Are you sure you wish to <span class="text-danger"><strong>delete</strong></span> <em>{{controller.activity.userName}}</em>'s activity - <strong>{{controller.activity.activity}}</strong> ?
     </div>
     <div class="panel-footer">
         <button class="btn btn-danger" ng-click="controller.DeleteActivity()">Yes - Delete</button>

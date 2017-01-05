@@ -1,0 +1,17 @@
+﻿<div class="admin dashPage">
+    <h2 class="spirax colorDarkRed">Welcome, Admin {{account.getUserName()}}!</h2>
+    <!-- we should limit these to maybe 5 entires (except the admin list) and then link to the admin views
+        dashboards are summaries of information.
+        -->
+    <div class="row">
+        <div class="col-lg-8">
+            <div ng-include="'/ngApp/views/message/modal/adminInbox.html'"></div>
+            <div ng-include="'/ngApp/views/posts/inc-adminPost.html'"></div>
+
+        </div>
+        <div class="col-md-4">
+            <div ng-include="'/ngApp/views/calendar/inc-adminList.html'"></div>
+            <div ng-include="'/ngApp/views/activityForum/inc-adminpro.html'"></div>
+        </div>
+    </div>
+</div>

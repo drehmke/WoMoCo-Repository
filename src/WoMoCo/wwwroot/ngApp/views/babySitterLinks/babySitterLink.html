@@ -1,17 +1,25 @@
-﻿
-<div class="parallax sitterpage">
+﻿<div class="babysitter">
+    <div class="parallax82 sitterpage">
+        <div class="links">
+            <div class="linkList">
+                <h3>Babysitter Links</h3>
+                <p>In an effort to provide working mothers with a selection of reliable babysitters, nannies and tutors in their areas, we have started collecting some useful resources. Below are some of the resources we have.</p>
+                <ul>
+                    <li ng-repeat="link in controller.babySitters">
+                        <a ng-href="{{link.linkBase}}" target="_blank"><img ng-src="{{link.image}}" /> {{link.name}} <span class="glyphicon glyphicon-new-window text-info"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--
     <div class="col-lg-8 col-lg-offset-2">
         <div class="container">
             <div>
                 <br />
                 <div class="col-md-6 col-md-offset-3" id="babysittertable">
                     <table class="table-hover">
-                        <!--<thead>
-                        <tr>
-                            <!--<th>Names</th>-->
-                        <!--<th>Logo</th>-->
-                        <!--</tr>
-                        </thead>-->
                         <tbody>
                             <tr ng-repeat="link in controller.babySitters">
                                 <td class="img-rounded">
@@ -27,4 +35,4 @@
             </div>
         </div>
     </div>
-</div>
+    -->

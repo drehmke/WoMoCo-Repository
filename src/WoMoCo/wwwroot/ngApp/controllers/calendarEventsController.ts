@@ -57,7 +57,7 @@
             this.eventAlarms = eventObject.eventAlarms;
             //this.createdDate = new Date(eventObject.createDate);
             this.eventDateObject = new Date(this.eventDate);
-            console.log(this.eventDateObject);
+            //console.log(this.eventDateObject);
             if (this.eventTime != null) {
                 let timeBits = this.splitTime(this.eventTime);
                 this.eventTimeObject = new Date(null, null, null, parseInt(timeBits[0]), parseInt(timeBits[1]), parseInt(timeBits[2]));
@@ -94,6 +94,13 @@
 
         public getAllCalendarEvents() {
             return this.calendarEventService.GetAllCalendarEvents();
+        }
+
+        public removeEvent(id: number) {
+            this.calendarEventService.DeleteCalendarEvent(id).$promise
+                .then(() => {
+                    this.calendarEvents = this.getAllCalendarEvents();
+                });
         }
 
         constructor(private calendarEventService: WoMoCo.Services.CalendarEventService) {
@@ -133,7 +140,7 @@
             this.calendarEventService.SaveCalendarEvent(this.calendarEvent)
                 .then(() => {
                     this.calendarEvent = null;
-                    this.$state.go(`calendarEvents`);
+                    this.$state.go(`profile`);
                 });
         }
 
@@ -165,7 +172,7 @@
             this.ShareResource.save(eventToShare).$promise
                 .then(() => {
                     eventToShare = null;
-                    this.$state.go(`calendar`);
+                    this.$state.go(`profile`);
                 });
         }
 
@@ -202,7 +209,7 @@
             this.calendarEvent.setEventDateTime();
             this.calendarEventService.SaveCalendarEvent(this.calendarEvent).then(() => {
                     this.calendarEvent = null;
-                    this.$state.go(`calendarEvents`);
+                    this.$state.go(`profile`);
                 });
             
         }
@@ -210,7 +217,7 @@
         public SaveNewAlarm() {
             let alarmToSave = new EventAlarm(this.eventAlarm);
             alarmToSave.calenderEventId = this.calendarEvent.id;
-            console.log(alarmToSave);
+            //console.log(alarmToSave);
             this.eventAlarmService.saveEventAlarm(alarmToSave)
                 .then(() => {
                     alarmToSave = null;
@@ -244,7 +251,7 @@
             this.calendarEventService.DeleteCalendarEvent(this.currentCalenderEvent.id).$promise
                 .then(() => {
                     this.currentCalenderEvent = null;
-                    this.$state.go(`calendarEvents`);
+                    this.$state.go(`profile`);
                 });
         }
 

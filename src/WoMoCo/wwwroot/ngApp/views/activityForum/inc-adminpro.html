@@ -1,0 +1,16 @@
+﻿
+    <div class="list-group">
+        <div class="profileActivityList">
+            <div class="row panel-title"><h3>Monitor Activities</h3></div>
+            <ul>
+                <li class="list-group-item" ng-repeat="a in controller.activities">
+                    <div class="actInformation"><span class="glyphicon glyphicon-map-marker"></span>{{a.location}}</div>
+                    <span class="glyphicon glyphicon-edit"></span> {{a.activity}}<br />
+                    <div class="actInformation"><span class="glyphicon glyphicon-comment"></span> {{a.description}}</div>
+                </li>
+            </ul>
+        </div>
+        <div class="text-right">
+            <a ui-sref="activityForumAdminList"><em>See more activities</em><span class="glyphicon glyphicon-menu-right"></span></a>
+        </div>
+    </div>

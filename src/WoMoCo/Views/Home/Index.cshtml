@@ -17,11 +17,20 @@
     <link href="~/css/colorSchemeReference.css" rel="stylesheet" />
     <link href="~/css/FrontEnd/search.css" rel="stylesheet" />
     <link href="~/css/FrontEnd/babySitter.css" rel="stylesheet" />
+    <link href="~/css/adminCss/admindeestyle.css" rel="stylesheet" type="text/css" />
     <link href="~/css/FrontEnd/profile.css" rel="stylesheet" />
+    <link href="~/css/FrontEnd/snackbar.css" rel="stylesheet" />
+    <!-- do not put any stylesheets below this -->
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
     <base href="/" />
+
 </head>
-<body ng-controller="AccountController as account">
-    <nav class="navbar navbar-fixed-top navbar-default backgroundFireBrick" id="navBar" ng-controller="CounterController as counter">
+<body ng-controller="AccountController as account" class="">
+    <nav class="navbar navbar-fixed-top navbar-default backgroundDarkRed gradientTransToWhite" id="navBar" ng-controller="CounterController as counter">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -30,20 +39,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img id="logoLetters" src="/images/womoco.png" /></a>
-                <!--<a class="navbar-brand" href="#"><img id="logoLetters" src="/images/logo-brand.png" /></a>-->
+                <a class="navbar-brand" href="/"><img  id="logoLetters" src="/images/womoco.png" /></a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
-                    <li><a id="Search" href="/about">About <span class="sr-only"></span></a></li>
-                    <li ng-show="account.isLoggedIn()"><a id="Search" href="/search">Search</a></li>
-                    <li><a id="Search" href="/babySitterlink">BabySitterLink</a></li>
-                    <li><a id="Search" href="/activity" ng-show="account.isLoggedIn()">Activities</a></li>
-                    <li><a id="Search" href="/post">View Public Posts</a></li>
-                    <li class="dropdown">
+                    <li><a href="/about">About <span class="sr-only"></span></a></li>
+                    <li><a href="/babySitterlink">BabySitterLink</a></li>
+                    <li ng-show="account.isLoggedIn()"><a href="/search">Search</a></li>
+                    <li ng-show="account.isLoggedIn()"><a href="/activity">Activities</a></li>
+                    <li ng-show="account.isLoggedIn()"><a href="/post">View Public Posts</a></li>
+                    <li><a id="login" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <p class="navbar-text" ng-show="account.isLoggedIn()">Signed in as {{account.getUserName()}}</p>
+                    <li class="dropdown" ng-if="account.getUserName() == 'Stephen.Walther@CoderCamps.com'">
                         <a id="adminMenu" href="#" class="dropdown-toggle search" data-toggle="dropdown" role="button" aria-expanded="false">Admin Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="/admin">AdminPage</a></li>
                             <li><a href="/admin/user/list">Users</a></li>
                             <li><a href="/admin/activity/list">Activity Posts</a></li>
                             <li><a href="/admin/interest">Interests</a></li>
@@ -52,12 +65,9 @@
                             <li><a href="/admin/messages">Messages</a></li>
                         </ul>
                     </li>
-                    <li><a id="login" href="/login" ng-show="!account.isLoggedIn()">Login</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li ng-show="account.isLoggedIn()"><a id="inbox" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span><span class="badge ">{{counter.newMessageCount}}</span></a></li>
-                    <li class="dropdown">
-                        <a id="Search" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+                    <li ng-show="account.isLoggedIn()"><a id="inbox" href="/message/inbox"><span class="glyphicon glyphicon-envelope"></span><span class="badge" ng-if="counter.newMessageCount < 0">{{counter.newMessageCount}}</span></a></li>
+                    <li class="dropdown marginRight15">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
                             <li><a href="/profile" ng-show="account.isLoggedIn()">Profile </a></li>
@@ -67,16 +77,16 @@
                             <li><a href="/login" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a></li>
                         </ul>
                     </li>
-
+                    
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container bodyHeight">
         <ui-view></ui-view>
-
     </div>
     <div ng-include="'/ngApp/views/footer.html'"></div>
+
 
     @*/ <a href="/secret">Secret</a>*@
 
@@ -110,14 +120,18 @@
     <script src="~/ngApp/controllers/deleteMessageController.js"></script>
     <script src="~/ngApp/controllers/inboxController.js"></script>
     <script src="~/ngApp/controllers/CounterController.js"></script>
+    <script src="~/ngApp/services/commService.js"></script>
     <!-- Posts -->
     <script src="~/ngApp/controllers/postController.js"></script>
     <script src="~/ngApp/controllers/chatController.js"></script>
     <script src="~/ngApp/services/postService.js"></script>
+    <script src="~/ngApp/controllers/AdminPostDeleteController.js"></script>
     <!-- Search -->
     <script src="~/ngApp/controllers/searchController.js"></script>
     <script src="~/ngApp/services/searchService.js"></script>
     <script src="~/ngApp/services/connectionService.js"></script>
+    <script src="~/ngApp/controllers/adminController.js"></script>
+
     <!-- Security -->
     <script src="/ngApp/controllers/accountcontroller.js"></script>
     <script src="/ngApp/services/accountservice.js"></script>
@@ -132,6 +146,6 @@
     <!-- ActivityForum-->
     <script src="~/ngApp/controllers/activitiesController.js"></script>
     <script src="~/ngApp/services/activitiesService.js"></script>
-
+    
 </body>
 </html>

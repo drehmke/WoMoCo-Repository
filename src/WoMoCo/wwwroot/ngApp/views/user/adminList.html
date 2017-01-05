@@ -1,0 +1,47 @@
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <!-- Default panel contents -->
+    <div class="panel-heading row">
+        <div class="col-md-6">
+            <h2 class="spirax colorDarkRed">User Admin</h2>
+        </div>
+        <div class="col-md-6 form-inline">
+            <div class="input-group  admin_filter_container">
+                <input id="search" class="form-control" name="search" type="text" placeholder="Search for a user" ng-model="searchTerm" />
+            </div>
+        </div>
+    </div>
+    <div class="text-left">
+        <span class="glyphicon glyphicon-menu-left"></span><a href="/admin"><em> Back to Admin Page</em></a>
+    </div>
+    <div class="panel-body">
+        <div class="gridGroup" ng-repeat="user in controller.users | filter: searchTerm">
+
+            <div class="col span_1_of_7">
+                <div class="divBG"><span class="panelGlyph glyphicon glyphicon-user"></span></div>
+                <div class="profileImage pull-right"><img class="img-circle connectGravatar" id="gravatarImg" ng-src="https://www.gravatar.com/avatar/{{user.userImage}}?r=g&d=identicon" /></div>
+                <div class="list-group">
+                    <span class="glyphicon glyphicon-user"></span> {{user.userName}} <br />
+                    <span class="glyphicon glyphicon-info-sign"></span> {{user.firstName}} {{user.lastName}}<br />
+                    <span class="glyphicon glyphicon-envelope"></span> {{user.email}}<br />
+                </div>
+                <div class="list-group">
+                    <span class="glyphicon glyphicon-map-marker"></span> {{user.location}}<br />
+                    <span class="glyphicon glyphicon-info-sign"></span> {{user.currentJobTitle}}<br />
+                    <span class="glyphicon glyphicon-info-sign"></span> {{user.employer}}<br />
+                </div>
+                <div class="list-group">
+                    <div class="row">
+                        <div class="col-md-8 adminSlide">
+                            <label class="sliderLabel">Admin:</label> <label class="switch adminSlide"><input type="checkbox" name="Make Admin" value="true" /><div class="slider round"></div></label>
+                        </div>
+                        <div class="col-md-4 adminSlide text-right">
+                            <span class="text-danger glyphicon glyphicon-trash"></span>
+                        </div>
+                    </div>
+                </div>
+                 <br />
+            </div>
+        </div>
+
+    </div>
+</div>

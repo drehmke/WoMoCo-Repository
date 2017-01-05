@@ -1,18 +1,20 @@
-﻿<div class="profileInterest img-rounded">
+﻿<div id="profileInterest" class="img-rounded">
+    <div>
     <div class="interestList">
-        <center><h3>Interests</h3></center>
+        <center><h4>Interests</h4></center>
         <ul>
-            <li ng-repeat="interest in controller.interests"><h5>{{interest.name}}&nbsp;<a class="glyphicon glyphicon-trash" href="#" ng-click="controller.removeInterest(interest.id)"></a></h5></li>
+            <li ng-repeat="interest in controller.interests">{{interest.name}}&nbsp;<a class="glyphicon glyphicon-trash pull-right text-danger" href="#" ng-click="controller.removeInterest(interest.id)"></a></li>
         </ul>
     </div>
 
-    <div class="addInterestForm img-rounded">
+    <div class="addInterestForm">
         <form ng-submit="controller.addInterest()">
             <div class="col-md-10 col-md-offset-1">
-                <center><input class= "form-control" id="interestInput" type="text" placeholder="Name" ng-model="controller.interest.name" /></center>
+                <center><input class="form-control" id="interestInput" type="text" placeholder="Name" ng-model="controller.interest.name" /></center>
             </div>
 
-            <center><input id="interestSubmit" type="submit" class="btn btn-info" value="Add A New Interest" /></center>
+            <center><input id="interestSubmit" type="submit" class="btn btn-default" value="Add Interest" /></center>
         </form>
     </div>
+</div>
 </div>

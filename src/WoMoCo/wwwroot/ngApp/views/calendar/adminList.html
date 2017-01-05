@@ -1,0 +1,37 @@
+﻿<div class="panel panel-default col-md-10 col-md-offset-1 admin">
+    <div class="panel-heading row">
+        <div class="col-md-6">
+            <h2 class="spirax colorDarkRed">Appointment Admin</h2>
+        </div>
+        <div class="col-md-6 form-inline">
+            <div class="input-group  admin_filter_container">
+                <input id="search" class="form-control" name="search" type="text" placeholder="Search for an appointment'" ng-model="searchTerm" />
+            </div>
+        </div>
+    </div>
+    <div class="text-left">
+        <span class="glyphicon glyphicon-menu-left"></span><a href="/admin"><em> Back to Admin Page</em></a>
+    </div>
+    <div class="panel-body">
+        <div class="panel appointment-cards"ng-repeat="event in controller.calendarEvents | filter: searchTerm">
+            <div class="panel-heading">
+                <strong>{{event.name}}</strong>
+            </div>
+            <div class="panel-body">
+                <div class="list-group-item">
+                    <strong>Appointment Information</strong><br />
+                    <span class="glyphicon glyphicon-calendar adminPanelGlyph"></span> {{event.eventDateTime|date:'medium'}}<br />
+                    <span class="glyphicon glyphicon-map-marker adminPanelGlyph"></span> {{event.location}}<br />
+                </div>
+                <div class="list-group-item">
+                    <strong>Owner Information</strong><br />
+                    <span class="glyphicon glyphicon-user adminPanelGlyph"></span> {{event.ownerName}}<br />
+                    <span class="glyphicon glyphicon-calendar adminPanelGlyph"></span> {{event.createdDate|date:'medium'}}
+                </div>
+            </div>
+            <div class="panel-footer text-right">
+                <a href="#" ng-click="controller.removeEvent(event.id)"><span class="glyphicon glyphicon-trash text-danger"></span></a>
+            </div>
+        </div>
+    </div>
+</div>

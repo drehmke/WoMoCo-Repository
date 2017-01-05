@@ -7,7 +7,7 @@ using WoMoCo.Models;
 using WoMoCo.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
-using WoMoCo.ViewModels.Link;
+using WoMoCo.ViewModels.Links;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,16 +26,26 @@ namespace WoMoCo.Controllers
         {
             return _service.GetAllLinks();
         }
+
         [HttpGet("GetMy/")]
+        [Authorize]
         public IEnumerable<Link> GetMy()
         {
             string uid = _manager.GetUserId(User);
             IList<Link> listableLinks = _service.GetLinksByUser(uid);
             return listableLinks;
         }
+               
+        // Admin list of all links
+        [HttpGet("GetAdminList/")]
+        [Authorize(Policy = "AdminOnly")]
+        public IEnumerable<AdminLinkList> GetAdminList()
+        {
+            return _service.GetLinks();
+        }
 
         [HttpGet("{id}")]
-        //
+        [Authorize]
         public IActionResult Get(int id)
         {
             return Ok(_service.GetLinkById(id));
@@ -49,6 +59,7 @@ namespace WoMoCo.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]Link link)
         {
             string uid = _manager.GetUserId(User);
@@ -65,6 +76,7 @@ namespace WoMoCo.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             _service.DeleteLink(id);

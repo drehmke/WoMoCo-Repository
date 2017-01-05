@@ -19,22 +19,14 @@
     // admin getAll
     export class PostAdminController {
         public posts;
-        public PostResource;
 
         public getPost() {
-            return this.PostResource.getAdmin();
+            return this.PostService.getAllPostsAdmin();
         }
 
         constructor(
-            private $resource: angular.resource.IResourceService
+            private PostService: WoMoCo.Services.PostService
         ) {
-            this.PostResource = $resource(`/api/posts`, null, {
-                getAdmin: {
-                    method: `GET`,
-                    url: `/api/posts/AdminGet/`,
-                    isArray: true
-                }
-            });
             this.posts = this.getPost();
         }
     }
@@ -61,7 +53,7 @@
                 }
             });
             this.posts = this.getPostByUsername();
-            console.log(this.posts);
+            //console.log(this.posts);
         }
     }
 
@@ -106,8 +98,8 @@
             public $stateParams: ng.ui.IStateParamsService,
             private $state: ng.ui.IStateService) {
 
-            this.PostResource = this.$resource('/api/posts/:id')
-            this.getPostById($stateParams['id'])
+            this.PostResource = this.$resource('/api/posts/:id');
+            this.getPostById($stateParams['id']);
         }
     }
 
@@ -124,7 +116,7 @@
             this.PostSaveResource.save(this.post).$promise
                 .then(() => {
                     this.post = null;
-                    this.$state.go(`postAdmin`)
+                    this.$state.go(`postAdmin`);
                 });
         }
 
@@ -164,28 +156,6 @@
         }
     }
 
-    export class DeletePostAdminController {
-        public post;
-        public PostResource;
-
-        public getPost(id: number) {
-            return this.PostResource.get({ id: id });
-        }
-        public deletePost() {
-            this.PostResource.delete({ id: this.post.id }).$promise
-                .then(() => {
-                    this.post = null;
-                    this.$state.go(`postAdmin`);
-                });
-        }
-
-        constructor(
-            private $resource: ng.resource.IResourceService,
-            private $stateParams: ng.ui.IStateParamsService,
-            private $state: ng.ui.IStateService
-        ) {
-            this.PostResource = $resource(`/api/posts/AdminGetPost/:id`);
-            this.post = this.getPost($stateParams[`id`]);
-        }
-    }
+    // admin delete in in the AdminPostDeleteController.ts file because it
+    // didn't work in here for some reason.
 }

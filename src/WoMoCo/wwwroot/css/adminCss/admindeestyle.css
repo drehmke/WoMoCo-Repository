@@ -1,0 +1,172 @@
+﻿body{
+    background-color: #ffffff
+
+}
+
+#searchable .table>tbody>tr>td { border-top: 1px dashed #e4ae6e; }
+#messageList .table>tbody>tr>td { border-top: 1px dashed #e4ae6e; }
+#messageList .table-striped>tbody>tr:nth-of-type(odd) { background-color: transparent; }
+#messageList .table>tbody>tr.info>td { background-color: transparent; }
+
+/* This is for the admin edit icons ... hiding the ones that we need to unless necessary */
+.admin-edit { display: none; }
+
+#adminbox {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.dashPage { padding: 0 15px 15px 15px; }
+thead {
+    background-color: #58795a
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #ffffff;
+}
+
+.activityFormPage {
+    width: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-width: 8px;
+    border-color: #58795a;
+    border:ridge;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#activityLabel {
+    text-align:center;
+    vertical-align: middle;
+    display:inherit;
+}
+
+.admin #activityList {
+    margin-top: 10px;
+    border: double;
+    border-color: #58795a;
+    border-width: 8px;
+    width: 30%;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-wrap:normal;
+    background-color: #7ba790;
+    /*color: #f9f9f9*/
+}
+
+.adminPanel {
+    width: 20%;
+    min-width: 192px;
+    border: 1px solid #e4ae6e;
+    box-shadow: 5px 5px 5px #eaebef;
+    float: left;
+    margin: 5px;
+}
+
+.adminPanelGlyph { font-size: 12px; }
+.adminPanel .panel-heading a { color: #000; }
+.adminPanel .panel-heading strong { color: #000; }
+.adminPanel .panel-default { padding: 5px; font-size: 0.75em; }
+.adminPanel .panel-default h4 { border-bottom: 1px solid #b83a07; }
+
+
+/*testing grid stuff*/
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 3px;
+	margin: 3px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 3.2%;
+    padding: 3px;
+    min-width: 200px;
+    border: 1px dashed #7ba790;
+    background-color: #fdfdfd;
+}
+.col:first-child { margin-left: 8px; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_1_of_6 { width: 100%; }
+}
+
+.admin .span_1_of_7 { width: 30%; min-width: 200px; position: relative; z-index: 0; float: left; overflow: hidden; border-radius: 10px 10px 10px 10px; padding: 10px; }
+.admin .span_1_of_7 .panelGlyph { font-size: 15em; position: absolute; color: #f9faf5; top: 10px; right: -100px; }
+.admin .span_1_of_7 .list-group-item { background-color: transparent; z-index: 2; border: none; border-bottom: 1px solid #b83a07; }
+.admin .panelGlyph { z-index: -1;}
+
+
+/*Admin Post Styling*/
+.adminPosts {
+    border-color: #ffffff;
+}
+.adminPostsItem {
+    color:black;
+}
+
+
+.admin_filter_container {
+    padding-top: 25px;
+    width: 100%;
+}
+.admin-filter-icon { font-size: 1.2em; }
+.admin-filter-icon-width { width: 45px; }
+
+.admin .message-cards .panel-footer a { margin-left: 10px; }
+
+.glyphicon-trash{
+    padding-right: 10px;
+}
+
+toppadding70 { padding-top: 70px; }
+
+.admin .activity-cards, 
+.admin .interest-cards, 
+.admin .social-cards, 
+.admin .message-cards, 
+.admin .post-cards, 
+.admin .appointment-cards {
+    border: 1px dashed #b70100;
+    background-color: #fdfdfd;
+    margin: 5px;
+    width: 300px;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;
+    vertical-align: top;
+}
+
+.admin .appointment-cards {
+    width: 350px;
+    min-width: 200px;
+}
+.admin .post-cards {
+    width: 45%;
+    min-width: 200px;
+    max-height: 300px;
+    overflow: auto;
+}
+/*.actInformation {
+    padding-bottom: 5px;
+}*/
+
+.text-left {
+    padding-top: 1%;
+    letter-spacing: 0px;
+    
+}
+

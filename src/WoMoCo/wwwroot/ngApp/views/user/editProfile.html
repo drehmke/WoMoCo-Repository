@@ -1,34 +1,84 @@
-﻿<h1>Edit Profile</h1>
+﻿<div class="editProfilePage">
+    <div class="col-md-6 col-md-offset-3 editProfileForm">
+        <!-- left sidebar -->
+        <div>
+            <div class="img-rounded">
+                <center>
+                    <a href="http://gravatar.com" target="_blank">
+                        <img id="editProfileAvatar" class="img-circle" ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" />
+                    </a>
+                </center>
+                <center><h4><label id="editAvatar"><b>Edit Avatar</b></label></h4></center>
+                <br />
+                <div id="editProfileInputs">
+                    <div class="profileinfo">
+                        <form ng-submit="controller.saveUser()">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input class="form-control control-label container" placeholder="First Name" ng-model="controller.user.firstName" />
+                                    <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input class="form-control control-label container" placeholder="Last Name" ng-model="controller.user.lastName" />
+                                    <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input class="form-control control-label container" placeholder="Location" ng-model="controller.user.location" />
+                                    <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>About</label>
+                                    <input class="form-control control-label container" placeholder="About" ng-model="controller.user.about" />
+                                    <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Job Title</label>
+                                    <input class="form-control control-label container" placeholder="Job Title" ng-model="controller.user.currentJobTitle" />
+                                    <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Employer</label>
+                                    <input class="form-control control-label container" placeholder="Employer" ng-model="controller.user.employer" />
+                                    <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <input class="btn btn-success" type="submit" value="Edit" />
+                            </div>
 
-<form ng-submit="controller.saveUser()">
-    <div>
-        <label>Avatar</label>
-        <img ng-src="https://www.gravatar.com/avatar/{{controller.user.userImage}}?r=g&d=identicon" />
-        <a href="http://gravatar.com" target="_blank">Gravatar</a>
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input class="form-control control-label container" placeholder="Last Name" ng-model="controller.user.location" />
+                                <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label>About</label>
+                                <input class="form-control control-label container" placeholder="About Me" ng-model="controller.user.about" />
+                                <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Job Title</label>
+                                <input class="form-control control-label container" placeholder="Last Name" ng-model="controller.user.currentJobTitle" />
+                                <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label>Employer</label>
+                                <input class="form-control control-label container" placeholder="Last Name" ng-model="controller.user.employer" />
+                                <div id="editProfilePencil"><span class="glyphicon glyphicon-pencil pull-right"></span></div>
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        <input class="btn btn-default" type="submit" value="Edit" />
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>First Name</label>
-        <input placeholder="First Name" ng-model="controller.user.firstName" />
-    </div>
-    <div>
-        <label>Last Name</label>
-        <input placeholder="Last Name" ng-model="controller.user.lastName" />
-    </div>
-    <div>
-        <label>Location</label>
-        <input placeholder="Last Name" ng-model="controller.user.location" />
-    </div>
-    <div>
-        <label>About</label>
-        <input placeholder="About Me" ng-model="controller.user.about" />
-    </div>
-    <div>
-        <label>Job Title</label>
-        <input placeholder="Last Name" ng-model="controller.user.currentJobTitle" />
-    </div>
-    <div>
-        <label>Employer</label>
-        <input placeholder="Last Name" ng-model="controller.user.employer" />
-    </div>
-    <input type="submit" value="Edit Profile" />
-</form>
+</div>

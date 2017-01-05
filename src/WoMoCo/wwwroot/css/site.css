@@ -1,10 +1,13 @@
+@import url(colorSchemeReference.css);
+@import url(panels.css);
+@import url(gradients.css);
+@import url(toggleSwitch.css);
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
+
 
 body, html {
     height: 100%;
+    padding-top: 20px;
 }
 
 .spirax { font-family: 'Spirax', cursive; }
@@ -29,13 +32,6 @@ h1
     box-shadow: 10px 10px 5px grey;
 }
 
-h2
-{
-}
-
-h3
-{
-}
 ul
 {
     list-style:none;
@@ -47,10 +43,10 @@ p
     color:black;
 }
 
-.top-padding70 { 
-    padding-top: 70px;
-}
+.navbar-default .navbar-nav > li > a { color: #fff; }
 
+.container {
+}
 
 #glyphButton
 {
@@ -73,28 +69,9 @@ p
 {
     width:100%;
     display:block;
-  
 }
 
-/* -------Panels--------------- */
-
-.panel-body {
-    background-color: white;
-    backface-visibility: visible;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#profilepanel {
-    padding:30px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-#postpanel {
-    backface-visibility: visible;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+.bodyHeight { min-height: 82%; }
 
 /* --------navbar-------------- */
 .navbar
@@ -102,15 +79,15 @@ p
     padding:0;
     margin:0;
 }
-
-
-/*  Wrapping element 
- Set some basic padding to keep content from hitting the edges */
-.body-content {
-   
+.toppadding20 { padding-top: 20px; }
+.topmargin05 { margin-top: 5px; }
+.sidePadding15 {
+    padding-right: 15px;
+    padding-left: 15px;
 }
-
-
+.marginRight15 {
+    margin-right: 15px;
+}
 /* ---- Homepage ---- */
 @media only screen and (min-device-width: 961px){
 .parallax {
@@ -123,6 +100,7 @@ p
     }
 }
 .parallax100 { height: 100%; }
+.parallax82 { height: 82%; } /* matches the min-height set on bodyHeight to push the footer down */
 .parallax75 { height: 75%; }
 .parallax50 {height: 50%; }
 
@@ -265,14 +243,43 @@ p
     filter: grayscale(100%);
 }
 
+
+.profilePage {
+    padding-top: 70px;
+}
+
+.shareEvents { padding-top: 25px; }
+
 /* styles form different formats */
 
-@media (min-width:320px)  {  /*smartphones, iPhone, portrait 480x320 phones*/  }
-@media (min-width:481px)  {  /*portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.*/  }
-@media (min-width:641px)  {  /*portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones*/  }
-@media (min-width:961px)  {  /*tablet, landscape iPad, lo-res laptops ands desktops*/  }
-@media (min-width:1025px) {  /*big landscape tablets, laptops, and desktops*/  }
-@media (min-width:1281px) {  /*hi-res laptops and desktops*/  }
 
+.adminSlide {
+    margin-top: 5px;
+    text-align:left;
+    vertical-align:top;
+}
+
+/* gravatar image */
+.connectGravatar { 
+    width: 50px;
+    height: 50px;
+}
+
+.activity-cards, .interest-cards, .social-cards, .message-cards, .post-cards, .appointment-cards {
+    border: 1px dashed #7ba790;
+    background-color: #fdfdfd;
+    margin: 5px;
+    width: 300px;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/* styles form different formats */
+@media (min-width:320px)  {  /*smartphones, iPhone, portrait 480x320 phones*/  }
+@media (min-width:481px)  {  /*portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide*/  }
+@media (min-width:641px)  {  /* tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px)  {  /*tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) {  /*big landscape tablets, laptops, and desktops*/  }
+@media (min-width:1281px) {  /*-res laptops and desktops */ }
 
 

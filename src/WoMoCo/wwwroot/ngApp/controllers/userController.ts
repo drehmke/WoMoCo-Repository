@@ -12,6 +12,9 @@
         public activities; // this is for the list
         // connections
         public connections; // this is for the list
+        // calender events
+        public calenderEvents;
+        public calenderEventsShared;
 
         public getUser() {
           return this.UserResource.get();
@@ -63,7 +66,6 @@
             let activities = this.activitiesService.getAllUsersActivities();
             return activities;
         }
-        // TODO: Remove an activity
 
         // get all the Connections for the currently logged in user
         public getMyConnections() {
@@ -76,14 +78,30 @@
                     this.connections = this.getMyConnections();
                 });
         }
-        
+
+        // calender event list
+        public getCalenderEvents() {
+            return this.calendarEventService.GetCalendarEventsByUser();
+        }
+        public getMySharedCalenderEvents() {
+            let shared = this.calendarEventService.GetSharedEventsForUser();
+            return shared;
+        }
+        public removeCalenderEvent(id: number) {
+            this.calendarEventService.DeleteCalendarEvent(id).$promise
+                .then(() => {
+                    this.calenderEvents = this.getCalenderEvents();
+                });
+        }
+
         constructor(
             private accountService: WoMoCo.Services.AccountService,
             private $resource: angular.resource.IResourceService,
             private interestService: WoMoCo.Services.InterestService,
             private activitiesService: WoMoCo.Services.ActivitiesService,
             private linkService: WoMoCo.Services.LinkService,
-            private connectionService: WoMoCo.Services.ConnectionService
+            private connectionService: WoMoCo.Services.ConnectionService,
+            private calendarEventService: WoMoCo.Services.CalendarEventService
             ) {
             this.UserResource = $resource('/api/users/getUser');
             this.user = this.getUser();
@@ -91,7 +109,10 @@
             this.links = this.getMyLinks();
             this.activities = this.getMyActivities();
             this.connections = this.getMyConnections();
-            console.log(this.connections);
+
+            //console.log(this.connections);
+            this.calenderEvents = this.getCalenderEvents();
+            this.calenderEventsShared = this.getMySharedCalenderEvents();
         }
     }
     angular.module(`WoMoCo`).controller(`UserController`, UserController);
@@ -107,7 +128,6 @@
                 this.$state.go('home')
             });
         }
-
         constructor(private $resource: angular.resource.IResourceService, private $state: ng.ui.IStateService) {
             this.UserResource = this.$resource('/api/users');
         }
@@ -149,7 +169,6 @@
                 return this.UserResource.get({ userName: username });
             }
         }
-
         public saveUser() {
             this.UserUpdateResource.save(this.user).$promise
                 .then(() => {
@@ -157,7 +176,6 @@
                     this.$state.go(`userAdmin`);
                 });
         }
-
         constructor(
             public $resource: angular.resource.IResourceService,
             public $stateParams: ng.ui.IStateParamsService,
@@ -168,7 +186,6 @@
             this.user = this.getByUsername($stateParams['id']);
         }
     }
-
     //delete user controller
     export class DeleteUserController {
         public user;
@@ -191,8 +208,7 @@
             this.getUser($stateParams['id'])
         }
     }
-
-    // delete user controller - admin version
+     // delete user controller - admin version
     export class DeleteUserAdminController {
         public user;
         public UserGetResource;
