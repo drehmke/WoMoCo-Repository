@@ -5087,7 +5087,8 @@ a.thumbnail.active {
 .alert-info {
   background-color: #e1bee7;
   border-color: #cba4dd;
-  color: #9c27b0;
+  /*color: #9c27b0;*/
+  color: #e4ae6e;
 }
 .alert-info hr {
   border-top-color: #c191d6;
@@ -5372,7 +5373,8 @@ button.list-group-item-success.active:focus {
   border-color: #4caf50;
 }
 .list-group-item-info {
-  color: #9c27b0;
+  /*color: #9c27b0;*/
+  color: #e4ae6e;
   background-color: #e1bee7;
 }
 a.list-group-item-info,
