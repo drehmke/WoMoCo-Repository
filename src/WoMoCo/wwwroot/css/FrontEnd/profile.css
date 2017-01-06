@@ -103,9 +103,8 @@
 .profile #profileListItem {
     background-color: transparent;
 }
-.profile #
- {
-    background-color: white;
+.profile #littleBack {
+    background-color: #f5f5f5;
     margin: 1%;
     position: relative;
     left: 8%;
